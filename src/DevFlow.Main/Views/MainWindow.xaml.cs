@@ -10,10 +10,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DevFlow.Main
+namespace DevFlow.Main.Views
 {
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리
