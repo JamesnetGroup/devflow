@@ -1,5 +1,7 @@
 ﻿using DevFlow.Main.Views;
+using DevFlow.Windowbase.Design;
 using System;
+using System.Resources;
 using System.Windows;
 
 namespace DevFlow
@@ -13,8 +15,11 @@ namespace DevFlow
             bool dialogResult = true;
             MainWindow main;
 
+            ResourceMerger.Initialize();
+
             while (dialogResult)
             {
+
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
                 main = new MainWindow();
                 main.ShowDialog();

@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:DevFlow.Main"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/DevFlow.Resources;component/Theme/Black.xaml"/>
     </Application.Resources>
 </Application>
