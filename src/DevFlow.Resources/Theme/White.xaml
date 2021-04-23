@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.BG"/>
+    <SolidColorBrush Color="#FFFFFFFF" x:Key="BRUSH.BG"/>
+    <SolidColorBrush Color="#AA333333" x:Key="BRUSH.BG.QUICK"/>
     
     <SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.00"/>
     <SolidColorBrush Color="#CCCCCC" x:Key="BRUSH.33"/>
