@@ -6,6 +6,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/DevFlow.Resources;component/ResourcePack.xaml"/>
                 <ResourceDictionary Source="/DevFlow.QuickBar;component/Design/QuickBarResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Main;component/Design/MainResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -3,5 +3,6 @@
                     xmlns:local="clr-namespace:DevFlow">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/DevFlow.QuickBar;component/Design/QuickBarResource.xaml"/>
+        <ResourceDictionary Source="/DevFlow.Main;component/Design/MainResource.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

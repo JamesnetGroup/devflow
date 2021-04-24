@@ -6,12 +6,9 @@
         mc:Ignorable="d" WindowStyle="None"
         xmlns:vm="clr-namespace:DevFlow.Main.ViewModels"
         xmlns:quickbar="clr-namespace:DevFlow.QuickBar.Views;assembly=DevFlow.QuickBar"
-        Title="MainWindow" WindowState="Maximized">
+        Style="{StaticResource WIN}"
+        Title="MainWindow">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    <Window.Background>
-        <ImageBrush ImageSource="{Binding Wallpaper}"/>
-    </Window.Background>
-    <quickbar:QuickBarView/>
 </Window>
