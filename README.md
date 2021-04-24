@@ -7,4 +7,4 @@
 
 ### QuickBar Switch
 
-![image](https://user-images.githubusercontent.com/52397976/115972788-6f395e80-a58b-11eb-975e-02dc5c4bdcb6.png)
+![image](https://user-images.githubusercontent.com/52397976/115972804-8f691d80-a58b-11eb-8627-47416f0a9318.png)
