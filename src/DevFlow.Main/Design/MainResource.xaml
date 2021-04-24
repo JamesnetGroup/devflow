@@ -28,10 +28,10 @@
                         <Image x:Name="wallpaper1" Source="{Binding Wallpaper}" Stretch="UniformToFill" Margin="-20"/>
                         <Image x:Name="wallpaper2" Source="{Binding Wallpaper}" Stretch="UniformToFill" Margin="-20" Opacity="0">
                             <Image.Effect>
-                                <BlurEffect KernelType="Gaussian" Radius="20"/>
+                                <BlurEffect KernelType="Gaussian" Radius="0"/>
                             </Image.Effect>
                         </Image>
-                        <Rectangle x:Name="back" Fill="#DD000000" Opacity="0"/>
+                        <Rectangle x:Name="back" Fill="#BB000000" Opacity="0"/>
                         <DockPanel>
                             <quickbar:QuickBarView x:Name="quickbar" DockPanel.Dock="Top" MouseDownCommand="{Binding WindowMouseDown}"/>
                             <ContentPresenter Grid.Row="1"/>
