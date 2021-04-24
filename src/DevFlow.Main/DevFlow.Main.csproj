@@ -98,6 +98,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
+      <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
+      <Name>DevFlow.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.QuickBar\DevFlow.QuickBar.csproj">
+      <Project>{a36037c3-5d6d-43dd-9948-ec9a057cc00d}</Project>
+      <Name>DevFlow.QuickBar</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
       <Project>{bba355d5-3f53-4b26-82c2-5bc56d2d4a61}</Project>
       <Name>DevFlow.Resources</Name>

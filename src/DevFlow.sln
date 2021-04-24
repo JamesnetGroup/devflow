@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow", "DevFlow\DevFlow.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Main", "DevFlow.Main\DevFlow.Main.csproj", "{B678DAC7-0CF6-44A1-A074-6E319F62795D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.QuickBar", "DevFlow.QuickBar\DevFlow.QuickBar.csproj", "{A36037C3-5D6D-43DD-9948-EC9A057CC00D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{B678DAC7-0CF6-44A1-A074-6E319F62795D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B678DAC7-0CF6-44A1-A074-6E319F62795D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B678DAC7-0CF6-44A1-A074-6E319F62795D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36037C3-5D6D-43DD-9948-EC9A057CC00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36037C3-5D6D-43DD-9948-EC9A057CC00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36037C3-5D6D-43DD-9948-EC9A057CC00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36037C3-5D6D-43DD-9948-EC9A057CC00D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{CD905000-6F7A-4CDD-87D8-39AAC15CA77A} = {0FC648BB-D1D2-477C-812C-1403A4152F6C}
 		{60F138B3-8AE9-4B03-859C-9F7610F7CD8E} = {5B5EC874-FA04-45FD-AA63-61C3EE3C0934}
 		{B678DAC7-0CF6-44A1-A074-6E319F62795D} = {36E147B6-3720-4AD7-8DED-E9CD9AEBB838}
+		{A36037C3-5D6D-43DD-9948-EC9A057CC00D} = {36E147B6-3720-4AD7-8DED-E9CD9AEBB838}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D98CFB60-F81E-497B-AA6A-1770892F8EF5}
