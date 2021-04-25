@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush Color="#FF232323" x:Key="BRUSH.BG"/>
-    <SolidColorBrush Color="#AAFFFFFF" x:Key="BRUSH.BG.QUICK"/>
+    <SolidColorBrush Color="#DDFFFFFF" x:Key="BRUSH.BG.QUICK"/>
     <SolidColorBrush Color="#BB000000" x:Key="BRUSH.BG.SHADOW"/>
 
     <SolidColorBrush Color="#FF333333" x:Key="BRUSH.BD.WIN.I"/>

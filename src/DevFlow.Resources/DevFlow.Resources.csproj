@@ -106,15 +106,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\wallpaper.jpg" />
+    <Resource Include="Images\wallpaper-01.jpg" />
+    <Resource Include="Images\wallpaper-02.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
       <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
       <Name>DevFlow.Controls</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wallpaper-03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wallpaper-04.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

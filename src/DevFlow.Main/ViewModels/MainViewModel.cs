@@ -13,7 +13,7 @@ namespace DevFlow.Main.ViewModels
 
         public MainViewModel()
         {
-            Wallpaper = "/DevFlow.Resources;component/Images/wallpaper.jpg";
+            Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-01.jpg";
         }
     }
 }

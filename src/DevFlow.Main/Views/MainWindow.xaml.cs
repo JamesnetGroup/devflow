@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 
@@ -15,6 +16,11 @@ namespace DevFlow.Main.Views
         public MainWindow()
         {
             InitializeComponent();
+
+            Width = 1860;
+            Height = 1020;
+            Left = 4;
+            Top = 4;
         }
     }
 }

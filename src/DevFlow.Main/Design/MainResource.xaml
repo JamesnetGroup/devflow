@@ -31,14 +31,8 @@
                         <Image Source="{Binding Wallpaper}" Stretch="UniformToFill"/>
                         <Rectangle x:Name="film" Style="{StaticResource FILM}"/>
                         <Border x:Name="border" Style="{StaticResource BORDER}"/>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <quickbar:QuickBarView x:Name="quickbar" Style="{StaticResource QUICKBAR}"/>
-                            <ContentPresenter Style="{StaticResource CONTENT}"/>
-                        </Grid>
+                        <quickbar:QuickBarView x:Name="quickbar" Style="{StaticResource QUICKBAR}"/>
+                        <ContentPresenter Style="{StaticResource CONTENT}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding ElementName=quickbar, Path=IsMouseOver}" Value="True">
