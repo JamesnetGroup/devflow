@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -14,6 +16,7 @@ namespace DevFlow.Main.ViewModels
         public MainViewModel()
         {
             Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-01.jpg";
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary());
         }
     }
 }

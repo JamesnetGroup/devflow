@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DevFlow.Data
 {
-    public class Class1
+    public class QuickMenuModel
     {
+        public int Seq { get; set; }
+        public string Name { get; set; }
     }
 }

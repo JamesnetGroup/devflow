@@ -3,7 +3,7 @@
 
     <SolidColorBrush Color="#FF232323" x:Key="BRUSH.BG"/>
     <SolidColorBrush Color="#DDFFFFFF" x:Key="BRUSH.BG.QUICK"/>
-    <SolidColorBrush Color="#BB000000" x:Key="BRUSH.BG.SHADOW"/>
+    <SolidColorBrush Color="#77000000" x:Key="BRUSH.BG.SHADOW"/>
 
     <SolidColorBrush Color="#FF333333" x:Key="BRUSH.BD.WIN.I"/>
     <SolidColorBrush Color="#FF777777" x:Key="BRUSH.BD.WIN.O"/>

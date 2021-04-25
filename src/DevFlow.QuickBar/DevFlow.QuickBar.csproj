@@ -106,6 +106,10 @@
       <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
       <Name>DevFlow.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
+      <Project>{D43C130A-07FA-45F5-9FA9-EEFA3F87EA5E}</Project>
+      <Name>DevFlow.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
       <Project>{bba355d5-3f53-4b26-82c2-5bc56d2d4a61}</Project>
       <Name>DevFlow.Resources</Name>

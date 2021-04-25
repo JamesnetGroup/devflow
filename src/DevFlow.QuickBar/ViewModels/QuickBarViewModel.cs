@@ -1,4 +1,5 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Data;
+using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,24 @@ namespace DevFlow.QuickBar.ViewModels
     public class QuickBarViewModel : ObservableObject
     {
         public ICommand DragWindowCommand { get; set; }
+
+        public List<QuickMenuModel> Menus { get; set; }
+
         public QuickBarViewModel()
         {
             DragWindowCommand = new RelayCommand<MouseEventArgs>(DragWindow);
+            Menus = GetMenus();
+        }
+
+        private List<QuickMenuModel> GetMenus()
+        {
+            var menus = new List<QuickMenuModel>();
+            menus.Add(new QuickMenuModel { Seq = 0, Name = "Background" });
+            menus.Add(new QuickMenuModel { Seq = 1, Name = "Color" });
+            menus.Add(new QuickMenuModel { Seq = 2, Name = "Setting" });
+            menus.Add(new QuickMenuModel { Seq = 3, Name = "VisualStudio" });
+            menus.Add(new QuickMenuModel { Seq = 4, Name = "Translate" });
+            return menus;
         }
 
         private void DragWindow(MouseEventArgs e)
