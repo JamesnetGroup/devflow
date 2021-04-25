@@ -17,10 +17,10 @@ namespace DevFlow.Main.Views
         {
             InitializeComponent();
 
-            Width = 1860;
-            Height = 1020;
-            Left = 4;
-            Top = 4;
+            //Width = 1860;
+            //Height = 1020;
+            //Left = 4;
+            //Top = 4;
         }
     }
 }

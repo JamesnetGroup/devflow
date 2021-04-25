@@ -28,10 +28,10 @@
         <Setter Property="Padding" Value="0 0 0 0"/>
     </Style>
 
-    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.MENU">
+    <Style TargetType="{x:Type Button}" x:Key="BUTTON">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="border" Background="Transparent">
                         <Viewbox Style="{StaticResource VIEWBOX}">
                             <Path x:Name="path" Fill="#000000" Width="24" Height="24"/>
@@ -42,21 +42,42 @@
                             <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.MONITOR.SHIMMER}"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Seq}" Value="1">
-                            <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.EYEDROPPER.VARIANT}"/>
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.MOVIE.OPEN.PLAY}"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Seq}" Value="2">
-                            <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.COG.REFRESH.OUTLINE}"/>
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.EYEDROPPER.VARIANT}"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Seq}" Value="3">
-                            <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.MICROSOFT.VISUAL.STUDIO}"/>
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.COG.REFRESH.OUTLINE}"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Seq}" Value="4">
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.MICROSOFT.VISUAL.STUDIO}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Seq}" Value="5">
                             <Setter TargetName="path" Property="Data" Value="{StaticResource GEO.GOOGLE.TRANSLATE}"/>
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" Value="#FFFFFF"/>
                             <Setter TargetName="path" Property="Fill" Value="#000000"/>
+                            <Setter Property="Cursor" Value="Hand"/>
                         </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#FFFFFF"/>
+                            <Setter TargetName="path" Property="Fill" Value="#FF104AD4"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.MENU">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Button x:Name="button" Style="{StaticResource BUTTON}"/>
+                    <ControlTemplate.Triggers>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

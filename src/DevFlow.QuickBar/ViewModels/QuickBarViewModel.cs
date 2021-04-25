@@ -27,10 +27,11 @@ namespace DevFlow.QuickBar.ViewModels
         {
             var menus = new List<QuickMenuModel>();
             menus.Add(new QuickMenuModel { Seq = 0, Name = "Background" });
-            menus.Add(new QuickMenuModel { Seq = 1, Name = "Color" });
-            menus.Add(new QuickMenuModel { Seq = 2, Name = "Setting" });
-            menus.Add(new QuickMenuModel { Seq = 3, Name = "VisualStudio" });
-            menus.Add(new QuickMenuModel { Seq = 4, Name = "Translate" });
+            menus.Add(new QuickMenuModel { Seq = 1, Name = "History" });
+            menus.Add(new QuickMenuModel { Seq = 2, Name = "Color" });
+            menus.Add(new QuickMenuModel { Seq = 3, Name = "Setting" });
+            menus.Add(new QuickMenuModel { Seq = 4, Name = "VisualStudio" });
+            menus.Add(new QuickMenuModel { Seq = 5, Name = "Translate" });
             return menus;
         }
 
