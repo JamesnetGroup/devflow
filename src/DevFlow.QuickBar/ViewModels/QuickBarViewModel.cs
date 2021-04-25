@@ -12,10 +12,10 @@ namespace DevFlow.QuickBar.ViewModels
 {
     public class QuickBarViewModel : ObservableObject
     {
-        public ICommand WindowMouseDown { get; set; }
+        public ICommand DragWindowCommand { get; set; }
         public QuickBarViewModel()
         {
-            WindowMouseDown = new RelayCommand<MouseEventArgs>(DragWindow);
+            DragWindowCommand = new RelayCommand<MouseEventArgs>(DragWindow);
         }
 
         private void DragWindow(MouseEventArgs e)

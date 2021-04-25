@@ -3,7 +3,11 @@
 
     <SolidColorBrush Color="#FF232323" x:Key="BRUSH.BG"/>
     <SolidColorBrush Color="#AAFFFFFF" x:Key="BRUSH.BG.QUICK"/>
-    
+    <SolidColorBrush Color="#BB000000" x:Key="BRUSH.BG.SHADOW"/>
+
+    <SolidColorBrush Color="#FF333333" x:Key="BRUSH.BD.WIN.I"/>
+    <SolidColorBrush Color="#FF777777" x:Key="BRUSH.BD.WIN.O"/>
+
     <SolidColorBrush Color="#000000" x:Key="BRUSH.00"/>
     <SolidColorBrush Color="#333333" x:Key="BRUSH.33"/>
     <SolidColorBrush Color="#666666" x:Key="BRUSH.66"/>
@@ -14,6 +18,17 @@
     <SolidColorBrush Color="#F7F7F7" x:Key="BRUSH.F7"/>
     <SolidColorBrush Color="#FAFAFA" x:Key="BRUSH.FA"/>
     <SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FF"/>
+
+    <Storyboard x:Key="SB.WIN.IN">
+        <DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="1" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
+        <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#FF666666" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
+    </Storyboard>
+
+    <Storyboard x:Key="SB.WIN.OUT">
+        <DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="0" Duration="0:0:0.1" BeginTime="0" AutoReverse="False"/>
+        <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#FF333333" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
+    </Storyboard>
+    
 </ResourceDictionary>
 
 <!-- 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF-->

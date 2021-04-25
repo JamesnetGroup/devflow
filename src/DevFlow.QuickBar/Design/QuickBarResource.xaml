@@ -12,6 +12,7 @@
 
 
     <Style TargetType="{x:Type ctl:View}" x:Key="VIEW">
+        <Setter Property="MouseDownCommand" Value="{Binding DragWindowCommand}"/>
         <Setter Property="Opacity" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>

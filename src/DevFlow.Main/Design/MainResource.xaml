@@ -2,50 +2,51 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:quickbar="clr-namespace:DevFlow.QuickBar.Views;assembly=DevFlow.QuickBar">
 
-    <Storyboard x:Key="SB.FADEIN">
-        <DoubleAnimation Storyboard.TargetName="back" Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="1" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
-    </Storyboard>
 
-    <Storyboard x:Key="SB.FADEOUT">
-        <DoubleAnimation Storyboard.TargetName="back" Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="0" Duration="0:0:0.1" BeginTime="0" AutoReverse="False"/>
-    </Storyboard>
-    
-    <Storyboard x:Key="SB.FADEIN2">
-        <DoubleAnimation Storyboard.TargetName="wallpaper2" Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="1" Duration="0:0:0.1" BeginTime="0" AutoReverse="False"/>
-    </Storyboard>
+    <Style TargetType="{x:Type quickbar:QuickBarView}" x:Key="QUICKBAR">
+    </Style>
 
-    <Storyboard x:Key="SB.FADEOUT2">
-        <DoubleAnimation Storyboard.TargetName="wallpaper2" Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="0" Duration="0:0:0.1" BeginTime="0" AutoReverse="False"/>
-    </Storyboard>
-    
+    <Style TargetType="{x:Type Rectangle}" x:Key="FILM">
+        <Setter Property="Opacity" Value="0"/>
+        <Setter Property="Fill" Value="{DynamicResource BRUSH.BG.SHADOW}"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+    </Style>
+
+    <Style TargetType="{x:Type ContentPresenter}" x:Key="CONTENT">
+        <Setter Property="Grid.Row" Value="1"/>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="BORDER">
+        <Setter Property="BorderThickness" Value="1 1 1 1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BRUSH.BD.WIN.I}"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+    </Style>
+
     <Style TargetType="{x:Type Window}" x:Key="WIN">
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">
                     <Grid>
-                        <Border Margin="0 0 0 0" BorderThickness="1" BorderBrush="#333333"/>
-                        <Image x:Name="wallpaper1" Source="{Binding Wallpaper}" Stretch="UniformToFill" Margin="-20"/>
-                        <Image x:Name="wallpaper2" Source="{Binding Wallpaper}" Stretch="UniformToFill" Margin="-20" Opacity="0">
-                            <Image.Effect>
-                                <BlurEffect KernelType="Gaussian" Radius="0"/>
-                            </Image.Effect>
-                        </Image>
-                        <Rectangle x:Name="back" Fill="#BB000000" Opacity="0"/>
-                        <DockPanel>
-                            <quickbar:QuickBarView x:Name="quickbar" DockPanel.Dock="Top" MouseDownCommand="{Binding WindowMouseDown}"/>
-                            <ContentPresenter Grid.Row="1"/>
-                        </DockPanel>
+                        <Image Source="{Binding Wallpaper}" Stretch="UniformToFill"/>
+                        <Rectangle x:Name="film" Style="{StaticResource FILM}"/>
+                        <Border x:Name="border" Style="{StaticResource BORDER}"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <quickbar:QuickBarView x:Name="quickbar" Style="{StaticResource QUICKBAR}"/>
+                            <ContentPresenter Style="{StaticResource CONTENT}"/>
+                        </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding ElementName=quickbar, Path=IsMouseOver}" Value="True">
                             <DataTrigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource SB.FADEIN}"/>
-                                <BeginStoryboard Storyboard="{StaticResource SB.FADEIN2}"/>
+                                <BeginStoryboard Storyboard="{DynamicResource SB.WIN.IN}"/>
                             </DataTrigger.EnterActions>
                             <DataTrigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource SB.FADEOUT}"/>
-                                <BeginStoryboard Storyboard="{StaticResource SB.FADEOUT2}"/>
+                                <BeginStoryboard Storyboard="{DynamicResource SB.WIN.OUT}"/>
                             </DataTrigger.ExitActions>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
