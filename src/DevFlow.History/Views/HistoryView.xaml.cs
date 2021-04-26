@@ -13,7 +13,7 @@ namespace DevFlow.History.Views
             InitializeComponent();
             DataContext = new HistoryViewModel();
 
-            var a = new test();
+            IUser a = new test();
         }
     }
 
@@ -24,5 +24,9 @@ namespace DevFlow.History.Views
     public class test: IUser
     { 
         public string gg { get; set; }
+        public dynamic Data
+        {
+            get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException();
+        }
     }
 }
