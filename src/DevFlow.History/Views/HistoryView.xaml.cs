@@ -12,6 +12,17 @@ namespace DevFlow.History.Views
         {
             InitializeComponent();
             DataContext = new HistoryViewModel();
+
+            var a = new test();
         }
+    }
+
+    public interface IUser
+    {
+        dynamic Data { get; set; }
+    }
+    public class test: IUser
+    { 
+        public string gg { get; set; }
     }
 }

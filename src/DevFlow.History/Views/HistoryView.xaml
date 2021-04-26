@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Button Content="asdf">
+            <Button.Content>
+                asdf
+            </Button.Content>
+        </Button>  
     </Grid>
 </UserControl>
