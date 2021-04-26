@@ -1,6 +1,4 @@
 # DevFlow
-
-# wpf-xaml-binding
 ### About us
 
 > &nbsp; :adult: __James Lee__ &nbsp;&nbsp; [Github](https://github.com/devncore-james) &nbsp;&nbsp; james.lee@devncore.org  
