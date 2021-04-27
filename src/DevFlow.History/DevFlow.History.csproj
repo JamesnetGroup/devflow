@@ -94,12 +94,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
+      <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
+      <Name>DevFlow.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
+      <Project>{D43C130A-07FA-45F5-9FA9-EEFA3F87EA5E}</Project>
+      <Name>DevFlow.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{6209F782-2912-4CD6-A208-6D363D1857AD}</Project>
       <Name>DevFlow.Windowbase</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Design\HistoryResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

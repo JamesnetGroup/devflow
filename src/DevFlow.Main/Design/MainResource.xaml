@@ -33,10 +33,10 @@
                 <ControlTemplate TargetType="{x:Type Window}">
                     <Grid>
                         <Image Source="{Binding Wallpaper}" Stretch="UniformToFill"/>
+                        <ContentPresenter Style="{StaticResource CONTENT}"/>
                         <Rectangle x:Name="film" Style="{StaticResource FILM}"/>
                         <Border x:Name="border" Style="{StaticResource BORDER}"/>
                         <quickbar:QuickBarView x:Name="quickbar" Style="{StaticResource QUICKBAR}"/>
-                        <ContentPresenter Style="{StaticResource CONTENT}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding ElementName=quickbar, Path=IsMouseOver}" Value="True">

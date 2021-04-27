@@ -106,6 +106,10 @@
       <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
       <Name>DevFlow.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.History\DevFlow.History.csproj">
+      <Project>{e1620ff7-4869-4bea-bc2c-edf7f9af281f}</Project>
+      <Name>DevFlow.History</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.QuickBar\DevFlow.QuickBar.csproj">
       <Project>{a36037c3-5d6d-43dd-9948-ec9a057cc00d}</Project>
       <Name>DevFlow.QuickBar</Name>

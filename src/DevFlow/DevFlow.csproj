@@ -99,6 +99,10 @@
       <Project>{d43c130a-07fa-45f5-9fa9-eefa3f87ea5e}</Project>
       <Name>DevFlow.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.History\DevFlow.History.csproj">
+      <Project>{e1620ff7-4869-4bea-bc2c-edf7f9af281f}</Project>
+      <Name>DevFlow.History</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Main\DevFlow.Main.csproj">
       <Project>{B678DAC7-0CF6-44A1-A074-6E319F62795D}</Project>
       <Name>DevFlow.Main</Name>
