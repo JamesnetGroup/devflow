@@ -10,8 +10,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border Width="120" Margin="2">
-                        <Image Source="{Binding ImagePath}"/>
+                    <Border Margin="2">
+                        <StackPanel>
+                            <Image Source="{Binding ImagePath}" Width="140"/>
+                            <TextBlock Text="{Binding Created}" Foreground="#FFFFFF" Margin="4 4 4 12" HorizontalAlignment="Center"/>
+                        </StackPanel>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -19,6 +22,7 @@
     </Style>
     
     <Style TargetType="{x:Type ListBox}" x:Key="LBX.HISTORY">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="ItemsSource" Value="{Binding Images}"/>
         <Setter Property="SelectedItem" Value="{Binding CurrentImage}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.HISTORY}"/>

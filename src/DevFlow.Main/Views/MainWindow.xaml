@@ -6,7 +6,8 @@
         mc:Ignorable="d" WindowStyle="None"
         xmlns:vm="clr-namespace:DevFlow.Main.ViewModels"
         xmlns:quickbar="clr-namespace:DevFlow.QuickBar.Views;assembly=DevFlow.QuickBar"
-        
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True"
                     xmlns:history="clr-namespace:DevFlow.History.Views;assembly=DevFlow.History"
         Style="{StaticResource WIN}"
         Title="MainWindow">

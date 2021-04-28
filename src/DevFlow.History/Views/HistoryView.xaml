@@ -4,8 +4,8 @@
           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
           xmlns:ctl="clr-namespace:DevFlow.Controls;assembly=DevFlow.Controls"
-          mc:Ignorable="d" Style="{StaticResource VIEW}">
-    <Border  Background="#aa000000" Padding="10" Margin="200" >
+          mc:Ignorable="d" Style="{StaticResource APP.VIEW}">
+    <Border  Background="#151515" Padding="10" Margin="0" >
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

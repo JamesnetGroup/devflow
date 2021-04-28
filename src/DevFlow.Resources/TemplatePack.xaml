@@ -3,5 +3,7 @@
                     xmlns:local="clr-namespace:DevFlow.Resources">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/DevFlow.Resources;component/Design/IconStyle.xaml"/>
+        <ResourceDictionary Source="/DevFlow.Resources;component/Design/ScrollViewerResource.xaml"/>
+        <ResourceDictionary Source="/DevFlow.Resources;component/Design/ViewResource.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
