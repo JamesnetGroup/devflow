@@ -22,12 +22,21 @@
         <Setter Property="IsHitTestVisible" Value="False"/>
     </Style>
 
-    <Style TargetType="{x:Type Window}" x:Key="WIN">
-        <Setter Property="AllowsTransparency" Value="False"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="WindowStyle" Value="None"/>
-        <Setter Property="ResizeMode" Value="NoResize"/>
-        <Setter Property="WindowState" Value="Maximized"/>
+<Style TargetType="{x:Type Window}" x:Key="WIN">
+    <Setter Property="AllowsTransparency" Value="False"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="WindowStyle" Value="None"/>
+    <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
+    <Setter Property="WindowState" Value="Maximized"/>
+    <Setter Property="WindowChrome.WindowChrome">
+        <Setter.Value>
+            <WindowChrome GlassFrameThickness="0"
+                          NonClientFrameEdges="None"
+                          ResizeBorderThickness="3" 
+                          CaptionHeight="0"
+                          CornerRadius="0"/>
+        </Setter.Value>
+    </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">

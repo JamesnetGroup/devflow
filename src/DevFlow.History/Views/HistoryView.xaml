@@ -5,7 +5,7 @@
           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
           xmlns:ctl="clr-namespace:DevFlow.Controls;assembly=DevFlow.Controls"
           mc:Ignorable="d" Style="{StaticResource APP.VIEW}">
-    <Border  Background="#151515" Padding="10" Margin="0" >
+    <Border  Background="#151515" Height="470">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -13,7 +13,7 @@
             </Grid.ColumnDefinitions>
 
             <ListBox Style="{StaticResource LBX.HISTORY}"/>
-            <Image Grid.Column="1" Source="{Binding CurrentImage.ImagePath}"/>
+            <Image Grid.Column="1" Source="{Binding CurrentImage.ImagePath}" Stretch="Fill" Width="836"  Margin="6 0 0 0"/>
         </Grid>
     </Border>
 </ctl:View>
