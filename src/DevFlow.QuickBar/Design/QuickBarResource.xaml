@@ -3,11 +3,11 @@
                     xmlns:ctl="clr-namespace:DevFlow.Controls;assembly=DevFlow.Controls">
 
     <Storyboard x:Key="SB.FADEIN">
-        <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="1" Duration="0:0:0.5" BeginTime="0" AutoReverse="False"/>
+		<DoubleAnimation Storyboard.TargetName="grid" Storyboard.TargetProperty="(Grid.Opacity)" To="1" Duration="0:0:0.5" BeginTime="0" AutoReverse="False"/>
     </Storyboard>
     
     <Storyboard x:Key="SB.FADEOUT">
-        <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Opacity)" To="0" Duration="0:0:0.5" BeginTime="0" AutoReverse="False"/>
+		<DoubleAnimation Storyboard.TargetName="grid" Storyboard.TargetProperty="(Grid.Opacity)" To="0" Duration="0:0:0.5" BeginTime="0" AutoReverse="False"/>
     </Storyboard>
 
     <Style TargetType="{x:Type Viewbox}" x:Key="VIEWBOX">
@@ -103,23 +103,21 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type ctl:View}" x:Key="VIEW">
+    <Style TargetType="{x:Type ctl:View}" x:Key="VIEW1">
         <Setter Property="MouseDownCommand" Value="{Binding DragWindowCommand}"/>
-        <Setter Property="Opacity" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctl:View}">
 
-                    <Grid Background="Transparent" VerticalAlignment="Top">
+                    <Grid x:Name="grid" Background="Transparent" VerticalAlignment="Top">
                         <Border Style="{StaticResource BORDER}">
-
                             <ListBox Style="{StaticResource LBX.MENU}"/>
                         </Border>
                         <ContentPresenter/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsDesignTimeMode}" Value="False">
-                            <Setter Property="Opacity" Value="0"/>
+                            <Setter TargetName="grid" Property="Opacity" Value="0"/>
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
