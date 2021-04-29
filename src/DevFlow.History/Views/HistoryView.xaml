@@ -4,7 +4,7 @@
           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
           xmlns:ctl="clr-namespace:DevFlow.Controls;assembly=DevFlow.Controls"
-          mc:Ignorable="d" Style="{StaticResource APP.VIEW}">
+          mc:Ignorable="d" Style="{StaticResource VIEW.WINDOW}">
     <Border  Background="#151515" Height="470">
         <Grid>
             <Grid.ColumnDefinitions>

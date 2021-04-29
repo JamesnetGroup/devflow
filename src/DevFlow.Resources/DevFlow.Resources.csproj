@@ -88,7 +88,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Geometry\GeometryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -122,6 +121,10 @@
     <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
       <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
       <Name>DevFlow.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
+      <Project>{6209f782-2912-4cd6-a208-6d363d1857ad}</Project>
+      <Name>DevFlow.Windowbase</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

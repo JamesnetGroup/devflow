@@ -13,7 +13,7 @@
                 <ControlTemplate TargetType="{x:Type ctrl:Icon}">
                     <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Width}">
                         <Viewbox>
-                            <Path Width="24" Height="24" Data="{StaticResource GEO.CHEVRON.DOWN}" Fill="{TemplateBinding Fill}"/>
+                            <Path Width="24" Height="24" Data="{TemplateBinding Data}" Fill="{TemplateBinding Fill}"/>
                         </Viewbox>
                     </Border>
                 </ControlTemplate>

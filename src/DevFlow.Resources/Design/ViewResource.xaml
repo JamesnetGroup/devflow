@@ -2,7 +2,34 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ctl="clr-namespace:DevFlow.Controls;assembly=DevFlow.Controls">
 
-    <Style TargetType="{x:Type ctl:View}" x:Key="APP.VIEW">
+    <Style TargetType="{x:Type Border}" x:Key="TITLEBAR">
+        <Setter Property="Background" Value="#000000"/>
+        <Setter Property="BorderBrush" Value="#222222"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBlock}" x:Key="HEADER">
+        <Setter Property="Text" Value="History DevFlow"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Margin" Value="20 10 20 10"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="CLOSE">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="Transparent">
+                        <ctl:Icon IconType="Close" Fill="#FFFFFF" Margin="10"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type ctl:View}" x:Key="VIEW.WINDOW">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Template">
@@ -14,10 +41,10 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Border Background="#000000" BorderBrush="#222222" BorderThickness="0 0 0 1"
-                                    SnapsToDevicePixels="True" UseLayoutRounding="True">
-                                <TextBlock Text="History DevFlow" Foreground="#FFFFFF" Margin="20 10 20 10"/>
+                            <Border Style="{StaticResource TITLEBAR}">
+                                <TextBlock Style="{StaticResource HEADER}"/>
                             </Border>
+                            <Button x:Name="PART_Close" Style="{StaticResource CLOSE}"/>
                             <ContentPresenter Grid.Row="1"/>
                         </Grid>
                     </Border>

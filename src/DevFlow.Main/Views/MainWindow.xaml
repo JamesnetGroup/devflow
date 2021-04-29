@@ -14,5 +14,7 @@
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    <history:HistoryView VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <Grid>
+        <history:HistoryView VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
 </Window>

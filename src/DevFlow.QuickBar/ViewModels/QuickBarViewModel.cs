@@ -1,4 +1,5 @@
 ﻿using DevFlow.Data;
+using DevFlow.Windowbase.Enums;
 using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,12 @@ namespace DevFlow.QuickBar.ViewModels
         private List<QuickMenuModel> GetMenus()
         {
             var menus = new List<QuickMenuModel>();
-            menus.Add(new QuickMenuModel { Seq = 0, Name = "Background" });
-            menus.Add(new QuickMenuModel { Seq = 1, Name = "History" });
-            menus.Add(new QuickMenuModel { Seq = 2, Name = "Color" });
-            menus.Add(new QuickMenuModel { Seq = 3, Name = "Setting" });
-            menus.Add(new QuickMenuModel { Seq = 4, Name = "VisualStudio" });
-            menus.Add(new QuickMenuModel { Seq = 5, Name = "Translate" });
+            menus.Add(new QuickMenuModel { Seq = 0, Name = "Background", IconType = GeometryIcon.MonitorShimmer });
+            menus.Add(new QuickMenuModel { Seq = 1, Name = "History", IconType = GeometryIcon.MovieOpenPlay });
+            menus.Add(new QuickMenuModel { Seq = 2, Name = "Color", IconType = GeometryIcon.EyedropperVariant });
+            menus.Add(new QuickMenuModel { Seq = 3, Name = "Setting", IconType = GeometryIcon.OcgRefreshOutline });
+            menus.Add(new QuickMenuModel { Seq = 4, Name = "VisualStudio", IconType = GeometryIcon.MicrosoftVisualStudio });
+            menus.Add(new QuickMenuModel { Seq = 5, Name = "Translate", IconType  = GeometryIcon.GoogleTranslate });
             return menus;
         }
 
