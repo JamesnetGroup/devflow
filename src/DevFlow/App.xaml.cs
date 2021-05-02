@@ -1,4 +1,5 @@
-﻿using DevFlow.Main.Views;
+﻿using DevFlow;
+using DevFlow.Main.Views;
 using DevFlow.Windowbase.Design;
 using System;
 using System.Resources;

@@ -22,5 +22,5 @@
     </Style>
 
     <Style TargetType="{x:Type ctrl:Icon}" BasedOn="{StaticResource ICON}"/>
-    
+
 </ResourceDictionary>
