@@ -14,9 +14,11 @@ namespace DevFlow.Data
     {
         private BitmapImage _image;
 
+        public int Index { get; set; }
         public string ImagePath { get; set; }
-        public BitmapImage Image {
-        get { return _image; }
+        public BitmapImage Image
+        {
+            get { return _image; }
             set { _image = value; OnPropertyChanged(); }
         }
 

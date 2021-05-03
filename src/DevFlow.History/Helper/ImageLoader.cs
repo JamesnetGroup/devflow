@@ -3,9 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 
@@ -40,9 +38,11 @@ namespace DevFlow.History.Helper
             var dir = Environment.CurrentDirectory;
             var history = FindDirectoryByParent(dir);
 
+            int i = 1;
+
             var files = Directory.GetFiles(history);
             histories = new List<HistoryModel>();
-            histories.AddRange(files.Select(x => new HistoryModel { ImagePath = x, Created = new FileInfo(x).CreationTime }));
+            histories.AddRange(files.Select(x => new HistoryModel { Index = i++, ImagePath = x, Created = new FileInfo(x).CreationTime }));
             
             return histories;
         }

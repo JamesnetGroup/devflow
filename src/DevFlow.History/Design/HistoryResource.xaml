@@ -17,15 +17,19 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border x:Name="border" Margin="0" Padding="14 10 10 10" >
-                        <StackPanel>
-                            <Border HorizontalAlignment="Left" Margin="0 0 0 -1" BorderBrush="{StaticResource LGB.BORDER}"
-                                    Background="#000000" BorderThickness="1 1 1 0">
-                                <TextBlock x:Name="date" Text="{Binding Created, StringFormat={}{0:yyyy-MM-dd}}" 
-                                        Foreground="#FFFFFF" Margin="4 4 4 4" HorizontalAlignment="Center"/>
+                    <Border Margin="0" Padding="14 10 10 10" >
+                        <StackPanel x:Name="header">
+                            <Border Margin="0 0 0 0">
+                                <StackPanel Orientation="Horizontal">
+                                    <ctl:Icon IconType="Image" Fill="#FFFFFF" Width="15" Height="15" Margin="6 7 6 5"/>
+                                    <TextBlock x:Name="date" Text="{Binding Index, StringFormat={}{0:N0}}" 
+                                        Foreground="#ffffff" Margin="0 0 4 0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Created, StringFormat={}({0:yyyy-MM-dd})}" 
+                                        Foreground="#44ffffff" Margin="0" VerticalAlignment="Center"/>
+                                </StackPanel>
                             </Border>
                             <Border x:Name="image" CornerRadius="0" Width="160" Height="90"
-                                    BorderThickness="1" BorderBrush="{StaticResource LGB.BORDER}">
+                                    Margin="4">
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding Image}"/>
                                 </Border.Background>
@@ -35,12 +39,12 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="image" Property="BorderBrush" Value="{StaticResource LGB.BORDER.OVER}"/>
-                            <Setter TargetName="date" Property="Foreground" Value="#FFFFFF"/>
+                            <Setter TargetName="date" Property="Foreground" Value="#aaFFFFFF"/>
+                            <Setter TargetName="header" Property="Background" Value="#cc515c69"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="image" Property="BorderBrush" Value="{StaticResource LGB.BORDER.OVER}"/>
-                            <Setter TargetName="date" Property="Foreground" Value="#FFFFFF"/>
+                            <Setter TargetName="date" Property="Foreground" Value="#ffffff"/>
+                            <Setter TargetName="header" Property="Background" Value="#104b93"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

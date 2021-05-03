@@ -9,6 +9,7 @@
         MovieOpenPlay,
         EyedropperVariant,
         OcgRefreshOutline,
-        GoogleTranslate
+        GoogleTranslate,
+        Image
     }
 }
