@@ -8,8 +8,8 @@
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="LGB.BORDER.OVER" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#99dba41f" Offset="0"/>
-        <GradientStop Color="#99dba41f" Offset="1"/>
+        <GradientStop Color="#FFFFFF" Offset="0"/>
+        <GradientStop Color="#FFFFFF" Offset="1"/>
     </LinearGradientBrush>
 
     <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.HISTORY">
@@ -17,25 +17,29 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border Margin="2">
+                    <Border x:Name="border" Margin="0" Padding="14 10 10 10" >
                         <StackPanel>
-                            <Border x:Name="border" CornerRadius="10" Width="160" Height="90"
+                            <Border HorizontalAlignment="Left" Margin="0 0 0 -1" BorderBrush="{StaticResource LGB.BORDER}"
+                                    Background="#000000" BorderThickness="1 1 1 0">
+                                <TextBlock x:Name="date" Text="{Binding Created, StringFormat={}{0:yyyy-MM-dd}}" 
+                                        Foreground="#FFFFFF" Margin="4 4 4 4" HorizontalAlignment="Center"/>
+                            </Border>
+                            <Border x:Name="image" CornerRadius="0" Width="160" Height="90"
                                     BorderThickness="1" BorderBrush="{StaticResource LGB.BORDER}">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="{Binding ImagePath}"/>
+                                    <ImageBrush ImageSource="{Binding Image}"/>
                                 </Border.Background>
                             </Border>
-                            <TextBlock x:Name="date" Text="{Binding Created, StringFormat={}{0:yyyy-MM-dd}}" 
-                                       Foreground="#35FFFFFF" Margin="4 4 4 12" HorizontalAlignment="Center"/>
+          
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource LGB.BORDER.OVER}"/>
+                            <Setter TargetName="image" Property="BorderBrush" Value="{StaticResource LGB.BORDER.OVER}"/>
                             <Setter TargetName="date" Property="Foreground" Value="#FFFFFF"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource LGB.BORDER.OVER}"/>
+                            <Setter TargetName="image" Property="BorderBrush" Value="{StaticResource LGB.BORDER.OVER}"/>
                             <Setter TargetName="date" Property="Foreground" Value="#FFFFFF"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -47,13 +51,13 @@
     <Style TargetType="{x:Type ListBox}" x:Key="LBX.HISTORY">
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="ItemsSource" Value="{Binding Images}"/>
+        <Setter Property="ItemsSource" Value="{Binding Histories}"/>
         <Setter Property="SelectedItem" Value="{Binding CurrentImage}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.HISTORY}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="8 8 0 8">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0">
                         <ItemsPresenter/>
                     </ScrollViewer>
                 </ControlTemplate>

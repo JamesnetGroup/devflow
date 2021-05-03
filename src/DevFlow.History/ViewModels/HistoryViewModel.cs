@@ -1,18 +1,27 @@
 ﻿using DevFlow.Data;
+using DevFlow.History.Helper;
 using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Documents;
 
 namespace DevFlow.History.ViewModels
 {
     public class HistoryViewModel : ObservableObject
     {
+        private List<HistoryModel> _histories;
+        private ImageLoader _imgLoader;
         private HistoryModel _currentImage;
 
-        public List<HistoryModel> Images { get; set; }
+        public List<HistoryModel> Histories
+        {
+            get { return _histories; }
+            set { _histories = value; OnPropertyChanged(); }
+        }
         public HistoryModel CurrentImage
         {
             get { return _currentImage; }
@@ -24,30 +33,14 @@ namespace DevFlow.History.ViewModels
         }
 
         public HistoryViewModel()
-        {
-            var dir = Environment.CurrentDirectory;
-            var history = FindDirectoryByParent(dir);
-
-            var files = Directory.GetFiles(history);
-            Images = new List<HistoryModel>();
-            Images.AddRange(files.Select(x => new HistoryModel { ImagePath = x, Created = new FileInfo(x).CreationTime }));
+        { 
+            _imgLoader = ImageLoader.Instance;
         }
 
-        private string FindDirectoryByParent(string dir)
+        public override void OnLoaded(UserControl view)
         {
-            var parentDir = Directory.GetParent(dir);
-
-            var dirs = Directory.GetDirectories(parentDir.FullName);
-
-            foreach (var dir1 in dirs)
-            {
-                if (dir1.Contains("history"))
-                {
-                    return dir1;
-                }
-            }
-
-            return FindDirectoryByParent(parentDir.FullName);
+            Histories = _imgLoader.GetHistories(Environment.CurrentDirectory);
+            _imgLoader.LoadAsync(Histories);
         }
     }
 }

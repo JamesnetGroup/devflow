@@ -8,8 +8,8 @@ namespace DevFlow.Main.Views
         {
             InitializeComponent();
 
-            //Width = 1860;
-            //Height = 1020;
+            Width = 3840;
+            Height = 2160;
             //Left = 4;
             //Top = 4;
         }
