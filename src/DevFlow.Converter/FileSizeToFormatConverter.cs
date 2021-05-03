@@ -23,7 +23,7 @@ namespace DevFlow.Converter
 
             // Adjust the format string to your preferences. For example "{0:0.#}{1}" would
             // show a single decimal place, and no space.
-            return String.Format("{0:0.##}{1}", len, sizes[order]);
+            return String.Format("({0:0.##} {1})", len, sizes[order]);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

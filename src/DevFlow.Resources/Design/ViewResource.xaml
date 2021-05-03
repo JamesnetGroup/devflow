@@ -13,7 +13,7 @@
     <Style TargetType="{x:Type TextBlock}" x:Key="HEADER">
         <Setter Property="Text" Value="History DevFlow"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="Margin" Value="20 10 20 10"/>
+        <Setter Property="Margin" Value="4 10 20 10"/>
     </Style>
 
     <Style TargetType="{x:Type Button}" x:Key="CLOSE">
@@ -42,7 +42,10 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Border Style="{StaticResource TITLEBAR}">
-                                <TextBlock Style="{StaticResource HEADER}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <ctl:Icon IconType="Image" Fill="#FFFFFF" Margin="6"/>
+                                    <TextBlock Style="{StaticResource HEADER}"/>
+                                </StackPanel>
                             </Border>
                             <Button x:Name="PART_Close" Style="{StaticResource CLOSE}"/>
                             <ContentPresenter Grid.Row="1"/>

@@ -20,20 +20,23 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border Margin="0" Padding="14 10 10 10" >
-                        <StackPanel x:Name="header">
+                        <StackPanel x:Name="header" Background="#111111">
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
-                                    <ctl:Icon IconType="Image" Fill="#FFFFFF" Width="15" Height="15" Margin="6 7 6 5"/>
-                                    <TextBlock x:Name="date" Text="{Binding Index, StringFormat={}{0:N0}}" 
+                                    <ctl:Icon x:Name="image" IconType="Image" Fill="#33ffffff" Width="15" Height="15" Margin="6 7 6 5"/>
+                                    <TextBlock x:Name="index" Text="{Binding Index, StringFormat={}{0:N0}}" 
                                     Foreground="#ffffff" Margin="0 0 4 0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Created, StringFormat={}({0:yyyy-MM-dd})}" 
-                                    Foreground="#44ffffff" Margin="0" VerticalAlignment="Center"/>
+                 
                                 </StackPanel>
-                                <TextBlock Text="{Binding Size, Converter={StaticResource FileSizeToFormatConverter}}" 
-                                           Foreground="#aaffffff" Margin="6 6 6 6" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+
+                                    <ctl:Icon x:Name="calendar" IconType="CalendarMonth" Fill="#33ffffff" Width="15" Height="15" Margin="6 8 6 5"/>
+                                    <TextBlock x:Name="date" Text="{Binding Created, StringFormat={}{0:yyyy-MM-dd}}" 
+                                               Foreground="#33ffffff" Margin="0 6 6 6"/>
+                                </StackPanel>
                             </Grid>
-                            <Border x:Name="image" CornerRadius="0" Width="160" Height="90"
-                                    Margin="4">
+                            <Border CornerRadius="0" Width="160" Height="90"
+                                    Margin="4" Opacity="0.5" x:Name="thumbnail">
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding Image}"/>
                                 </Border.Background>
@@ -43,12 +46,20 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="date" Property="Foreground" Value="#aaFFFFFF"/>
-                            <Setter TargetName="header" Property="Background" Value="#cc515c69"/>
+                            <Setter TargetName="index" Property="Foreground" Value="#ffffff"/>
+                            <Setter TargetName="date" Property="Foreground" Value="#ffffff"/>
+                            <Setter TargetName="image" Property="Fill" Value="#ffffff"/>
+                            <Setter TargetName="calendar" Property="Fill" Value="#ffffff"/>
+                            <Setter TargetName="header" Property="Background" Value="#55104b93"/>
+                            <Setter TargetName="thumbnail" Property="Opacity" Value="0.6"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="index" Property="Foreground" Value="#ffffff"/>
                             <Setter TargetName="date" Property="Foreground" Value="#ffffff"/>
+                            <Setter TargetName="image" Property="Fill" Value="#ffffff"/>
+                            <Setter TargetName="calendar" Property="Fill" Value="#ffffff"/>
                             <Setter TargetName="header" Property="Background" Value="#104b93"/>
+                            <Setter TargetName="thumbnail" Property="Opacity" Value="1"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

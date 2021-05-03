@@ -10,6 +10,7 @@
         EyedropperVariant,
         OcgRefreshOutline,
         GoogleTranslate,
-        Image
+        Image,
+        CalendarMonth
     }
 }
