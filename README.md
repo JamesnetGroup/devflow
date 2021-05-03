@@ -13,6 +13,7 @@ You can always share information with us and we are looking forward to it.
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
+
 ***
 ## Overview
 - TBD...
@@ -27,3 +28,6 @@ You can always share information with us and we are looking forward to it.
 ### QuickBar Switch
 
 ![image](https://user-images.githubusercontent.com/52397976/115972804-8f691d80-a58b-11eb-8627-47416f0a9318.png)
+...
+
+...
