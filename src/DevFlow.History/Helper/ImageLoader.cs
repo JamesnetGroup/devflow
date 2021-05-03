@@ -42,7 +42,7 @@ namespace DevFlow.History.Helper
 
             var files = Directory.GetFiles(history);
             histories = new List<HistoryModel>();
-            histories.AddRange(files.Select(x => new HistoryModel { Index = i++, ImagePath = x, Created = new FileInfo(x).CreationTime }));
+            histories.AddRange(files.Select(x => new HistoryModel { Index = i++, ImagePath = x, Created = new FileInfo(x).CreationTime, Size = new FileInfo(x).Length }));
             
             return histories;
         }

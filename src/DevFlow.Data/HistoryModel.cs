@@ -23,5 +23,6 @@ namespace DevFlow.Data
         }
 
         public DateTime Created { get; set; }
+        public long Size { get; set; }
     }
 }
