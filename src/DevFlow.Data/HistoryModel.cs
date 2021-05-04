@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,17 @@ namespace DevFlow.Data
     {
         private BitmapImage _image;
         private BitmapImage _previewImage;
+
+        public HistoryModel(int index, string x)
+        {
+            var fi = new FileInfo(x);
+
+            Index = index;
+            ImagePath = x;
+            FileName = fi.Name;
+            Created = fi.CreationTime;
+            Size = fi.Length;
+        }
 
         public int Index { get; set; }
         public string ImagePath { get; set; }

@@ -21,7 +21,7 @@
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border Margin="0" Padding="14 10 10 10" >
                         <StackPanel x:Name="header" Background="#111111">
-                            <Grid>
+                            <Grid Margin="4 0 4 0">
                                 <StackPanel Orientation="Horizontal">
                                     <ctl:Icon x:Name="image" IconType="Image" Fill="#33ffffff" Width="15" Height="15" Margin="6 7 6 5"/>
                                     <TextBlock x:Name="index" Text="{Binding Index, StringFormat={}{0:N0}}" 
@@ -36,7 +36,7 @@
                                 </StackPanel>
                             </Grid>
                             <Border CornerRadius="0" Width="160" Height="90"
-                                    Margin="4" Opacity="0.5" x:Name="thumbnail">
+                                    Margin="8 4 8 8" Opacity="0.5" x:Name="thumbnail">
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding Image}"/>
                                 </Border.Background>

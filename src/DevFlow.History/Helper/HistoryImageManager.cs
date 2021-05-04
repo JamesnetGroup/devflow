@@ -62,11 +62,11 @@ namespace DevFlow.History.Helper
             var dir = Environment.CurrentDirectory;
             var history = FindDirectoryByParent(dir);
 
-            int i = 1;
+            int i = 0;
 
             var files = Directory.GetFiles(history);
             histories = new List<HistoryModel>();
-            histories.AddRange(files.Select(x => new HistoryModel { Index = i++, ImagePath = x, FileName = new FileInfo(x).Name, Created = new FileInfo(x).CreationTime, Size = new FileInfo(x).Length }));
+            histories.AddRange(files.Select(x => new HistoryModel(i++, x)));
 
             return histories;
         }
