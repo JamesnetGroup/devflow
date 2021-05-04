@@ -83,4 +83,31 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type ContentControl}" x:Key="HISTORYVIEW">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <Border Background="#151515" Height="775">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="2"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ListBox Style="{StaticResource LBX.HISTORY}"/>
+                            <Image Grid.Column="1" Source="{Binding CurrentImage.PreviewImage}" Stretch="Fill" Width="1200" Margin="50"/>
+
+                            <Border Background="#555555" Height="26" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Margin="0" BorderThickness="0 1 0 0"
+                                    BorderBrush="#333333"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

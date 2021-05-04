@@ -65,7 +65,7 @@ namespace DevFlow.History.Helper
             int i = 0;
 
             var files = Directory.GetFiles(history);
-            histories = new List<HistoryModel>();
+            histories = new List<HistoryModel>() ;
             histories.AddRange(files.Select(x => new HistoryModel(i++, x)));
 
             return histories;
