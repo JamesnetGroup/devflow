@@ -1,6 +1,8 @@
 ﻿using DevFlow.Data;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,10 +17,11 @@ namespace DevFlow.History.Helper
 
         static ImageLoader()
         {
+            CreateLocalDirectory();
             Instance = new ImageLoader();
         }
 
-        internal async void LoadAsync(List<HistoryModel> histories)
+        internal async void LoadThumbnailAsync(List<HistoryModel> histories)
         {
             foreach (var item in histories)
             {
@@ -29,10 +32,30 @@ namespace DevFlow.History.Helper
         private async Task<BitmapImage> GetImage(string imagePath)
         {
             await Task.Delay(1);
-            return new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+
+            string name = Path.GetFileName(imagePath);
+            string savePath = Path.Combine( GetSavePath(), name);
+
+            bool isExistsThumbnail = false;
+            while (!isExistsThumbnail)
+            {
+                if (!File.Exists(savePath))
+                {
+                    Bitmap sourceImage = new Bitmap(imagePath);
+
+                    int width = 160;
+                    int height = 90;
+                    Size resize = new Size(width, height);
+                    Bitmap resizeImage = new Bitmap(sourceImage, resize);
+                    resizeImage.Save(savePath, ImageFormat.Png);
+                    continue;
+                }
+                isExistsThumbnail = true;
+            }
+            return new BitmapImage(new Uri(savePath, UriKind.RelativeOrAbsolute));
         }
 
-        internal List<HistoryModel> GetHistories(string currentDirectory)
+		internal List<HistoryModel> GetHistories(string currentDirectory)
         {
             var histories = new List<HistoryModel>();
             var dir = Environment.CurrentDirectory;
@@ -62,6 +85,22 @@ namespace DevFlow.History.Helper
             }
 
             return FindDirectoryByParent(parentDir.FullName);
+        }
+
+        private static void CreateLocalDirectory()
+        {
+            var savePath = GetSavePath();
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+        }
+
+        private static string GetSavePath()
+        { 
+            string localPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string devflowPath = Path.Combine(localPath, "DevFlow/Images/HistoryThumbnails");
+            return devflowPath;
         }
     }
 }

@@ -40,7 +40,7 @@ namespace DevFlow.History.ViewModels
         public override void OnLoaded(UserControl view)
         {
             Histories = _imgLoader.GetHistories(Environment.CurrentDirectory);
-            _imgLoader.LoadAsync(Histories);
+            _imgLoader.LoadThumbnailAsync(Histories);
         }
     }
 }
