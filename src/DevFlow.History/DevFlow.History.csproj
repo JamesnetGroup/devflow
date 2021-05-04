@@ -63,7 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Helper\ImageLoader.cs" />
+    <Compile Include="Helper\HistoryImageManager.cs" />
     <Compile Include="ViewModels\HistoryViewModel.cs" />
     <Compile Include="Views\HistoryView.xaml.cs">
       <DependentUpon>HistoryView.xaml</DependentUpon>

@@ -11,40 +11,36 @@ using System.Windows.Media.Imaging;
 
 namespace DevFlow.History.Helper
 {
-    public class ImageLoader
+    public class HistoryImageManager
     {
-        public static ImageLoader Instance;
+        public static HistoryImageManager Instance;
 
-        static ImageLoader()
+        static HistoryImageManager()
         {
-            CreateLocalDirectory();
-            Instance = new ImageLoader();
+            CreateLocalDirectory("Thumbnail");
+            CreateLocalDirectory("Preview");
+            Instance = new HistoryImageManager();
         }
 
-        internal async void LoadThumbnailAsync(List<HistoryModel> histories)
+        internal void ThumbnailLoadAsync(List<HistoryModel> histories)
         {
-            foreach (var item in histories)
-            {
-                item.Image = await GetImage(item.ImagePath);
-            }
+            histories.ForEach(async x => x.Image = await GetImage(x, "Thumbnail", 160, 90));
         }
 
-        private async Task<BitmapImage> GetImage(string imagePath)
+        private async Task<BitmapImage> GetImage(HistoryModel image, string directory, int width, int height)
         {
             await Task.Delay(1);
 
-            string name = Path.GetFileName(imagePath);
-            string savePath = Path.Combine( GetSavePath(), name);
+            string name = Path.GetFileName(image.FileName);
+            string savePath = Path.Combine(GetSavePath(directory), name);
 
             bool isExistsThumbnail = false;
             while (!isExistsThumbnail)
             {
                 if (!File.Exists(savePath))
                 {
-                    Bitmap sourceImage = new Bitmap(imagePath);
+                    Bitmap sourceImage = new Bitmap(image.ImagePath);
 
-                    int width = 160;
-                    int height = 90;
                     Size resize = new Size(width, height);
                     Bitmap resizeImage = new Bitmap(sourceImage, resize);
                     resizeImage.Save(savePath, ImageFormat.Png);
@@ -54,6 +50,11 @@ namespace DevFlow.History.Helper
             }
             return new BitmapImage(new Uri(savePath, UriKind.RelativeOrAbsolute));
         }
+
+		internal async void PreviewLoadAsync(HistoryModel value)
+		{
+            value.PreviewImage = await GetImage(value, "Preview", 836, 470);
+		}
 
 		internal List<HistoryModel> GetHistories(string currentDirectory)
         {
@@ -65,8 +66,8 @@ namespace DevFlow.History.Helper
 
             var files = Directory.GetFiles(history);
             histories = new List<HistoryModel>();
-            histories.AddRange(files.Select(x => new HistoryModel { Index = i++, ImagePath = x, Created = new FileInfo(x).CreationTime, Size = new FileInfo(x).Length }));
-            
+            histories.AddRange(files.Select(x => new HistoryModel { Index = i++, ImagePath = x, FileName = new FileInfo(x).Name, Created = new FileInfo(x).CreationTime, Size = new FileInfo(x).Length }));
+
             return histories;
         }
 
@@ -87,19 +88,20 @@ namespace DevFlow.History.Helper
             return FindDirectoryByParent(parentDir.FullName);
         }
 
-        private static void CreateLocalDirectory()
+        private static void CreateLocalDirectory(string directory)
         {
-            var savePath = GetSavePath();
+            var savePath = GetSavePath(directory);
             if (!Directory.Exists(savePath))
             {
                 Directory.CreateDirectory(savePath);
             }
         }
 
-        private static string GetSavePath()
-        { 
+        private static string GetSavePath(string directory)
+        {
+            string basePath = "DevFlow/Images/History";
             string localPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string devflowPath = Path.Combine(localPath, "DevFlow/Images/HistoryThumbnails");
+            string devflowPath = Path.Combine(localPath, basePath, directory);
             return devflowPath;
         }
     }

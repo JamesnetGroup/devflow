@@ -13,7 +13,7 @@
             </Grid.ColumnDefinitions>
 
             <ListBox Style="{StaticResource LBX.HISTORY}"/>
-            <Image Grid.Column="1" Source="{Binding CurrentImage.ImagePath}" Stretch="Fill" Width="836"  Margin="6 0 0 0"/>
+			<Image Grid.Column="1" Source="{Binding CurrentImage.PreviewImage}" Stretch="Fill" Width="836" Height="470"  Margin="6 0 0 0"/>
         </Grid>
     </Border>
 </ctl:View>

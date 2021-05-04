@@ -15,8 +15,7 @@ namespace DevFlow.Main.ViewModels
 
         public MainViewModel()
         {
-            Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-01.jpg";
-            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary());
+            Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-05.jpg";
         }
     }
 }

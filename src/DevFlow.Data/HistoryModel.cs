@@ -13,6 +13,7 @@ namespace DevFlow.Data
     public class HistoryModel : ObservableModel
     {
         private BitmapImage _image;
+        private BitmapImage _previewImage;
 
         public int Index { get; set; }
         public string ImagePath { get; set; }
@@ -21,8 +22,14 @@ namespace DevFlow.Data
             get { return _image; }
             set { _image = value; OnPropertyChanged(); }
         }
+        public BitmapImage PreviewImage
+        {
+            get { return _previewImage; }
+            set { _previewImage = value; OnPropertyChanged(); }
+        }
 
         public DateTime Created { get; set; }
         public long Size { get; set; }
-    }
+		public string FileName { get; set; }
+	}
 }
