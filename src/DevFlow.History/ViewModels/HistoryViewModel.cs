@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using DevFlow.Controls;
 using DevFlow.Data;
 using DevFlow.History.Helper;
 using DevFlow.Windowbase.Mvvm;
@@ -45,8 +46,21 @@ namespace DevFlow.History.ViewModels
         {
             Histories = _imgLoader.GetHistories(Environment.CurrentDirectory);
             _imgLoader.ThumbnailLoadAsync(Histories);
+
+            if (view is View v)
+            {
+                v.Minimizing = Minimizing;
+            }
         }
         #endregion
+
+        private void Minimizing(View obj)
+        {
+            if (obj.Parent is Grid grid)
+            {
+                grid.Children.Remove(obj);
+            }
+        }
 
         #region . OnInitDesignTime .
 

@@ -1,15 +1,8 @@
-﻿using DevFlow.Windowbase.Design;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using DevFlow.Windowbase.Mvvm;
 
 namespace DevFlow.Main.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : ObservableObject
     {
         #region . Wallpaper .
 

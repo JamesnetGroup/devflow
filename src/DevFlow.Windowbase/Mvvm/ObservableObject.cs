@@ -8,7 +8,7 @@ namespace DevFlow.Windowbase.Mvvm
     public class ObservableObject : INotifyPropertyChanged
     {
         private bool _isDesignTimeMode;
-        protected UserControl View;
+        protected UserControl UIView;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
@@ -24,7 +24,7 @@ namespace DevFlow.Windowbase.Mvvm
 
         public void ViewRegister(UserControl view)
         {
-            View = view;
+            UIView = view;
             if (DesignerProperties.GetIsInDesignMode(view))
             {
                 IsDesignTimeMode = true;

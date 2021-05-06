@@ -12,6 +12,8 @@ namespace DevFlow.Controls
 {
     public class View : UserControl
     {
+        public Action<View> Minimizing;
+
         #region . DependencyProperty .
         
         public static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.Register("MouseDownCommand", typeof(ICommand), typeof(View));
@@ -42,6 +44,11 @@ namespace DevFlow.Controls
             {
                 btn.Click += CloseButtonClick;
             }
+
+            if (GetTemplateChild("PART_Minimize") is Button btnMin)
+            {
+                btnMin.Click += BtnMin_Click;
+            }
         }
         #endregion
 
@@ -53,6 +60,14 @@ namespace DevFlow.Controls
             {
                 grid.Children.Remove(this);
             }
+        }
+        #endregion
+
+        #region . MinimizeButtonClick .
+
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
+        {
+            Minimizing?.Invoke(this);
         }
         #endregion
 

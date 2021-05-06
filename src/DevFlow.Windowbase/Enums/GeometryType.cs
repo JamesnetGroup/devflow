@@ -11,6 +11,7 @@
         OcgRefreshOutline,
         GoogleTranslate,
         Image,
-        CalendarMonth
+        CalendarMonth,
+        Minimize
     }
 }

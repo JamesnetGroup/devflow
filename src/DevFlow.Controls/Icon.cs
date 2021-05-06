@@ -18,6 +18,7 @@ namespace DevFlow.Controls
         internal readonly static string CURSOR_POINTER = "M13.75,10.19L14.38,10.32L18.55,12.4C19.25,12.63 19.71,13.32 19.65,14.06V14.19L19.65,14.32L18.75,20.44C18.69,20.87 18.5,21.27 18.15,21.55C17.84,21.85 17.43,22 17,22H10.12C9.63,22 9.18,21.82 8.85,21.47L2.86,15.5L3.76,14.5C4,14.25 4.38,14.11 4.74,14.13H5.03L9,15V4.5A2,2 0 0,1 11,2.5A2,2 0 0,1 13,4.5V10.19H13.75Z";
         internal readonly static string IMAGE = "M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z";
         internal readonly static string CALENDAR_MONTH = "M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z";
+        internal readonly static string WINDOW_MINIMIZE = "M20,12H4V14H20";
     }
 
     public class Icon : ContentControl
@@ -73,6 +74,7 @@ namespace DevFlow.Controls
                 case GeometryIcon.OcgRefreshOutline: icon.Data = Geometry.Parse(IconData.COG_REFRESH_OUTLINE); break;
                 case GeometryIcon.Image: icon.Data = Geometry.Parse(IconData.IMAGE); break;
                 case GeometryIcon.CalendarMonth: icon.Data = Geometry.Parse(IconData.CALENDAR_MONTH); break;
+                case GeometryIcon.Minimize: icon.Data = Geometry.Parse(IconData.WINDOW_MINIMIZE); break;
             }
         }
         #endregion
