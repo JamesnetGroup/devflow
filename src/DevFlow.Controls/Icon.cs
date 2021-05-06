@@ -22,27 +22,41 @@ namespace DevFlow.Controls
 
     public class Icon : ContentControl
     {
+        #region . DependencyProperty .
+
         public static readonly DependencyProperty FillProperty = DependencyProperty.Register("Fill", typeof(Brush), typeof(Icon), new PropertyMetadata(Brushes.White));
         public static readonly DependencyProperty IconTypeProperty = DependencyProperty.Register("IconType", typeof(GeometryIcon), typeof(Icon), new PropertyMetadata(GeometryIcon.None, IconTypePropertyChanged));
         public static readonly DependencyProperty DataProperty = DependencyProperty.Register("Data", typeof(Geometry), typeof(Icon), new PropertyMetadata(null));
-        
+        #endregion
+
+        #region . Fill .
+
         public Brush Fill
         {
             get { return (Brush)this.GetValue(FillProperty); }
             set { this.SetValue(FillProperty, value); }
-        }        
+        }
+        #endregion
+
+        #region . IconType .
 
         public GeometryIcon IconType
         {
             get { return (GeometryIcon)this.GetValue(IconTypeProperty); }
             set { this.SetValue(IconTypeProperty, value); }
         }
+        #endregion
+
+        #region . Data .
 
         public Geometry Data
         {
             get { return (Geometry)this.GetValue(DataProperty); }
             set { this.SetValue(DataProperty, value); }
         }
+        #endregion
+
+        #region . IconTypePropertyChanged .
 
         private static void IconTypePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -61,5 +75,6 @@ namespace DevFlow.Controls
                 case GeometryIcon.CalendarMonth: icon.Data = Geometry.Parse(IconData.CALENDAR_MONTH); break;
             }
         }
+        #endregion
     }
 }

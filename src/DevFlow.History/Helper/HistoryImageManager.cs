@@ -15,17 +15,49 @@ namespace DevFlow.History.Helper
     {
         public static HistoryImageManager Instance;
 
+        #region . Constructor .
+
         static HistoryImageManager()
         {
-            CreateLocalDirectory("Thumbnail");
-            CreateLocalDirectory("Preview");
             Instance = new HistoryImageManager();
+            Instance.CreateLocalDirectory("Thumbnail");
+            Instance.CreateLocalDirectory("Preview");
         }
+
+        private HistoryImageManager()
+        {
+        }
+        #endregion
+
+        #region . Internal .
 
         internal void ThumbnailLoadAsync(List<HistoryModel> histories)
         {
             histories.ForEach(async x => x.Image = await GetImage(x, "Thumbnail", 160, 90));
         }
+
+        internal async void PreviewLoadAsync(HistoryModel value)
+        {
+            value.PreviewImage = await GetImage(value, "Preview", 836, 470);
+        }
+
+        internal List<HistoryModel> GetHistories(string currentDirectory)
+        {
+            var histories = new List<HistoryModel>();
+            var dir = Environment.CurrentDirectory;
+            var history = FindDirectoryByParent(dir);
+
+            int i = 0;
+
+            var files = Directory.GetFiles(history);
+            histories = new List<HistoryModel>();
+            histories.AddRange(files.Select(x => new HistoryModel(i++, x)));
+
+            return histories;
+        }
+        #endregion
+
+        #region . GetImage .
 
         private async Task<BitmapImage> GetImage(HistoryModel image, string directory, int width, int height)
         {
@@ -50,26 +82,9 @@ namespace DevFlow.History.Helper
             }
             return new BitmapImage(new Uri(savePath, UriKind.RelativeOrAbsolute));
         }
+        #endregion
 
-		internal async void PreviewLoadAsync(HistoryModel value)
-		{
-            value.PreviewImage = await GetImage(value, "Preview", 836, 470);
-		}
-
-		internal List<HistoryModel> GetHistories(string currentDirectory)
-        {
-            var histories = new List<HistoryModel>();
-            var dir = Environment.CurrentDirectory;
-            var history = FindDirectoryByParent(dir);
-
-            int i = 0;
-
-            var files = Directory.GetFiles(history);
-            histories = new List<HistoryModel>() ;
-            histories.AddRange(files.Select(x => new HistoryModel(i++, x)));
-
-            return histories;
-        }
+        #region . FindDirectoryByParent .
 
         private string FindDirectoryByParent(string dir)
         {
@@ -87,8 +102,11 @@ namespace DevFlow.History.Helper
 
             return FindDirectoryByParent(parentDir.FullName);
         }
+        #endregion
 
-        private static void CreateLocalDirectory(string directory)
+        #region . CreateLocalDirectory .
+
+        private void CreateLocalDirectory(string directory)
         {
             var savePath = GetSavePath(directory);
             if (!Directory.Exists(savePath))
@@ -96,13 +114,17 @@ namespace DevFlow.History.Helper
                 Directory.CreateDirectory(savePath);
             }
         }
+        #endregion
 
-        private static string GetSavePath(string directory)
+        #region . GetSavePath .
+
+        private string GetSavePath(string directory)
         {
             string basePath = "DevFlow/Images/History";
             string localPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string devflowPath = Path.Combine(localPath, basePath, directory);
             return devflowPath;
         }
+        #endregion
     }
 }

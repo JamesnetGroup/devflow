@@ -16,6 +16,51 @@ namespace DevFlow.Data
         private BitmapImage _image;
         private BitmapImage _previewImage;
 
+        #region . Index .
+
+        public int Index { get; set; }
+        #endregion
+
+        #region . ImagePath .
+
+        public string ImagePath { get; set; }
+        #endregion
+
+        #region . Image .
+
+        public BitmapImage Image
+        {
+            get { return _image; }
+            set { _image = value; OnPropertyChanged(); }
+        }
+        #endregion
+
+        #region . PreviewImage .
+
+        public BitmapImage PreviewImage
+        {
+            get { return _previewImage; }
+            set { _previewImage = value; OnPropertyChanged(); }
+        }
+        #endregion
+
+        #region . Created .
+
+        public DateTime Created { get; set; }
+        #endregion
+
+        #region . Size .
+
+        public long Size { get; set; }
+        #endregion
+
+        #region . FileName .
+
+        public string FileName { get; set; }
+        #endregion
+
+        #region . Constructor .
+
         public HistoryModel(int index, string x)
         {
             var fi = new FileInfo(x);
@@ -26,22 +71,6 @@ namespace DevFlow.Data
             Created = fi.CreationTime;
             Size = fi.Length;
         }
-
-        public int Index { get; set; }
-        public string ImagePath { get; set; }
-        public BitmapImage Image
-        {
-            get { return _image; }
-            set { _image = value; OnPropertyChanged(); }
-        }
-        public BitmapImage PreviewImage
-        {
-            get { return _previewImage; }
-            set { _previewImage = value; OnPropertyChanged(); }
-        }
-
-        public DateTime Created { get; set; }
-        public long Size { get; set; }
-		public string FileName { get; set; }
-	}
+        #endregion
+    }
 }

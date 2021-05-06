@@ -3,11 +3,7 @@ using DevFlow.History.Helper;
 using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace DevFlow.History.ViewModels
 {
@@ -17,36 +13,55 @@ namespace DevFlow.History.ViewModels
         private HistoryImageManager _imgLoader;
         private HistoryModel _currentImage;
 
+        #region . Histories .
+
         public List<HistoryModel> Histories
         {
             get { return _histories; }
             set { _histories = value; OnPropertyChanged(); }
         }
+        #endregion
+
+        #region . CurrentImage .
+
         public HistoryModel CurrentImage
         {
             get { return _currentImage; }
             set { _currentImage = value; OnPropertyChanged(); ImageSelected(value); }
         }
+        #endregion
 
-		public override void OnInitDesignTime()
-        {
-            base.OnInitDesignTime();
-        }
+        #region . Constructor .
 
         public HistoryViewModel()
-        { 
+        {
             _imgLoader = HistoryImageManager.Instance;
         }
+        #endregion
 
-        public override void OnLoaded(UserControl view)
+        #region . OnLoaded . 
+
+        protected override void OnLoaded(UserControl view)
         {
             Histories = _imgLoader.GetHistories(Environment.CurrentDirectory);
             _imgLoader.ThumbnailLoadAsync(Histories);
         }
+        #endregion
+
+        #region . OnInitDesignTime .
+
+        protected override void OnInitDesignTime()
+        {
+            base.OnInitDesignTime();
+        }
+        #endregion
+
+        #region . ImageSelected . 
+
         private void ImageSelected(HistoryModel value)
         {
             _imgLoader.PreviewLoadAsync(value);
         }
-
+        #endregion
     }
 }

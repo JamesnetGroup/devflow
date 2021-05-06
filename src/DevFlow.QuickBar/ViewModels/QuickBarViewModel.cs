@@ -1,11 +1,7 @@
 ﻿using DevFlow.Data;
 using DevFlow.Windowbase.Enums;
 using DevFlow.Windowbase.Mvvm;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,15 +10,26 @@ namespace DevFlow.QuickBar.ViewModels
 {
     public class QuickBarViewModel : ObservableObject
     {
-        public ICommand DragWindowCommand { get; set; }
+        #region . Commands .
 
+        public ICommand DragWindowCommand { get; set; }
+        #endregion
+
+        #region . Menus .
+        
         public List<QuickMenuModel> Menus { get; set; }
+        #endregion
+
+        #region . Constructor .
 
         public QuickBarViewModel()
         {
             DragWindowCommand = new RelayCommand<MouseEventArgs>(DragWindow);
             Menus = GetMenus();
         }
+        #endregion
+
+        #region . GetMenus .
 
         private List<QuickMenuModel> GetMenus()
         {
@@ -35,19 +42,29 @@ namespace DevFlow.QuickBar.ViewModels
             menus.Add(new QuickMenuModel { Seq = 5, Name = "Translate", IconType  = GeometryIcon.GoogleTranslate });
             return menus;
         }
+        #endregion
+
+        #region . DragWindow .
 
         private void DragWindow(MouseEventArgs e)
         {
             Window.GetWindow((UIElement)e.Source).DragMove();
         }
+        #endregion
 
-        public override void OnInitDesignTime()
+        #region . OnInitDesignTime .
+
+        protected override void OnInitDesignTime()
         {
         }
+        #endregion
 
-        public override void OnLoaded(UserControl view)
+        #region . OnLoaded .
+
+        protected override void OnLoaded(UserControl view)
         {
             base.OnLoaded(view);
         }
+        #endregion
     }
 }

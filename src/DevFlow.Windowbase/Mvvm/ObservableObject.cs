@@ -41,12 +41,12 @@ namespace DevFlow.Windowbase.Mvvm
             OnInitDesignTime();
         }
 
-        public virtual void OnInitDesignTime()
+        protected virtual void OnInitDesignTime()
         { 
             
         }
 
-        public virtual void OnLoaded(UserControl view)
+        protected virtual void OnLoaded(UserControl view)
         { 
         
         }

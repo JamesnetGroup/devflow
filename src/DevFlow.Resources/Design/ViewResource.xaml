@@ -36,6 +36,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctl:View}">
                     <Border Background="#333333" VerticalAlignment="Top">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="2"/>
+                        </Border.Effect>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
