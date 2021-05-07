@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using DevFlow.Controls;
 using DevFlow.Data;
-using DevFlow.History.Helper;
+using DevFlow.Wallpaper.Helper;
 using DevFlow.Windowbase.Mvvm;
 
-namespace DevFlow.History.ViewModels
+namespace DevFlow.Wallpaper.ViewModels
 {
     public class HistoryViewModel : ObservableObject
     {

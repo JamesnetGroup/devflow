@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace DevFlow.History.Properties
+namespace DevFlow.Wallpaper.Properties
 {
     /// <summary>
     ///   지역화된 문자열 등을 찾기 위한 강력한 형식의 리소스 클래스입니다.

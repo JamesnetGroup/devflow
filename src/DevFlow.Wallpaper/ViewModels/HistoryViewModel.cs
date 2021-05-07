@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using DevFlow.Controls;
 using DevFlow.Data;
-using DevFlow.History.Helper;
+using DevFlow.Wallpaper.Helper;
 using DevFlow.Windowbase.Mvvm;
 
-namespace DevFlow.History.ViewModels
+namespace DevFlow.Wallpaper.ViewModels
 {
-    public class HistoryViewModel : ObservableObject
+    public class WallpaperViewModel : ObservableObject
     {
         private List<HistoryModel> _histories;
         private HistoryImageManager _imgLoader;
@@ -34,7 +34,7 @@ namespace DevFlow.History.ViewModels
 
         #region . Constructor .
 
-        public HistoryViewModel()
+        public WallpaperViewModel()
         {
             _imgLoader = HistoryImageManager.Instance;
         }

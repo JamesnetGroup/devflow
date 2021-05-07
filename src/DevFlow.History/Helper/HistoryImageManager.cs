@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 
-namespace DevFlow.History.Helper
+namespace DevFlow.Wallpaper.Helper
 {
     public class HistoryImageManager
     {

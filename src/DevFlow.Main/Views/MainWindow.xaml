@@ -8,7 +8,7 @@
         xmlns:quickbar="clr-namespace:DevFlow.QuickBar.Views;assembly=DevFlow.QuickBar"
         SnapsToDevicePixels="True"
         UseLayoutRounding="True"
-                    xmlns:history="clr-namespace:DevFlow.History.Views;assembly=DevFlow.History"
+                    xmlns:history="clr-namespace:DevFlow.Wallpaper.Views;assembly=DevFlow.History"
         Style="{StaticResource WIN}"
         Title="MainWindow">
     <Window.DataContext>

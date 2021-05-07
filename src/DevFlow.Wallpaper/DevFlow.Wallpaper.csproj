@@ -65,8 +65,8 @@
     </Compile>
     <Compile Include="Helper\HistoryImageManager.cs" />
     <Compile Include="ViewModels\HistoryViewModel.cs" />
-    <Compile Include="Views\HistoryView.xaml.cs">
-      <DependentUpon>HistoryView.xaml</DependentUpon>
+    <Compile Include="Views\Wallpaper.xaml.cs">
+      <DependentUpon>Wallpaper.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +122,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HistoryView.xaml">
+    <Page Include="Views\Wallpaper.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

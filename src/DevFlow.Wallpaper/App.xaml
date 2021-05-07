@@ -1,7 +1,7 @@
-﻿<Application x:Class="DevFlow.History.App"
+﻿<Application x:Class="DevFlow.Wallpaper.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:DevFlow.History"
+             xmlns:local="clr-namespace:DevFlow.Wallpaper"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
