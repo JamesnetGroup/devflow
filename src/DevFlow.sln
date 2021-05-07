@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.History", "DevFlow.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Wallpaper", "DevFlow.Wallpaper\DevFlow.Wallpaper.csproj", "{0CD1B385-50CB-4C42-BA13-1647737009A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.PresentationSupport", "DevFlow.PresentationSupport\DevFlow.PresentationSupport.csproj", "{290F890E-9C56-40A1-9E79-BBE3BE400CD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{0CD1B385-50CB-4C42-BA13-1647737009A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CD1B385-50CB-4C42-BA13-1647737009A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CD1B385-50CB-4C42-BA13-1647737009A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290F890E-9C56-40A1-9E79-BBE3BE400CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290F890E-9C56-40A1-9E79-BBE3BE400CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290F890E-9C56-40A1-9E79-BBE3BE400CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290F890E-9C56-40A1-9E79-BBE3BE400CD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{A36037C3-5D6D-43DD-9948-EC9A057CC00D} = {36E147B6-3720-4AD7-8DED-E9CD9AEBB838}
 		{E1620FF7-4869-4BEA-BC2C-EDF7F9AF281F} = {36E147B6-3720-4AD7-8DED-E9CD9AEBB838}
 		{0CD1B385-50CB-4C42-BA13-1647737009A5} = {36E147B6-3720-4AD7-8DED-E9CD9AEBB838}
+		{290F890E-9C56-40A1-9E79-BBE3BE400CD8} = {776B76A9-5F02-4677-80B1-D7F98F49205E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D98CFB60-F81E-497B-AA6A-1770892F8EF5}

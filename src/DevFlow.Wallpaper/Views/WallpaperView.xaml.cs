@@ -3,11 +3,11 @@ using DevFlow.Wallpaper.ViewModels;
 
 namespace DevFlow.Wallpaper.Views
 {
-    public partial class Wallpaper : View
+    public partial class WallpaperView : View
     {
         #region . Constructor .
 
-        public Wallpaper()
+        public WallpaperView()
         {
             InitializeComponent();
             DataContext = new WallpaperViewModel();
