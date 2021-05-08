@@ -6,14 +6,17 @@
         mc:Ignorable="d" WindowStyle="None"
         xmlns:vm="clr-namespace:DevFlow.Main.ViewModels"
         xmlns:quickbar="clr-namespace:DevFlow.QuickBar.Views;assembly=DevFlow.QuickBar"
+        xmlns:tasker="clr-namespace:DevFlow.Tasker.Views;assembly=DevFlow.Tasker"
         SnapsToDevicePixels="True"
         UseLayoutRounding="True"
-                    xmlns:history="clr-namespace:DevFlow.Wallpaper.Views;assembly=DevFlow.History"
+        xmlns:history="clr-namespace:DevFlow.Wallpaper.Views;assembly=DevFlow.History"
         Style="{StaticResource WIN}"
         Title="MainWindow">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
     <Grid>
+        <history:HistoryView/>
+        <tasker:TaskView HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

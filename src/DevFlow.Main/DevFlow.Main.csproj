@@ -118,6 +118,10 @@
       <Project>{bba355d5-3f53-4b26-82c2-5bc56d2d4a61}</Project>
       <Name>DevFlow.Resources</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Tasker\DevFlow.Tasker.csproj">
+      <Project>{0662d91a-c79c-4fa6-af47-2817dbebd523}</Project>
+      <Name>DevFlow.Tasker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{6209F782-2912-4CD6-A208-6D363D1857AD}</Project>
       <Name>DevFlow.Windowbase</Name>

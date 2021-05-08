@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{60F138B3-8AE9-4B03-859C-9F7610F7CD8E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>DevFlow</RootNamespace>
-    <AssemblyName>DevFlow</AssemblyName>
+    <ProjectGuid>{0662D91A-C79C-4FA6-AF47-2817DBEBD523}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DevFlow.Tasker</RootNamespace>
+    <AssemblyName>DevFlow.Tasker</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -46,21 +50,29 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Local\Models\TaskProgramModel.cs" />
+    <Compile Include="ViewModels\TaskViewModel.cs" />
+    <Compile Include="Views\TaskView.xaml.cs">
+      <DependentUpon>TaskView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Local\WinApi\EnumWindows.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,49 +98,78 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="UIA">
+      <Guid>{930299CE-9965-4DEC-B0F4-A54848D4B667}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="UIAutomationBlockingCoreLib">
+      <Guid>{EA39B853-5769-4937-8ECE-736DE4F469BC}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="UIAutomationClient1">
+      <Guid>{944DE083-8FB8-45CF-BCB7-C477ACB2F897}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="UIAutomationClientPriv">
+      <Guid>{6271895B-E67F-4DEE-B68B-BF74ACE07753}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="UIAutomationCorePriv">
+      <Guid>{C68E3F27-AAD0-4DC4-B7E6-B3249770763D}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="UIAutomationCrossBitnessHookLib">
+      <Guid>{8ACC2016-04A3-4343-B8E1-1870E35D6A41}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\TaskView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
-      <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
+      <Project>{0255D82C-F129-4EE9-A405-90803FA9F365}</Project>
       <Name>DevFlow.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
-      <Project>{cd905000-6f7a-4cdd-87d8-39aac15ca77a}</Project>
-      <Name>DevFlow.Converter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
-      <Project>{d43c130a-07fa-45f5-9fa9-eefa3f87ea5e}</Project>
-      <Name>DevFlow.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.History\DevFlow.History.csproj">
-      <Project>{e1620ff7-4869-4bea-bc2c-edf7f9af281f}</Project>
-      <Name>DevFlow.History</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Main\DevFlow.Main.csproj">
-      <Project>{B678DAC7-0CF6-44A1-A074-6E319F62795D}</Project>
-      <Name>DevFlow.Main</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.QuickBar\DevFlow.QuickBar.csproj">
-      <Project>{a36037c3-5d6d-43dd-9948-ec9a057cc00d}</Project>
-      <Name>DevFlow.QuickBar</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
-      <Project>{bba355d5-3f53-4b26-82c2-5bc56d2d4a61}</Project>
-      <Name>DevFlow.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Tasker\DevFlow.Tasker.csproj">
-      <Project>{0662d91a-c79c-4fa6-af47-2817dbebd523}</Project>
-      <Name>DevFlow.Tasker</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{6209F782-2912-4CD6-A208-6D363D1857AD}</Project>
       <Name>DevFlow.Windowbase</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="ViewResourcePack.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
