@@ -66,7 +66,7 @@ namespace DevFlow.Tasker.Local.WinApi
             }
 
             // Tray icons
-            IUIAutomationElement windowElementTray = pUIAutomation.ElementFromHandle(hWndTrayNotify);
+            IUIAutomationElement windowElementTray = pUIAutomation.ElementFromHandle(hWndToolbar);
             if (windowElementTray != null)
             {
                 IUIAutomationElementArray elementArray = null;
@@ -86,7 +86,6 @@ namespace DevFlow.Tasker.Local.WinApi
                     }
                 }
             }
-
             return programs;
         }
     }

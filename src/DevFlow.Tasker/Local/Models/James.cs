@@ -6,35 +6,35 @@ using System.Threading.Tasks;
 
 namespace DevFlow.Tasker.Local.Models
 {
-    public interface IService
+public interface IService
+{
+    IService Create();
+    List<Service> Services { get; }
+}
+
+public class Service : IService
+{
+    private static IService Instance;
+
+    public static IService Get() => Instance;
+
+    static Service()
     {
-        IService Create();
-        List<Service> Services { get; }
+        Instance = new Service();
     }
 
-    public class Service : IService
+    private Service()
     {
-        private static IService Instance;
 
-        public static IService Get() => Instance;
-
-        static Service()
-        {
-            Instance = new Service();
-        }
-
-        private Service()
-        {
-
-        }
-
-        public List<Service> Services { get; private set; }
-
-        public IService Create()
-        {
-            Service service = new Service();
-            Services.Add(service);
-            return service;
-        }
     }
+
+    public List<Service> Services { get; private set; }
+
+    public IService Create()
+    {
+        Service service = new Service();
+        Services.Add(service);
+        return service;
+    }
+}
 }

@@ -1,5 +1,4 @@
 ﻿using DevFlow.Windowbase.Mvvm;
-using System.Web.Services.Description;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -16,7 +15,6 @@ namespace DevFlow.Main.ViewModels
         {
             Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
-            Service
         }
         #endregion
     }
