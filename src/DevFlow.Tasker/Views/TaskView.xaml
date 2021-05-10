@@ -4,7 +4,42 @@
           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
           xmlns:ctl="clr-namespace:DevFlow.Controls;assembly=DevFlow.Controls"
-          mc:Ignorable="d" Style="{StaticResource VIEW.WINDOW}">
+          mc:Ignorable="d" Style="{StaticResource VIEW.WINDOW}" Margin="10">
+    <ctl:View.Resources>
+
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border>
+                            <TextBlock Margin="10 4 10 4" Text="{Binding Name}" FontFamily="AppleSDGothicNeoM00"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <ScrollViewer>
+                        <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                            <StackPanel/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ctl:View.Resources>
     <Grid>
         <ListBox ItemsSource="{Binding Programs}" DisplayMemberPath="Name"/>
     </Grid>

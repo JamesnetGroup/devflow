@@ -11,7 +11,7 @@ namespace DevFlow.Tasker.ViewModels
 
         public TaskViewModel()
         {
-            Programs = EnumWindows.Instance.GetTaskPrograms();
+            Programs = EnumWindows.Instance.GetPrograms();
         }
     }
 }

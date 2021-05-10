@@ -27,7 +27,7 @@ namespace DevFlow.Tasker.Local.WinApi
             
         }
 
-        internal List<TaskProgramModel> GetTaskPrograms()
+        internal List<TaskProgramModel> GetPrograms()
         {
             List<TaskProgramModel> programs = new List<TaskProgramModel>();
 
@@ -43,7 +43,7 @@ namespace DevFlow.Tasker.Local.WinApi
             IUIAutomation pUIAutomation = new CUIAutomation();
 
             // Taskbar
-            IUIAutomationElement windowElement = pUIAutomation.ElementFromHandle(hWndMSTaskListWClass);
+            IUIAutomationElement windowElement = pUIAutomation.ElementFromHandle(hWndTray);
             if (windowElement != null)
             {
                 IUIAutomationElementArray elementArray = null;
@@ -57,6 +57,11 @@ namespace DevFlow.Tasker.Local.WinApi
                     {
                         IUIAutomationElement element = elementArray.GetElement(nItem);
                         string sName = element.CurrentName;
+
+                        if (sName == "")
+                        {
+                            continue;
+                        }
                         string sAutomationId = element.CurrentAutomationId;
                         tagRECT rect = element.CurrentBoundingRectangle;
                         Console.WriteLine("\tName : {0} - AutomationId : {1}  - Rect({2}, {3}, {4}, {5})", sName, sAutomationId, rect.left, rect.top, rect.right, rect.bottom);
