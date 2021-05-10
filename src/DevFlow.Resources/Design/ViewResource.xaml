@@ -3,17 +3,27 @@
                     xmlns:ctl="clr-namespace:DevFlow.Controls;assembly=DevFlow.Controls">
 
     <Style TargetType="{x:Type Border}" x:Key="TITLEBAR">
-        <Setter Property="Background" Value="#000000"/>
-        <Setter Property="BorderBrush" Value="#222222"/>
-        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="#1f1f1f"/>
+        <Setter Property="BorderThickness" Value="1 1 1 0"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Padding" Value="30 20 30 20"/>
+        <Setter Property="CornerRadius" Value="25 25 0 0"/>
+    </Style>
+    
+    <Style TargetType="{x:Type ctl:Icon}" x:Key="TITLEICON" BasedOn="{StaticResource ICON}">
+        <Setter Property="IconType" Value="Image"/>
+        <Setter Property="Fill" Value="#FFFFFF"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
     </Style>
     
     <Style TargetType="{x:Type TextBlock}" x:Key="HEADER">
         <Setter Property="Text" Value="History DevFlow"/>
-        <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="Margin" Value="4 10 20 10"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="AppleSDGothicNeoL00"/>
+        <Setter Property="Foreground" Value="#fafafa"/>
     </Style>
 
     <Style TargetType="{x:Type Button}" x:Key="MINIMIZE">
@@ -22,7 +32,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent">
-                        <ctl:Icon x:Name="icon" IconType="Minimize" Fill="#888888" Margin="10 10 0 10"/>
+                        <ctl:Icon x:Name="icon" IconType="Minimize" Fill="#33ffffff" Margin="15 0 0 0"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -40,7 +50,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent">
-                        <ctl:Icon x:Name="icon" IconType="Close" Fill="#888888" Margin="10"/>
+                        <ctl:Icon x:Name="icon" IconType="Close" Fill="#ccffffff" Margin="15 0 0 0"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -58,11 +68,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctl:View}">
-                    <Border Background="#333333" VerticalAlignment="Top">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="15" Direction="-90"
-                              RenderingBias="Quality" ShadowDepth="2"/>
-                        </Border.Effect>
+                    <Border Background="#f1151515" VerticalAlignment="Top" CornerRadius="15" Padding="0 0 0 30">
+                        <!--<Border.Effect>
+                            <DropShadowEffect BlurRadius="5" Direction="-90"
+                                              RenderingBias="Quality" ShadowDepth="0.5"/>
+                        </Border.Effect>-->
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -70,11 +80,12 @@
                             </Grid.RowDefinitions>
                             <Border Style="{StaticResource TITLEBAR}">
                                 <StackPanel Orientation="Horizontal">
-                                    <ctl:Icon IconType="Image" Fill="#FFFFFF" Margin="6"/>
+                                    <!--<ctl:Icon Style="{StaticResource TITLEICON}"/>-->
                                     <TextBlock Style="{StaticResource HEADER}"/>
                                 </StackPanel>
                             </Border>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Visibility="Visible"
+                                        Margin="30 0 20 0" VerticalAlignment="Center"> 
                                 <Button x:Name="PART_Minimize" Style="{StaticResource MINIMIZE}"/>
                                 <Button x:Name="PART_Close" Style="{StaticResource CLOSE}"/>
                             </StackPanel>

@@ -60,6 +60,8 @@ namespace DevFlow.Wallpaper.ViewModels
             {
                 grid.Children.Remove(obj);
             }
+
+            int.TryParse("", out int num);
         }
 
         #region . OnInitDesignTime .

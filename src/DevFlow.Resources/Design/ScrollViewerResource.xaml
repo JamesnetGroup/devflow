@@ -68,7 +68,7 @@
     <ControlTemplate x:Key="VerticalScrollBar"  TargetType="{x:Type ScrollBar}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Track  Name="PART_Track" IsDirectionReversed="true">
                 <Track.DecreaseRepeatButton>

@@ -19,47 +19,57 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border Margin="0" Padding="14 10 10 10" >
-                        <StackPanel x:Name="header" Background="#111111">
-                            <Grid Margin="4 0 4 0">
-                                <StackPanel Orientation="Horizontal">
-                                    <ctl:Icon x:Name="image" IconType="Image" Fill="#33ffffff" Width="15" Height="15" Margin="6 7 6 5"/>
-                                    <TextBlock x:Name="index" Text="{Binding Index, StringFormat={}{0:N0}}" 
-                                    Foreground="#ffffff" Margin="0 0 4 0" VerticalAlignment="Center"/>
-                 
-                                </StackPanel>
-                                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
 
-                                    <ctl:Icon x:Name="calendar" IconType="CalendarMonth" Fill="#33ffffff" Width="15" Height="15" Margin="6 8 6 5"/>
+                    <StackPanel>
+                        <Border Margin="2 10 2 5"  CornerRadius="4" x:Name="header" Background="Transparent">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="5" Direction="-90"
+                                              RenderingBias="Quality" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel  >
+                                <Grid>
+                                    <Border Width="120" Height="67.5" CornerRadius="4"
+                                    Margin="6" Opacity="1" x:Name="thumbnail">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding Image}"/>
+                                        </Border.Background>
+                                    </Border>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal"
+                                        Visibility="Collapsed">
+
+                                        <ctl:Icon x:Name="image" IconType="Image" Fill="#33ffffff" Width="15" Height="15" Margin="6 7 6 5"/>
+                                        <TextBlock x:Name="index" Text="{Binding Index, StringFormat={}{0:N0}}" 
+                                    Foreground="#ffffff" Margin="0 0 4 0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <StackPanel x:Name="info" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                                    <ctl:Icon x:Name="calendar" IconType="CalendarMonth" Fill="#33ffffff" Width="15" Height="15" Margin="6 0 6 15"
+                                              Visibility="Collapsed"/>
                                     <TextBlock x:Name="date" Text="{Binding Created, StringFormat={}{0:yyyy-MM-dd}}" 
-                                               Foreground="#33ffffff" Margin="0 6 6 6"/>
+                                               FontFamily="AppleSDGothicNeoM00" FontSize="14" 
+                                               Foreground="#77ffffff" Margin="0 0 0 8"/>
                                 </StackPanel>
-                            </Grid>
-                            <Border CornerRadius="0" Width="160" Height="90"
-                                    Margin="8 4 8 8" Opacity="0.5" x:Name="thumbnail">
-                                <Border.Background>
-                                    <ImageBrush ImageSource="{Binding Image}"/>
-                                </Border.Background>
-                            </Border>
-          
-                        </StackPanel>
-                    </Border>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="index" Property="Foreground" Value="#ffffff"/>
                             <Setter TargetName="date" Property="Foreground" Value="#ffffff"/>
                             <Setter TargetName="image" Property="Fill" Value="#ffffff"/>
                             <Setter TargetName="calendar" Property="Fill" Value="#ffffff"/>
-                            <Setter TargetName="header" Property="Background" Value="#55104b93"/>
-                            <Setter TargetName="thumbnail" Property="Opacity" Value="0.6"/>
+                            <Setter TargetName="header" Property="Background" Value="#4c4c4c"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="index" Property="Foreground" Value="#ffffff"/>
                             <Setter TargetName="date" Property="Foreground" Value="#ffffff"/>
                             <Setter TargetName="image" Property="Fill" Value="#ffffff"/>
                             <Setter TargetName="calendar" Property="Fill" Value="#ffffff"/>
-                            <Setter TargetName="header" Property="Background" Value="#104b93"/>
+                            <Setter TargetName="header" Property="Background" Value="#c8a86b"/>
                             <Setter TargetName="thumbnail" Property="Opacity" Value="1"/>
+                            <Setter TargetName="info" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -68,6 +78,7 @@
     </Style>
     
     <Style TargetType="{x:Type ListBox}" x:Key="LBX.HISTORY">
+        <Setter Property="Margin" Value="25 10 25 10"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="ItemsSource" Value="{Binding Histories}"/>
@@ -76,10 +87,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="2">
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden">
                         <ItemsPresenter/>
                     </ScrollViewer>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
     </Style>
@@ -88,18 +106,26 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContentControl}">
-                    <Border Background="#151515" Height="675">
+                    <Border Background="Transparent" Height="500"  Width="800">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Border Grid.Row="0" CornerRadius="5" Margin="30 0 30 0">
+                                <Border.Effect>
+                            <DropShadowEffect BlurRadius="5" Direction="-90"
+                                              RenderingBias="Quality" ShadowDepth="0.5"/>
+                        </Border.Effect>
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding CurrentImage.PreviewImage}" RenderOptions.BitmapScalingMode="HighQuality">
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
 
-                            <ListBox Style="{StaticResource LBX.HISTORY}"/>
-                            <Image Grid.Column="1" Source="{Binding CurrentImage.PreviewImage}" Stretch="Fill" Width="1200" Margin="0"/>
+                            <ListBox Grid.Row="1" Style="{StaticResource LBX.HISTORY}"/>
 
-                            <Border Background="#111111" Height="26" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Margin="0" BorderThickness="0 1 0 0"
-                                    BorderBrush="#252525"/>
                         </Grid>
                     </Border>
                 </ControlTemplate>
