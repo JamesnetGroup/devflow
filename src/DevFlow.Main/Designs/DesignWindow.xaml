@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:DevFlow.Main.Views"
-        Style="{StaticResource MAINVIEW}"
+        Style="{StaticResource MAINVIEW2}"
         mc:Ignorable="d">
     <views:MainView.Resources>
         <ResourceDictionary Source="/DevFlow.Main;component/Themes/Generic.xaml"/>

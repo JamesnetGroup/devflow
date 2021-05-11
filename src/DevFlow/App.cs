@@ -27,6 +27,7 @@ namespace DevFlow
                 main.ShowDialog();
                 dialogResult = (bool)main.DialogResult;
             }
+            Environment.Exit(0);
         }
     }
 }

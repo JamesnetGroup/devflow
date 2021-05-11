@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevFlow.Main.ViewModels
+﻿namespace DevFlow.Main.ViewModels
 {
-    class MainViewModel
+    public class MainViewModel
     {
+        #region Wallpaper
+
+        public string Wallpaper { get; set; }
+        #endregion
+
+        #region Constructor
+
+        public MainViewModel()
+        {
+            Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
+        }
+        #endregion
     }
 }

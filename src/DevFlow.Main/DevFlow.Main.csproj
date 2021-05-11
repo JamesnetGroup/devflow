@@ -85,5 +85,19 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
+      <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
+      <Name>DevFlow.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
+      <Project>{049fb84c-5047-416b-b1a2-ebf2a02f0cdb}</Project>
+      <Name>DevFlow.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
+      <Project>{3d2aab15-663d-4ef4-b80e-0afeca05c910}</Project>
+      <Name>DevFlow.Windowbase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
