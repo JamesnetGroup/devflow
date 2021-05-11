@@ -66,6 +66,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Designs\DesignWindow.xaml.cs">
+      <DependentUpon>DesignWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevFlowWindow.cs" />
     <Compile Include="Local\ThemeManager.cs" />
     <Compile Include="DevFlowApp.cs" />
@@ -120,6 +123,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Designs\DesignWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

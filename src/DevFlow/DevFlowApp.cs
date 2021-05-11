@@ -19,7 +19,7 @@ namespace DevFlow
             InitializeTheme();
 
             bool dialogResult = true;
-            DevFlowWindow mainWin;
+            MainView mainWin;
 
             //ResourceMerger.Initialize();
 
@@ -27,7 +27,7 @@ namespace DevFlow
             {
 
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
-                mainWin = new DevFlowWindow();
+                mainWin = new MainView();
                 mainWin.ShowDialog();
                 dialogResult = (bool)mainWin.DialogResult;
             }

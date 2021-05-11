@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace DevFlow.Main.Views
 {
-    public class MainView : UserControl
+    public class MainView : Window
     {
         static MainView()
         {
