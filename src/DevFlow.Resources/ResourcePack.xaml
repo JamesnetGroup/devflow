@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DevFlow.Resources">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/DevFlow.Resources;component/Theme/Black.xaml"/>
-        <ResourceDictionary Source="/DevFlow.Resources;component/Geometry/GeometryPack.xaml"/>
+        <!--<ResourceDictionary Source="/DevFlow.Resources;component/Theme/Black.xaml"/>
+        <ResourceDictionary Source="/DevFlow.Resources;component/Geometry/GeometryPack.xaml"/>-->
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

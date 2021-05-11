@@ -61,6 +61,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Local\ThemeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

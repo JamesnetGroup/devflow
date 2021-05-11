@@ -46,6 +46,7 @@
     <Compile Include="QuickMenuModel.cs" />
     <Compile Include="HistoryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theme\ThemeType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">

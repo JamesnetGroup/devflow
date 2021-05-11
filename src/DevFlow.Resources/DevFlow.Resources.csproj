@@ -82,11 +82,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Theme\Black.xaml">
+    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Theme\White.xaml">
+    <Page Include="Themes\Generic.Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.White.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +130,10 @@
       <Project>{0255d82c-f129-4ee9-a405-90803fa9f365}</Project>
       <Name>DevFlow.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.PresentationSupport\DevFlow.PresentationSupport.csproj">
+      <Project>{290f890e-9c56-40a1-9e79-bbe3be400cd8}</Project>
+      <Name>DevFlow.PresentationSupport</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{6209f782-2912-4cd6-a208-6d363d1857ad}</Project>
       <Name>DevFlow.Windowbase</Name>
@@ -148,6 +156,10 @@
     <Resource Include="Images\wallpaper-08.jpg" />
     <Resource Include="Images\wallpaper-09.JPG" />
     <Resource Include="Images\wallpaper-10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Themes\VIews\" />
+    <Folder Include="Themes\Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

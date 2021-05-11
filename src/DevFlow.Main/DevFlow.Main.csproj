@@ -55,10 +55,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Design\DesignerMainWindow.xaml.cs">
+      <DependentUpon>DesignerMainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainViewModel.cs" />
+    <Compile Include="Views\MainWindow.cs" />
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,13 +68,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Design\MainResource.xaml">
+    <Page Include="Design\DesignerMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -128,5 +129,6 @@
       <Name>DevFlow.Windowbase</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
