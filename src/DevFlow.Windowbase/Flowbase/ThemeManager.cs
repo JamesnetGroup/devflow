@@ -7,32 +7,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DevFlow.Local
+namespace DevFlow.Windowbase.Flowbase
 {
-    internal class ThemeManager
+    public class ThemeManager
     {
-        private DevFlowApp App;
+        private Appbase App;
         private Collection<ResourceDictionary> Themes;
 
-        internal static ThemeManager Create(DevFlowApp app)
-        {
-            ThemeManager theme = new(app);
-            theme.Switch(ThemeType.Dark);
-            return theme;
-        }
-
+        private Dictionary<ThemeType, ResourceDictionary> CustomThemes;
         private ResourceDictionary DarkThemeResource;
         private ResourceDictionary WhiteThemeResource;
 
         private ResourceDictionary CurrentTheme;
 
-        private ThemeManager(DevFlowApp app)
+        internal ThemeManager(Appbase app)
         {
             App = app;
             Themes = App.Resources.MergedDictionaries;
-
-            DarkThemeResource = new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Generic.Dark.xaml", UriKind.RelativeOrAbsolute) };
-            WhiteThemeResource = new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Generic.White.xaml", UriKind.RelativeOrAbsolute) };
         }
 
         internal void Switch(ThemeType theme)
@@ -49,6 +40,17 @@ namespace DevFlow.Local
             }
 
             Themes.Add(CurrentTheme);
+        }
+
+        public void Add(ThemeType type, string source, UriKind kind)
+        {
+            ResourceDictionary resource = new ResourceDictionary { Source = new Uri(source, kind) };
+            CustomThemes.Add(type, resource);
+        }
+
+        public void Add(ThemeType type, string source)
+        {
+            Add(type, source, UriKind.RelativeOrAbsolute);
         }
     }
 }

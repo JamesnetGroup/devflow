@@ -1,44 +1,33 @@
-﻿using DevFlow.Data.Theme;
-using DevFlow.Local;
-using DevFlow.Main.Views;
-using System;
+﻿using System;
 using System.Windows;
-using DevFlow;
+using DevFlow.Local;
+using DevFlow.Data.Theme;
+using DevFlow.Main.Views;
+using DevFlow.Windowbase.Flowbase;
 
 namespace DevFlow
 {
-
-    public class DevFlowApp : Application
+    public class DevFlowApp : Appbase
     {
-        private ThemeManager _themeManager;
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            InitializeTheme();
-
             bool dialogResult = true;
-            MainView mainWin;
-
-            //ResourceMerger.Initialize();
 
             while (dialogResult)
             {
-
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
-                mainWin = new MainView();
-                mainWin.ShowDialog();
-                dialogResult = (bool)mainWin.DialogResult;
+                main = new MainView();
+                main.ShowDialog();
+                dialogResult = (bool)main.DialogResult;
             }
-
             Environment.Exit(0);
         }
 
-        private void InitializeTheme()
+        protected override void OnApplyThemeManager()
         {
-            _themeManager = new ThemeManager(this);
-            _themeManager.Switch(ThemeType.Dark);
+            Theme.Add(ThemeType.Dark, "/DevFlow.Resources;component/Themes/Generic.Dark.xaml");
+            Theme.Add(ThemeType.White, "/DevFlow.Resources;component/Themes/Generic.Dark.xaml");
         }
     }
 }

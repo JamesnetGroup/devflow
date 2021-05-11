@@ -29,6 +29,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,7 +70,6 @@
     <Compile Include="Designs\DesignWindow.xaml.cs">
       <DependentUpon>DesignWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DevFlowWindow.cs" />
     <Compile Include="Local\ThemeManager.cs" />
     <Compile Include="DevFlowApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
