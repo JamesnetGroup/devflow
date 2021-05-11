@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFlow
 {
@@ -11,7 +7,7 @@ namespace DevFlow
         [STAThread]
         public static void Main(string[] args)
         {
-            new DevFlowApp().Run();
+            new App().Run();
         }
 
     }

@@ -11,10 +11,10 @@ namespace DevFlow.Local
 {
     internal class ThemeManager
     {
-        private DevFlowApp App;
+        private App App;
         private Collection<ResourceDictionary> Themes;
 
-        internal static ThemeManager Create(DevFlowApp app)
+        internal static ThemeManager Create(App app)
         {
             ThemeManager theme = new(app);
             theme.Switch(ThemeType.Dark);
@@ -26,7 +26,7 @@ namespace DevFlow.Local
 
         private ResourceDictionary CurrentTheme;
 
-        private ThemeManager(DevFlowApp app)
+        private ThemeManager(App app)
         {
             App = app;
             Themes = App.Resources.MergedDictionaries;
