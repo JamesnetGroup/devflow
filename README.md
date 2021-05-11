@@ -31,3 +31,36 @@ You can always share information with us and we are looking forward to it.
 ...
 
 ...
+
+
+## Application
+
+```csharp
+namespace DevFlow
+{
+    public class App : FlowApp
+    {
+        protected override ThemeType OnSetDefaultTheme(ThemeType type) => ThemeType.Dark;
+
+        protected override void OnApplyThemeManager()
+        {
+            AddTheme(ThemeType.Dark, "Generic.Dark.xaml");
+            AddTheme(ThemeType.White, "Generic.White.xaml");
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            bool dialogResult = true;
+
+            while (dialogResult)
+            {
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                main = new MainView();
+                main.ShowDialog();
+                dialogResult = (bool)main.DialogResult;
+            }
+            Environment.Exit(0);
+        }
+    }
+}
+```
