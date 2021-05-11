@@ -17,7 +17,7 @@ using System.Windows;
 [assembly: AssemblyCulture("")]
 
 // ComVisible을 false로 설정하면 이 어셈블리의 형식이 COM 구성 요소에 
-// 표시되지 않습니다. COM에서 이 어셈블리의 형식에 액세스하려면
+// 표시되지 않습니다.  COM에서 이 어셈블리의 형식에 액세스하려면 
 // 해당 형식에 대해 ComVisible 특성을 true로 설정하세요.
 [assembly: ComVisible(false)]
 
@@ -31,13 +31,13 @@ using System.Windows;
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
 
-[assembly: ThemeInfo(
+[assembly:ThemeInfo(
     ResourceDictionaryLocation.None, //테마별 리소스 사전의 위치
-                                     //(페이지 또는 응용 프로그램 리소스 사진에
-                                     // 리소스가 없는 경우에 사용됨)
+                             //(페이지 또는 응용 프로그램 리소스 사진에
+                             // 리소스가 없는 경우에 사용됨)
     ResourceDictionaryLocation.SourceAssembly //제네릭 리소스 사전의 위치
-                                              //(페이지 또는 응용 프로그램 리소스 사진에
-                                              // 리소스가 없는 경우에 사용됨)
+                                      //(페이지 또는 응용 프로그램 리소스 사진에
+                                      // 리소스가 없는 경우에 사용됨)
 )]
 
 

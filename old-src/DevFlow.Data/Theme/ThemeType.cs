@@ -8,7 +8,7 @@ namespace DevFlow.Data.Theme
 {
     public enum ThemeType
     {
-        Dark,
-        White
+        White,
+        Dark
     }
 }

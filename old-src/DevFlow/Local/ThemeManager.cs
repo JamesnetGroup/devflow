@@ -11,14 +11,14 @@ namespace DevFlow.Local
 {
     internal class ThemeManager
     {
-        private DevFlowApp App;
+        private App App;
         private Collection<ResourceDictionary> Themes;
         private ResourceDictionary DarkThemeResource;
         private ResourceDictionary WhiteThemeResource;
 
         private ResourceDictionary CurrentTheme;
 
-        internal ThemeManager(DevFlowApp app)
+        internal ThemeManager(App app)
         {
             App = app;
             Themes = App.Resources.MergedDictionaries;
@@ -29,14 +29,14 @@ namespace DevFlow.Local
 
         internal void Switch(ThemeType theme)
         {
-            if (Themes.Contains(CurrentTheme))
+            if (Themes.Contains(CurrentTheme)) 
             {
                 Themes.Remove(CurrentTheme);
             }
 
             switch (theme)
             {
-                case ThemeType.Dark: CurrentTheme = DarkThemeResource; break;
+                case ThemeType.Dark: CurrentTheme = DarkThemeResource;break;
                 case ThemeType.White: CurrentTheme = WhiteThemeResource; break;
             }
 

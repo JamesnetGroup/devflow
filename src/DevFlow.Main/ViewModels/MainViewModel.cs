@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFlow.Data.Theme
+namespace DevFlow.Main.ViewModels
 {
-    public enum ThemeType
+    class MainViewModel
     {
-        Dark,
-        White
     }
 }
