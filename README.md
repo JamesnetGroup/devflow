@@ -36,6 +36,12 @@ You can always share information with us and we are looking forward to it.
 ## Application
 
 ```csharp
+using System;
+using System.Windows;
+using DevFlow.Data.Theme;
+using DevFlow.Main.Views;
+using DevFlow.Windowbase.Flowbase;
+
 namespace DevFlow
 {
     public class App : FlowApp
