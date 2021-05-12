@@ -29,7 +29,7 @@ namespace DevFlow.Menus.Views
 
         public MenuBox()
         {
-            DataContext = new MenuBoxViewModel();
+            DataContext = new MenuViewModel();
 			Loaded += MenuBox_Loaded;
         }
 

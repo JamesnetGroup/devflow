@@ -25,6 +25,7 @@ namespace DevFlow.Windowbase.Flowbase
         internal void SetDefault(ThemeType theme)
         {
             CurrentTheme = CustomThemes[theme];
+            Switch(theme);
         }
 
         public void Switch(ThemeType theme)

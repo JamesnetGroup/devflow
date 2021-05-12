@@ -17,11 +17,8 @@ namespace DevFlow
         }
 
         protected override void OnStartup(StartupEventArgs e)
-        {
+        {   
             bool dialogResult = true;
-
-
-            Theme.Switch(ThemeType.Dark);
 
             while (dialogResult)
             {
