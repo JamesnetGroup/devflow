@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFlow.Windowbase
+namespace DevFlow.LayoutSupport
 {
     public class Class1
     {

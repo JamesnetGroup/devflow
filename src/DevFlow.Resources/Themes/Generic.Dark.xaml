@@ -21,12 +21,10 @@
 
     <Storyboard x:Key="SB.WIN.IN">
 		<DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="1" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
-		<ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#FF666666" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
     </Storyboard>
 
     <Storyboard x:Key="SB.WIN.OUT">
         <DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="0" Duration="0:0:0.1" BeginTime="0" AutoReverse="False"/>
-        <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#FF333333" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
     </Storyboard>
     
 </ResourceDictionary>

@@ -60,8 +60,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\FlowIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\FlowIcon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,5 +101,20 @@
     <Resource Include="Images\wallpaper-09.JPG" />
     <Resource Include="Images\wallpaper-10.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
+      <Project>{d77874a6-4c26-4ce5-b3fe-4de1e067e5a8}</Project>
+      <Name>DevFlow.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
+      <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
+      <Name>DevFlow.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
+      <Project>{3d2aab15-663d-4ef4-b80e-0afeca05c910}</Project>
+      <Name>DevFlow.Windowbase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

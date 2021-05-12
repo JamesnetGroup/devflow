@@ -99,6 +99,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
+      <Project>{d77874a6-4c26-4ce5-b3fe-4de1e067e5a8}</Project>
+      <Name>DevFlow.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
       <Project>{4F92EC03-384B-4463-8AFC-099C7FB9941C}</Project>
       <Name>DevFlow.Data</Name>
@@ -106,6 +110,10 @@
     <ProjectReference Include="..\DevFlow.Main\DevFlow.Main.csproj">
       <Project>{297D9764-31CC-49FE-AB28-B34774C7F540}</Project>
       <Name>DevFlow.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Menus\DevFlow.Menus.csproj">
+      <Project>{0429b120-7e7c-4c1e-b119-9ad905398d0e}</Project>
+      <Name>DevFlow.Menus</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
       <Project>{049fb84c-5047-416b-b1a2-ebf2a02f0cdb}</Project>

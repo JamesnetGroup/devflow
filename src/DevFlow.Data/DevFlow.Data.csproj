@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu\MenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Theme\ThemeType.cs" />
+    <Compile Include="Enums\GeometryIconStyle.cs" />
+    <Compile Include="Enums\ThemeType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

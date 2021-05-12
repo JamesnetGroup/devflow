@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFlow.Data.Theme
+namespace DevFlow.Data
 {
     public enum ThemeType
     {

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DevFlow.Data.Theme;
+using DevFlow.Data;
 
 namespace DevFlow.Windowbase.Flowbase
 {
@@ -27,7 +27,7 @@ namespace DevFlow.Windowbase.Flowbase
             CurrentTheme = CustomThemes[theme];
         }
 
-        internal void Switch(ThemeType theme)
+        public void Switch(ThemeType theme)
         {
             if (Themes.Contains(CurrentTheme))
             {
