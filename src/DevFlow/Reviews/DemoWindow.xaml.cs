@@ -5,9 +5,9 @@ namespace DevFlow.Designs
     /// <summary>
     /// DesignWindow.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class DesignWindow : MainView
+    public partial class DemoWindow : MainView
     {
-        public DesignWindow()
+        public DemoWindow()
         {
             InitializeComponent();
         }

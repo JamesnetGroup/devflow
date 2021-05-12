@@ -15,12 +15,9 @@ using System.Windows.Shapes;
 
 namespace DevFlow.Main.Designs
 {
-    /// <summary>
-    /// DesignWindow.xaml에 대한 상호 작용 논리
-    /// </summary>
-    public partial class DesignWindow : MainView
+    public partial class DemoMainWindow : MainView
     {
-        public DesignWindow()
+        public DemoMainWindow()
         {
             InitializeComponent();
         }

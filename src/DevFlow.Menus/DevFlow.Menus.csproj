@@ -48,7 +48,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Designs\PreviewMenuBox.xaml">
+    <Page Include="Reviews\DemoMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -58,8 +58,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Designs\PreviewMenuBox.xaml.cs">
-      <DependentUpon>PreviewMenuBox.xaml</DependentUpon>
+    <Compile Include="Reviews\DemoMenu.xaml.cs">
+      <DependentUpon>DemoMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
