@@ -74,5 +74,4 @@
 
 
 <Style TargetType="{x:Type views:MainView}" BasedOn="{StaticResource MAINVIEW}"/>
-    
 </ResourceDictionary>

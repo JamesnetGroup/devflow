@@ -8,13 +8,16 @@ namespace DevFlow.Main.ViewModels
         #region Wallpaper
 
         public string Wallpaper { get; set; }
-        #endregion
+		#endregion
 
+		#region Menu
+		
         public MenuBoxViewModel Menu { get; set; }
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public MainViewModel()
+		public MainViewModel()
         {
             Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
             Menu = new MenuBoxViewModel();
