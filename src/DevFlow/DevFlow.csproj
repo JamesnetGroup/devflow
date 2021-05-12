@@ -71,7 +71,6 @@
     <Compile Include="Designs\DesignWindow.xaml.cs">
       <DependentUpon>DesignWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Local\ThemeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -141,6 +140,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Local\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,7 +23,12 @@
         <Setter Property="IsHitTestVisible" Value="False"/>
     </Style>
 
-    <Style TargetType="{x:Type views:MainView}" x:Key="MAINVIEW">
+
+	<Style TargetType="{x:Type views:MainView}" x:Key="MAINVIEW11">
+	</Style>
+
+
+	<Style TargetType="{x:Type views:MainView}" x:Key="MAINVIEW">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
@@ -51,7 +56,6 @@
                         <Rectangle x:Name="film" Style="{StaticResource FILM}"/>
                         <Border x:Name="border" Style="{StaticResource BORDER}"/>
 						<menus:MenuBox x:Name="quickbar"/>
-						<ctl:FlowIcon IconType="Image" Width="24" Height="24" Fill="Blue"/>
 					</Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding ElementName=quickbar, Path=IsMouseOver}" Value="True">

@@ -67,22 +67,39 @@
 		</Setter>
 	</Style>
 
-
-	<Style TargetType="{x:Type views:MenuBox}">
-		<Setter Property="MouseDownCommand" Value="{Binding DragWindowCommand}"/>
+	<Style TargetType="{x:Type ListBox}" x:Key="LBX">
 		<Setter Property="ItemsSource" Value="{Binding Menus}"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.MENU}"/>
 		<Setter Property="Template">
 			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<ItemsPresenter/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<StackPanel Orientation="Horizontal"/>
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="{x:Type views:MenuBox}">
+		<Setter Property="MouseDownCommand" Value="{Binding DragWindowCommand}"/>
+		<Setter Property="Template">
+			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:MenuBox}">
-					<Grid x:Name="grid" Background="Transparent" VerticalAlignment="Top">
+					<Grid x:Name="grid" Background="#FFFFFF" VerticalAlignment="Top">
 						<Border Style="{StaticResource BORDER}">
-							<ItemsPresenter/>
+							<ListBox Style="{StaticResource LBX}"/>
 						</Border>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<DataTrigger Binding="{Binding IsDesignTimeMode}" Value="False">
 							<Setter TargetName="grid" Property="Opacity" Value="0"/>
+							<Setter TargetName="grid" Property="Background" Value="Transparent"/>
 						</DataTrigger>
 						<Trigger Property="IsMouseOver" Value="True">
 							<Trigger.EnterActions>
@@ -94,13 +111,6 @@
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-		<Setter Property="ItemsPanel">
-			<Setter.Value>
-				<ItemsPanelTemplate>
-					<StackPanel Orientation="Horizontal"/>
-				</ItemsPanelTemplate>
 			</Setter.Value>
 		</Setter>
 	</Style>

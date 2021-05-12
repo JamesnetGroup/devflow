@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace DevFlow.Menus.Views
 {
-	public class MenuBox : ListBox
+	public class MenuBox : Control
     {
         #region DependencyProperty
 

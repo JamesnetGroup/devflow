@@ -5,9 +5,13 @@
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                xmlns:main="clr-namespace:DevFlow.Main.Views;assembly=DevFlow.Main"
                mc:Ignorable="d"        
-			   Style="{StaticResource MAINVIEW}">
+			   Style="{DynamicResource MAINVIEW}">
 	<main:MainView.Resources>
-        <ResourceDictionary Source="/DevFlow.Main;component/Themes/Generic.xaml"/>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/DevFlow.Main;component/Themes/Generic.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
     </main:MainView.Resources>
     <Grid>
         
