@@ -1,4 +1,5 @@
-﻿using DevFlow.Menus.ViewModels;
+﻿using DevFlow.Data.Menu;
+using DevFlow.Menus.ViewModels;
 using DevFlow.Windowbase.Mvvm;
 
 namespace DevFlow.Main.ViewModels
@@ -8,20 +9,26 @@ namespace DevFlow.Main.ViewModels
         #region Wallpaper
 
         public string Wallpaper { get; set; }
-		#endregion
+        #endregion
 
-		#region Menu
-		
+        #region Menu
+
         public MenuBoxViewModel Menu { get; set; }
-		#endregion
+        #endregion
 
-		#region Constructor
+        #region Constructor
 
-		public MainViewModel()
+        public MainViewModel()
         {
             Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
-            Menu = new MenuBoxViewModel();
+            Menu = new MenuBoxViewModel(MenuSelected);
+
         }
         #endregion
+
+        private void MenuSelected(MenuModel menu)
+        { 
+        
+        }
     }
 }

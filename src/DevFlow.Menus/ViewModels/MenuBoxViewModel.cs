@@ -1,13 +1,14 @@
-﻿using DevFlow.Data;
-using DevFlow.Data.Menu;
-using DevFlow.Windowbase.Mvvm;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
+using DevFlow.Data;
+using DevFlow.Data.Menu;
+using DevFlow.Windowbase.Mvvm;
 
 namespace DevFlow.Menus.ViewModels
 {
-	public class MenuBoxViewModel : ObservableObject
+    public class MenuBoxViewModel : ObservableObject
     {
         #region Commands 
 
@@ -19,12 +20,17 @@ namespace DevFlow.Menus.ViewModels
         public List<MenuModel> Menus { get; set; }
         #endregion
 
-        #region Constructor 
+        #region Constructors
 
         public MenuBoxViewModel()
         {
             DragWindowCommand = new RelayCommand<MouseEventArgs>(DragWindow);
             Menus = GetMenus();
+        }
+
+        public MenuBoxViewModel(Action<MenuModel> menuSelected) : this()
+        {
+            Menus.ForEach(x => x.MenuClickCommand = new RelayCommand<MenuModel>(menuSelected));
         }
         #endregion
 

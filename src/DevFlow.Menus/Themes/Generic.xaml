@@ -29,8 +29,10 @@
 		<Setter Property="Padding" Value="0 0 0 0"/>
 	</Style>
 
-	<Style TargetType="{x:Type Button}" x:Key="BUTTON">
-		<Setter Property="Template">
+    <Style TargetType="{x:Type Button}" x:Key="BUTTON">
+        <Setter Property="Command" Value="{Binding MenuClickCommand}"/>
+        <Setter Property="CommandParameter" Value="{Binding}"/>
+        <Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
 					<Border x:Name="border" Background="Transparent">
@@ -55,7 +57,7 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.MENU">
+    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI">
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -69,8 +71,8 @@
 
 	<Style TargetType="{x:Type ListBox}" x:Key="LBX">
 		<Setter Property="ItemsSource" Value="{Binding Menus}"/>
-		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.MENU}"/>
-		<Setter Property="Template">
+		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
+        <Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBox}">
 					<ItemsPresenter/>

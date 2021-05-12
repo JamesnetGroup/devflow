@@ -4,5 +4,6 @@
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                xmlns:views="clr-namespace:DevFlow.Menus.Views"
+               xmlns:vm="clr-namespace:DevFlow.Menus.ViewModels"
                mc:Ignorable="d">
 </views:MenuBox>

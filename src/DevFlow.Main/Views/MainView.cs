@@ -18,8 +18,6 @@ namespace DevFlow.Main.Views
 		protected override void OnDesignerMode()
 		{
             DataContext = new MainViewModel();
-            Width = 3840;
-            Height = 2160;
         }
 	}
 }
