@@ -55,7 +55,7 @@
                         </Grid>-->
                         <Rectangle x:Name="film" Style="{StaticResource FILM}"/>
                         <Border x:Name="border" Style="{StaticResource BORDER}"/>
-						<menus:MenuBox x:Name="quickbar"/>
+						<menus:MenuBox x:Name="quickbar" DataContext="{Binding Menu}"/>
 					</Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding ElementName=quickbar, Path=IsMouseOver}" Value="True">

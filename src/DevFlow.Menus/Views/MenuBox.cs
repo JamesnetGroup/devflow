@@ -13,18 +13,13 @@ namespace DevFlow.Menus.Views
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(MenuBox), new FrameworkPropertyMetadata(typeof(MenuBox)));
 		}
 
-        public MenuBox()
-        {
-            DataContext = new MenuBoxViewModel();
-			Loaded += MenuBox_Loaded;
-        }
+		public MenuBox()
+		{ 
+		}
 
-		private void MenuBox_Loaded(object sender, RoutedEventArgs e)
+		protected override void OnDesignMode()
 		{
-            if (DataContext is ObservableObject vm)
-            {
-                vm.ViewRegister(this);
-            }
-        }
+			DataContext = new MenuBoxViewModel();
+		}
 	}
 }
