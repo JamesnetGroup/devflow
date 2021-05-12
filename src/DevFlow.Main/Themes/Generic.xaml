@@ -9,7 +9,7 @@
 
     <Style TargetType="{x:Type Rectangle}" x:Key="FILM">
         <Setter Property="Opacity" Value="0"/>
-        <!--<Setter Property="Fill" Value="{DynamicResource BRUSH.BG.SHADOW}"/>-->
+        <Setter Property="Fill" Value="{DynamicResource BRUSH.BG.SHADOW}"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
     </Style>
 
@@ -19,7 +19,7 @@
 
     <Style TargetType="{x:Type Border}" x:Key="BORDER">
         <Setter Property="BorderThickness" Value="0"/>
-        <!--<Setter Property="BorderBrush" Value="{DynamicResource BRUSH.BD.WIN.I}"/>-->
+        <Setter Property="BorderBrush" Value="{DynamicResource BRUSH.BD.WIN.I}"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
     </Style>
 
