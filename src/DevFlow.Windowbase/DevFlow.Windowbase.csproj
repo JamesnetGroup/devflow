@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Flowbase\FlowApp.cs" />
     <Compile Include="Flowbase\FlowTheme.cs" />
+    <Compile Include="Flowbase\FlowView.cs" />
     <Compile Include="Mvvm\ObservableObject.cs" />
     <Compile Include="Mvvm\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

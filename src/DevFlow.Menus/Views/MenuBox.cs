@@ -1,27 +1,13 @@
-﻿using DevFlow.Menus.ViewModels;
+﻿using DevFlow.LayoutSupport;
+using DevFlow.Menus.ViewModels;
 using DevFlow.Windowbase.Mvvm;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace DevFlow.Menus.Views
 {
-	public class MenuBox : Control
+	public class MenuBox : Widget
     {
-        #region DependencyProperty
-
-        public static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.Register("MouseDownCommand", typeof(ICommand), typeof(MenuBox));
-        #endregion
-
-        #region MouseDownCommand
-
-        public ICommand MouseDownCommand
-        {
-            get { return (ICommand)this.GetValue(MouseDownCommandProperty); }
-            set { this.SetValue(MouseDownCommandProperty, value); }
-        }
-        #endregion
-
         static MenuBox()
 		{
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(MenuBox), new FrameworkPropertyMetadata(typeof(MenuBox)));
@@ -29,7 +15,7 @@ namespace DevFlow.Menus.Views
 
         public MenuBox()
         {
-            DataContext = new MenuViewModel();
+            DataContext = new MenuBoxViewModel();
 			Loaded += MenuBox_Loaded;
         }
 
