@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using DevFlow.Data;
+using DevFlow.Main.ViewModels;
 using DevFlow.Main.Views;
 using DevFlow.Windowbase.Flowbase;
 
@@ -19,11 +20,13 @@ namespace DevFlow
         protected override void OnStartup(StartupEventArgs e)
         {   
             bool dialogResult = true;
+            MainViewModel viewModel = new MainViewModel();
 
             while (dialogResult)
             {
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
                 main = new MainView();
+                main.DataContext = viewModel;
                 main.ShowDialog();
                 dialogResult = (bool)main.DialogResult;
             }

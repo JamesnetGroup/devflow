@@ -1,9 +1,10 @@
 ﻿using System.Windows;
+using DevFlow.LayoutSupport;
 using DevFlow.Main.ViewModels;
 
 namespace DevFlow.Main.Views
 {
-    public class MainView : Window
+    public class MainView : MainWindow
     {
         static MainView()
         {
@@ -12,9 +13,13 @@ namespace DevFlow.Main.Views
 
         public MainView()
         {
+        }
+
+		protected override void OnDesignerMode()
+		{
             DataContext = new MainViewModel();
             Width = 3840;
             Height = 2160;
         }
-    }
+	}
 }
