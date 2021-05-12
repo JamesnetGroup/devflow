@@ -2,12 +2,12 @@
 
 namespace DevFlow
 {
-public class Startup
-{
-    [STAThread]
-    public static void Main(string[] args)
+    public class Startup
     {
-        new App().Run();
+        [STAThread]
+        public static void Main(string[] args)
+        {
+            new App().Run();
+        }
     }
-}
 }
