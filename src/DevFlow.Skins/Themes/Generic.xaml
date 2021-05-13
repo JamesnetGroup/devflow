@@ -385,7 +385,7 @@
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 							<flows:DragBar x:Name="PART_DragBar" Grid.Row="0" BorderThickness="0 0 0 1" 
-                                           Padding="30 20 30 20"
+                                           Padding="30 20 30 20" Background="Transparent"
                                            BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}" Margin="0">
 								<TextBlock Text="Theme preferences" Foreground="{DynamicResource BRUSH.FONT.H01}"
                                            FontSize="18"/>
