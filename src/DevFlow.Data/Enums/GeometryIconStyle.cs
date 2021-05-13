@@ -4,6 +4,7 @@
     {
         None,
         Close,
+        CheckCircle,
         MicrosoftVisualStudio,
         MonitorShimmer,
         MovieOpenPlay,

@@ -14,7 +14,21 @@
     <SolidColorBrush Color="#0A0A0A" x:Key="BRUSH.F1"/>
     <SolidColorBrush Color="#080808" x:Key="BRUSH.F7"/>
     <SolidColorBrush Color="#010101" x:Key="BRUSH.FA"/>
-    <SolidColorBrush Color="#000000" x:Key="BRUSH.FF"/>
+	<SolidColorBrush Color="#000000" x:Key="BRUSH.FF"/>
+
+	<SolidColorBrush Color="#39332E" x:Key="BRUSH.TITLE"/>
+	<SolidColorBrush Color="#EAECEF" x:Key="BRUSH.TITLE.BOTTOM.LINE"/>
+	<SolidColorBrush Color="#385AB4" x:Key="BRUSH.CHECK.CIRCLE"/>
+	<SolidColorBrush Color="#AAAAAA" x:Key="BRUSH.CHECK.CIRCLE.FALSE"/>
+	<SolidColorBrush Color="#385AB4" x:Key="BRUSH.SELECTED.LINE"/>
+
+	<Storyboard x:Key="SB.WIN.IN">
+		<DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="1" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
+	</Storyboard>
+
+	<Storyboard x:Key="SB.WIN.OUT">
+		<DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="0" Duration="0:0:0.1" BeginTime="0" AutoReverse="False"/>
+	</Storyboard>
 </ResourceDictionary>
 
 <!-- 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF-->

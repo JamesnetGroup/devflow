@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,11 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow.cs" />
-    <Compile Include="ProgramView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Widget.cs" />
+    <Compile Include="Workspace.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
+      <Project>{4F92EC03-384B-4463-8AFC-099C7FB9941C}</Project>
+      <Name>DevFlow.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{3D2AAB15-663D-4EF4-B80E-0AFECA05C910}</Project>
       <Name>DevFlow.Windowbase</Name>

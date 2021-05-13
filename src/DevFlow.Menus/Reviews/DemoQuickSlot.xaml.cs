@@ -2,9 +2,9 @@
 
 namespace DevFlow.Menus.Designs
 {
-	public partial class DemoMenu : MenuBox
+	public partial class DemoQuickSlot : QuickSlot
 	{
-		public DemoMenu()
+		public DemoQuickSlot()
 		{
 			InitializeComponent();
 		}

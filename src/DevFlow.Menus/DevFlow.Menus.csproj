@@ -48,7 +48,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Reviews\DemoMenu.xaml">
+    <Page Include="Reviews\DemoQuickSlot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -58,8 +58,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Reviews\DemoMenu.xaml.cs">
-      <DependentUpon>DemoMenu.xaml</DependentUpon>
+    <Compile Include="Reviews\DemoQuickSlot.xaml.cs">
+      <DependentUpon>DemoQuickSlot.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -75,7 +75,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\MenuBoxViewModel.cs" />
-    <Compile Include="Views\MenuBox.cs" />
+    <Compile Include="Views\QuickSlot.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

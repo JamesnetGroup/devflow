@@ -1,0 +1,325 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:views="clr-namespace:DevFlow.Skins.Views"
+	xmlns:ctrls="clr-namespace:DevFlow.Resources.Controls;assembly=DevFlow.Resources">
+
+
+	
+	<DrawingImage x:Key="PREVIEW.SKIN.WHITE">
+		<DrawingImage.Drawing>
+			<DrawingGroup ClipGeometry="M0,0 V120 H228 V0 H0 Z">
+				<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M228,120z M0,0z M0,0L228,0 228,120 0,120 0,0z" />
+				<GeometryDrawing Brush="#FFF6F8FA">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="2" RadiusY="2" Rect="29,54,144,53" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFF6F8FA">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="2" RadiusY="2" Rect="184,54,32,36" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing>
+					<GeometryDrawing.Brush>
+						<SolidColorBrush Color="#FF34D058" Opacity="0.3" />
+					</GeometryDrawing.Brush>
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="0" RadiusY="0" Rect="29,59,144,12" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Geometry="F1 M228,120z M0,0z M0,0L228,0 228,24 0,24 0,0z">
+					<GeometryDrawing.Brush>
+						<SolidColorBrush Color="#FFF6F8FA" Opacity="0.6" />
+					</GeometryDrawing.Brush>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFD1D5DA">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="13,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFD1D5DA">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="29,36,48,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF34D058">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="34,62,64,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFD73A49">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="1" RadiusY="1" Rect="210,36,6,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF34D058">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="1" RadiusY="1" Rect="202,36,6,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFD1D5DA">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="53,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFD1D5DA">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="93,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+			</DrawingGroup>
+		</DrawingImage.Drawing>
+	</DrawingImage>
+	
+	<DrawingImage x:Key="PREVIEW.SKIN.DARK">
+		<DrawingImage.Drawing>
+			<DrawingGroup ClipGeometry="M0,0 V120 H228 V0 H0 Z">
+				<GeometryDrawing Brush="#FF161B22" Geometry="F1 M228,120z M0,0z M0,0L228,0 228,120 0,120 0,0z" />
+				<GeometryDrawing Brush="#FF30363D">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="2" RadiusY="2" Rect="29,54,144,53" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF30363D">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="2" RadiusY="2" Rect="184,54,32,36" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing>
+					<GeometryDrawing.Brush>
+						<SolidColorBrush Color="#FF2EA043" Opacity="0.3" />
+					</GeometryDrawing.Brush>
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="0" RadiusY="0" Rect="29,59,144,12" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Geometry="F1 M228,120z M0,0z M0,0L228,0 228,23 0,23 0,0z">
+					<GeometryDrawing.Brush>
+						<SolidColorBrush Color="#FF484F58" Opacity="0.6" />
+					</GeometryDrawing.Brush>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF8B949E">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="13,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF6E7681">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="29,36,48,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF3FB950">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="34,62,64,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFDA3633">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="1" RadiusY="1" Rect="210,36,6,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF3FB950">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="1" RadiusY="1" Rect="202,36,6,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF8B949E">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="53,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF8B949E">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="93,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+			</DrawingGroup>
+		</DrawingImage.Drawing>
+	</DrawingImage>
+	
+	<DrawingImage x:Key="PREVIEW.SKIN.DIMMED">
+		<DrawingImage.Drawing>
+			<DrawingGroup ClipGeometry="M0,0 V120 H228 V0 H0 Z">
+				<GeometryDrawing Brush="#FF21262D" Geometry="F1 M228,120z M0,0z M0,0L228,0 228,120 0,120 0,0z" />
+				<GeometryDrawing>
+					<GeometryDrawing.Brush>
+						<SolidColorBrush Color="#FF30363D" Opacity="0.8" />
+					</GeometryDrawing.Brush>
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="2" RadiusY="2" Rect="29,54,144,53" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing>
+					<GeometryDrawing.Brush>
+						<SolidColorBrush Color="#FF30363D" Opacity="0.8" />
+					</GeometryDrawing.Brush>
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="2" RadiusY="2" Rect="184,54,32,36" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing>
+					<GeometryDrawing.Brush>
+						<SolidColorBrush Color="#FF2EA043" Opacity="0.3" />
+					</GeometryDrawing.Brush>
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="0" RadiusY="0" Rect="29,59,144,12" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF30363D" Geometry="F1 M228,120z M0,0z M0,0L228,0 228,23 0,23 0,0z" />
+				<GeometryDrawing Brush="#FF484F58">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="13,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF30363D">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="29,36,48,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF3FB950">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="34,62,64,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FFDA3633">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="1" RadiusY="1" Rect="210,36,6,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF3FB950">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="1" RadiusY="1" Rect="202,36,6,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF484F58">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="53,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+				<GeometryDrawing Brush="#FF484F58">
+					<GeometryDrawing.Geometry>
+						<RectangleGeometry RadiusX="3" RadiusY="3" Rect="93,9,32,6" />
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+			</DrawingGroup>
+		</DrawingImage.Drawing>
+	</DrawingImage>
+
+	<Style TargetType="{x:Type RadioButton}" x:Key="RDO">
+		<Setter Property="Margin" Value="10"/>
+		<Setter Property="Command" Value="{Binding SelectSkinCommand}"/>
+		<Setter Property="CommandParameter" Value="{Binding}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type RadioButton}">
+					<Border x:Name="border" BorderThickness="1" CornerRadius="10" Padding="0" Background="Transparent">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Border Grid.Row="0" Grid.ColumnSpan="2" CornerRadius="10 10 0 0">
+								<Image x:Name="skin" Height="80" Margin="15"/>
+							</Border>
+
+							<Border Grid.Row="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}">
+								<Grid HorizontalAlignment="Center">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ctrls:FlowIcon x:Name="circle" Grid.Column="0" IconType="CheckCircle" Fill="{DynamicResource BRUSH.CHECK.CIRCLE.FALSE}" Margin="5"/>
+									<TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="{DynamicResource BRUSH.TITLE}" Margin="5"/>
+								</Grid>
+							</Border>
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter TargetName="circle" Property="Fill" Value="{DynamicResource BRUSH.CHECK.CIRCLE}"/>
+							<Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BRUSH.CHECK.CIRCLE}"/>
+						</Trigger>
+						<DataTrigger Binding="{Binding Name}" Value="White">
+							<Setter TargetName="skin" Property="Source" Value="{StaticResource PREVIEW.SKIN.WHITE}"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding Name}" Value="Dark">
+							<Setter TargetName="skin" Property="Source" Value="{StaticResource PREVIEW.SKIN.DARK}"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding Name}" Value="Dimmed">
+							<Setter TargetName="skin" Property="Source" Value="{StaticResource PREVIEW.SKIN.DIMMED}"/>
+						</DataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBoxItem}">
+						<RadioButton x:Name="radio" Style="{StaticResource RDO}" 
+									 IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"/>
+					<ControlTemplate.Triggers>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="{x:Type ListBox}" x:Key="LBX">
+		<Setter Property="Margin" Value="10"/>
+		<Setter Property="ItemsSource" Value="{Binding Skins}"/>
+		<Setter Property="SelectedItem" Value="{Binding CurrentSkin}"/>
+		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<Border>
+						<ItemsPresenter/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<UniformGrid Columns="{Binding Skins.Count}"/>
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style TargetType="{x:Type views:SwitchSkin}">
+		<Setter Property="Width" Value="650"/>
+		<Setter Property="DataContext" Value="{Binding Skin}"/>
+		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
+		<Setter Property="Template">
+            <Setter.Value>
+				<ControlTemplate TargetType="{x:Type views:SwitchSkin}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+							Padding="10">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Border Grid.Row="0" BorderThickness="0 0 0 1" BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}" Padding="0 10 0 10" Margin="10">
+								<TextBlock Text="Theme preferences" Foreground="{DynamicResource BRUSH.TITLE}" FontSize="18"/>
+							</Border>
+
+							<TextBlock Grid.Row="1" Text="Choose how GitHub looks to you. Select a single theme, or sync with your system and automatically switch between day and night themes."
+									   Foreground="{DynamicResource BRUSH.FF}" Margin="10" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+							
+							<ListBox x:Name="lbx" Grid.Row="2" Style="{StaticResource LBX}"/>
+						</Grid>
+					</Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

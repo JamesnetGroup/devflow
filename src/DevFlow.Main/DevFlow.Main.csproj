@@ -106,6 +106,10 @@
       <Project>{049fb84c-5047-416b-b1a2-ebf2a02f0cdb}</Project>
       <Name>DevFlow.Resources</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Skins\DevFlow.Skins.csproj">
+      <Project>{aa325822-9bb8-4102-bd67-6fc5a5b23f8f}</Project>
+      <Name>DevFlow.Skins</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{3d2aab15-663d-4ef4-b80e-0afeca05c910}</Project>
       <Name>DevFlow.Windowbase</Name>

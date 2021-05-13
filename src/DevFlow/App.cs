@@ -20,7 +20,7 @@ namespace DevFlow
         protected override void OnStartup(StartupEventArgs e)
         {   
             bool dialogResult = true;
-            MainViewModel viewModel = new MainViewModel();
+            MainViewModel viewModel = new MainViewModel(Theme);
 
             while (dialogResult)
             {

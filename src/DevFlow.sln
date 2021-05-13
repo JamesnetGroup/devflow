@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Converter", "DevFlo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.LayoutSupport", "DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj", "{02F73C33-068C-4E23-8503-5DF18719C473}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Skins", "DevFlow.Skins\DevFlow.Skins.csproj", "{AA325822-9BB8-4102-BD67-6FC5A5B23F8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{02F73C33-068C-4E23-8503-5DF18719C473}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F73C33-068C-4E23-8503-5DF18719C473}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F73C33-068C-4E23-8503-5DF18719C473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA325822-9BB8-4102-BD67-6FC5A5B23F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA325822-9BB8-4102-BD67-6FC5A5B23F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA325822-9BB8-4102-BD67-6FC5A5B23F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA325822-9BB8-4102-BD67-6FC5A5B23F8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{D77874A6-4C26-4CE5-B3FE-4DE1E067E5A8} = {0FC648BB-D1D2-477C-812C-1403A4152F6C}
 		{7C22B438-112A-4554-8F51-78C2992AC632} = {0FC648BB-D1D2-477C-812C-1403A4152F6C}
 		{02F73C33-068C-4E23-8503-5DF18719C473} = {776B76A9-5F02-4677-80B1-D7F98F49205E}
+		{AA325822-9BB8-4102-BD67-6FC5A5B23F8F} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D98CFB60-F81E-497B-AA6A-1770892F8EF5}

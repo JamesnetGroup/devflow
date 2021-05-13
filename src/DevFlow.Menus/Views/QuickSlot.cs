@@ -6,14 +6,14 @@ using System.Windows.Input;
 
 namespace DevFlow.Menus.Views
 {
-	public class MenuBox : Widget
+	public class QuickSlot : Widget
     {
-        static MenuBox()
+        static QuickSlot()
 		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(MenuBox), new FrameworkPropertyMetadata(typeof(MenuBox)));
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(QuickSlot), new FrameworkPropertyMetadata(typeof(QuickSlot)));
 		}
 
-		public MenuBox()
+		public QuickSlot()
 		{ 
 		}
 
