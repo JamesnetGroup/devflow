@@ -35,7 +35,8 @@ namespace DevFlow.Skins.ViewModels
 			{
 				new SkinModel("White", ThemeType.White),
 				new SkinModel("Dark", ThemeType.Dark),
-				new SkinModel("Dimmed", ThemeType.Dark)
+				new SkinModel("James", ThemeType.James),
+				new SkinModel("Elena", ThemeType.Elena)
 			};
 			return source;
 		}

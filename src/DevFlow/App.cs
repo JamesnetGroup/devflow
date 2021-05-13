@@ -15,6 +15,8 @@ namespace DevFlow
         {
             AddTheme(ThemeType.Dark, "Generic.Dark.xaml");
             AddTheme(ThemeType.White, "Generic.White.xaml");
+            AddTheme(ThemeType.James, "Generic.James.xaml");
+            AddTheme(ThemeType.Elena, "Generic.Elena.xaml");
         }
 
         protected override void OnStartup(StartupEventArgs e)

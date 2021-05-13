@@ -9,6 +9,8 @@ namespace DevFlow.Data
     public enum ThemeType
     {
         Dark,
-        White
+        White,
+        James,
+        Elena
     }
 }
