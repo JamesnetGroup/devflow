@@ -6,21 +6,29 @@ using System.Windows.Media;
 namespace DevFlow.LayoutSupport
 {
 	public class Widget : FlowView
-	{
-		private bool _isDragging;
+    {
+        private bool _isDragging;
 		private Point clickPosition;
 
 		public Widget()
-		{
-			PreviewMouseLeftButtonDown += Widget_MouseLeftButtonDown;
-			PreviewMouseLeftButtonUp += Widget_MouseLeftButtonUp;
-			MouseMove += Widget_MouseMove;
-		}
+        {
+        }
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
 
-		private void Widget_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+            if (GetTemplateChild("PART_DragBar") is DragBar bar)
+            {
+                bar.MouseLeftButtonDown += Widget_MouseLeftButtonDown;
+                bar.MouseLeftButtonUp += Widget_MouseLeftButtonUp;
+                bar.MouseMove += Widget_MouseMove;
+            }
+        }
+
+        private void Widget_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
 			_isDragging = true;
-			var draggableControl = sender as UIElement;
+			var draggableControl = sender as DragBar;
 			clickPosition = e.GetPosition(draggableControl);
 			draggableControl.CaptureMouse();
 		}
@@ -28,13 +36,13 @@ namespace DevFlow.LayoutSupport
         private void Widget_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
 			_isDragging = false;
-			var draggable = sender as UIElement;
+			var draggable = sender as DragBar;
 			draggable.ReleaseMouseCapture();
 		}
 
         private void Widget_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            if (_isDragging && e.OriginalSource is DragBar)
+            if (_isDragging && sender is DragBar)
             {
                 Point currentPosition = e.GetPosition(Parent as Canvas);
 

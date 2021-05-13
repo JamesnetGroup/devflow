@@ -55,8 +55,6 @@ namespace DevFlow.LayoutSupport
 
 				if (item.Content is UIElement ui)
 				{
-					Canvas.SetLeft(item.Content, 100);
-					Canvas.SetTop(item.Content, 100);
 					Children.Add(ui);
 				}
 			}

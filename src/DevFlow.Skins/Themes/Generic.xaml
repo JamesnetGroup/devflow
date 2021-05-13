@@ -303,21 +303,25 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-							Padding="10">
+							Padding="0">
 						<Grid>
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
-							<flows:DragBar x:Name="PART_DragBar" Grid.Row="0" BorderThickness="0 0 0 1" BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}" Padding="0 10 0 10" Margin="10">
-								<TextBlock Text="Theme preferences" Foreground="{DynamicResource BRUSH.FONT.H01}" FontSize="18"/>
+							<flows:DragBar x:Name="PART_DragBar" Grid.Row="0" BorderThickness="0 0 0 1" 
+                                           Padding="30 20 30 20"
+                                           BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}" Margin="0">
+								<TextBlock Text="Theme preferences" Foreground="{DynamicResource BRUSH.FONT.H01}"
+                                           FontSize="18"/>
 							</flows:DragBar>
 
 							<TextBlock Grid.Row="1" Text="Choose how DevFlow looks to you. Select a single theme, or sync with your system and automatically switch between day and night themes."
-									   Foreground="{DynamicResource BRUSH.FONT.I01}" Margin="10" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+									   Foreground="{DynamicResource BRUSH.FONT.I01}" TextWrapping="Wrap" HorizontalAlignment="Stretch"
+                                       Margin="30 20 30 20"/>
 							
-							<ListBox x:Name="lbx" Grid.Row="2" Style="{StaticResource LBX}"/>
+							<ListBox x:Name="lbx" Grid.Row="2" Style="{StaticResource LBX}" Margin="30 0 30 30"/>
 						</Grid>
 					</Border>
                 </ControlTemplate>

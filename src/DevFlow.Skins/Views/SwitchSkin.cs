@@ -1,6 +1,7 @@
 ﻿using DevFlow.LayoutSupport;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DevFlow.Skins.Views
 {
@@ -12,8 +13,8 @@ namespace DevFlow.Skins.Views
 		}
 
 		public SwitchSkin()
-		{ 
-				
+		{
+			RenderTransform = new TranslateTransform(50, 50);
 		}
 
 	}

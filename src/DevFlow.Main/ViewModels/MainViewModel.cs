@@ -16,9 +16,9 @@ namespace DevFlow.Main.ViewModels
     {
         private FlowTheme theme;
 
-		#region Wallpaper
+        #region Wallpaper
 
-		public string Wallpaper { get; set; }
+        public string Wallpaper { get; set; }
         #endregion
 
         #region Menu
@@ -29,16 +29,16 @@ namespace DevFlow.Main.ViewModels
         #region Theme
 
         public SwitchSkinViewModel Skin { get; set; }
-		#endregion
+        #endregion
 
-		#region Works
+        #region Works
 
-		public ObservableCollection<WorkspaceModel> Works { get; set; }
-		#endregion
+        public ObservableCollection<WorkspaceModel> Works { get; set; }
+        #endregion
 
-		#region Constructor
+        #region Constructor
 
-		public MainViewModel()
+        public MainViewModel()
         {
             Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
