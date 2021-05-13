@@ -20,13 +20,12 @@ namespace DevFlow
         protected override void OnStartup(StartupEventArgs e)
         {   
             bool dialogResult = true;
-            MainViewModel viewModel = new MainViewModel(Theme);
 
             while (dialogResult)
             {
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
-                main = new MainView();
-                main.DataContext = viewModel;
+                var main = new MainView();
+                main.DataContext = new MainViewModel(Theme);
                 main.ShowDialog();
                 dialogResult = (bool)main.DialogResult;
             }

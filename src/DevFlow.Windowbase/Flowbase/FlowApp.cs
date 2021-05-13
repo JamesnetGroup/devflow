@@ -7,7 +7,6 @@ namespace DevFlow.Windowbase.Flowbase
     public class FlowApp : Application
     {
         protected FlowTheme Theme;
-        protected Window main;
 
         public FlowApp()
         {

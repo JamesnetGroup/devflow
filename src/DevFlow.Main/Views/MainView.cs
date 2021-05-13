@@ -13,6 +13,8 @@ namespace DevFlow.Main.Views
 
         public MainView()
         {
+            Width = 500;
+            Height = 500;
         }
 
 		protected override void OnDesignerMode()
