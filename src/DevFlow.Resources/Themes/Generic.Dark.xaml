@@ -22,7 +22,7 @@
 	<SolidColorBrush Color="#C9D1D3" x:Key="BRUSH.FONT.H01"/>
 	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FONT.I01"/>
 	
-	<SolidColorBrush Color="#444444" x:Key="BRUSH.TITLE.BOTTOM.LINE"/>
+	<SolidColorBrush Color="#333333" x:Key="BRUSH.TITLE.BOTTOM.LINE"/>
 	<SolidColorBrush Color="#3F7BD1" x:Key="BRUSH.CHECK.CIRCLE"/>
 	<SolidColorBrush Color="#666666" x:Key="BRUSH.CHECK.CIRCLE.FALSE"/>
 	<SolidColorBrush Color="#3F7BD1" x:Key="BRUSH.SELECTED.LINE"/>

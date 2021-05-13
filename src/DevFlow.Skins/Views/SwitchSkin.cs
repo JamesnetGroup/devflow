@@ -14,7 +14,7 @@ namespace DevFlow.Skins.Views
 
 		public SwitchSkin()
 		{
-			RenderTransform = new TranslateTransform(50, 50);
+			RenderTransform = new TranslateTransform(100, 100);
 		}
 
 	}
