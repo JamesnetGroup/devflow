@@ -31,7 +31,7 @@ namespace DevFlow.Windowbase.Flowbase
         {
             if (DesignerProperties.GetIsInDesignMode(this))
             {
-                OnDesignMode();
+                OnDesignerMode();
             }
 
             if (DataContext is ObservableObject vm)
@@ -40,7 +40,7 @@ namespace DevFlow.Windowbase.Flowbase
             }
         }
 
-        protected virtual void OnDesignMode()
+        protected virtual void OnDesignerMode()
         { 
             
         }

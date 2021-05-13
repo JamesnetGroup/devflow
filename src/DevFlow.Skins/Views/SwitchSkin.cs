@@ -1,9 +1,10 @@
-﻿using System.Windows;
+﻿using DevFlow.LayoutSupport;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DevFlow.Skins.Views
 {
-	public class SwitchSkin : ContentControl
+	public class SwitchSkin : Widget
 	{
 		static SwitchSkin()
 		{

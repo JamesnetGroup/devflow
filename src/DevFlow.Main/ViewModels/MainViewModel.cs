@@ -1,15 +1,14 @@
-﻿using DevFlow.Data.Menu;
+﻿using System.Collections.ObjectModel;
+using DevFlow.Data;
+using DevFlow.Data.Menu;
 using DevFlow.Data.Theme;
 using DevFlow.Data.Works;
+using DevFlow.Languages.Views;
 using DevFlow.Menus.ViewModels;
 using DevFlow.Skins.ViewModels;
 using DevFlow.Skins.Views;
 using DevFlow.Windowbase.Flowbase;
 using DevFlow.Windowbase.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -24,7 +23,7 @@ namespace DevFlow.Main.ViewModels
 
         #region Menu
 
-        public MenuBoxViewModel Menu { get; set; }
+        public QuickSlotViewModel Menu { get; set; }
         #endregion
 
         #region Theme
@@ -44,7 +43,7 @@ namespace DevFlow.Main.ViewModels
             Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
             Works = new ObservableCollection<WorkspaceModel>();
-            Menu = new MenuBoxViewModel(MenuSelected);
+            Menu = new QuickSlotViewModel(MenuSelected);
         }
 
         public MainViewModel(FlowTheme _theme) : this()
@@ -61,9 +60,10 @@ namespace DevFlow.Main.ViewModels
         {
             WorkspaceModel work = new WorkspaceModel(menu);
 
-            switch (menu.Seq)
+            switch (menu.IconType)
             {
-                case 5: work.Content = new SwitchSkin(); break;
+                case GeometryIconStyle.Palette: work.Content = new SwitchSkin(); break;
+                case GeometryIconStyle.Web: work.Content = new SwitchTranslate(); break;
             }
             Works.Add(work);
         }

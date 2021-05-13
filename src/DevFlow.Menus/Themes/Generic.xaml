@@ -8,7 +8,7 @@
 	</Storyboard>
 
 	<Storyboard x:Key="SB.FADEOUT">
-		<DoubleAnimation Storyboard.TargetName="grid" Storyboard.TargetProperty="(Grid.Opacity)" To="0" Duration="0:0:0.5" BeginTime="0" AutoReverse="False"/>
+		<DoubleAnimation Storyboard.TargetName="grid" Storyboard.TargetProperty="(Grid.Opacity)" To="0.2" Duration="0:0:0.5" BeginTime="0" AutoReverse="False"/>
 	</Storyboard>
 
 	<Style TargetType="{x:Type Viewbox}" x:Key="VIEWBOX">
@@ -23,7 +23,7 @@
 		<Setter Property="Margin" Value="0"/>
 		<Setter Property="UseLayoutRounding" Value="True"/>
 		<Setter Property="SnapsToDevicePixels" Value="True"/>
-		<Setter Property="Background" Value="{DynamicResource BRUSH.BG.QUICK}"/>
+		<Setter Property="Background" Value="{DynamicResource BRUSH.SLOT.BACK}"/>
 		<Setter Property="Height" Value="36"/>
 		<Setter Property="Opacity" Value="1"/>
 		<Setter Property="Padding" Value="0 0 0 0"/>
@@ -37,7 +37,7 @@
 				<ControlTemplate TargetType="{x:Type Button}">
 					<Border x:Name="border" Background="Transparent">
 						<Viewbox Style="{StaticResource VIEWBOX}">
-							<ctl:FlowIcon x:Name="path" Fill="#000000" IconType="{Binding IconType}" Width="24" Height="24"/>
+							<ctl:FlowIcon x:Name="path" Fill="{DynamicResource BRUSH.SLOT.FILL}" IconType="{Binding IconType}" Width="24" Height="24"/>
 						</Viewbox>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -93,14 +93,14 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:QuickSlot}">
-					<Grid x:Name="grid" Background="#FFFFFF" VerticalAlignment="Top">
+					<Grid x:Name="grid" Background="Transparent" VerticalAlignment="Top">
 						<Border Style="{StaticResource BORDER}">
 							<ListBox Style="{StaticResource LBX}"/>
 						</Border>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<DataTrigger Binding="{Binding IsDesignTimeMode}" Value="False">
-							<Setter TargetName="grid" Property="Opacity" Value="0"/>
+							<Setter TargetName="grid" Property="Opacity" Value="0.2"/>
 							<Setter TargetName="grid" Property="Background" Value="Transparent"/>
 						</DataTrigger>
 						<Trigger Property="IsMouseOver" Value="True">

@@ -8,7 +8,7 @@ using DevFlow.Windowbase.Mvvm;
 
 namespace DevFlow.Menus.ViewModels
 {
-    public class MenuBoxViewModel : ObservableObject
+    public class QuickSlotViewModel : ObservableObject
     {
         #region Commands 
 
@@ -22,13 +22,13 @@ namespace DevFlow.Menus.ViewModels
 
         #region Constructors
 
-        public MenuBoxViewModel()
+        public QuickSlotViewModel()
         {
             DragWindowCommand = new RelayCommand<MouseEventArgs>(DragWindow);
             Menus = GetMenus();
         }
 
-        public MenuBoxViewModel(Action<MenuModel> menuSelected) : this()
+        public QuickSlotViewModel(Action<MenuModel> menuSelected) : this()
         {
             Menus.ForEach(x => x.MenuClickCommand = new RelayCommand<MenuModel>(menuSelected));
         }
@@ -43,8 +43,8 @@ namespace DevFlow.Menus.ViewModels
             menus.Add(new MenuModel { Seq = 1, Name = "History", IconType = GeometryIconStyle.MovieOpenPlay });
             menus.Add(new MenuModel { Seq = 2, Name = "Color", IconType = GeometryIconStyle.EyedropperVariant });
             menus.Add(new MenuModel { Seq = 3, Name = "Setting", IconType = GeometryIconStyle.OcgRefreshOutline });
-            menus.Add(new MenuModel { Seq = 4, Name = "VisualStudio", IconType = GeometryIconStyle.MicrosoftVisualStudio });
-            menus.Add(new MenuModel { Seq = 5, Name = "Translate", IconType = GeometryIconStyle.GoogleTranslate });
+            menus.Add(new MenuModel { Seq = 4, Name = "Theme", IconType = GeometryIconStyle.Palette });
+            menus.Add(new MenuModel { Seq = 5, Name = "Web", IconType = GeometryIconStyle.Web });
             return menus;
         }
         #endregion

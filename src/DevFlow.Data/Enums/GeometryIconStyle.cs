@@ -13,6 +13,8 @@
         GoogleTranslate,
         Image,
         CalendarMonth,
-        Minimize
-    }
+        Minimize,
+		Web,
+		Palette
+	}
 }

@@ -17,9 +17,9 @@ namespace DevFlow.Menus.Views
 		{ 
 		}
 
-		protected override void OnDesignMode()
+		protected override void OnDesignerMode()
 		{
-			DataContext = new MenuBoxViewModel();
+			DataContext = new QuickSlotViewModel();
 		}
 	}
 }

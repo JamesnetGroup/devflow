@@ -17,13 +17,18 @@
     <SolidColorBrush Color="#F1F1F1" x:Key="BRUSH.F1"/>
     <SolidColorBrush Color="#F7F7F7" x:Key="BRUSH.F7"/>
     <SolidColorBrush Color="#FAFAFA" x:Key="BRUSH.FA"/>
-    <SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FF"/>
+	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FF"/>
 
-	<SolidColorBrush Color="#C9D1D3" x:Key="BRUSH.TITLE"/>
+	<SolidColorBrush Color="#C9D1D3" x:Key="BRUSH.FONT.H01"/>
+	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FONT.I01"/>
+	
 	<SolidColorBrush Color="#444444" x:Key="BRUSH.TITLE.BOTTOM.LINE"/>
 	<SolidColorBrush Color="#3F7BD1" x:Key="BRUSH.CHECK.CIRCLE"/>
-	<SolidColorBrush Color="#555555" x:Key="BRUSH.CHECK.CIRCLE.FALSE"/>
+	<SolidColorBrush Color="#666666" x:Key="BRUSH.CHECK.CIRCLE.FALSE"/>
 	<SolidColorBrush Color="#3F7BD1" x:Key="BRUSH.SELECTED.LINE"/>
+
+	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.SLOT.FILL"/>
+	<SolidColorBrush Color="#000000" x:Key="BRUSH.SLOT.BACK"/>
 
 	<Storyboard x:Key="SB.WIN.IN">
 		<DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="1" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
@@ -32,7 +37,6 @@
     <Storyboard x:Key="SB.WIN.OUT">
         <DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="0" Duration="0:0:0.1" BeginTime="0" AutoReverse="False"/>
     </Storyboard>
-    
 </ResourceDictionary>
 
 <!-- 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF-->

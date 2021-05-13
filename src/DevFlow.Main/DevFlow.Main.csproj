@@ -94,6 +94,10 @@
       <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
       <Name>DevFlow.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Languages\DevFlow.Languages.csproj">
+      <Project>{44F5BD64-2816-46E4-B302-4BDF60120CD4}</Project>
+      <Name>DevFlow.Languages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj">
       <Project>{02f73c33-068c-4e23-8503-5df18719c473}</Project>
       <Name>DevFlow.LayoutSupport</Name>
