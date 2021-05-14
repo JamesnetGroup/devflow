@@ -1,5 +1,5 @@
-﻿using DevFlow.Controls.Primitives;
-using System.Windows;
+﻿using System.Windows;
+using DevFlow.Controls.Primitives;
 
 namespace DevFlow.Main.Views
 {
