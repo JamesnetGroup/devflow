@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:system="clr-namespace:System;assembly=mscorlib">
+	<system:String x:Key="CHINA">中国</system:String>
+	<system:String x:Key="FRANCE">フランス</system:String>
+	<system:String x:Key="GERMANY">ドイツ</system:String>
+	<system:String x:Key="JAPAN">日本</system:String>
+	<system:String x:Key="KOREA">大韓民国</system:String>
+	<system:String x:Key="UNITED_KINGDOM">イギリス</system:String>
+	<system:String x:Key="UNITED_STATES">アメリカ</system:String>
+</ResourceDictionary>

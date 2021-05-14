@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\LanguageType.cs" />
+    <Compile Include="Language\LanguageModel.cs" />
     <Compile Include="Menu\MenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\GeometryIconStyle.cs" />

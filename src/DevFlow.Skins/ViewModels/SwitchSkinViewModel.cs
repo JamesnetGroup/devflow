@@ -29,6 +29,8 @@ namespace DevFlow.Skins.ViewModels
 			CurrentSkin = Skins.First(x=>x.Skin == nowTheme);
 		}
 
+		#region GetSkins 
+
 		private List<SkinModel> GetSkins()
 		{
 			List<SkinModel> source = new List<SkinModel>
@@ -40,5 +42,6 @@ namespace DevFlow.Skins.ViewModels
 			};
 			return source;
 		}
+		#endregion
 	}
 }

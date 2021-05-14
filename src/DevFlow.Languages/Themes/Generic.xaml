@@ -6,12 +6,42 @@
 		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Preview.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 
+	<Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBoxItem}">
+					<Border>
+						<TextBlock x:Name="name" Text="" Margin="0 0 0 5" Foreground="{DynamicResource BRUSH.FONT.H01}"/>
+					</Border>
+					<ControlTemplate.Triggers>
+						<DataTrigger Binding="{Binding Name}" Value="Korea">
+							<Setter TargetName="name" Property="Text" Value="{DynamicResource KOREA}"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding Name}" Value="China">
+							<Setter TargetName="name" Property="Text" Value="{DynamicResource CHINA}"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding Name}" Value="Japan">
+							<Setter TargetName="name" Property="Text" Value="{DynamicResource JAPAN}"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding Name}" Value="United States">
+							<Setter TargetName="name" Property="Text" Value="{DynamicResource UNITED_STATES}"/>
+						</DataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
 	<Style TargetType="{x:Type views:Translator}" BasedOn="{StaticResource PREVIEW}">
 		<Setter Property="Tag" Value="Language Changes"/>
 		<Setter Property="Content">
 			<Setter.Value>
-				<Border>
-					<TextBlock Text="한/영" Margin="30" Foreground="{DynamicResource BRUSH.FONT.H01}"/>
+				<Border Margin="30">
+					<ListBox Foreground="{DynamicResource BRUSH.FONT.H01}"
+							 ItemContainerStyle="{StaticResource LBXI}"
+							 ItemsSource="{Binding Languages}"
+							 Background="{DynamicResource BRUSH.BG}" BorderThickness="0">
+					</ListBox>
 				</Border>
 			</Setter.Value>
 		</Setter>
