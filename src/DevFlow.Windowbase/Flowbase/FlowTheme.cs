@@ -11,8 +11,8 @@ namespace DevFlow.Windowbase.Flowbase
         public string BaseAssemblyPath;
 
         private FlowApp App;
-        private Collection<ResourceDictionary> Themes;
-        private Dictionary<ThemeType, ResourceDictionary> CustomThemes;
+        private Collection<ResourceDictionary> Resources;
+        private Dictionary<ThemeType, ResourceDictionary> Themes;
         private ResourceDictionary CurrentResource;
         private ThemeType CurrentTheme;
 
@@ -20,30 +20,30 @@ namespace DevFlow.Windowbase.Flowbase
         internal FlowTheme(FlowApp app)
         {
             App = app;
-            Themes = App.Resources.MergedDictionaries;
-            CustomThemes = new();
+            Resources = App.Resources.MergedDictionaries;
+            Themes = new();
         }
 
         internal void SetDefault(ThemeType theme)
         {
-            CurrentResource = CustomThemes[theme];
+            CurrentResource = Themes[theme];
             CurrentTheme = theme;
             Switch(theme);
         }
 
         public void Switch(ThemeType theme)
         {
-            if (Themes.Contains(CurrentResource))
+            if (Resources.Contains(CurrentResource))
             {
-                Themes.Remove(CurrentResource);
+                Resources.Remove(CurrentResource);
             }
-            CurrentResource = CustomThemes[theme];
-            Themes.Add(CurrentResource);
+            CurrentResource = Themes[theme];
+            Resources.Add(CurrentResource);
         }
 
         internal void Add(ThemeType type, ResourceDictionary source)
         {
-            CustomThemes.Add(type, source);
+            Themes.Add(type, source);
         }
 
 		public ThemeType GetCurrentTheme()

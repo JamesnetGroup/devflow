@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Flowbase\FlowApp.cs" />
+    <Compile Include="Flowbase\FlowCulture.cs" />
     <Compile Include="Flowbase\FlowTheme.cs" />
     <Compile Include="Flowbase\FlowWindow.cs" />
     <Compile Include="Flowbase\FlowView.cs" />

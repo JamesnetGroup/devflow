@@ -7,5 +7,8 @@
 	<system:String x:Key="JAPAN">日本</system:String>
 	<system:String x:Key="KOREA">大韩民国</system:String>
 	<system:String x:Key="UNITED_KINGDOM">英国</system:String>
-	<system:String x:Key="UNITED_STATES">美国</system:String>
+    <system:String x:Key="UNITED_STATES">美国</system:String>
+
+    <system:String x:Key="LANGUAGE_CHANGES">语言变化</system:String>
+    <system:String x:Key="THEME_PREFERENCES">主题偏好</system:String>
 </ResourceDictionary>

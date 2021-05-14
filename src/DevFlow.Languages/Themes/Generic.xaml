@@ -8,13 +8,27 @@
     </ResourceDictionary.MergedDictionaries>
 
 	<Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI">
-		<Setter Property="Template">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource BRUSH.FONT.H01}"/>
+        <Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
 					<Border>
-                        <TextBlock x:Name="name" Text="{Binding Name, Converter={StaticResource ResourceNameConverter}}" Margin="0 0 0 5" Foreground="{DynamicResource BRUSH.FONT.H01}"/>
+                        <RadioButton x:Name="name" Background="{TemplateBinding Background}"
+                                     Content="{Binding Name, Converter={StaticResource ResourceNameConverter}}"
+                                     Command="{Binding LanguageClickCommand}"
+                                     CommandParameter="{Binding}"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     VerticalContentAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"
+                                     Padding="5"/>
 					</Border>
 					<ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource BRUSH.BG.SELECT}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource BRUSH.FG.SELECT}"/>
+                        </Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
@@ -22,12 +36,13 @@
 	</Style>
 
     <Style TargetType="{x:Type views:Translator}" BasedOn="{StaticResource {x:Type flows:Preview}}">
-		<Setter Property="Tag" Value="Language Changes"/>
+		<Setter Property="Tag" Value="{DynamicResource LANGUAGE_CHANGES}"/>
 		<Setter Property="Content">
 			<Setter.Value>
 				<Border Margin="30">
 					<ListBox Foreground="{DynamicResource BRUSH.FONT.H01}"
 							 ItemContainerStyle="{StaticResource LBXI}"
+                             SelectedItem="{Binding CurrentLanguage}"
 							 ItemsSource="{Binding Languages}"
 							 Background="{DynamicResource BRUSH.BG}" BorderThickness="0">
 					</ListBox>

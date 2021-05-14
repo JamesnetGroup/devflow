@@ -8,4 +8,7 @@
 	<system:String x:Key="KOREA">한국</system:String>
 	<system:String x:Key="UNITED_KINGDOM">영국</system:String>
 	<system:String x:Key="UNITED_STATES">미국</system:String>
+
+    <system:String x:Key="LANGUAGE_CHANGES">다국어 설정</system:String>
+    <system:String x:Key="THEME_PREFERENCES">테마 설정</system:String>
 </ResourceDictionary>

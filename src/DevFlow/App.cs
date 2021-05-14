@@ -19,17 +19,23 @@ namespace DevFlow
             AddTheme(ThemeType.Elena, "Generic.Elena.xaml");
         }
 
+        protected override void OnApplyCultureManager()
+        {
+            AddLanguage(LanguageType.UnitedStates, "EN.xaml");
+            AddLanguage(LanguageType.Korea, "KO.xaml");
+            AddLanguage(LanguageType.China, "CN.xaml");
+            AddLanguage(LanguageType.Japan, "JP.xaml");
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
-            this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Languages/CN.xaml", UriKind.RelativeOrAbsolute) });
-            //this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Converters.xaml", UriKind.RelativeOrAbsolute) });
             bool dialogResult = true;
 
             while (dialogResult)
             {
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
                 var main = new MainView();
-                main.DataContext = new MainViewModel(Theme);
+                main.DataContext = new MainViewModel(Theme, Culture);
                 main.ShowDialog();
                 dialogResult = (bool)main.DialogResult;
             }

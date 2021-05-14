@@ -1,8 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿
 using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
+using System.Collections.ObjectModel;
 using DevFlow.Data;
 using DevFlow.Data.Menu;
 using DevFlow.Data.Theme;
@@ -16,12 +14,14 @@ using DevFlow.Skins.Views;
 using DevFlow.Windowbase.Flowbase;
 using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
+using DevFlow.Data.Language;
 
 namespace DevFlow.Main.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
         private FlowTheme theme;
+        private FlowCulture culture;
 
         #region Wallpaper
 
@@ -56,13 +56,14 @@ namespace DevFlow.Main.ViewModels
 
             Works = new ObservableCollection<WorkspaceModel>();
             Menu = new QuickSlotViewModel(MenuSelected);
-            Translate = new TranslatorViewModel();
         }
 
-        public MainViewModel(FlowTheme _theme) : this()
+        public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()
         {
             theme = _theme;
+            culture = _culture;
             Skin = new SwitchSkinViewModel(SkinSelected, theme.GetCurrentTheme());
+            Translate = new TranslatorViewModel(LanguageChanged, culture.GetCurrentLanguage());
         }
         #endregion
 
@@ -91,6 +92,14 @@ namespace DevFlow.Main.ViewModels
         private void SkinSelected(SkinModel theme)
         {
             this.theme.Switch(theme.Skin);
+        }
+        #endregion
+
+        #region LanguageChanged
+
+        private void LanguageChanged(LanguageModel culture)
+        {
+            this.culture.Switch(culture.Language);
         }
         #endregion
     }

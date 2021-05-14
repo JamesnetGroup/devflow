@@ -7,5 +7,8 @@
 	<system:String x:Key="JAPAN">日本</system:String>
 	<system:String x:Key="KOREA">大韓民国</system:String>
 	<system:String x:Key="UNITED_KINGDOM">イギリス</system:String>
-	<system:String x:Key="UNITED_STATES">アメリカ</system:String>
+    <system:String x:Key="UNITED_STATES">アメリカ</system:String>
+
+    <system:String x:Key="LANGUAGE_CHANGES">言語の変更</system:String>
+    <system:String x:Key="THEME_PREFERENCES">テーマ設定</system:String>
 </ResourceDictionary>

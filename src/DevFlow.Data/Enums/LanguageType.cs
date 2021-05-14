@@ -8,11 +8,9 @@ namespace DevFlow.Data
 {
     public enum LanguageType
     {
-        China,
-        Germany,
-        Japan,
-        Korea,
-        UnitedKingdom,
         UnitedStates,
+        Korea,
+        China,
+        Japan
     }
 }

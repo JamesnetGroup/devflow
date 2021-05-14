@@ -21,16 +21,20 @@
 
 	<SolidColorBrush Color="#C9D1D3" x:Key="BRUSH.FONT.H01"/>
 	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FONT.I01"/>
-	
-	<SolidColorBrush Color="#333333" x:Key="BRUSH.TITLE.BOTTOM.LINE"/>
-	<SolidColorBrush Color="#3F7BD1" x:Key="BRUSH.CHECK.CIRCLE"/>
+
+    <SolidColorBrush Color="#427CB3" x:Key="BRUSH.CHECK.CIRCLE"/>
 	<SolidColorBrush Color="#666666" x:Key="BRUSH.CHECK.CIRCLE.FALSE"/>
-	<SolidColorBrush Color="#3F7BD1" x:Key="BRUSH.SELECTED.LINE"/>
+    <SolidColorBrush Color="#427CB3" x:Key="BRUSH.SELECTED.LINE"/>
 
 	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.SLOT.FILL"/>
 	<SolidColorBrush Color="#000000" x:Key="BRUSH.SLOT.BACK"/>
 
-	<Storyboard x:Key="SB.WIN.IN">
+    <SolidColorBrush Color="#a370cb" x:Key="BRUSH.BG.SELECT"/>
+    <SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FG.SELECT"/>
+
+    <SolidColorBrush Color="#404b5d" x:Key="BRUSH.BD.BLINE"/>
+
+    <Storyboard x:Key="SB.WIN.IN">
 		<DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="1" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
     </Storyboard>
 

@@ -291,7 +291,7 @@
 							</Border>
 
                             <Border x:Name="line" Grid.Row="1" BorderThickness="0 1 0 0" Padding="0 10 0 10" Margin="15 0 15 0" 
-                                    BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}">
+                                    BorderBrush="{DynamicResource BRUSH.BD.BLINE}">
 								<Grid HorizontalAlignment="Left">
                                     <StackPanel Orientation="Horizontal">
 									<flows:FlowIcon x:Name="circle" Grid.Column="0" IconType="CheckCircle" 
@@ -366,7 +366,7 @@
 	</Style>
 
     <Style TargetType="{x:Type views:SwitchSkin}" BasedOn="{StaticResource {x:Type flows:Preview}}">
-		<Setter Property="Tag" Value="Theme preferences"/>
+        <Setter Property="Tag" Value="{DynamicResource THEME_PREFERENCES}"/>
 		<Setter Property="Width" Value="800"/>
 		<Setter Property="Content">
 			<Setter.Value>

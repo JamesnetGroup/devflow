@@ -21,9 +21,11 @@ namespace DevFlow.Languages.ViewModels
 			set { _currentLanguage = value; OnPropertyChanged(); }
 		}
 
-		public TranslatorViewModel()
+		public TranslatorViewModel(Action<LanguageModel>LanguageChanged, LanguageType languageType)
 		{
 			Languages = GetLanguages();
+			Languages.ForEach(x => x.LanguageClickCommand = new RelayCommand<LanguageModel>(LanguageChanged));
+			CurrentLanguage = Languages.First(x => x.Language == languageType);
 		}
 
 		#region GetLanguages 
