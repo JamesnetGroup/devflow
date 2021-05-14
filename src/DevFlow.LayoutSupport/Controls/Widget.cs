@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevFlow.LayoutSupport
+namespace DevFlow.LayoutSupport.Controls
 {
 	public class Widget : FlowView
     {

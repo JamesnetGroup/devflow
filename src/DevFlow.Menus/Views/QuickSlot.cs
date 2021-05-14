@@ -1,8 +1,6 @@
-﻿using DevFlow.LayoutSupport;
+﻿using DevFlow.LayoutSupport.Controls;
 using DevFlow.Menus.ViewModels;
-using DevFlow.Windowbase.Mvvm;
 using System.Windows;
-using System.Windows.Input;
 
 namespace DevFlow.Menus.Views
 {

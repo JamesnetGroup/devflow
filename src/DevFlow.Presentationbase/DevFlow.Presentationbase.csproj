@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D2AAB15-663D-4EF4-B80E-0AFECA05C910}</ProjectGuid>
+    <ProjectGuid>{D2FA1C5E-AA1E-44AD-B3E6-3B1A362A4019}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DevFlow.Windowbase</RootNamespace>
-    <AssemblyName>DevFlow.Windowbase</AssemblyName>
+    <RootNamespace>DevFlow.Presentationbase</RootNamespace>
+    <AssemblyName>DevFlow.Presentationbase</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,34 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Flowbase\FlowApp.cs" />
-    <Compile Include="Flowbase\FlowTheme.cs" />
-    <Compile Include="Flowbase\FlowWindow.cs" />
-    <Compile Include="Flowbase\FlowView.cs" />
-    <Compile Include="Flowcore\IFlowUIElement.cs" />
-    <Compile Include="Mvvm\ObservableObject.cs" />
-    <Compile Include="Mvvm\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
-      <Project>{4F92EC03-384B-4463-8AFC-099C7FB9941C}</Project>
-      <Name>DevFlow.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

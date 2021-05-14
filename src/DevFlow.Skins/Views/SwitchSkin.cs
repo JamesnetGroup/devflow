@@ -1,6 +1,5 @@
-﻿using DevFlow.LayoutSupport;
+﻿using DevFlow.LayoutSupport.Controls;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace DevFlow.Skins.Views

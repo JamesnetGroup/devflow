@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevFlow.LayoutSupport
+namespace DevFlow.LayoutSupport.Controls
 {
 	public class Workspace : Canvas
 	{
-		public List<WorkspaceModel> Workspaces = new();
-
 		public static readonly DependencyProperty WorksSourceProperty = DependencyProperty.Register("WorksSource", typeof(ObservableCollection<WorkspaceModel>), typeof(Workspace), new PropertyMetadata(null, ItemsSourceChanged));
 
 		public ObservableCollection<WorkspaceModel> WorksSource
@@ -21,6 +19,7 @@ namespace DevFlow.LayoutSupport
             get { return (ObservableCollection<WorkspaceModel>)this.GetValue(WorksSourceProperty); }
             set { this.SetValue(WorksSourceProperty, value); }
 		}
+
 		private static void ItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			((Workspace)d).OnItemsSourceChanged();
@@ -49,14 +48,9 @@ namespace DevFlow.LayoutSupport
 
 		private void AddChild(WorkspaceModel item)
 		{
-			if (!Workspaces.Contains(item))
+			if (item.Content is UIElement ui)
 			{
-				Workspaces.Add(item);
-
-				if (item.Content is UIElement ui)
-				{
-					Children.Add(ui);
-				}
+				Children.Add(ui);
 			}
 		}
 	}

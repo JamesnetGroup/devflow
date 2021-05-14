@@ -1,4 +1,5 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Windowbase.Flowcore;
+using DevFlow.Windowbase.Mvvm;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,14 +7,32 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowWindow : Window
+	public class FlowWindow : Window, IFlowUIElement
     {
         public FlowWindow()
         {
-			Loaded += FlowView_Loaded;
+			Loaded += FlowWindow_Loaded;
         }
 
-		private void FlowView_Loaded(object sender, RoutedEventArgs e)
+        #region UseMvvm
+
+        public IFlowUIElement UseMvvm(ObservableObject vm)
+        {
+            DataContext = vm;
+            return this;
+        }
+        #endregion
+
+        #region OnDesignerMode
+
+        protected virtual void OnDesignerMode()
+        {
+
+        }
+
+        #endregion
+
+        private void FlowWindow_Loaded(object sender, RoutedEventArgs e)
         {
             if (DesignerProperties.GetIsInDesignMode(this))
             {
@@ -24,11 +43,6 @@ namespace DevFlow.Windowbase.Flowbase
             {
                 vm.ViewRegister(this);
             }
-        }
-
-        protected virtual void OnDesignerMode()
-        { 
-            
         }
 	}
 }

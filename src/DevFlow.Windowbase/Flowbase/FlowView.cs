@@ -1,4 +1,5 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Windowbase.Flowcore;
+using DevFlow.Windowbase.Mvvm;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,7 +7,7 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowView : UserControl
+	public class FlowView : UserControl, IFlowUIElement
     {
         #region DependencyProperty
 
@@ -20,14 +21,34 @@ namespace DevFlow.Windowbase.Flowbase
             get { return (ICommand)this.GetValue(MouseDownCommandProperty); }
             set { this.SetValue(MouseDownCommandProperty, value); }
         }
-        #endregion
+		#endregion
 
-        public FlowView()
+		#region Constructor
+
+		public FlowView()
         {
 			Loaded += FlowView_Loaded;
         }
+		#endregion
 
-		private void FlowView_Loaded(object sender, RoutedEventArgs e)
+		#region UseMvvm
+
+		public IFlowUIElement UseMvvm(ObservableObject vm)
+        {
+            DataContext = vm;
+            return this;
+        }
+        #endregion
+
+        #region OnDesignerMode
+
+        protected virtual void OnDesignerMode()
+        {
+
+        }
+        #endregion
+
+        private void FlowView_Loaded(object sender, RoutedEventArgs e)
         {
             if (DesignerProperties.GetIsInDesignMode(this))
             {
@@ -38,11 +59,6 @@ namespace DevFlow.Windowbase.Flowbase
             {
                 vm.ViewRegister(this);
             }
-        }
-
-        protected virtual void OnDesignerMode()
-        { 
-            
         }
 	}
 }

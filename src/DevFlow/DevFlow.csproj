@@ -102,12 +102,20 @@
       <Project>{d77874a6-4c26-4ce5-b3fe-4de1e067e5a8}</Project>
       <Name>DevFlow.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
+      <Project>{7c22b438-112a-4554-8f51-78c2992ac632}</Project>
+      <Name>DevFlow.Converter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
       <Project>{4F92EC03-384B-4463-8AFC-099C7FB9941C}</Project>
       <Name>DevFlow.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Languages\DevFlow.Languages.csproj">
+      <Project>{44f5bd64-2816-46e4-b302-4bdf60120cd4}</Project>
+      <Name>DevFlow.Languages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj">
-      <Project>{02f73c33-068c-4e23-8503-5df18719c473}</Project>
+      <Project>{eb691890-e172-4f99-bbb8-6e7d19e63fd1}</Project>
       <Name>DevFlow.LayoutSupport</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Main\DevFlow.Main.csproj">

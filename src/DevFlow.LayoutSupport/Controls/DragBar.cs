@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace DevFlow.LayoutSupport
+namespace DevFlow.LayoutSupport.Controls
 {
 	public class DragBar : Border
 	{

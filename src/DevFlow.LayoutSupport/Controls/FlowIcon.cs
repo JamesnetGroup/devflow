@@ -1,7 +1,7 @@
 ﻿using DevFlow.Controls.Primitives;
 using System.Windows;
 
-namespace DevFlow.Resources.Controls
+namespace DevFlow.LayoutSupport.Controls
 {
 	public class FlowIcon : Icon
     {

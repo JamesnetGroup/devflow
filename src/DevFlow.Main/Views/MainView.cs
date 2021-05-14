@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using DevFlow.LayoutSupport;
+using DevFlow.LayoutSupport.Controls;
 using DevFlow.Main.ViewModels;
 
 namespace DevFlow.Main.Views

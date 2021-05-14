@@ -1,13 +1,20 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using DevFlow.Data;
 using DevFlow.Data.Menu;
 using DevFlow.Data.Theme;
 using DevFlow.Data.Works;
+using DevFlow.Languages.ViewModels;
 using DevFlow.Languages.Views;
+using DevFlow.Main.Views;
 using DevFlow.Menus.ViewModels;
 using DevFlow.Skins.ViewModels;
 using DevFlow.Skins.Views;
 using DevFlow.Windowbase.Flowbase;
+using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
 
 namespace DevFlow.Main.ViewModels
@@ -29,11 +36,16 @@ namespace DevFlow.Main.ViewModels
         #region Theme
 
         public SwitchSkinViewModel Skin { get; set; }
-        #endregion
+		#endregion
 
-        #region Works
+		#region Translate
 
-        public ObservableCollection<WorkspaceModel> Works { get; set; }
+        TranslatorViewModel Translate { get; }
+		#endregion
+
+		#region Works
+
+		public ObservableCollection<WorkspaceModel> Works { get; set; }
         #endregion
 
         #region Constructor
@@ -44,12 +56,12 @@ namespace DevFlow.Main.ViewModels
 
             Works = new ObservableCollection<WorkspaceModel>();
             Menu = new QuickSlotViewModel(MenuSelected);
+            Translate = new TranslatorViewModel();
         }
 
         public MainViewModel(FlowTheme _theme) : this()
         {
             theme = _theme;
-
             Skin = new SwitchSkinViewModel(SkinSelected, theme.GetCurrentTheme());
         }
         #endregion
@@ -58,14 +70,19 @@ namespace DevFlow.Main.ViewModels
 
         private void MenuSelected(MenuModel menu)
         {
-            WorkspaceModel work = new WorkspaceModel(menu);
-
-            switch (menu.IconType)
+            if (Works.FirstOrDefault(x => x.Menu.Equals(menu)) is null)
             {
-                case GeometryIconStyle.Palette: work.Content = new SwitchSkin(); break;
-                case GeometryIconStyle.Web: work.Content = new SwitchTranslate(); break;
+                IFlowUIElement content;
+
+                switch (menu.IconType)
+                {
+                    case GeometryIconStyle.Palette: content = new SwitchSkin().UseMvvm(Skin); break;
+                    case GeometryIconStyle.Web: content = new Translator().UseMvvm(Translate); break;
+                    default: content = new EmptyView(); break;
+                }
+                Works.Add(new WorkspaceModel(menu, content));
             }
-            Works.Add(work);
+
         }
         #endregion
 
