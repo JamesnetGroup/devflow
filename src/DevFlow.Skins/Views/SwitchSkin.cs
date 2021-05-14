@@ -1,10 +1,10 @@
-﻿using DevFlow.Controls.Primitives;
+﻿using DevFlow.LayoutSupport.Controls;
 using System.Windows;
 using System.Windows.Media;
 
 namespace DevFlow.Skins.Views
 {
-	public class SwitchSkin : Widget
+	public class SwitchSkin : Preview
 	{
 		static SwitchSkin()
 		{
@@ -13,7 +13,6 @@ namespace DevFlow.Skins.Views
 
 		public SwitchSkin()
 		{
-			RenderTransform = new TranslateTransform(100, 100);
 		}
 
 	}
