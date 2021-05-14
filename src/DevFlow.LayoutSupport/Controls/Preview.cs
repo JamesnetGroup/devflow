@@ -1,13 +1,15 @@
-﻿using System;
+﻿using DevFlow.Controls.Primitives;
+using DevFlow.Windowbase.Flowbase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace DevFlow.LayoutSupport.Controls
 {
-	public class DragBar : Border
+	public class Preview : Widget
 	{
+
 	}
 }

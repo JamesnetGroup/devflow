@@ -58,10 +58,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\DragBar.cs" />
     <Compile Include="Controls\FlowIcon.cs" />
     <Compile Include="Controls\MainWindow.cs" />
-    <Compile Include="Controls\Widget.cs" />
+    <Compile Include="Controls\Preview.cs" />
     <Compile Include="Controls\Workspace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

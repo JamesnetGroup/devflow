@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevFlow.LayoutSupport.Controls
+namespace DevFlow.Controls.Primitives
 {
 	public class Widget : FlowView
     {
@@ -17,7 +17,7 @@ namespace DevFlow.LayoutSupport.Controls
         {
             base.OnApplyTemplate();
 
-            if (GetTemplateChild("PART_DragBar") is DragBar bar)
+            if (GetTemplateChild("PART_DragBar") is DragBorder bar)
             {
                 bar.MouseLeftButtonDown += Widget_MouseLeftButtonDown;
                 bar.MouseLeftButtonUp += Widget_MouseLeftButtonUp;
@@ -28,7 +28,7 @@ namespace DevFlow.LayoutSupport.Controls
         private void Widget_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
 			_isDragging = true;
-			var draggableControl = sender as DragBar;
+			var draggableControl = sender as DragBorder;
 			clickPosition = e.GetPosition(draggableControl);
 			draggableControl.CaptureMouse();
 		}
@@ -36,13 +36,13 @@ namespace DevFlow.LayoutSupport.Controls
         private void Widget_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
 			_isDragging = false;
-			var draggable = sender as DragBar;
+			var draggable = sender as DragBorder;
 			draggable.ReleaseMouseCapture();
 		}
 
         private void Widget_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            if (_isDragging && sender is DragBar)
+            if (_isDragging && sender is DragBorder)
             {
                 Point currentPosition = e.GetPosition(Parent as Canvas);
 

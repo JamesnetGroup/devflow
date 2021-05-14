@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:prims="clr-namespace:DevFlow.Controls.Primitives;assembly=DevFlow.Controls"
     xmlns:views="clr-namespace:DevFlow.Skins.Views"
 	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport">
 
@@ -382,12 +383,12 @@
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
-							<flows:DragBar x:Name="PART_DragBar" Grid.Row="0" BorderThickness="0 0 0 1" 
+							<prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" BorderThickness="0 0 0 1" 
                                            Padding="30 20 30 20" Background="Transparent"
                                            BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}" Margin="0">
 								<TextBlock Text="Theme preferences" Foreground="{DynamicResource BRUSH.FONT.H01}"
                                            FontSize="18"/>
-							</flows:DragBar>
+							</prims:DragBorder>
 
 							<TextBlock Grid.Row="1" Text="Choose how DevFlow looks to you. Select a single theme, or sync with your system and automatically switch between day and night themes."
 									   Foreground="{DynamicResource BRUSH.FONT.I01}" TextWrapping="Wrap" HorizontalAlignment="Stretch"
