@@ -32,10 +32,10 @@ namespace DevFlow.Languages.ViewModels
 		{
 			List<LanguageModel> source = new List<LanguageModel>
 			{
-				new LanguageModel("United States", LanguageType.UnitedStates),
-				new LanguageModel("Korea", LanguageType.Korea),
-				new LanguageModel("China", LanguageType.China),
-				new LanguageModel("Japan", LanguageType.Japan),
+				new LanguageModel("UNITED_STATES", LanguageType.UnitedStates),
+				new LanguageModel("KOREA", LanguageType.Korea),
+				new LanguageModel("CHINA", LanguageType.China),
+				new LanguageModel("JAPAN", LanguageType.Japan),
 			};
 			return source;
 		}

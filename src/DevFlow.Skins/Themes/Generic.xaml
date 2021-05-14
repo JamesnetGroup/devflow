@@ -4,9 +4,6 @@
 	xmlns:prims="clr-namespace:DevFlow.Controls.Primitives;assembly=DevFlow.Controls"
     xmlns:views="clr-namespace:DevFlow.Skins.Views"
 	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport">
-	<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Preview.xaml"/>
-	</ResourceDictionary.MergedDictionaries>
 	
 	<DrawingImage x:Key="PREVIEW.SKIN.WHITE">
 		<DrawingImage.Drawing>
@@ -368,7 +365,7 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type views:SwitchSkin}" BasedOn="{StaticResource PREVIEW}">
+    <Style TargetType="{x:Type views:SwitchSkin}" BasedOn="{StaticResource {x:Type flows:Preview}}">
 		<Setter Property="Tag" Value="Theme preferences"/>
 		<Setter Property="Width" Value="800"/>
 		<Setter Property="Content">

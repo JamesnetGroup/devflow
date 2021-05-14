@@ -21,7 +21,8 @@ namespace DevFlow
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Languages/EN.xaml", UriKind.RelativeOrAbsolute) });
+            this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Languages/CN.xaml", UriKind.RelativeOrAbsolute) });
+            //this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Converters.xaml", UriKind.RelativeOrAbsolute) });
             bool dialogResult = true;
 
             while (dialogResult)

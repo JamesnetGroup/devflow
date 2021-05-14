@@ -3,7 +3,7 @@
 					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls"
 					xmlns:prims="clr-namespace:DevFlow.Controls.Primitives;assembly=DevFlow.Controls">
 
-	<Style TargetType="{x:Type flows:Preview}" x:Key="PREVIEW">
+	<Style TargetType="{x:Type flows:Preview}">
 		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="Template">
 			<Setter.Value>

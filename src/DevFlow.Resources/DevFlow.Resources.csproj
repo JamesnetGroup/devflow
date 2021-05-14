@@ -48,6 +48,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Themes\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Generic.James.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,6 +132,10 @@
     <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
       <Project>{d77874a6-4c26-4ce5-b3fe-4de1e067e5a8}</Project>
       <Name>DevFlow.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
+      <Project>{7c22b438-112a-4554-8f51-78c2992ac632}</Project>
+      <Name>DevFlow.Converter</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
       <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
