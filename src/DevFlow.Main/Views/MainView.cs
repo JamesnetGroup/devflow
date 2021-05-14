@@ -13,8 +13,8 @@ namespace DevFlow.Main.Views
 
         public MainView()
         {
-            Width = 500;
-            Height = 500;
+            //WindowStyle = WindowStyle.None;
+            //AllowsTransparency = true;
         }
 
 		protected override void OnDesignerMode()

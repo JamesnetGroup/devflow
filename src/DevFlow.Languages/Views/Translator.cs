@@ -1,9 +1,9 @@
-﻿using DevFlow.Controls.Primitives;
+﻿using DevFlow.LayoutSupport.Controls;
 using System.Windows;
 
 namespace DevFlow.Languages.Views
 {
-	public class Translator : Widget
+	public class Translator : Preview
 	{
 		static Translator()
 		{

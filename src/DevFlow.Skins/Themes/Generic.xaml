@@ -7,8 +7,6 @@
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Preview.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
-
-
 	
 	<DrawingImage x:Key="PREVIEW.SKIN.WHITE">
 		<DrawingImage.Drawing>
@@ -371,8 +369,8 @@
 	</Style>
 
 	<Style TargetType="{x:Type views:SwitchSkin}" BasedOn="{StaticResource PREVIEW}">
+		<Setter Property="Tag" Value="Theme preferences"/>
 		<Setter Property="Width" Value="800"/>
-		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="Content">
 			<Setter.Value>
 				<StackPanel>

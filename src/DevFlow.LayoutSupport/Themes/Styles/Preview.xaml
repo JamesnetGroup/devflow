@@ -4,6 +4,7 @@
 					xmlns:prims="clr-namespace:DevFlow.Controls.Primitives;assembly=DevFlow.Controls">
 
 	<Style TargetType="{x:Type flows:Preview}" x:Key="PREVIEW">
+		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type flows:Preview}">
@@ -17,9 +18,9 @@
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 							<prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" BorderThickness="0 0 0 1" 
-										      Padding="30 20 30 20" Background="Transparent"
+										      Padding="30 20 30 20" Background="Transparent" Tag="{Binding RelativeSource={RelativeSource AncestorType=flows:Preview}}"
                                               BorderBrush="{DynamicResource BRUSH.TITLE.BOTTOM.LINE}" Margin="0">
-								<TextBlock Text="Theme preferences" Foreground="{DynamicResource BRUSH.FONT.H01}" FontSize="18"/>
+								<TextBlock Text="{TemplateBinding Tag}" Foreground="{DynamicResource BRUSH.FONT.H01}" FontSize="18"/>
 							</prims:DragBorder>
 							<ContentPresenter Grid.Row="1"/>
 						</Grid>

@@ -7,20 +7,20 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowView : Button, IFlowUIElement
+	public class FlowView : UserControl, IFlowUIElement
     {
-        #region DependencyProperty
+		#region DependencyProperty
 
-        public static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.Register("MouseDownCommand", typeof(ICommand), typeof(FlowView));
-        #endregion
+		public static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.Register("MouseDownCommand", typeof(ICommand), typeof(FlowView));
+		#endregion
 
-        #region MouseDownCommand
+		#region MouseDownCommand
 
-        public ICommand MouseDownCommand
-        {
-            get { return (ICommand)this.GetValue(MouseDownCommandProperty); }
-            set { this.SetValue(MouseDownCommandProperty, value); }
-        }
+		public ICommand MouseDownCommand
+		{
+			get { return (ICommand)this.GetValue(MouseDownCommandProperty); }
+			set { this.SetValue(MouseDownCommandProperty, value); }
+		}
 		#endregion
 
 		#region Constructor

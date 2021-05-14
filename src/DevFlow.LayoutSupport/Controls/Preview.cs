@@ -1,4 +1,5 @@
-﻿using DevFlow.Windowbase.Flowbase;
+﻿using DevFlow.Controls.Primitives;
+using DevFlow.Windowbase.Flowbase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ using System.Windows.Shapes;
 
 namespace DevFlow.LayoutSupport.Controls
 {
-	public class Preview : FlowView
+	public class Preview : Widget
 	{
 		static Preview()
 		{

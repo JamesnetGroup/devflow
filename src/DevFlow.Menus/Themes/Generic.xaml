@@ -89,7 +89,6 @@
 	</Style>
 
 	<Style TargetType="{x:Type views:QuickSlot}">
-		<Setter Property="MouseDownCommand" Value="{Binding DragWindowCommand}"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:QuickSlot}">
