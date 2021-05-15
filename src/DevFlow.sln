@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Languages", "DevFlo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.LayoutSupport", "DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj", "{EB691890-E172-4F99-BBB8-6E7D19E63FD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Histories", "DevFlow.Histories\DevFlow.Histories.csproj", "{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{EB691890-E172-4F99-BBB8-6E7D19E63FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB691890-E172-4F99-BBB8-6E7D19E63FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB691890-E172-4F99-BBB8-6E7D19E63FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{AA325822-9BB8-4102-BD67-6FC5A5B23F8F} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
 		{44F5BD64-2816-46E4-B302-4BDF60120CD4} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
 		{EB691890-E172-4F99-BBB8-6E7D19E63FD1} = {0FC648BB-D1D2-477C-812C-1403A4152F6C}
+		{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D98CFB60-F81E-497B-AA6A-1770892F8EF5}

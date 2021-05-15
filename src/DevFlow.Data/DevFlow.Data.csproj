@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\LanguageType.cs" />
+    <Compile Include="History\HistoryModel.cs" />
     <Compile Include="Language\LanguageModel.cs" />
     <Compile Include="Menu\MenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

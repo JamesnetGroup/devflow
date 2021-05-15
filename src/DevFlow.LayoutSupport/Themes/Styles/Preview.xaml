@@ -17,14 +17,17 @@
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
-                            <prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" BorderThickness="0 0 0 1"  Margin="30 0 30 0"
-										      Padding="0 20 0 20" Background="Transparent" 
-                                              Tag="{Binding RelativeSource={RelativeSource AncestorType=flows:Preview}}"
-                                              BorderBrush="{DynamicResource BRUSH.BD.BLINE}">
+                            <prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
+										      Padding="30 20 30 20" Background="Transparent" 
+                                              Tag="{Binding RelativeSource={RelativeSource AncestorType=flows:Preview}}">
                                 <TextBlock Text="{TemplateBinding Tag}" Foreground="{DynamicResource BRUSH.FONT.H01}" FontSize="18"/>
 							</prims:DragBorder>
-							<ContentPresenter Grid.Row="1"/>
-						</Grid>
+                            <Border BorderThickness="0 1 0 0" Grid.Row="1" Margin="30 0 30 0"
+                                    BorderBrush="{DynamicResource BRUSH.BD.BLINE}"/>
+                            <ContentPresenter Grid.Row="2"/>
+
+
+                        </Grid>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
