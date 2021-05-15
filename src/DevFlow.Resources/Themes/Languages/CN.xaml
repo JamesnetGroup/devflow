@@ -10,6 +10,7 @@
     <system:String x:Key="UNITED_STATES">美国</system:String>
 
     <system:String x:Key="LANGUAGE_CHANGES">语言变化</system:String>
+    
     <system:String x:Key="THEME_WHITE">白色</system:String>
     <system:String x:Key="THEME_DARK">深蓝</system:String>
     <system:String x:Key="THEME_JAMES">詹姆斯</system:String>

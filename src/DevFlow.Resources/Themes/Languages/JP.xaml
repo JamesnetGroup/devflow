@@ -10,6 +10,11 @@
     <system:String x:Key="UNITED_STATES">アメリカ</system:String>
 
     <system:String x:Key="LANGUAGE_CHANGES">言語の変更</system:String>
+
+    <system:String x:Key="THEME_WHITE">白</system:String>
+    <system:String x:Key="THEME_DARK">暗黒い</system:String>
+    <system:String x:Key="THEME_JAMES">ジェイムズ</system:String>
+    <system:String x:Key="THEME_ELENA">エレナ</system:String>
     <system:String x:Key="THEME_PREFERENCES">テーマ設定</system:String>
     <system:String x:Key="THEME_DESCRIPTION">DevFlowのテーマをどのように変更しますか? 目的のテーマを選択します。 自分だけの新しいテーマを作ることもできます</system:String>
     
