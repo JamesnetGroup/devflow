@@ -335,8 +335,6 @@
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
 						<RadioButton x:Name="radio" Style="{StaticResource RDO}" 
 									 IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"/>
-					<ControlTemplate.Triggers>
-					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
@@ -372,7 +370,7 @@
 			<Setter.Value>
 				<StackPanel>
 
-					<TextBlock Grid.Row="1" Text="Choose how DevFlow looks to you. Select a single theme, or sync with your system and automatically switch between day and night themes."
+                    <TextBlock Grid.Row="1" Text="{DynamicResource THEME_DESCRIPTION}"
 									   Foreground="{DynamicResource BRUSH.FONT.I01}" TextWrapping="Wrap" HorizontalAlignment="Stretch"
                                        Margin="30 20 30 20"/>
 

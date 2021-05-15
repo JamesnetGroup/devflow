@@ -14,16 +14,15 @@
         <Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
-					<Border>
-                        <RadioButton x:Name="name" Background="{TemplateBinding Background}" Tag="KOREA"
+                    <Border Background="{TemplateBinding Background}" Padding="5">
+                        <RadioButton x:Name="name" Tag="KOREA"
                                      Content="{convt:ResourceBinding Name}" 
                                      Command="{Binding LanguageClickCommand}"
                                      CommandParameter="{Binding}"
                                      Foreground="{TemplateBinding Foreground}"
                                      VerticalContentAlignment="Center"
                                      VerticalAlignment="Center"
-                                     IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"
-                                     Padding="5"/>
+                                     IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"/>
 					</Border>
 					<ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">

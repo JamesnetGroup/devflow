@@ -11,6 +11,8 @@
 
     <system:String x:Key="LANGUAGE_CHANGES">言語の変更</system:String>
     <system:String x:Key="THEME_PREFERENCES">テーマ設定</system:String>
+    <system:String x:Key="THEME_DESCRIPTION">DevFlowのテーマをどのように変更しますか? 目的のテーマを選択します。 自分だけの新しいテーマを作ることもできます</system:String>
+    
 </ResourceDictionary>
     
     
