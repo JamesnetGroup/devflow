@@ -8,7 +8,6 @@
         <ResourceDictionary Source="/DevFlow.Resources;component/Themes/Converters.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    
 	<Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource BRUSH.FONT.H01}"/>

@@ -10,6 +10,11 @@
 	<system:String x:Key="UNITED_STATES">미국</system:String>
 
     <system:String x:Key="LANGUAGE_CHANGES">다국어 설정</system:String>
+
+    <system:String x:Key="THEME_WHITE">화이트</system:String>
+    <system:String x:Key="THEME_DARK">다크</system:String>
+    <system:String x:Key="THEME_JAMES">제임스</system:String>
+    <system:String x:Key="THEME_ELENA">엘레나</system:String>
     <system:String x:Key="THEME_PREFERENCES">테마 설정</system:String>
     <system:String x:Key="THEME_DESCRIPTION">DevFlow테마를 어떻게 바꾸고 싶으세요? 원하는 테마를 선택하세요. 그리고 당신만의 새로운 테마를 만들수도 있습니다.</system:String>
 </ResourceDictionary>
