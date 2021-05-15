@@ -35,10 +35,10 @@ namespace DevFlow.Skins.ViewModels
 		{
 			List<SkinModel> source = new List<SkinModel>
 			{
-				new SkinModel("White", ThemeType.White),
-				new SkinModel("Dark", ThemeType.Dark),
-				new SkinModel("James", ThemeType.James),
-				new SkinModel("Elena", ThemeType.Elena)
+				new SkinModel("THEME_WHITE", ThemeType.White),
+				new SkinModel("THEME_DARK", ThemeType.Dark),
+				new SkinModel("THEME_JAMES", ThemeType.James),
+				new SkinModel("THEME_ELENA", ThemeType.Elena)
 			};
 			return source;
 		}

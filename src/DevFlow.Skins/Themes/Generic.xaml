@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:prims="clr-namespace:DevFlow.Controls.Primitives;assembly=DevFlow.Controls"
     xmlns:views="clr-namespace:DevFlow.Skins.Views"
-	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport">
+	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport"
+    xmlns:convs="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
 	
 	<DrawingImage x:Key="PREVIEW.SKIN.WHITE">
 		<DrawingImage.Drawing>
@@ -297,7 +298,7 @@
 									<flows:FlowIcon x:Name="circle" Grid.Column="0" IconType="CheckCircle" 
                                                     HorizontalAlignment="Left"
                                                     Fill="{DynamicResource BRUSH.CHECK.CIRCLE.FALSE}" Margin="0 5 5 5"/>
-									<TextBlock x:Name="name" Grid.Column="1" Text="{Binding Name}" Foreground="{DynamicResource BRUSH.CHECK.CIRCLE.FALSE}" Margin="5"
+									<TextBlock x:Name="name" Grid.Column="1" Text="{convs:ResourceBinding Name}" Foreground="{DynamicResource BRUSH.CHECK.CIRCLE.FALSE}" Margin="5"
                                                HorizontalAlignment="Center"/>
                                     </StackPanel>
                                 </Grid>
@@ -311,16 +312,16 @@
 							<Setter TargetName="name" Property="Foreground" Value="{DynamicResource BRUSH.FONT.I01}"/>
                             <Setter TargetName="line" Property="BorderBrush" Value="{DynamicResource BRUSH.CHECK.CIRCLE}"/>
 						</Trigger>
-						<DataTrigger Binding="{Binding Name}" Value="White">
+						<DataTrigger Binding="{Binding Name}" Value="THEME_WHITE">
 							<Setter TargetName="skin" Property="Source" Value="{StaticResource PREVIEW.SKIN.WHITE}"/>
 						</DataTrigger>
-						<DataTrigger Binding="{Binding Name}" Value="Dark">
+						<DataTrigger Binding="{Binding Name}" Value="THEME_DARK">
 							<Setter TargetName="skin" Property="Source" Value="{StaticResource PREVIEW.SKIN.DARK}"/>
 						</DataTrigger>
-						<DataTrigger Binding="{Binding Name}" Value="James">
+						<DataTrigger Binding="{Binding Name}" Value="THEME_JAMES">
 							<Setter TargetName="skin" Property="Source" Value="{StaticResource PREVIEW.SKIN.JAMES}"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Name}" Value="Elena">
+                        <DataTrigger Binding="{Binding Name}" Value="THEME_ELENA">
                             <Setter TargetName="skin" Property="Source" Value="{StaticResource PREVIEW.SKIN.ELENA}"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
