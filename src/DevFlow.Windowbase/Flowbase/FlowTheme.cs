@@ -38,6 +38,7 @@ namespace DevFlow.Windowbase.Flowbase
                 Resources.Remove(CurrentResource);
             }
             CurrentResource = Themes[theme];
+            CurrentTheme = theme;
             Resources.Add(CurrentResource);
         }
 

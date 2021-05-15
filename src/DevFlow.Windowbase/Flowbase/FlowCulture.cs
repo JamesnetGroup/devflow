@@ -38,6 +38,7 @@ namespace DevFlow.Windowbase.Flowbase
                 Resources.Remove(CurrentResource);
             }
             CurrentResource = Cultures[lang];
+            CurrentCulture = lang;
             Resources.Add(CurrentResource);
         }
 

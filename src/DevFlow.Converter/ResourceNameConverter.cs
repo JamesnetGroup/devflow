@@ -9,16 +9,17 @@ using System.Windows.Data;
 
 namespace DevFlow.Converter
 {
-    public class ResourceNameConverter : IValueConverter
+public class ResourceNameConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return Application.Current.FindResource(value);
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
+        //var dynamic = FrameworkElement.SetResourceReference(targetType as DependencyProperty, value.ToString());
+        return Application.Current.FindResource(value);
     }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+}
 }

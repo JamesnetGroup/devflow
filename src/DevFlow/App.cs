@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using DevFlow.Data;
+using DevFlow.Data.Settings;
 using DevFlow.Main.ViewModels;
 using DevFlow.Main.Views;
 using DevFlow.Windowbase.Flowbase;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace DevFlow
 {
@@ -30,6 +34,11 @@ namespace DevFlow
         protected override void OnStartup(StartupEventArgs e)
         {
             bool dialogResult = true;
+
+            ConfigModel config = FlowConfig.LoadConfig();
+
+            Theme.Switch(config.Theme);
+            Culture.Switch(config.Language);
 
             while (dialogResult)
             {

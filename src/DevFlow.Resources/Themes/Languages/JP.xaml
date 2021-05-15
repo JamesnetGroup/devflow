@@ -12,3 +12,6 @@
     <system:String x:Key="LANGUAGE_CHANGES">言語の変更</system:String>
     <system:String x:Key="THEME_PREFERENCES">テーマ設定</system:String>
 </ResourceDictionary>
+    
+    
+    

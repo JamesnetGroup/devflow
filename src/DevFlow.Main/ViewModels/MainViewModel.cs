@@ -92,6 +92,7 @@ namespace DevFlow.Main.ViewModels
         private void SkinSelected(SkinModel theme)
         {
             this.theme.Switch(theme.Skin);
+            FlowConfig.SaveTheme(theme.Skin);
         }
         #endregion
 
@@ -100,6 +101,7 @@ namespace DevFlow.Main.ViewModels
         private void LanguageChanged(LanguageModel culture)
         {
             this.culture.Switch(culture.Language);
+            FlowConfig.SaveLanguage(culture.Language);
         }
         #endregion
     }
