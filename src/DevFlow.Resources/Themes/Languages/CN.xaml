@@ -10,6 +10,10 @@
     <system:String x:Key="UNITED_STATES">美国</system:String>
 
     <system:String x:Key="LANGUAGE_CHANGES">语言变化</system:String>
+    <system:String x:Key="THEME_WHITE">白色</system:String>
+    <system:String x:Key="THEME_DARK">深蓝</system:String>
+    <system:String x:Key="THEME_JAMES">詹姆斯</system:String>
+    <system:String x:Key="THEME_ELENA">艾琳娜</system:String>
     <system:String x:Key="THEME_PREFERENCES">主题偏好</system:String>
     <system:String x:Key="THEME_DESCRIPTION">您希望如何改变 DevFlow 主题？ 选择你想要的主题。 你可以创造你自己的新主题</system:String>
 </ResourceDictionary>
