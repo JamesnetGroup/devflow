@@ -365,15 +365,12 @@
 	</Style>
 
     <Style TargetType="{x:Type views:SwitchSkin}" BasedOn="{StaticResource {x:Type flows:Preview}}">
-        <Setter Property="Tag" Value="{DynamicResource THEME_PREFERENCES}"/>
+        <Setter Property="Title" Value="{DynamicResource THEME_TITLE}"/>
+        <Setter Property="SubTitle" Value="{DynamicResource THEME_SUBTITLE}"/>
 		<Setter Property="Width" Value="800"/>
 		<Setter Property="Content">
 			<Setter.Value>
 				<StackPanel>
-
-                    <TextBlock Grid.Row="1" Text="{DynamicResource THEME_DESCRIPTION}"
-									   Foreground="{DynamicResource BRUSH.FONT.I01}" TextWrapping="Wrap" HorizontalAlignment="Stretch"
-                                       Margin="30 20 30 20"/>
 
 					<ListBox x:Name="lbx" Grid.Row="2" Style="{StaticResource LBX}" Margin="30 0 30 30"/>
 				</StackPanel>

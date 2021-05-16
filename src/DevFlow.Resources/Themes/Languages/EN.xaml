@@ -9,13 +9,16 @@
 	<system:String x:Key="UNITED_KINGDOM">United Kingdom</system:String>
     <system:String x:Key="UNITED_STATES">United States</system:String>
 
-    <system:String x:Key="LANGUAGE_CHANGES">Language changes</system:String>
+    <system:String x:Key="LANGUAGE_TITLE">Language changes</system:String>
+    <system:String x:Key="LANGUAGE_SUBTITLE">Select the DevFlow preference language. You can also change languages in real time or simply add new languages.</system:String>
 
+    <system:String x:Key="THEME_TITLE">Theme preferences</system:String>
+    <system:String x:Key="THEME_SUBTITLE">How would you like to change the DevFlow theme? Choose the theme you want. And you can create your own new theme.</system:String>
     <system:String x:Key="THEME_WHITE">White</system:String>
     <system:String x:Key="THEME_DARK">Dark</system:String>
     <system:String x:Key="THEME_JAMES">James</system:String>
     <system:String x:Key="THEME_ELENA">Elena</system:String>
-    <system:String x:Key="THEME_PREFERENCES">Theme preferences</system:String>
-    <system:String x:Key="THEME_DESCRIPTION">How would you like to change the DevFlow theme? Choose the theme you want. And you can create your own new theme.</system:String>
-    
+
+    <system:String x:Key="HISTORY_TITLE">Screenshot History</system:String>
+    <system:String x:Key="HISTORY_DESCRIPTION">You can take a screenshot of the DevFlow development process history. Shall we take a look at how the program went through the process of change?</system:String>
 </ResourceDictionary>

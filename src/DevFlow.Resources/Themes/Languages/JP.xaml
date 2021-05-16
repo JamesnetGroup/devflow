@@ -9,14 +9,18 @@
 	<system:String x:Key="UNITED_KINGDOM">イギリス</system:String>
     <system:String x:Key="UNITED_STATES">アメリカ</system:String>
 
-    <system:String x:Key="LANGUAGE_CHANGES">言語の変更</system:String>
+    <system:String x:Key="LANGUAGE_TITLE">言語の変更</system:String>
+    <system:String x:Key="LANGUAGE_SUBTITLE">DevFlow プリファレンス言語を選択します。 リアルタイムで言語を変更することも、単に新しい言語を追加することもできます。</system:String>
 
+    <system:String x:Key="THEME_TITLE">テーマ設定</system:String>
+    <system:String x:Key="THEME_SUBTITLE">DevFlowのテーマをどのように変更しますか? 目的のテーマを選択します。 自分だけの新しいテーマを作ることもできます</system:String>
     <system:String x:Key="THEME_WHITE">白</system:String>
     <system:String x:Key="THEME_DARK">暗黒い</system:String>
     <system:String x:Key="THEME_JAMES">ジェイムズ</system:String>
     <system:String x:Key="THEME_ELENA">エレナ</system:String>
-    <system:String x:Key="THEME_PREFERENCES">テーマ設定</system:String>
-    <system:String x:Key="THEME_DESCRIPTION">DevFlowのテーマをどのように変更しますか? 目的のテーマを選択します。 自分だけの新しいテーマを作ることもできます</system:String>
+
+    <system:String x:Key="HISTORY_TITLE">スクリーンショット履歴</system:String>
+    <system:String x:Key="HISTORY_DESCRIPTION">DevFlow 開発プロセス履歴のスクリーンショットを取得できます。 プログラムがどのように変化していったのか見てみましょうか？</system:String>
     
 </ResourceDictionary>
     
