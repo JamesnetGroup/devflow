@@ -39,8 +39,8 @@
     <Style TargetType="{x:Type views:Translator}" BasedOn="{StaticResource {x:Type flows:Preview}}">
         <Setter Property="Title" Value="{DynamicResource LANGUAGE_TITLE}"/>
         <Setter Property="SubTitle" Value="{DynamicResource LANGUAGE_SUBTITLE}"/>
-		<Setter Property="Content">
-			<Setter.Value>
+        <Setter Property="Content">
+            <Setter.Value>
 				<Border Margin="30 0 30 30">
 					<ListBox Foreground="{DynamicResource BRUSH.FONT.H01}"
 							 ItemContainerStyle="{StaticResource LBXI}"

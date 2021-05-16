@@ -92,7 +92,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:QuickSlot}">
-					<Grid x:Name="grid" Background="Transparent" VerticalAlignment="Top">
+					<Grid x:Name="grid" Background="#FFFFFF" VerticalAlignment="Top">
 						<Border Style="{StaticResource BORDER}">
 							<ListBox Style="{StaticResource LBX}"/>
 						</Border>
