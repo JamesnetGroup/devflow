@@ -3,6 +3,7 @@ using DevFlow.Data.Works;
 using DevFlow.Windowbase.Flowbase;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
 namespace DevFlow.Controls.Primitives
@@ -10,7 +11,8 @@ namespace DevFlow.Controls.Primitives
 	public class Widget : FlowView
     {
         private bool _isDragging;
-		private Point clickPosition;
+        private bool IsResizing;
+        private Point clickPosition;
 
         public WorkspaceModel MenuInfo;
 
@@ -31,6 +33,12 @@ namespace DevFlow.Controls.Primitives
             if (GetTemplateChild("PART_CloseButton") is Button btn)
             {
                 btn.Click += Btn_Click;
+            }
+
+            if (GetTemplateChild("PART_Resize") is Thumb thumb)
+            {
+                thumb.DragDelta += Btn_DragDelta;
+                thumb.DragCompleted += Btn_DragCompleted;
             }
         }
 
@@ -78,5 +86,26 @@ namespace DevFlow.Controls.Primitives
                 transform.Y = currentPosition.Y - clickPosition.Y;
             }
         }
-	}
+
+        private void Btn_DragDelta(object sender, DragDeltaEventArgs e)
+        {
+            IsResizing = true;
+            var yadjust = this.Height + e.VerticalChange;
+            var xadjust = this.Width + e.HorizontalChange;
+            if ((xadjust >= 0) && (yadjust >= 0))
+            {
+                this.Width = xadjust;
+                this.Height = yadjust;
+                _ = (Parent as Canvas);
+            }
+        }
+
+        private void Btn_DragCompleted(object sender, DragCompletedEventArgs e)
+        {
+            if (this.RenderTransform is TranslateTransform transform)
+            {
+                FlowConfig.SaveLocation(MenuInfo, transform.X, transform.Y, ActualWidth, ActualHeight);
+            }
+        }
+    }
 }

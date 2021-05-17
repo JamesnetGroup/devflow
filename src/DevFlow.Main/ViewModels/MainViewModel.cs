@@ -32,12 +32,12 @@ namespace DevFlow.Main.ViewModels
 
         #region Menu
 
-        public QuickSlotViewModel Menu { get; set; }
+        public QuickSlotViewModel Menu { get; }
         #endregion
 
         #region Theme
 
-        public SwitchSkinViewModel Skin { get; set; }
+        public SwitchSkinViewModel Skin { get; }
 		#endregion
 
 		#region Translate
@@ -57,7 +57,7 @@ namespace DevFlow.Main.ViewModels
             Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
             Works = new ObservableCollection<WorkspaceModel>();
-            Menu = new QuickSlotViewModel(MenuSelected);
+            Menu = new QuickSlotViewModel(new RelayCommand<MenuModel>(MenuSelected));
         }
 
         public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()

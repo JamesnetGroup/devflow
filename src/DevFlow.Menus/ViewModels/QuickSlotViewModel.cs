@@ -28,9 +28,9 @@ namespace DevFlow.Menus.ViewModels
             Menus = GetMenus();
         }
 
-        public QuickSlotViewModel(Action<MenuModel> menuSelected) : this()
+        public QuickSlotViewModel(RelayCommand<MenuModel> menuSelected) : this()
         {
-            Menus.ForEach(x => x.MenuClickCommand = new RelayCommand<MenuModel>(menuSelected));
+            Menus.ForEach(x => x.MenuClickCommand = menuSelected);
         }
         #endregion
 

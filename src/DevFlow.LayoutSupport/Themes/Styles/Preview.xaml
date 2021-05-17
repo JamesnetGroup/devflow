@@ -38,8 +38,9 @@
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
                             <prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
 										      Padding="30 20 30 20" Background="Transparent" 
                                               Tag="{Binding RelativeSource={RelativeSource AncestorType=flows:Preview}}">
@@ -58,8 +59,18 @@
 									   Foreground="{DynamicResource BRUSH.FONT.I01}" TextWrapping="Wrap" HorizontalAlignment="Stretch"
                                        Margin="30 20 30 20"/>
                             <ContentPresenter Grid.Row="2"/>
-
-                        </Grid>
+							<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
+								   Margin="6" Width="8" Height="8">
+								<Thumb.Template>
+									<ControlTemplate>
+										<Border Width="8" Height="8" CornerRadius="4" Opacity="0.1"
+												Background="{DynamicResource BRUSH.FONT.H01}">
+											
+										</Border>
+									</ControlTemplate>
+								</Thumb.Template>
+							</Thumb>
+						</Grid>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
