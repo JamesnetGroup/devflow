@@ -1,4 +1,6 @@
-﻿using DevFlow.Windowbase.Flowbase;
+﻿using DevFlow.Data.Menu;
+using DevFlow.Data.Works;
+using DevFlow.Windowbase.Flowbase;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -9,6 +11,8 @@ namespace DevFlow.Controls.Primitives
     {
         private bool _isDragging;
 		private Point clickPosition;
+
+        public WorkspaceModel MenuInfo;
 
 		public Widget()
         {
@@ -51,7 +55,12 @@ namespace DevFlow.Controls.Primitives
 			_isDragging = false;
 			var draggable = sender as DragBorder;
 			draggable.ReleaseMouseCapture();
-		}
+
+            if (this.RenderTransform is TranslateTransform transform)
+            {
+                FlowConfig.SaveLocation(MenuInfo, transform.X, transform.Y, ActualWidth, ActualHeight);
+            }
+        }
 
         private void Widget_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {

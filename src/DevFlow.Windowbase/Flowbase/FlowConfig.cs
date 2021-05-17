@@ -1,7 +1,11 @@
 ﻿using DevFlow.Data;
+using DevFlow.Data.Menu;
 using DevFlow.Data.Settings;
+using DevFlow.Data.Works;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -59,7 +63,24 @@ namespace DevFlow.Windowbase.Flowbase
             return Config;
         }
 
-        private static void SaveConfig(ConfigModel config)
+		public static void SaveLocation(WorkspaceModel menu, double x, double y, double width, double height)
+		{
+            if (Config.ViewOptions.FirstOrDefault(x => menu.Menu.IconType == x.IconType) is ViewOptionModel view)
+            {
+                view.LocX = x;
+                view.LocY = y;
+                view.Width = width;
+                view.Height = height;
+            }
+            else
+            {
+                Config.ViewOptions.Add(new ViewOptionModel { IconType = menu.Menu.IconType, LocX = x, LocY = y, Width = width, Height = height });
+            }
+
+            SaveConfig(Config);
+		}
+
+		private static void SaveConfig(ConfigModel config)
         {
             var serializer = new SerializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)

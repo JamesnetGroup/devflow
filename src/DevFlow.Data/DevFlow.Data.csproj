@@ -50,6 +50,7 @@
     <Compile Include="Enums\GeometryIconStyle.cs" />
     <Compile Include="Enums\ThemeType.cs" />
     <Compile Include="Settings\ConfigModel.cs" />
+    <Compile Include="Settings\ViewOptionModel.cs" />
     <Compile Include="Theme\SkinModel.cs" />
     <Compile Include="Works\WorkspaceModel.cs" />
   </ItemGroup>

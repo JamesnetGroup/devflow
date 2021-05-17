@@ -20,5 +20,5 @@
     <system:String x:Key="THEME_ELENA">艾琳娜</system:String>
 
     <system:String x:Key="HISTORY_TITLE">电影历史</system:String>
-    <system:String x:Key="HISTORY_DESCRIPTION">您可以拍摄 DevFlow 开发过程历史的屏幕照片。 我们来看看这个程序是如何经历变革的？</system:String>
+	<system:String x:Key="HISTORY_SUBTITLE">您可以拍摄 DevFlow 开发过程历史的屏幕照片。 我们来看看这个程序是如何经历变革的？</system:String>
 </ResourceDictionary>

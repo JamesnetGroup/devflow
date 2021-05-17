@@ -30,6 +30,7 @@ namespace DevFlow.Windowbase.Flowbase
 			Loaded += FlowView_Loaded;
         }
 		#endregion
+
 		#region UseMvvm
 
 		public IFlowUIElement UseMvvm(ObservableObject vm)

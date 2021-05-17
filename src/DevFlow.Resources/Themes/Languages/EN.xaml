@@ -20,5 +20,5 @@
     <system:String x:Key="THEME_ELENA">Elena</system:String>
 
     <system:String x:Key="HISTORY_TITLE">Screenshot History</system:String>
-    <system:String x:Key="HISTORY_DESCRIPTION">You can take a screenshot of the DevFlow development process history. Shall we take a look at how the program went through the process of change?</system:String>
+	<system:String x:Key="HISTORY_SUBTITLE">You can take a screenshot of the DevFlow development process history. Shall we take a look at how the program went through the process of change?</system:String>
 </ResourceDictionary>

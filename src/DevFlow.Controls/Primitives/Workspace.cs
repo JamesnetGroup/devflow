@@ -1,10 +1,13 @@
-﻿using DevFlow.Data.Works;
+﻿using DevFlow.Data.Settings;
+using DevFlow.Data.Works;
+using DevFlow.Windowbase.Flowbase;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DevFlow.Controls.Primitives
 {
@@ -57,9 +60,34 @@ namespace DevFlow.Controls.Primitives
 
 		private void AddChild(WorkspaceModel item)
 		{
+			if (item.Content is Widget widget)
+			{
+				widget.MenuInfo = item;
+			}
+
 			if (item.Content is UIElement ui)
 			{
 				Children.Add(ui);
+				SetTransform(item);				
+			}
+		}
+
+		private void SetTransform(WorkspaceModel item)
+		{
+			if (FlowConfig.Config.ViewOptions.FirstOrDefault(x => x.IconType == item.Menu.IconType) is ViewOptionModel view)
+			{
+				if (item.Content is ContentControl ui)
+				{
+					if (!(ui.RenderTransform is TranslateTransform transform))
+					{
+						transform = new TranslateTransform();
+						ui.RenderTransform = transform;
+					}
+					transform.X = view.LocX;
+					transform.Y = view.LocY;
+					ui.Width = view.Width;
+					ui.Height = view.Height;
+				}
 			}
 		}
 

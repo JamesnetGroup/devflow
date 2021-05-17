@@ -20,7 +20,7 @@
     <system:String x:Key="THEME_ELENA">エレナ</system:String>
 
     <system:String x:Key="HISTORY_TITLE">スクリーンショット履歴</system:String>
-    <system:String x:Key="HISTORY_DESCRIPTION">DevFlow 開発プロセス履歴のスクリーンショットを取得できます。 プログラムがどのように変化していったのか見てみましょうか？</system:String>
+	<system:String x:Key="HISTORY_SUBTITLE">DevFlow 開発プロセス履歴のスクリーンショットを取得できます。 プログラムがどのように変化していったのか見てみましょうか？</system:String>
     
 </ResourceDictionary>
     
