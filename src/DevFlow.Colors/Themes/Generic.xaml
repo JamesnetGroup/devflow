@@ -9,12 +9,32 @@
         <Setter Property="Content">
             <Setter.Value>
                 <Border>
-                    <flows:DropImageCanvas  Background="#eeeeee">
-                        <Image Source="{Binding CaptureImage}" IsHitTestVisible="False"/>
-                    </flows:DropImageCanvas>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <flows:DropImageCanvas  Background="{DynamicResource BRUSH.BG}">
+                            <Image Source="{Binding CaptureImage}" IsHitTestVisible="False"/>
+                        </flows:DropImageCanvas>
+
+                        <Grid Grid.Column="1" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border CornerRadius="8" Background="{Binding CurrentColor}" Width="60" Height="60" Margin="10"/>
+
+                            <TextBox Grid.Row="1" Text="{Binding CurrentColor}" Margin="10"/>
+                        </Grid>
+                    </Grid>
                 </Border>
             </Setter.Value>
         </Setter>
     </Style>
 </ResourceDictionary>
+
+
+
+
 

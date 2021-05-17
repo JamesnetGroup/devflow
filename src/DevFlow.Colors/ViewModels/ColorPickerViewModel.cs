@@ -11,7 +11,9 @@ namespace DevFlow.Colors.ViewModels
 {
 	public class ColorPickerViewModel : ObservableObject
 	{
-		private BitmapSource _captureImage;
+        private string _currentColor;
+
+        private BitmapSource _captureImage;
 
 		public ICommand DragCaptureCommand { get; }
         public bool IsLock { get; private set; }
@@ -22,7 +24,13 @@ namespace DevFlow.Colors.ViewModels
 			set { _captureImage = value; OnPropertyChanged(); }
         }
 
-		public ColorPickerViewModel()
+        public string CurrentColor
+        {
+            get { return _currentColor; }
+            set { _currentColor = value; OnPropertyChanged(); }
+        }
+
+        public ColorPickerViewModel()
 		{
 			DragCaptureCommand = new RelayCommand<object[]>(DragCapture);
 		}
@@ -30,11 +38,12 @@ namespace DevFlow.Colors.ViewModels
 		private void DragCapture(object[] obj)
 		{
             InteropBitmap bitmap = obj[0] as InteropBitmap;
-			Color? color = obj[1] as Color?;
-            if (!IsLock && bitmap != null)
+            object color = obj[1];
+            if (!IsLock && bitmap != null && color != null)
             {
                 IsLock = true;
                 CaptureImage = (BitmapSource)bitmap;
+                CurrentColor = color.ToString();
                 IsLock = false;
             }
 		}
