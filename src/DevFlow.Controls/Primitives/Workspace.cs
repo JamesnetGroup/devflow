@@ -1,14 +1,12 @@
 ﻿using DevFlow.Data.Works;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevFlow.LayoutSupport.Controls
+namespace DevFlow.Controls.Primitives
 {
 	public class Workspace : Canvas
 	{
@@ -40,9 +38,20 @@ namespace DevFlow.LayoutSupport.Controls
 
 		private void ItemsSource_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
 		{
-			foreach (WorkspaceModel item in e.NewItems)
+			if (e.Action == NotifyCollectionChangedAction.Add)
 			{
-				AddChild(item);
+				foreach (WorkspaceModel item in e.NewItems)
+				{
+					AddChild(item);
+				}
+			}
+
+			if (e.Action == NotifyCollectionChangedAction.Remove)
+			{
+				foreach (WorkspaceModel item in e.OldItems)
+				{
+					RemoveChild(item);
+				}
 			}
 		}
 
@@ -51,6 +60,22 @@ namespace DevFlow.LayoutSupport.Controls
 			if (item.Content is UIElement ui)
 			{
 				Children.Add(ui);
+			}
+		}
+
+		private void RemoveChild(WorkspaceModel item)
+		{
+			if (Children.Contains(item.Content as UIElement))
+			{
+				Children.Remove(item.Content as UIElement);
+			}
+		}
+
+		internal void Remove(UIElement ui)
+		{
+			if (WorksSource.FirstOrDefault(x => x.Content.Equals(ui)) is WorkspaceModel item)
+			{
+				WorksSource.Remove(item);
 			}
 		}
 	}

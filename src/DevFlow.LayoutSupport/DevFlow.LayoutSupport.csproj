@@ -65,7 +65,6 @@
     <Compile Include="Controls\FlowIcon.cs" />
     <Compile Include="Controls\MainWindow.cs" />
     <Compile Include="Controls\Preview.cs" />
-    <Compile Include="Controls\Workspace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

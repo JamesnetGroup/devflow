@@ -30,7 +30,6 @@ namespace DevFlow.Windowbase.Flowbase
 			Loaded += FlowView_Loaded;
         }
 		#endregion
-
 		#region UseMvvm
 
 		public IFlowUIElement UseMvvm(ObservableObject vm)
@@ -46,9 +45,11 @@ namespace DevFlow.Windowbase.Flowbase
         {
 
         }
-        #endregion
+		#endregion
 
-        private void FlowView_Loaded(object sender, RoutedEventArgs e)
+		#region Loaded
+
+		private void FlowView_Loaded(object sender, RoutedEventArgs e)
         {
             if (DesignerProperties.GetIsInDesignMode(this))
             {
@@ -60,5 +61,6 @@ namespace DevFlow.Windowbase.Flowbase
                 vm.ViewRegister(this);
             }
         }
+		#endregion
 	}
 }

@@ -125,10 +125,6 @@
     <Resource Include="Images\wallpaper-10.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
-      <Project>{d77874a6-4c26-4ce5-b3fe-4de1e067e5a8}</Project>
-      <Name>DevFlow.Controls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
       <Project>{7c22b438-112a-4554-8f51-78c2992ac632}</Project>
       <Name>DevFlow.Converter</Name>

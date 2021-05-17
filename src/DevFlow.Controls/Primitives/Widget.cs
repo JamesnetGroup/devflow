@@ -23,6 +23,19 @@ namespace DevFlow.Controls.Primitives
                 bar.MouseLeftButtonUp += Widget_MouseLeftButtonUp;
                 bar.MouseMove += Widget_MouseMove;
             }
+
+            if (GetTemplateChild("PART_CloseButton") is Button btn)
+            {
+                btn.Click += Btn_Click;
+            }
+        }
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Parent is Workspace workspace)
+            {
+                workspace.Remove(this);
+            }
         }
 
         private void Widget_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
