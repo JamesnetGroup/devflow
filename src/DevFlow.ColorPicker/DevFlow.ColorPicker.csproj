@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{297D9764-31CC-49FE-AB28-B34774C7F540}</ProjectGuid>
+    <ProjectGuid>{00387F81-9B72-4858-8FAF-CF829B60AD6A}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>DevFlow.Main</RootNamespace>
-    <AssemblyName>DevFlow.Main</AssemblyName>
+    <RootNamespace>DevFlow.ColorPicker</RootNamespace>
+    <AssemblyName>DevFlow.ColorPicker</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,19 +48,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Reviews\DemoMainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Reviews\DemoMainWindow.xaml.cs">
-      <DependentUpon>DemoMainWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -74,9 +67,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="Views\EmptyView.cs" />
-    <Compile Include="Views\MainView.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -87,46 +77,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DevFlow.Colors\DevFlow.Colors.csproj">
-      <Project>{D0A1EA4C-FAFD-4ACF-8027-537A354BDF0E}</Project>
-      <Name>DevFlow.Colors</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
-      <Project>{d77874a6-4c26-4ce5-b3fe-4de1e067e5a8}</Project>
-      <Name>DevFlow.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
-      <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
-      <Name>DevFlow.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Histories\DevFlow.Histories.csproj">
-      <Project>{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A}</Project>
-      <Name>DevFlow.Histories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Languages\DevFlow.Languages.csproj">
-      <Project>{44F5BD64-2816-46E4-B302-4BDF60120CD4}</Project>
-      <Name>DevFlow.Languages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj">
-      <Project>{EB691890-E172-4F99-BBB8-6E7D19E63FD1}</Project>
-      <Name>DevFlow.LayoutSupport</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Menus\DevFlow.Menus.csproj">
-      <Project>{0429b120-7e7c-4c1e-b119-9ad905398d0e}</Project>
-      <Name>DevFlow.Menus</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
-      <Project>{049fb84c-5047-416b-b1a2-ebf2a02f0cdb}</Project>
-      <Name>DevFlow.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Skins\DevFlow.Skins.csproj">
-      <Project>{aa325822-9bb8-4102-bd67-6fc5a5b23f8f}</Project>
-      <Name>DevFlow.Skins</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
-      <Project>{3d2aab15-663d-4ef4-b80e-0afeca05c910}</Project>
-      <Name>DevFlow.Windowbase</Name>
-    </ProjectReference>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,7 +63,7 @@ namespace DevFlow.Windowbase.Flowbase
             return Config;
         }
 
-		public static void SaveLocation(WorkspaceModel menu, double x, double y, double width, double height)
+		public static void SaveLocation(WorkspaceModel menu, int x, int y, int width, int height)
 		{
             if (Config.ViewOptions.FirstOrDefault(x => menu.Menu.IconType == x.IconType) is ViewOptionModel view)
             {

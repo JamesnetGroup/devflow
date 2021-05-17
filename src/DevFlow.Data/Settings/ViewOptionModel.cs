@@ -9,9 +9,9 @@ namespace DevFlow.Data.Settings
 	public class ViewOptionModel
 	{
 		public GeometryIconStyle IconType { get; set; }
-		public double LocX { get; set; }
-		public double LocY { get; set; }
-		public double Width { get; set; }
-		public double Height { get; set; }
+		public int LocX { get; set; }
+		public int LocY { get; set; }
+		public int Width { get; set; }
+		public int Height { get; set; }
 	}
 }

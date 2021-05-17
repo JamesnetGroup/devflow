@@ -66,7 +66,7 @@ namespace DevFlow.Controls.Primitives
 
             if (this.RenderTransform is TranslateTransform transform)
             {
-                FlowConfig.SaveLocation(MenuInfo, transform.X, transform.Y, ActualWidth, ActualHeight);
+                FlowConfig.SaveLocation(MenuInfo, (int)transform.X, (int)transform.Y, (int)ActualWidth, (int)ActualHeight);
             }
         }
 
@@ -104,7 +104,7 @@ namespace DevFlow.Controls.Primitives
         {
             if (this.RenderTransform is TranslateTransform transform)
             {
-                FlowConfig.SaveLocation(MenuInfo, transform.X, transform.Y, ActualWidth, ActualHeight);
+                FlowConfig.SaveLocation(MenuInfo, (int)transform.X, (int)transform.Y, (int)ActualWidth, (int)ActualHeight);
             }
         }
     }
