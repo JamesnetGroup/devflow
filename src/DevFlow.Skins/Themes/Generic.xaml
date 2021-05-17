@@ -371,7 +371,6 @@
 		<Setter Property="Content">
 			<Setter.Value>
 				<StackPanel>
-
 					<ListBox x:Name="lbx" Grid.Row="2" Style="{StaticResource LBX}" Margin="30 0 30 30"/>
 				</StackPanel>
 			</Setter.Value>

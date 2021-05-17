@@ -4,12 +4,8 @@
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                xmlns:main="clr-namespace:DevFlow.Main.Views;assembly=DevFlow.Main"
-               xmlns:vm="clr-namespace:DevFlow.Main.ViewModels;assembly=DevFlow.Main"
                mc:Ignorable="d"        
 			   Style="{DynamicResource MAINVIEW}">
-    <main:MainView.DataContext>
-        <vm:MainViewModel/>
-    </main:MainView.DataContext>
 	<main:MainView.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -18,3 +14,5 @@
 		</ResourceDictionary>
     </main:MainView.Resources>
 </main:MainView>
+
+    

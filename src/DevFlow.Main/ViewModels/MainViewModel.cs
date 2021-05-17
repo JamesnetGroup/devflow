@@ -17,7 +17,7 @@ using DevFlow.Windowbase.Mvvm;
 using DevFlow.Data.Language;
 using DevFlow.Histories.Views;
 using DevFlow.Histories.ViewModels;
-using DevFlow.Colors.VIews;
+using DevFlow.Colors.Views;
 using DevFlow.Colors.ViewModels;
 
 namespace DevFlow.Main.ViewModels

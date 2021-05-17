@@ -73,7 +73,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\ColorPickerViewModel.cs" />
-    <Compile Include="VIews\ColorPicker.cs" />
+    <Compile Include="Views\ColorPicker.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
