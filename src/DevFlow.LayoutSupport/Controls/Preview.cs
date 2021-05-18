@@ -44,5 +44,15 @@ namespace DevFlow.LayoutSupport.Controls
 		{
 			RenderTransform = new TranslateTransform(100, 100);
 		}
-	}
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+			if (GetTemplateChild("KK") is Grid grid)
+			{ 
+			
+			}
+        }
+    }
 }

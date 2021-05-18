@@ -106,31 +106,33 @@
     <Style TargetType="{x:Type views:History}" BasedOn="{StaticResource {x:Type flows:Preview}}">
         <Setter Property="Title" Value="{DynamicResource HISTORY_TITLE}"/>
         <Setter Property="SubTitle" Value="{DynamicResource HISTORY_SUBTITLE}"/>
-        <Setter Property="Content">
+        <Setter Property="ContentTemplate">
             <Setter.Value>
-                <Border>
-                    <Border Background="Transparent" Height="500"  Width="800">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Border Grid.Row="0" CornerRadius="5" Margin="30 0 30 0">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="5" Direction="-90"
+                <DataTemplate>
+                    <Border>
+                        <Border Background="Transparent" Height="500"  Width="800">
+                            <Grid x:Name="KK">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" CornerRadius="5" Margin="30 0 30 0">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="5" Direction="-90"
                                               RenderingBias="Quality" ShadowDepth="0.5"/>
-                                </Border.Effect>
-                                <Border.Background>
-                                    <ImageBrush ImageSource="{Binding CurrentImage.PreviewImage}" RenderOptions.BitmapScalingMode="HighQuality">
-                                    </ImageBrush>
-                                </Border.Background>
-                            </Border>
+                                    </Border.Effect>
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding CurrentImage.PreviewImage}" RenderOptions.BitmapScalingMode="HighQuality">
+                                        </ImageBrush>
+                                    </Border.Background>
+                                </Border>
 
-                            <ListBox Grid.Row="1" Style="{StaticResource LBX.HISTORY}"/>
+                                <ListBox Grid.Row="1" Style="{StaticResource LBX.HISTORY}"/>
 
-                        </Grid>
+                            </Grid>
+                        </Border>
                     </Border>
-                </Border>
+                </DataTemplate>
             </Setter.Value>
         </Setter>
     </Style>

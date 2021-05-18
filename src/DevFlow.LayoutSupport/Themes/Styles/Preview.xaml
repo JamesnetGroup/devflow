@@ -58,7 +58,7 @@
                             <TextBlock Grid.Row="1" Text="{TemplateBinding SubTitle}"
 									   Foreground="{DynamicResource BRUSH.FONT.I01}" TextWrapping="Wrap" HorizontalAlignment="Stretch"
                                        Margin="30 20 30 20"/>
-                            <ContentPresenter Grid.Row="2"/>
+                            <ContentPresenter Grid.Row="2" ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
 							<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
 								   Margin="6" Width="8" Height="8">
 								<Thumb.Template>

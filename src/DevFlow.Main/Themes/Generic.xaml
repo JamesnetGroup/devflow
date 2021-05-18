@@ -85,10 +85,12 @@
 				<ControlTemplate TargetType="{x:Type views:EmptyView}">
 					<Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderThickness="{TemplateBinding BorderThickness}">	
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
 	</Style>
 </ResourceDictionary>
+
+

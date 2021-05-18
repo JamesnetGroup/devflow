@@ -39,17 +39,21 @@
     <Style TargetType="{x:Type views:Translator}" BasedOn="{StaticResource {x:Type flows:Preview}}">
         <Setter Property="Title" Value="{DynamicResource LANGUAGE_TITLE}"/>
         <Setter Property="SubTitle" Value="{DynamicResource LANGUAGE_SUBTITLE}"/>
-        <Setter Property="Content">
+        <Setter Property="ContentTemplate">
             <Setter.Value>
-				<Border Margin="30 0 30 30">
-					<ListBox Foreground="{DynamicResource BRUSH.FONT.H01}"
-							 ItemContainerStyle="{StaticResource LBXI}"
-                             SelectedItem="{Binding CurrentLanguage}"
-							 ItemsSource="{Binding Languages}"
-							 Background="{DynamicResource BRUSH.BG}" BorderThickness="0">
-					</ListBox>
-				</Border>
+                <DataTemplate>
+                    <Border Margin="30 0 30 30">
+                        <ListBox Foreground="{DynamicResource BRUSH.FONT.H01}"
+                                 ItemContainerStyle="{StaticResource LBXI}"
+                                 SelectedItem="{Binding CurrentLanguage}"
+                                 ItemsSource="{Binding Languages}"
+                                 Background="{DynamicResource BRUSH.BG}" BorderThickness="0">
+                        </ListBox>
+                    </Border>
+                </DataTemplate>
 			</Setter.Value>
 		</Setter>   
 	</Style>
 </ResourceDictionary>
+
+
