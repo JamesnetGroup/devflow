@@ -13,9 +13,9 @@ namespace DevFlow
 {
     public class App : FlowApp
     {
-		protected override ThemeType OnSetDefaultTheme(ThemeType type) => ThemeType.Dark;
+        protected override ThemeType OnSetDefaultTheme(ThemeType type) => ThemeType.Dark;
 
-		protected override void OnApplyThemeManager()
+        protected override void OnApplyThemeManager()
         {
             AddTheme(ThemeType.Dark, "Generic.Dark.xaml");
             AddTheme(ThemeType.White, "Generic.White.xaml");
@@ -48,7 +48,6 @@ namespace DevFlow
                 main.ShowDialog();
                 dialogResult = (bool)main.DialogResult;
             }
-
             Environment.Exit(0);
         }
     }

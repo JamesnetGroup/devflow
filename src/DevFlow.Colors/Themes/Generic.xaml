@@ -14,7 +14,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <flows:DropImageCanvas  Background="{DynamicResource BRUSH.BG}">
+                        <flows:DropImageCanvas  Background="{DynamicResource BRUSH.BG}" Width="200" Height="200">
                             <Image Source="{Binding CaptureImage}" IsHitTestVisible="False"/>
                         </flows:DropImageCanvas>
 

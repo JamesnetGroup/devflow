@@ -37,12 +37,9 @@ namespace DevFlow.LayoutSupport.Controls
             }
         }
 
-        int previewWidth = 50;
-        int previewHeight = 50;
+        int previewWidth = 200;
+        int previewHeight = 200;
         private IKeyboardMouseEvents globalMouseHook;
-
- 
-
 
         private void BeginCapture()
         {
@@ -80,7 +77,6 @@ namespace DevFlow.LayoutSupport.Controls
                     DragCaptureCommand?.Execute(new object[] { bmpSource, new System.Windows.Media.Color() { R = color.R, G = color.G, B = color.B, A = color.A } });
                 }
             }
-
         }
 
         private void MainWindow_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)

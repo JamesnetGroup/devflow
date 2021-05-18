@@ -57,11 +57,22 @@
 		</Setter>
 	</Style>
 
+	<DataTemplate x:Key="DDD">
+		<StackPanel>
+
+			<TextBlock Text="{Binding}" Foreground="#FFFFFF"/>
+			<TextBlock Text="{Binding}" Foreground="#FFFFFF"/>
+		</StackPanel>
+	</DataTemplate>
+
     <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI">
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
-					<Button x:Name="button" Style="{StaticResource BUTTON}"/>
+					<StackPanel>
+						<Button x:Name="button" Style="{StaticResource BUTTON}"/>
+						<ContentPresenter ContentTemplate="{StaticResource DDD}" Content="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=DataContext}" ContentSource="Content"/>
+					</StackPanel>
 					<ControlTemplate.Triggers>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
@@ -116,3 +127,6 @@
 		</Setter>
 	</Style>
 </ResourceDictionary>
+
+	
+	
