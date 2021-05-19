@@ -114,7 +114,6 @@ namespace DevFlow.Converter
 
         }
 
-
         #region Binding Members
 
         /// <summary> The source path (for CLR bindings).</summary>
@@ -218,8 +217,6 @@ namespace DevFlow.Converter
         }
 
         #endregion
-
-
 
         #region Nested types
 

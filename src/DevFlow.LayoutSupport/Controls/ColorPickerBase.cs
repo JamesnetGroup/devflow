@@ -13,9 +13,9 @@ using System.Windows.Media.Imaging;
 
 namespace DevFlow.LayoutSupport.Controls
 {
-    public class ColorPickerBase : Preview
+    public class Palette : Preview
     {
-        public static readonly DependencyProperty DragCaptureCommandProperty = DependencyProperty.Register("DragCaptureCommand", typeof(ICommand), typeof(ColorPickerBase));
+        public static readonly DependencyProperty DragCaptureCommandProperty = DependencyProperty.Register("DragCaptureCommand", typeof(ICommand), typeof(Palette));
 
         public ICommand DragCaptureCommand
         {
@@ -23,7 +23,7 @@ namespace DevFlow.LayoutSupport.Controls
             set { this.SetValue(DragCaptureCommandProperty, value); }
         }
 
-        public ColorPickerBase()
+        public Palette()
         { 
            
         }
@@ -59,7 +59,6 @@ namespace DevFlow.LayoutSupport.Controls
 
         private void MainWindow_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            //https://stackoverflow.com/questions/20338960/wpf-way-to-take-screenshots
             using (var screenBmp = new Bitmap(previewWidth, previewHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb))
             {
                 using (var bmpGraphics = Graphics.FromImage(screenBmp))

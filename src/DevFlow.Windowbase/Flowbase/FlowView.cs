@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowView : UserControl, IFlowUIElement
+	public class FlowView : ContentControl, IFlowUIElement
     {
 		#region DependencyProperty
 

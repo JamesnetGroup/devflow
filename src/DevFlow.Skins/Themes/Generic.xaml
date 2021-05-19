@@ -368,12 +368,16 @@
         <Setter Property="Title" Value="{DynamicResource THEME_TITLE}"/>
         <Setter Property="SubTitle" Value="{DynamicResource THEME_SUBTITLE}"/>
 		<Setter Property="Width" Value="800"/>
-		<Setter Property="Content">
+		<Setter Property="ContentTemplate">
 			<Setter.Value>
-				<StackPanel>
-					<ListBox x:Name="lbx" Grid.Row="2" Style="{StaticResource LBX}" Margin="30 0 30 30"/>
-				</StackPanel>
+                <DataTemplate>
+                    <StackPanel>
+                        <ListBox x:Name="lbx" Grid.Row="2" Style="{StaticResource LBX}" Margin="30 0 30 30"/>
+                    </StackPanel>
+                </DataTemplate>
 			</Setter.Value>
 		</Setter>
 	</Style>
 </ResourceDictionary>
+
+    

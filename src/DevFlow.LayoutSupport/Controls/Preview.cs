@@ -1,19 +1,7 @@
 ﻿using DevFlow.Controls.Primitives;
-using DevFlow.Windowbase.Flowbase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DevFlow.LayoutSupport.Controls
 {
@@ -44,15 +32,9 @@ namespace DevFlow.LayoutSupport.Controls
 		{
 			RenderTransform = new TranslateTransform(100, 100);
 		}
-
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-
-			if (GetTemplateChild("KK") is Grid grid)
-			{ 
-			
-			}
-        }
     }
 }
+
+
+
+

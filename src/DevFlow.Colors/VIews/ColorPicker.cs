@@ -10,7 +10,7 @@ using Gma.System.MouseKeyHook;
 
 namespace DevFlow.Colors.Views
 {
-	public class ColorPicker : ColorPickerBase
+	public class ColorPicker : Palette
     {
         static ColorPicker()
         {
