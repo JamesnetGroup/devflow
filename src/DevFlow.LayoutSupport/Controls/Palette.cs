@@ -24,8 +24,7 @@ namespace DevFlow.LayoutSupport.Controls
         }
 
         public Palette()
-        { 
-           
+        {
         }
 
 
@@ -37,8 +36,8 @@ namespace DevFlow.LayoutSupport.Controls
             }
         }
 
-        int previewWidth = 200;
-        int previewHeight = 200;
+        int previewWidth = 2;
+        int previewHeight = 2;
         private IKeyboardMouseEvents globalMouseHook;
 
         private void BeginCapture()
@@ -70,9 +69,7 @@ namespace DevFlow.LayoutSupport.Controls
                         Int32Rect.Empty,
                         BitmapSizeOptions.FromEmptyOptions());
 
-                    //previewImg.Source = bmpSource;
                     var color = screenBmp.GetPixel(previewWidth / 2, previewWidth / 2);
-                    //setSelectedColor();
                     DragCaptureCommand?.Execute(new object[] { bmpSource, new System.Windows.Media.Color() { R = color.R, G = color.G, B = color.B, A = color.A } });
                 }
             }
@@ -84,3 +81,4 @@ namespace DevFlow.LayoutSupport.Controls
         }
     }
 }
+

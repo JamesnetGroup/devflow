@@ -4,6 +4,7 @@
     xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/FlowIcon.xaml"/>
-		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Preview.xaml"/>
-	</ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Preview.xaml"/>
+        <ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Palette.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

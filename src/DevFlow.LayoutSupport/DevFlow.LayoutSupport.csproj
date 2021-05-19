@@ -57,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Palette.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Preview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,7 +71,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ColorPickerBase.cs" />
+    <Compile Include="Controls\Palette.cs" />
     <Compile Include="Controls\DropImageCanvas.cs" />
     <Compile Include="Controls\FlowIcon.cs" />
     <Compile Include="Controls\MainWindow.cs" />
