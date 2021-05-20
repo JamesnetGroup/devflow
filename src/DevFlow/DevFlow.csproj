@@ -172,5 +172,8 @@
   <ItemGroup>
     <Folder Include="Local\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AddTest.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

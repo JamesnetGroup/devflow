@@ -13,6 +13,8 @@ namespace DevFlow.Colors.ViewModels
     public class ColorPickerViewModel : ObservableObject
     {
         private string _currentColor;
+        private string _reverseColor;
+        private object lockObject = new object();
 
         private BitmapSource _captureImage;
 
@@ -31,23 +33,35 @@ namespace DevFlow.Colors.ViewModels
             set { _currentColor = value; OnPropertyChanged(); }
         }
 
+        public string ReverseColor
+        {
+            get { return _reverseColor; }
+            set { _reverseColor = value; OnPropertyChanged(); }
+        }
+
         public ColorPickerViewModel()
         {
-            DragCaptureCommand = new RelayCommand<object[]>(DragCapture);
+            DragCaptureCommand = new RelayCommand<byte[]>(DragCapture);
 
             CurrentColor = "Transparent";
         }
 
-        private void DragCapture(object[] obj)
+        private void DragCapture(byte[] rgba)
         {
-            InteropBitmap bitmap = obj[0] as InteropBitmap;
-            object color = obj[1];
-            if (!IsLock && bitmap != null && color != null)
+
+            lock (lockObject)
             {
-                IsLock = true;
-                CaptureImage = (BitmapSource)bitmap;
-                CurrentColor = color.ToString();
-                IsLock = false;
+                var r = rgba[0].ToString("X2");
+                var g = rgba[1].ToString("X2");
+                var b = rgba[2].ToString("X2");
+                var a = rgba[3].ToString("X2");
+
+                var xr = (255 - rgba[0]).ToString("X2");
+                var xg = (255 - rgba[1]).ToString("X2");
+                var xb = (255 - rgba[2]).ToString("X2");
+
+                CurrentColor = $"#{a}{r}{g}{b}";
+                ReverseColor = $"#{a}{xr}{xg}{xb}";
             }
         }
     }
