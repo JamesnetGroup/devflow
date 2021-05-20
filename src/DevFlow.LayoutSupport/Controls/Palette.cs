@@ -70,7 +70,7 @@ namespace DevFlow.LayoutSupport.Controls
                         BitmapSizeOptions.FromEmptyOptions());
 
                     var color = screenBmp.GetPixel(previewWidth / 2, previewWidth / 2);
-                    DragCaptureCommand?.Execute(new byte[] {  color.R, color.G, color.B, color.A } );
+                    DragCaptureCommand?.Execute(new byte[] {  color.R , color.G, color.B, color.A } );
                 }
             }
         }

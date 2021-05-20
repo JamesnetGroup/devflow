@@ -55,10 +55,10 @@ namespace DevFlow.Colors.ViewModels
                 var g = rgba[1].ToString("X2");
                 var b = rgba[2].ToString("X2");
                 var a = rgba[3].ToString("X2");
-
-                var xr = (255 - rgba[0]).ToString("X2");
-                var xg = (255 - rgba[1]).ToString("X2");
-                var xb = (255 - rgba[2]).ToString("X2");
+                byte inv = 255;
+                var xr = ((byte)(inv - rgba[0])).ToString("X2");
+                var xg = ((byte)(inv - rgba[1])).ToString("X2");
+                var xb = ((byte)(inv - rgba[2])).ToString("X2");
 
                 CurrentColor = $"#{a}{r}{g}{b}";
                 ReverseColor = $"#{a}{xr}{xg}{xb}";
