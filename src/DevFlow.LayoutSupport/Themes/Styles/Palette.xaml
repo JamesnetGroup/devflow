@@ -43,16 +43,6 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
-										      Padding="30 20 30 20" Background="Transparent">
-                                    <Grid>
-                                        <TextBlock Text="{TemplateBinding Title}" 
-											   Foreground="{DynamicResource BRUSH.FONT.H01}" 
-											   FontSize="18" Visibility="Collapsed"
-											   HorizontalAlignment="Left"/>
-                                        <Button x:Name="PART_CloseButton" Style="{StaticResource CLOSE}"/>
-                                    </Grid>
-                                </prims:DragBorder>
                                 <Border BorderThickness="0 1 0 0" Grid.Row="1" Margin="30 0 30 0"
                                     BorderBrush="{DynamicResource BRUSH.BD.BLINE}" Visibility="Collapsed"/>
 
@@ -62,10 +52,20 @@
                                        Margin="30 20 30 20"/>
 
 
-                                <flows:DropImageCanvas Grid.Row="1" Grid.RowSpan="2" Background="Transparent">
+                                <flows:DropImageCanvas Grid.Row="0" Grid.RowSpan="3" Background="Transparent">
                                     <ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
-                                </flows:DropImageCanvas>
-                                <Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
+								</flows:DropImageCanvas>
+								<prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
+										      Padding="30 20 30 20" Background="Transparent">
+									<Grid>
+										<TextBlock Text="{TemplateBinding Title}" 
+											   Foreground="{DynamicResource BRUSH.FONT.H01}" 
+											   FontSize="18" Visibility="Collapsed"
+											   HorizontalAlignment="Left"/>
+										<Button x:Name="PART_CloseButton" Style="{StaticResource CLOSE}"/>
+									</Grid>
+								</prims:DragBorder>
+								<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
 								   Margin="6" Width="8" Height="8">
                                     <Thumb.Template>
                                         <ControlTemplate>
