@@ -1,12 +1,6 @@
 ﻿using DevFlow.Windowbase.Mvvm;
-using System;
 using System.Collections.ObjectModel;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
 namespace DevFlow.Colors.ViewModels
@@ -18,7 +12,7 @@ namespace DevFlow.Colors.ViewModels
         private int _blue;
         private string _currentColor;
         private string _reverseColor;
-        private object lockObject = new object();
+        private readonly object lockObject = new object();
 
         private BitmapSource _captureImage;
 
@@ -30,10 +24,10 @@ namespace DevFlow.Colors.ViewModels
 		#region CaptureImage
 
 		public BitmapSource CaptureImage
-        {
-            get { return _captureImage; }
-            set { _captureImage = value; OnPropertyChanged(); }
-        }
+		{
+			get { return _captureImage; }
+			set { _captureImage = value; OnPropertyChanged(); }
+		}
 		#endregion
 
 		#region CurrentColor
@@ -70,18 +64,18 @@ namespace DevFlow.Colors.ViewModels
             get { return _green; }
             set { _green = value; OnPropertyChanged(); }
         }
-        #endregion
+		#endregion
 
-        #region Blue
+		#region Blue
 
-        public int Blue
-        {
-            get { return _blue; }
-            set { _blue = value; OnPropertyChanged(); }
-        }
-        #endregion
+		public int Blue
+		{
+			get { return _blue; }
+			set { _blue = value; OnPropertyChanged(); }
+		}
+		#endregion
 
-        public ObservableCollection<string> Colors { get; set; }
+		public ObservableCollection<string> Colors { get; set; }
 
 		#region Constructor
 
@@ -98,16 +92,16 @@ namespace DevFlow.Colors.ViewModels
 
 		private void DragCapture(byte[] rgba)
         {
-            lock (lockObject)
-            {
-                var r = rgba[0].ToString("X2");
-                var g = rgba[1].ToString("X2");
-                var b = rgba[2].ToString("X2");
-                var a = rgba[3].ToString("X2");
+			lock (lockObject)
+			{
+                string r = rgba[0].ToString("X2");
+                string g = rgba[1].ToString("X2");
+                string b = rgba[2].ToString("X2");
+                string a = rgba[3].ToString("X2");
                 byte inv = 255;
-                var xr = ((byte)(inv - rgba[0])).ToString("X2");
-                var xg = ((byte)(inv - rgba[1])).ToString("X2");
-                var xb = ((byte)(inv - rgba[2])).ToString("X2");
+                string xr = ((byte)(inv - rgba[0])).ToString("X2");
+                string xg = ((byte)(inv - rgba[1])).ToString("X2");
+                string xb = ((byte)(inv - rgba[2])).ToString("X2");
 
                 CurrentColor = $"#{a}{r}{g}{b}";
                 ReverseColor = $"#{a}{xr}{xg}{xb}";

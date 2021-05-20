@@ -73,10 +73,10 @@
 
 								<TextBox Grid.Row="1" Text="{Binding CurrentColor}" Margin="10" Visibility="Collapsed"/>
 							</Grid>
-							<UniformGrid Margin="30" Columns="1" Width="200"  VerticalAlignment="Center">
-								<Slider Minimum="0" Maximum="255" Value="{Binding Red}" Margin="2"/>
-								<Slider Minimum="0" Maximum="255" Value="{Binding Green}" Margin="2"/>
-								<Slider Minimum="0" Maximum="255" Value="{Binding Blue}" Margin="2"/>
+							<UniformGrid Margin="30" Columns="1" VerticalAlignment="Center">
+								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="2"/>
+								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="2"/>
+								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="2"/>
 							</UniformGrid>
 
 							<ListBox Style="{StaticResource LBX}" Margin="30" VerticalAlignment="Bottom"/>
@@ -91,3 +91,6 @@
 
 
 
+
+
+ 

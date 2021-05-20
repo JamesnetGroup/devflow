@@ -1,9 +1,9 @@
-﻿<ResourceDictionary
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/FlowIcon.xaml"/>
+        <ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/ColorSlider.xaml"/>
         <ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Preview.xaml"/>
         <ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Palette.xaml"/>
     </ResourceDictionary.MergedDictionaries>
