@@ -1,6 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls">
+					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls"
+					xmlns:convt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
+
+	<convt:RgbToHexConverter x:Key="RgbToHexConverter"/>
 
 	<Style TargetType="{x:Type Thumb}" x:Key="IN.THUMB">
 		<Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -107,13 +110,13 @@
 					</Border>
 					<ControlTemplate.Triggers>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Red">
-							<Setter TargetName="sliderBar" Property="Fill" Value="Red"/>
+							<Setter TargetName="sliderBar" Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:ColorSlider}, Path=Value, Converter={StaticResource RgbToHexConverter}, ConverterParameter=R}"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Green">
-							<Setter TargetName="sliderBar" Property="Fill" Value="Green"/>
+							<Setter TargetName="sliderBar" Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:ColorSlider}, Path=Value, Converter={StaticResource RgbToHexConverter}, ConverterParameter=G}"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Blue">
-							<Setter TargetName="sliderBar" Property="Fill" Value="Blue"/>
+							<Setter TargetName="sliderBar" Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:ColorSlider}, Path=Value, Converter={StaticResource RgbToHexConverter}, ConverterParameter=B}"/>
 						</DataTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>

@@ -35,7 +35,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
 							Padding="0">
                         <Grid>
-                            <Border Background="{Binding CurrentColor}" IsHitTestVisible="False"/>
+							<Border IsHitTestVisible="False"/>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>

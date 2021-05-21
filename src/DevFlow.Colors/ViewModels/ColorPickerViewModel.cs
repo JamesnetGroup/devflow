@@ -12,6 +12,7 @@ namespace DevFlow.Colors.ViewModels
         private int _blue;
         private string _currentColor;
         private string _reverseColor;
+        private string _invertColor;
         private readonly object lockObject = new object();
 
         private BitmapSource _captureImage;
@@ -45,6 +46,15 @@ namespace DevFlow.Colors.ViewModels
         {
             get { return _reverseColor; }
             set { _reverseColor = value; OnPropertyChanged(); }
+        }
+        #endregion
+
+        #region InvertColor 
+
+        public string InvertColor
+        {
+            get { return _invertColor; }
+            set { _invertColor = value; OnPropertyChanged(); }
         }
 		#endregion
 
@@ -104,7 +114,16 @@ namespace DevFlow.Colors.ViewModels
                 string xb = ((byte)(inv - rgba[2])).ToString("X2");
 
                 CurrentColor = $"#{a}{r}{g}{b}";
-                ReverseColor = $"#{a}{xr}{xg}{xb}";
+                InvertColor = $"#{a}{xr}{xg}{xb}";
+
+                if ((rgba[0] * 0.299 + rgba[1] * 0.587 + rgba[2] * 0.114) > 142)
+                {
+                    ReverseColor = "#FF000000";
+                }
+                else
+                {
+                    ReverseColor = "#FFFFFFFF";
+                }
 
                 Red = rgba[0];
                 Green = rgba[1];
@@ -115,7 +134,7 @@ namespace DevFlow.Colors.ViewModels
                     Colors.Add(CurrentColor);
                 }
                 if (Colors.Count == 50)
-                {
+                {   
                     Colors.RemoveAt(0);
                 }
             }
@@ -123,3 +142,9 @@ namespace DevFlow.Colors.ViewModels
 		#endregion
 	}
 }
+
+
+
+
+
+
