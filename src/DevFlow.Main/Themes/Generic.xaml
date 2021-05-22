@@ -48,7 +48,7 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:MainView}">
 					<Grid>
-                        <Image Source="/DevFlow.Resources;component/Images/wallpaper-08.jpg" Stretch="UniformToFill" Visibility="Collapsed"/>
+                        <Image Source="/DevFlow.Resources;component/Images/wallpaper-08.jpg" Stretch="UniformToFill" Visibility="Visible"/>
 						<ContentPresenter Style="{StaticResource CONTENT}"/>
 
 						<!--<Grid>

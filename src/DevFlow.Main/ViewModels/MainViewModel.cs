@@ -1,5 +1,4 @@
-﻿
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.ObjectModel;
 using DevFlow.Data;
 using DevFlow.Data.Menu;
