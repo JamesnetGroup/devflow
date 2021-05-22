@@ -44,14 +44,20 @@ namespace DevFlow.LayoutSupport.Controls
         {
             globalMouseHook = Hook.GlobalEvents();
             globalMouseHook.MouseMove += MainWindow_MouseMove;
-            globalMouseHook.MouseUp += MainWindow_MouseUp;
+            globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
             Mouse.OverrideCursor = Cursors.Cross;
+        }
+
+        private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            globalMouseHook.MouseUp += MainWindow_MouseUp;
         }
 
         private void EndCapture()
         {
             globalMouseHook.MouseMove -= MainWindow_MouseMove;
             globalMouseHook.MouseUp -= MainWindow_MouseUp;
+            globalMouseHook.MouseDown -= GlobalMouseHook_MouseDown;
             globalMouseHook.Dispose();
             Mouse.OverrideCursor = null;
         }

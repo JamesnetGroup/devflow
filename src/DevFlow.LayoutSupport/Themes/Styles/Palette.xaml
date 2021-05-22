@@ -11,7 +11,7 @@
 				<ControlTemplate TargetType="{x:Type Button}">
 					<Border Background="Transparent">
 						<Grid>
-							<flows:FlowIcon x:Name="icon" IconType="Close" Width="20" Height="20" 
+							<flows:FlowIcon x:Name="icon" IconType="Menu" Width="20" Height="20" 
 											Fill="{DynamicResource BRUSH.FONT.H01}" Opacity="0.5"/>
 						</Grid>
 					</Border>
@@ -26,6 +26,8 @@
 	</Style>
 	
 	<Style TargetType="{x:Type flows:Palette}">
+        <Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="300"/>
         <Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -38,10 +40,7 @@
 							<Border IsHitTestVisible="False"/>
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Border BorderThickness="0 1 0 0" Grid.Row="1" Margin="30 0 30 0"
                                     BorderBrush="{DynamicResource BRUSH.BD.BLINE}" Visibility="Collapsed"/>
@@ -52,11 +51,8 @@
                                        Margin="30 20 30 20"/>
 
 
-                                <flows:DropImageCanvas Grid.Row="0" Grid.RowSpan="3" Background="Transparent">
-                                    <ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
-								</flows:DropImageCanvas>
 								<prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
-										      Padding="30 20 30 20" Background="Transparent">
+										      Padding="10" Background="Transparent" VerticalAlignment="Top">
 									<Grid>
 										<TextBlock Text="{TemplateBinding Title}" 
 											   Foreground="{DynamicResource BRUSH.FONT.H01}" 
@@ -65,8 +61,10 @@
 										<Button x:Name="PART_CloseButton" Style="{StaticResource CLOSE}"/>
 									</Grid>
 								</prims:DragBorder>
+                                <ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                                
 								<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
-								   Margin="6" Width="8" Height="8">
+								   Margin="6" Width="8" Height="8" Visibility="Collapsed">
                                     <Thumb.Template>
                                         <ControlTemplate>
                                             <Border Width="8" Height="8" CornerRadius="4" Opacity="0.1"

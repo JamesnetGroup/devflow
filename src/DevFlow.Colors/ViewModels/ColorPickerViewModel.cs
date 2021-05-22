@@ -129,14 +129,14 @@ namespace DevFlow.Colors.ViewModels
                 Green = rgba[1];
                 Blue = rgba[2];
 
-if (!Colors.Contains(CurrentColor))
-{
-    Colors.Add(CurrentColor);
-}
-if (Colors.Count == 50)
-{   
-    Colors.RemoveAt(0);
-}
+                if (!Colors.Contains(CurrentColor))
+                {
+                    Colors.Add(CurrentColor);
+                }
+                if (Colors.Count == 73)
+                {   
+                    Colors.RemoveAt(0);
+                }
             }
         }
 		#endregion
@@ -148,3 +148,4 @@ if (Colors.Count == 50)
 
 
 
+ 

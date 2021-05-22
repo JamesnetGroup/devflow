@@ -7,7 +7,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate>
-					<Rectangle Width="20" Height="20" Margin="0" Fill="{Binding}"/>
+					<Rectangle Width="20" Height="20" Margin="1" Fill="{Binding}"/>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
@@ -45,59 +45,67 @@
             <Setter.Value>
                 <DataTemplate>
 					<Border>
-						<Grid>
+						<Grid Margin="1">
 							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto"/>
-								<RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition/>
 								<ColumnDefinition/>
 							</Grid.ColumnDefinitions>
-							<Border IsHitTestVisible="False"/>
-							<!--<Image Source="{Binding CaptureImage}" IsHitTestVisible="False"/>-->
-							<!--<Border Width="1" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="1 0 0 0" BorderBrush="#99FFFFFF"/>
-                                <Border Width="100" Height="1" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0 1 0 0" BorderBrush="#99FFFFFF"/>-->
-							<StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
-								<flows:FlowIcon IsHitTestVisible="False" IconType="EyedropperVariant" Fill="{Binding ReverseColor}" Width="30" Height="30" Visibility="Collapsed"/>
+
+							<StackPanel Background="Transparent" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                                <flows:DropImageCanvas Grid.Row="0" Grid.RowSpan="3" Background="Transparent">
+                                    <flows:FlowIcon IconType="EyedropperVariant" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"
+                                                    IsHitTestVisible="False"/>
+                                </flows:DropImageCanvas>
+
+                                <flows:FlowIcon IconType="Crop" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"/>
+                                <flows:FlowIcon IconType="Image" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"/>
 							</StackPanel>
 
-							<StackPanel Background="Transparent" Orientation="Horizontal" VerticalAlignment="Top">
-								<flows:FlowIcon IconType="Image" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"/>
-								<flows:FlowIcon IconType="CalendarMonth" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"/>
-							</StackPanel>
-
-							<Grid Grid.Column="1" Margin="10" Visibility="Collapsed">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="*"/>
-									<RowDefinition Height="Auto"/>
-								</Grid.RowDefinitions>
-								<Border CornerRadius="8" Background="{Binding CurrentColor}" Width="60" Height="60" Margin="10"/>
-
-								<TextBox Grid.Row="1" Text="{Binding CurrentColor}" Margin="10" Visibility="Collapsed"/>
-							</Grid>
-							<UniformGrid Margin="30" Columns="1" VerticalAlignment="Center" Visibility="Collapsed">
+                            <!--<UniformGrid Margin="30" Columns="1" VerticalAlignment="Center" Visibility="Collapsed">
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="2"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="2"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="2"/>
-							</UniformGrid>
+							</UniformGrid>-->
 
-							<Border Grid.Row="1" Background="{Binding CurrentColor}" Grid.Column="0" IsHitTestVisible="False">
+							<Border Grid.Row="1" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" IsHitTestVisible="False" Margin="1">
 								<TextBox Grid.Row="1" Text="{Binding CurrentColor}" Height="40"
 										 HorizontalContentAlignment="Center" FontSize="15" Foreground="{Binding ReverseColor}"
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
-							</Border>
+                            </Border>
+                            <Border Grid.Row="2" Background="{Binding InvertColor}" Grid.Column="0" IsHitTestVisible="False" Margin="1" Visibility="Collapsed">
+                                <TextBox Grid.Row="1" Text="{Binding InvertColor}" Height="40"
+										 HorizontalContentAlignment="Center" FontSize="15" Foreground="{Binding CurrentColor}"
+										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
+                            </Border>
 
-							<ListBox Grid.Row="1" Style="{StaticResource LBX}" Grid.Column="1" Margin="0"/>
+                            <!--<UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Margin="1 1 1 20" Columns="3">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource BRUSH.FONT.H01}" Margin="10" FontSize="12" Text="{Binding Red}"/>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource BRUSH.FONT.H01}" Margin="10" FontSize="12" Text="{Binding Green}"/>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource BRUSH.FONT.H01}" Margin="10" FontSize="12" Text="{Binding Blue}"/>
+                            </UniformGrid>-->
 
-						</Grid>
+                            <ListBox Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="0"/>
+
+
+                            <UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Margin="0" Columns="1">
+								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="1"/>
+								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="1"/>
+								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="1"/>
+							</UniformGrid>
+                        </Grid>
 					</Border>
 				</DataTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 </ResourceDictionary>
-
 
 
 

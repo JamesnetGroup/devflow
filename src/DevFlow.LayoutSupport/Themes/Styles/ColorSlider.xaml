@@ -21,7 +21,10 @@
 						</Style>
 					</ControlTemplate.Resources>
 					<Grid Style="{StaticResource IN.GRID}">
-						<Border x:Name="bd" Width="15" Height="15" CornerRadius="10" Background="#FFFFFF" BorderBrush="#CCCCCC" BorderThickness="1"/>
+                        <Border x:Name="bd" Width="60" Height="18" CornerRadius="0" Background="#CCFFFFFF">
+                            <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Slider}, Path=Value, StringFormat={}{0}}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="true">
@@ -37,12 +40,12 @@
 	</Style>
 
 	<Style TargetType="{x:Type flows:ColorSlider}">
-		<Setter Property="MinHeight" Value="20"/>
-		<Setter Property="MaxHeight" Value="20"/>
-		<Setter Property="Height" Value="20"/>
+		<Setter Property="MinHeight" Value="18"/>
+        <Setter Property="MaxHeight" Value="18"/>
+        <Setter Property="Height" Value="18"/>
 		<Setter Property="HorizontalAlignment" Value="Stretch"/>
 		<Setter Property="VerticalAlignment" Value="Top"/>
-		<Setter Property="Margin" Value="20 0 0 0"/>
+		<Setter Property="Margin" Value="0 0 0 0"/>
 		<Setter Property="IsMoveToPointEnabled" Value="True"/>
 		<Setter Property="AutoToolTipPlacement" Value="None"/>
 		<Setter Property="IsSnapToTickEnabled" Value="True"/>
@@ -65,7 +68,7 @@
 							<Setter Property="SnapsToDevicePixels" Value="True"/>
 						</Style>
 						<Style TargetType="{x:Type Border}" x:Key="IN.BORDER.02">
-							<Setter Property="Height" Value="5"/>
+							<Setter Property="Height" Value="18"/>
 							<Setter Property="ClipToBounds" Value="True"/>
 							<Setter Property="Visibility" Value="Visible"/>
 						</Style>
@@ -76,15 +79,15 @@
 							<Setter Property="LastChildFill" Value="True"/>
 						</Style>
 						<Style TargetType="{x:Type Rectangle}" x:Key="IN.RTG.01">
-							<Setter Property="Margin" Value="4 0 -4 0"/>
-							<Setter Property="RadiusX" Value="1"/>
-							<Setter Property="RadiusY" Value="1"/>
+							<Setter Property="Margin" Value="0 0 0 0"/>
+							<Setter Property="RadiusX" Value="0"/>
+							<Setter Property="RadiusY" Value="0"/>
 							<Setter Property="Fill" Value="Red"/>
 						</Style>
 						<Style TargetType="{x:Type Rectangle}" x:Key="IN.RTG.02">
-							<Setter Property="Margin" Value="8 0 4 0"/>
-							<Setter Property="RadiusX" Value="1"/>
-							<Setter Property="RadiusY" Value="1"/>
+							<Setter Property="Margin" Value="60 0 0 0"/>
+							<Setter Property="RadiusX" Value="0"/>
+							<Setter Property="RadiusY" Value="0"/>
 							<Setter Property="Fill" Value="White"/>
 						</Style>
 						<Style TargetType="{x:Type Thumb}" x:Key="IN.THB">
@@ -110,13 +113,16 @@
 					</Border>
 					<ControlTemplate.Triggers>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Red">
-							<Setter TargetName="sliderBar" Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:ColorSlider}, Path=Value, Converter={StaticResource RgbToHexConverter}, ConverterParameter=R}"/>
+                            <Setter TargetName="sliderBar" Property="Fill" Value="#984b4b"/>
+                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Green">
-							<Setter TargetName="sliderBar" Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:ColorSlider}, Path=Value, Converter={StaticResource RgbToHexConverter}, ConverterParameter=G}"/>
+                            <Setter TargetName="sliderBar" Property="Fill" Value="#4b985f"/>
+                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Blue">
-							<Setter TargetName="sliderBar" Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:ColorSlider}, Path=Value, Converter={StaticResource RgbToHexConverter}, ConverterParameter=B}"/>
+                            <Setter TargetName="sliderBar" Property="Fill" Value="#2e4e8d"/>
+                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
 						</DataTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>

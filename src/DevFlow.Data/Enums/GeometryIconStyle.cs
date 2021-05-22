@@ -15,6 +15,15 @@
         CalendarMonth,
         Minimize,
 		Web,
-		Palette
-	}
+		Palette,
+        Crop,
+        Menu
+    }
 }
+
+
+
+
+
+
+
