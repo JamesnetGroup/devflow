@@ -11,7 +11,7 @@ namespace DevFlow.Controls.Primitives
 	public class Widget : FlowView
     {
         private bool _isDragging;
-        private bool IsResizing5;
+        private bool IsResizing;
         private Point clickPosition;
 
         public WorkspaceModel MenuInfo;
@@ -109,3 +109,9 @@ namespace DevFlow.Controls.Primitives
         }
     }
 }
+
+
+
+
+
+
