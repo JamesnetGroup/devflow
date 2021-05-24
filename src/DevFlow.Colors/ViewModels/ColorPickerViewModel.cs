@@ -1,4 +1,5 @@
 ﻿using DevFlow.Windowbase.Mvvm;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -16,6 +17,7 @@ namespace DevFlow.Colors.ViewModels
         private readonly object lockObject = new object();
 
         private BitmapSource _captureImage;
+		private bool isCaptureColor;
 
 		#region Commands
 
@@ -63,17 +65,21 @@ namespace DevFlow.Colors.ViewModels
         public int Red
         {
 			get { return _red; }
-			set { _red = value; OnPropertyChanged(); }
+			set { _red = value; OnPropertyChanged(); SetRgb(); }
+        }
+		#endregion
+
+		#region Green
+
+		public int Green
+        {
+            get { return _green; }
+            set { _green = value; OnPropertyChanged(); SetRgb(); }
         }
         #endregion
 
-        #region Green
-
-        public int Green
-        {
-            get { return _green; }
-            set { _green = value; OnPropertyChanged(); }
-        }
+        #region Alpha
+        public int Alpha { get; set; } = 255;
 		#endregion
 
 		#region Blue
@@ -81,7 +87,7 @@ namespace DevFlow.Colors.ViewModels
 		public int Blue
 		{
 			get { return _blue; }
-			set { _blue = value; OnPropertyChanged(); }
+			set { _blue = value; OnPropertyChanged(); SetRgb(); }
 		}
 		#endregion
 
@@ -96,14 +102,23 @@ namespace DevFlow.Colors.ViewModels
 
             CurrentColor = "Transparent";
         }
-		#endregion
+        #endregion
 
-		#region DragCapture
-
-		private void DragCapture(byte[] rgba)
+        private void SetRgb()
         {
-			lock (lockObject)
+            if (!isCaptureColor)
+            {
+                DragCapture(new byte[] { (byte)Red, (byte)Green, (byte)Blue, (byte)Alpha });
+            }
+        }
+
+        #region DragCapture
+
+        private void DragCapture(byte[] rgba)
+        {
+			//lock (lockObject)
 			{
+                isCaptureColor = true;
                 string r = rgba[0].ToString("X2");
                 string g = rgba[1].ToString("X2");
                 string b = rgba[2].ToString("X2");
@@ -133,10 +148,12 @@ namespace DevFlow.Colors.ViewModels
                 {
                     Colors.Add(CurrentColor);
                 }
+
                 if (Colors.Count == 73)
                 {   
                     Colors.RemoveAt(0);
                 }
+                isCaptureColor = false;
             }
         }
 		#endregion
@@ -148,4 +165,3 @@ namespace DevFlow.Colors.ViewModels
 
 
 
- 

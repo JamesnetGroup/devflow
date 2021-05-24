@@ -74,8 +74,8 @@
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="2"/>
 							</UniformGrid>-->
 
-							<Border Grid.Row="1" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" IsHitTestVisible="False" Margin="1">
-								<TextBox Grid.Row="1" Text="{Binding CurrentColor}" Height="40"
+							<Border Grid.Row="1" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" Margin="1">
+								<TextBox Grid.Row="1" Text="{Binding CurrentColor}"
 										 HorizontalContentAlignment="Center" FontSize="15" Foreground="{Binding ReverseColor}"
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
                             </Border>

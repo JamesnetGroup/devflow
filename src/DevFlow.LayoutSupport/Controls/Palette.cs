@@ -22,9 +22,15 @@ namespace DevFlow.LayoutSupport.Controls
             get { return (ICommand)this.GetValue(DragCaptureCommandProperty); }
             set { this.SetValue(DragCaptureCommandProperty, value); }
         }
+        private Bitmap buffer = new Bitmap(1, 1);
+        // 임시 버퍼의 graphic 타입
+        private Graphics buffer_graphics = null;
+
+
 
         public Palette()
         {
+            this.buffer_graphics = Graphics.FromImage(buffer);
         }
 
 
@@ -35,6 +41,32 @@ namespace DevFlow.LayoutSupport.Controls
                 BeginCapture();
             }
         }
+        private Color ScreenColor(int x, int y)
+        {
+            // Mouse 위치의 색을 추출한다.
+            this.buffer_graphics.CopyFromScreen(x, y, 0, 0, new System.Drawing.Size(1, 1));
+            // Pixel 값을 리턴한다.
+            return this.buffer.GetPixel(0, 0);
+        }
+        int count = 0;
+        private void SetView(int x, int y, bool capture = false)
+        {
+
+            if (count > 3)
+            {
+                count = 0;
+                var color = ScreenColor(x, y);
+                DragCaptureCommand?.Execute(new byte[] { color.R, color.G, color.B, color.A });
+            }
+            else
+            {
+                count++;
+            }
+        }
+
+
+
+
 
         int previewWidth = 2;
         int previewHeight = 2;
@@ -64,6 +96,10 @@ namespace DevFlow.LayoutSupport.Controls
 
         private void MainWindow_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
         {
+            SetView(e.X, e.Y);
+
+            return;
+
             using (var screenBmp = new Bitmap(previewWidth, previewHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb))
             {
                 using (var bmpGraphics = Graphics.FromImage(screenBmp))

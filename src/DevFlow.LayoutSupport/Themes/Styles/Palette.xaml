@@ -64,7 +64,7 @@
                                 <ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
                                 
 								<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
-								   Margin="6" Width="8" Height="8" Visibility="Collapsed">
+								   Margin="6" Width="8" Height="8" Visibility="Visible">
                                     <Thumb.Template>
                                         <ControlTemplate>
                                             <Border Width="8" Height="8" CornerRadius="4" Opacity="0.1"
