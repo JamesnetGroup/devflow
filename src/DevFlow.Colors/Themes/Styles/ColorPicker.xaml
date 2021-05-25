@@ -83,7 +83,7 @@
 								<flows:FlowIcon IconType="Image" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}" Opacity="0.15"/>
 							</StackPanel>
 
-							<Border Grid.Row="2" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" Margin="1">
+							<Border Grid.Row="2" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" Margin="10 10 5 5">
 								<TextBox Grid.Row="1" Text="{Binding CurrentColor}"
 										 HorizontalContentAlignment="Center" FontSize="15" Foreground="{Binding ReverseColor}"
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
@@ -94,37 +94,14 @@
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
                             </Border>
 
-                            <ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="0"/>
+                            <ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="5 10 10 5"/>
 
 
-                            <UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="1" Margin="10 0 80 10">
+                            <UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="1" Margin="10 5 10 10">
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="1"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="1"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="1"/>
 							</UniformGrid>
-
-
-							<Border Grid.Row="4" Grid.ColumnSpan="2" Background="#55252525" Margin="0 -5 0 0">
-								<Grid>
-									<TextBlock Text="RGB Slider" Foreground="#FFFFFF" Margin="12"/>
-									<Viewbox Width="16" Height="16" HorizontalAlignment="Right" Margin="8 0 8 0" VerticalAlignment="Center">
-										<Canvas Width="24" Height="24">
-											<Path Fill="#FFFFFF" Data="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-										</Canvas>
-									</Viewbox>
-								</Grid>
-							</Border>
-
-							<Border Grid.Row="1" Grid.ColumnSpan="2" Background="#55252525" Margin="0 0 0 -5">
-								<Grid>
-									<TextBlock Text="Color Extraction" Foreground="#FFFFFF" Margin="12"/>
-									<Viewbox Width="16" Height="16" HorizontalAlignment="Right" Margin="8 0 8 0" VerticalAlignment="Center">
-										<Canvas Width="24" Height="24">
-											<Path Fill="#FFFFFF" Data="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-										</Canvas>
-									</Viewbox>
-								</Grid>
-							</Border>
                         </Grid>
 					</Border>
 				</DataTemplate>
