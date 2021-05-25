@@ -13,10 +13,10 @@ namespace DevFlow.Main.Views
 
         public MainView()
         {
-            //WindowStyle = WindowStyle.None;
-            //AllowsTransparency = true;
-            //         Topmost = true;
-        }
+			WindowStyle = WindowStyle.None;
+			AllowsTransparency = true;
+			Topmost = true;
+		}
 
         protected override void OnDesignerMode()
         {
