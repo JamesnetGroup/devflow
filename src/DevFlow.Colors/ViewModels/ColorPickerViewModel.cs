@@ -16,8 +16,6 @@ namespace DevFlow.Colors.ViewModels
         private string _currentColor;
         private string _reverseColor;
         private string _invertColor;
-        private readonly object lockObject = new object();
-
         private BitmapSource _captureImage;
 		private bool isCaptureColor;
 
@@ -93,7 +91,10 @@ namespace DevFlow.Colors.ViewModels
 		}
 		#endregion
 
+		#region ColorMap
+
 		public ObservableCollection<ColorStampModel> ColorMap { get; set; }
+		#endregion
 
 		#region Constructor
 

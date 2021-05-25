@@ -60,10 +60,12 @@
 					<Border>
 						<Grid Margin="1">
 							<Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition/>
@@ -77,41 +79,52 @@
                                                     IsHitTestVisible="False"/>
                                 </flows:DropImageCanvas>
 
-                                <flows:FlowIcon IconType="Crop" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"/>
-                                <flows:FlowIcon IconType="Image" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"/>
+                                <flows:FlowIcon IconType="Crop" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}" Opacity="0.15"/>
+								<flows:FlowIcon IconType="Image" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}" Opacity="0.15"/>
 							</StackPanel>
 
-                            <!--<UniformGrid Margin="30" Columns="1" VerticalAlignment="Center" Visibility="Collapsed">
-								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="2"/>
-								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="2"/>
-								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="2"/>
-							</UniformGrid>-->
-
-							<Border Grid.Row="1" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" Margin="1">
+							<Border Grid.Row="2" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" Margin="1">
 								<TextBox Grid.Row="1" Text="{Binding CurrentColor}"
 										 HorizontalContentAlignment="Center" FontSize="15" Foreground="{Binding ReverseColor}"
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
                             </Border>
-                            <Border Grid.Row="2" Background="{Binding InvertColor}" Grid.Column="0" IsHitTestVisible="False" Margin="1" Visibility="Collapsed">
+                            <Border Grid.Row="3" Background="{Binding InvertColor}" Grid.Column="0" IsHitTestVisible="False" Margin="1" Visibility="Collapsed">
                                 <TextBox Grid.Row="1" Text="{Binding InvertColor}" Height="40"
 										 HorizontalContentAlignment="Center" FontSize="15" Foreground="{Binding CurrentColor}"
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
                             </Border>
 
-                            <!--<UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Margin="1 1 1 20" Columns="3">
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource BRUSH.FONT.H01}" Margin="10" FontSize="12" Text="{Binding Red}"/>
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource BRUSH.FONT.H01}" Margin="10" FontSize="12" Text="{Binding Green}"/>
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource BRUSH.FONT.H01}" Margin="10" FontSize="12" Text="{Binding Blue}"/>
-                            </UniformGrid>-->
-
-                            <ListBox Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="0"/>
+                            <ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="0"/>
 
 
-                            <UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Margin="0" Columns="1">
+                            <UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="1" Margin="10 0 80 10">
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="1"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="1"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="1"/>
 							</UniformGrid>
+
+
+							<Border Grid.Row="4" Grid.ColumnSpan="2" Background="#55252525" Margin="0 -5 0 0">
+								<Grid>
+									<TextBlock Text="RGB Slider" Foreground="#FFFFFF" Margin="12"/>
+									<Viewbox Width="16" Height="16" HorizontalAlignment="Right" Margin="8 0 8 0" VerticalAlignment="Center">
+										<Canvas Width="24" Height="24">
+											<Path Fill="#FFFFFF" Data="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+										</Canvas>
+									</Viewbox>
+								</Grid>
+							</Border>
+
+							<Border Grid.Row="1" Grid.ColumnSpan="2" Background="#55252525" Margin="0 0 0 -5">
+								<Grid>
+									<TextBlock Text="Color Extraction" Foreground="#FFFFFF" Margin="12"/>
+									<Viewbox Width="16" Height="16" HorizontalAlignment="Right" Margin="8 0 8 0" VerticalAlignment="Center">
+										<Canvas Width="24" Height="24">
+											<Path Fill="#FFFFFF" Data="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+										</Canvas>
+									</Viewbox>
+								</Grid>
+							</Border>
                         </Grid>
 					</Border>
 				</DataTemplate>
