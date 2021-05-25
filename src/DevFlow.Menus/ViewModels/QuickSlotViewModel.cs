@@ -45,6 +45,7 @@ namespace DevFlow.Menus.ViewModels
             menus.Add(new MenuModel { Seq = 3, Name = "Setting", IconType = GeometryIconStyle.OcgRefreshOutline });
             menus.Add(new MenuModel { Seq = 4, Name = "Theme", IconType = GeometryIconStyle.Palette });
             menus.Add(new MenuModel { Seq = 5, Name = "Web", IconType = GeometryIconStyle.Web });
+            menus.Add(new MenuModel { Seq = 6, Name = "Color2", IconType = GeometryIconStyle.Crop });
             return menus;
         }
         #endregion
