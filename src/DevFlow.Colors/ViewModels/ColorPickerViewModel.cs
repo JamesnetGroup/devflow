@@ -172,6 +172,7 @@ namespace DevFlow.Colors.ViewModels
             }
         }
 		#endregion
+
 	}
 }
 
