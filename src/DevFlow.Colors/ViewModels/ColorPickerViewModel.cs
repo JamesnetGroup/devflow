@@ -1,6 +1,8 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Data.Colors;
+using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -91,14 +93,14 @@ namespace DevFlow.Colors.ViewModels
 		}
 		#endregion
 
-		public ObservableCollection<string> Colors { get; set; }
+		public ObservableCollection<ColorStampModel> ColorMap { get; set; }
 
 		#region Constructor
 
 		public ColorPickerViewModel()
         {
             DragCaptureCommand = new RelayCommand<byte[]>(DragCapture);
-            Colors = new ObservableCollection<string>();
+            ColorMap = new ObservableCollection<ColorStampModel>();
 
             CurrentColor = "Transparent";
         }
@@ -110,6 +112,11 @@ namespace DevFlow.Colors.ViewModels
             {
                 DragCapture(new byte[] { (byte)Red, (byte)Green, (byte)Blue, (byte)Alpha });
             }
+        }
+
+        void ColorSelected(ColorStampModel color)
+        {
+            DragCapture(new byte[] { color.Red, color.Green, color.Blue, (byte)Alpha });
         }
 
         #region DragCapture
@@ -144,14 +151,21 @@ namespace DevFlow.Colors.ViewModels
                 Green = rgba[1];
                 Blue = rgba[2];
 
-                if (!Colors.Contains(CurrentColor))
+                if (ColorMap.FirstOrDefault(x => x.HexColor == CurrentColor) is null)
                 {
-                    Colors.Add(CurrentColor);
+                    ColorMap.Add(new ColorStampModel
+                    {
+                        HexColor = CurrentColor,
+                        Red = rgba[0],
+                        Green = rgba[1],
+                        Blue = rgba[2],
+                        ColorClickCommand = new RelayCommand<ColorStampModel>(ColorSelected)
+                    });
                 }
 
-                if (Colors.Count == 73)
+                if (ColorMap.Count == 73)
                 {   
-                    Colors.RemoveAt(0);
+                    ColorMap.RemoveAt(0);
                 }
                 isCaptureColor = false;
             }

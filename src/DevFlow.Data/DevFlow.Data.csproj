@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colors\ColorStampModel.cs" />
     <Compile Include="Enums\LanguageType.cs" />
     <Compile Include="History\HistoryModel.cs" />
     <Compile Include="Language\LanguageModel.cs" />
@@ -54,5 +55,6 @@
     <Compile Include="Theme\SkinModel.cs" />
     <Compile Include="Works\WorkspaceModel.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

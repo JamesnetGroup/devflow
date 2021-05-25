@@ -7,7 +7,20 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate>
-					<Rectangle Width="20" Height="20" Margin="1" Fill="{Binding}"/>
+					<Button Command="{Binding ColorClickCommand}" CommandParameter="{Binding}">
+						<Button.Resources>
+							<Style TargetType="{x:Type Button}">
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate>
+											<Rectangle Width="20" Height="20" Margin="1" Fill="{Binding HexColor}" ToolTip="{Binding HexColor}"/>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+								
+							</Style>
+						</Button.Resources>
+					</Button>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
@@ -18,7 +31,7 @@
 		<Setter Property="VerticalAlignment" Value="Top"/>
 		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
-		<Setter Property="ItemsSource" Value="{Binding Colors}"/>
+		<Setter Property="ItemsSource" Value="{Binding ColorMap}"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate>
