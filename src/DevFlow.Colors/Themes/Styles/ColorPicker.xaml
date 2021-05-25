@@ -74,7 +74,7 @@
 
 							<StackPanel Background="Transparent" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
 
-                                <flows:DropImageCanvas Grid.Row="0" Grid.RowSpan="3" Background="Transparent">
+                                <flows:DropImageCanvas Grid.Row="0" Grid.RowSpan="3" Background="Transparent" Cursor="Hand">
                                     <flows:FlowIcon IconType="EyedropperVariant" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}"
                                                     IsHitTestVisible="False"/>
                                 </flows:DropImageCanvas>
@@ -83,7 +83,7 @@
 								<flows:FlowIcon IconType="Image" Width="20" Height="20" Margin="10" Fill="{DynamicResource BRUSH.FONT.H01}" Opacity="0.15"/>
 							</StackPanel>
 
-							<Border Grid.Row="2" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" Margin="10 10 5 5">
+							<Border Grid.Row="2" Grid.RowSpan="2" Background="{Binding CurrentColor}" Grid.Column="0" Margin="10 0 5 5">
 								<TextBox Grid.Row="1" Text="{Binding CurrentColor}"
 										 HorizontalContentAlignment="Center" FontSize="15" Foreground="{Binding ReverseColor}"
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
@@ -94,10 +94,10 @@
 										   VerticalContentAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
                             </Border>
 
-                            <ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="5 10 10 5"/>
+                            <ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="5 0 10 5"/>
 
 
-                            <UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="1" Margin="10 5 10 10">
+                            <UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="1" Margin="9 4 9 9">
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="1"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="1"/>
 								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="1"/>
