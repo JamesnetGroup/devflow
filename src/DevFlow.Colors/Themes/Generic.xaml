@@ -4,7 +4,6 @@
 					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/DevFlow.Colors;component/Themes/Styles/ColorSpoid.xaml"/>
-        <ResourceDictionary Source="/DevFlow.Colors;component/Themes/Styles/ColorPicker.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

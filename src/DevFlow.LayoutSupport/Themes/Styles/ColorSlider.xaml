@@ -5,6 +5,27 @@
 
 	<convt:RgbToHexConverter x:Key="RgbToHexConverter"/>
 
+	<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" x:Key="RedGradientBrush">
+		<GradientStop Color="#ffffff" Offset="0.0" />
+		<GradientStop Color="#ffc4c4" Offset="0.25" />
+		<GradientStop Color="#ff4242" Offset="0.75" />
+		<GradientStop Color="#ff0000" Offset="1.0" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" x:Key="GreenGradientBrush">
+		<GradientStop Color="#ffffff" Offset="0.0" />
+		<GradientStop Color="#a8e3af" Offset="0.25" />
+		<GradientStop Color="#36cf48" Offset="0.75" />
+		<GradientStop Color="#00a814" Offset="1.0" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" x:Key="BlueGradientBrush">
+		<GradientStop Color="#ffffff" Offset="0.0" />
+		<GradientStop Color="#bfccff" Offset="0.25" />
+		<GradientStop Color="#3b63ff" Offset="0.75" />
+		<GradientStop Color="#0034ff" Offset="1.0" />
+	</LinearGradientBrush>
+
 	<Style TargetType="{x:Type Thumb}" x:Key="IN.THUMB">
 		<Setter Property="OverridesDefaultStyle" Value="True"/>
 		<Setter Property="VerticalAlignment" Value="Center"/>
@@ -14,17 +35,15 @@
 				<ControlTemplate TargetType="{x:Type Thumb}">
 					<ControlTemplate.Resources>
 						<Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
-							<Setter Property="HorizontalAlignment" Value="Center"/>
+							<Setter Property="HorizontalAlignment" Value="Left"/>
 							<Setter Property="VerticalAlignment" Value="Center"/>
 							<Setter Property="UseLayoutRounding" Value="True"/>
 							<Setter Property="Background" Value="Transparent"/>
 						</Style>
 					</ControlTemplate.Resources>
 					<Grid Style="{StaticResource IN.GRID}">
-                        <Border x:Name="bd" Width="60" Height="18" CornerRadius="0" Background="#CCFFFFFF">
-                            <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Slider}, Path=Value, StringFormat={}{0}}"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
+						<!--<Border x:Name="bd" Width="13" Height="18" CornerRadius="0" Background="#CCFFFFFF"/>-->
+						<TextBlock Text="▲" FontSize="9" Foreground="#CCFFFFFF" Margin="-5 0 0 3"/>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="true">
@@ -41,8 +60,8 @@
 
 	<Style TargetType="{x:Type flows:ColorSlider}">
 		<Setter Property="MinHeight" Value="18"/>
-        <Setter Property="MaxHeight" Value="18"/>
-        <Setter Property="Height" Value="18"/>
+        <!--<Setter Property="MaxHeight" Value="18"/>
+        <Setter Property="Height" Value="18"/>-->
 		<Setter Property="HorizontalAlignment" Value="Stretch"/>
 		<Setter Property="VerticalAlignment" Value="Top"/>
 		<Setter Property="Margin" Value="0 0 0 0"/>
@@ -79,13 +98,7 @@
 							<Setter Property="LastChildFill" Value="True"/>
 						</Style>
 						<Style TargetType="{x:Type Rectangle}" x:Key="IN.RTG.01">
-							<Setter Property="Margin" Value="0 0 0 0"/>
-							<Setter Property="RadiusX" Value="0"/>
-							<Setter Property="RadiusY" Value="0"/>
-							<Setter Property="Fill" Value="Red"/>
-						</Style>
-						<Style TargetType="{x:Type Rectangle}" x:Key="IN.RTG.02">
-							<Setter Property="Margin" Value="60 0 0 0"/>
+							<Setter Property="Margin" Value="0 0 4 0"/>
 							<Setter Property="RadiusX" Value="0"/>
 							<Setter Property="RadiusY" Value="0"/>
 							<Setter Property="Fill" Value="White"/>
@@ -94,35 +107,35 @@
 							<Setter Property="Template" Value="{StaticResource IN.THUMB}"/>
 						</Style>
 					</ControlTemplate.Resources>
-					<Border x:Name="border" Style="{StaticResource IN.BORDER.01}">
-						<Grid Style="{StaticResource IN.GRID}">
-							<DockPanel Style="{StaticResource IN.DOCK}">
-								<Border x:Name="PART_SelectionRange" Style="{StaticResource IN.BORDER.02}">
-									<Rectangle x:Name="sliderBar" Style="{StaticResource IN.RTG.01}"/>
-								</Border>
-								<Border Style="{StaticResource IN.BORDER.02}">
-									<Rectangle x:Name="PART_NegativeSelection" Style="{StaticResource IN.RTG.02}"/>
-								</Border>
-							</DockPanel>
-							<Track x:Name="PART_Track">
-								<Track.Thumb>
-									<Thumb x:Name="thumb" Style="{StaticResource IN.THUMB}"/>
-								</Track.Thumb>
-							</Track>
-						</Grid>
-					</Border>
+					<Grid Height="30">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<Border x:Name="border" Style="{StaticResource IN.BORDER.01}" Grid.Row="0">
+							<Grid Style="{StaticResource IN.GRID}">
+								<DockPanel Style="{StaticResource IN.DOCK}">
+									<Border Style="{StaticResource IN.BORDER.02}">
+										<Rectangle x:Name="PART_NegativeSelection" Style="{StaticResource IN.RTG.01}"/>
+									</Border>
+								</DockPanel>
+							</Grid>
+						</Border>
+						<Track x:Name="PART_Track" Grid.Row="1">
+							<Track.Thumb>
+								<Thumb x:Name="thumb" Style="{StaticResource IN.THUMB}"/>
+							</Track.Thumb>
+						</Track>
+					</Grid>
 					<ControlTemplate.Triggers>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Red">
-                            <Setter TargetName="sliderBar" Property="Fill" Value="#984b4b"/>
-                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
+							<Setter TargetName="PART_NegativeSelection" Property="Fill" Value="{StaticResource RedGradientBrush}"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Green">
-                            <Setter TargetName="sliderBar" Property="Fill" Value="#4b985f"/>
-                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
+							<Setter TargetName="PART_NegativeSelection" Property="Fill" Value="{StaticResource GreenGradientBrush}"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Blue">
-                            <Setter TargetName="sliderBar" Property="Fill" Value="#2e4e8d"/>
-                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
+							<Setter TargetName="PART_NegativeSelection" Property="Fill" Value="{StaticResource BlueGradientBrush}"/>
 						</DataTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
@@ -130,23 +143,4 @@
 		</Setter>
 	</Style>
 
-
-	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.VALUE">
-		<Setter Property="Foreground" Value="#000000"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="Margin" Value="10 0 0 0"/>
-		<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=TextBlock}, Path=Text}"/>
-	</Style>
-
-	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.RED" BasedOn="{StaticResource TXB.VALUE}">
-		<Setter Property="Text" Value="{Binding ElementName=sldRed, Path=Value, StringFormat={}R: {0:N0}}"/>
-	</Style>
-
-	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.GREEN" BasedOn="{StaticResource TXB.VALUE}">
-		<Setter Property="Text" Value="{Binding ElementName=sldGreen, Path=Value, StringFormat={}G: {0:N0}}"/>
-	</Style>
-
-	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.BLUE" BasedOn="{StaticResource TXB.VALUE}">
-		<Setter Property="Text" Value="{Binding ElementName=sldBlue, Path=Value, StringFormat={}B: {0:N0}}"/>
-	</Style>
 </ResourceDictionary>

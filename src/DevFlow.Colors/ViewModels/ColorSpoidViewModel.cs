@@ -102,7 +102,7 @@ namespace DevFlow.Colors.ViewModels
             DragCaptureCommand = new RelayCommand<byte[]>(DragCapture);
             ColorMap = new ObservableCollection<ColorStampModel>();
 
-            CurrentColor = "Transparent";
+            DragCapture(new byte[] { (byte)255, (byte)255, (byte)255, (byte)255 });
         }
         #endregion
 
