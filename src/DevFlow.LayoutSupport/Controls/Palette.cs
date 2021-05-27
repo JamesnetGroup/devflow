@@ -10,7 +10,14 @@ namespace DevFlow.LayoutSupport.Controls
 {
     public class Palette : Preview
     {
-        public static readonly DependencyProperty DragCaptureCommandProperty = DependencyProperty.Register("DragCaptureCommand", typeof(ICommand), typeof(Palette));
+        public static readonly DependencyProperty DragCaptureCommandProperty = DependencyProperty.Register("DragCaptureCommand", typeof(ICommand), typeof(Palette)); 
+        public static readonly DependencyProperty IsCaptureColorProperty = DependencyProperty.Register("IsCaptureColor", typeof(bool), typeof(Palette), new PropertyMetadata(false));
+    
+        public bool IsCaptureColor
+        {
+            get { return (bool)this.GetValue(IsCaptureColorProperty); }
+            set { this.SetValue(IsCaptureColorProperty, value); }
+        }
 
         public ICommand DragCaptureCommand
         {
@@ -69,6 +76,7 @@ namespace DevFlow.LayoutSupport.Controls
 
         private void BeginCapture()
         {
+            IsCaptureColor = true;
             globalMouseHook = Hook.GlobalEvents();
             globalMouseHook.MouseMove += MainWindow_MouseMove;
             globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
@@ -82,6 +90,7 @@ namespace DevFlow.LayoutSupport.Controls
 
         private void EndCapture()
         {
+            IsCaptureColor = false;
             globalMouseHook.MouseMove -= MainWindow_MouseMove;
             globalMouseHook.MouseUp -= MainWindow_MouseUp;
             globalMouseHook.MouseDown -= GlobalMouseHook_MouseDown;

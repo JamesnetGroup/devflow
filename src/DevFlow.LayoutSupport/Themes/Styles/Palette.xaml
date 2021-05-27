@@ -11,7 +11,7 @@
 				<ControlTemplate TargetType="{x:Type Button}">
 					<Border Background="Transparent">
 						<Grid>
-							<flows:FlowIcon x:Name="icon" IconType="Menu" Width="20" Height="20" 
+							<flows:FlowIcon x:Name="icon" IconType="Close" Width="20" Height="20" 
 											Fill="{DynamicResource BRUSH.FONT.H01}" Opacity="0.5"/>
 						</Grid>
 					</Border>
@@ -26,8 +26,8 @@
 	</Style>
 	
 	<Style TargetType="{x:Type flows:Palette}">
-        <Setter Property="MinWidth" Value="300"/>
-        <Setter Property="MinHeight" Value="300"/>
+        <Setter Property="Width" Value="270"/>
+        <Setter Property="Height" Value="270"/>
         <Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -63,7 +63,7 @@
 								</prims:DragBorder>
                                 <ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
                                 
-								<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
+								<!--<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
 								   Margin="6" Width="8" Height="8" Visibility="Visible">
                                     <Thumb.Template>
                                         <ControlTemplate>
@@ -73,7 +73,7 @@
                                             </Border>
                                         </ControlTemplate>
                                     </Thumb.Template>
-                                </Thumb>
+                                </Thumb>-->
                             </Grid>
                         </Grid>
                     </Border>

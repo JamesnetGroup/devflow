@@ -81,6 +81,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\ColorSpoidViewModel.cs" />
     <Compile Include="ViewModels\ColorPickerViewModel.cs" />
     <Compile Include="Views\ColorPicker.cs" />
     <Compile Include="Views\ColorSpoid.cs" />
@@ -98,6 +99,10 @@
     <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
       <Project>{D77874A6-4C26-4CE5-B3FE-4DE1E067E5A8}</Project>
       <Name>DevFlow.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
+      <Project>{7c22b438-112a-4554-8f51-78c2992ac632}</Project>
+      <Name>DevFlow.Converter</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
       <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>

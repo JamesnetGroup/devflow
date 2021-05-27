@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicResourceBinding.cs" />
+    <Compile Include="EqualsToBooleanConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceNameConverter.cs" />
     <Compile Include="RgbToHexConverter.cs" />

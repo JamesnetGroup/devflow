@@ -84,7 +84,7 @@ namespace DevFlow.Main.ViewModels
                     case GeometryIconStyle.MovieOpenPlay: content = new History().UseMvvm(new HistoryViewModel()); break;
                     case GeometryIconStyle.Palette: content = new SwitchSkin().UseMvvm(Skin); break;
                     case GeometryIconStyle.Web: content = new Translator().UseMvvm(Translate); break;
-                    case GeometryIconStyle.Crop: content = new ColorSpoid().UseMvvm(new ColorPickerViewModel()); break;
+                    case GeometryIconStyle.Crop: content = new ColorSpoid().UseMvvm(new ColorSpoidViewModel()); break;
                     default: content = new EmptyView(); break;
                 }
                 Works.Add(new WorkspaceModel(menu, content));

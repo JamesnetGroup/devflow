@@ -5,6 +5,27 @@
 
 	<convt:RgbToHexConverter x:Key="RgbToHexConverter"/>
 
+	<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" x:Key="RedGradientBrush">
+		<GradientStop Color="#ffffff" Offset="0.0" />
+		<GradientStop Color="#ffc4c4" Offset="0.25" />
+		<GradientStop Color="#ff4242" Offset="0.75" />
+		<GradientStop Color="#ff0000" Offset="1.0" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" x:Key="GreenGradientBrush">
+		<GradientStop Color="#ffffff" Offset="0.0" />
+		<GradientStop Color="#a8e3af" Offset="0.25" />
+		<GradientStop Color="#36cf48" Offset="0.75" />
+		<GradientStop Color="#00a814" Offset="1.0" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" x:Key="BlueGradientBrush">
+		<GradientStop Color="#ffffff" Offset="0.0" />
+		<GradientStop Color="#bfccff" Offset="0.25" />
+		<GradientStop Color="#3b63ff" Offset="0.75" />
+		<GradientStop Color="#0034ff" Offset="1.0" />
+	</LinearGradientBrush>
+
 	<Style TargetType="{x:Type Thumb}" x:Key="IN.THUMB">
 		<Setter Property="OverridesDefaultStyle" Value="True"/>
 		<Setter Property="VerticalAlignment" Value="Center"/>
@@ -77,13 +98,7 @@
 							<Setter Property="LastChildFill" Value="True"/>
 						</Style>
 						<Style TargetType="{x:Type Rectangle}" x:Key="IN.RTG.01">
-							<Setter Property="Margin" Value="0 0 0 0"/>
-							<Setter Property="RadiusX" Value="0"/>
-							<Setter Property="RadiusY" Value="0"/>
-							<Setter Property="Fill" Value="Red"/>
-						</Style>
-						<Style TargetType="{x:Type Rectangle}" x:Key="IN.RTG.02">
-							<Setter Property="Margin" Value="0 0 5 0"/>
+							<Setter Property="Margin" Value="0 0 4 0"/>
 							<Setter Property="RadiusX" Value="0"/>
 							<Setter Property="RadiusY" Value="0"/>
 							<Setter Property="Fill" Value="White"/>
@@ -100,11 +115,8 @@
 						<Border x:Name="border" Style="{StaticResource IN.BORDER.01}" Grid.Row="0">
 							<Grid Style="{StaticResource IN.GRID}">
 								<DockPanel Style="{StaticResource IN.DOCK}">
-									<Border x:Name="PART_SelectionRange" Style="{StaticResource IN.BORDER.02}">
-										<Rectangle x:Name="sliderBar" Style="{StaticResource IN.RTG.01}"/>
-									</Border>
 									<Border Style="{StaticResource IN.BORDER.02}">
-										<Rectangle x:Name="PART_NegativeSelection" Style="{StaticResource IN.RTG.02}"/>
+										<Rectangle x:Name="PART_NegativeSelection" Style="{StaticResource IN.RTG.01}"/>
 									</Border>
 								</DockPanel>
 							</Grid>
@@ -117,16 +129,13 @@
 					</Grid>
 					<ControlTemplate.Triggers>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Red">
-                            <Setter TargetName="sliderBar" Property="Fill" Value="#984b4b"/>
-                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
+							<Setter TargetName="PART_NegativeSelection" Property="Fill" Value="{StaticResource RedGradientBrush}"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Green">
-                            <Setter TargetName="sliderBar" Property="Fill" Value="#4b985f"/>
-                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
+							<Setter TargetName="PART_NegativeSelection" Property="Fill" Value="{StaticResource GreenGradientBrush}"/>
 						</DataTrigger>
 						<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Blue">
-                            <Setter TargetName="sliderBar" Property="Fill" Value="#2e4e8d"/>
-                            <Setter TargetName="PART_NegativeSelection" Property="Fill" Value="#CCFFFFFF"/>
+							<Setter TargetName="PART_NegativeSelection" Property="Fill" Value="{StaticResource BlueGradientBrush}"/>
 						</DataTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
