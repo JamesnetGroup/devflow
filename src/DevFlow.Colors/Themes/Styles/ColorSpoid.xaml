@@ -50,6 +50,24 @@
 		</Setter>
 	</Style>
 
+	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.VALUE">
+		<Setter Property="Foreground" Value="#ffffff"/>
+		<Setter Property="FontSize" Value="13"/>
+		<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=TextBlock}, Path=Text}"/>
+	</Style>
+
+	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.RED" BasedOn="{StaticResource TXB.VALUE}">
+		<Setter Property="Text" Value="{Binding ElementName=red, Path=Value, StringFormat={}R: {0:N0}}"/>
+	</Style>
+
+	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.GREEN" BasedOn="{StaticResource TXB.VALUE}">
+		<Setter Property="Text" Value="{Binding ElementName=green, Path=Value, StringFormat={}G: {0:N0}}"/>
+	</Style>
+
+	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.BLUE" BasedOn="{StaticResource TXB.VALUE}">
+		<Setter Property="Text" Value="{Binding ElementName=blue, Path=Value, StringFormat={}B: {0:N0}}"/>
+	</Style>
+	
     <Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Palette}}">
         <Setter Property="Title" Value="Color Picker"/>
         <Setter Property="SubTitle" Value="This app is color picker programs."/>
@@ -96,13 +114,17 @@
 
                             <ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="0"/>
 
-
-                            <UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="1" Margin="10 0 0 10">
-								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="1"/>
-								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="1"/>
-								<flows:ColorSlider Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="1"/>
+							<UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="1" Margin="10 0 80 0">
+								<flows:ColorSpoid x:Name="red" Minimum="0" Maximum="255" Tag="Red" Value="{Binding Red}" Margin="0 1"/>
+								<flows:ColorSpoid x:Name="green" Minimum="0" Maximum="255" Tag="Green" Value="{Binding Green}" Margin="0 1"/>
+								<flows:ColorSpoid x:Name="blue" Minimum="0" Maximum="255" Tag="Blue" Value="{Binding Blue}" Margin="0 1"/>
 							</UniformGrid>
 
+							<UniformGrid Grid.Row="5" Grid.Column="1" Columns="1" Margin="85 0 0 -1">
+								<TextBlock Style="{StaticResource TXB.RED}"/>
+								<TextBlock Style="{StaticResource TXB.GREEN}"/>
+								<TextBlock Style="{StaticResource TXB.BLUE}"/>
+							</UniformGrid>
 
 							<Border Grid.Row="4" Grid.ColumnSpan="2" Background="#55252525" Margin="0 -5 0 0">
 								<Grid>
