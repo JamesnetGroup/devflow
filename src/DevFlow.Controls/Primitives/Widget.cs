@@ -13,10 +13,12 @@ namespace DevFlow.Controls.Primitives
         private bool _isDragging;
         private bool IsResizing;
         private Point clickPosition;
+        public bool IsFixedSize;
 
         public WorkspaceModel MenuInfo;
 
-		public Widget()
+
+        public Widget()
         {
         }
         public override void OnApplyTemplate()

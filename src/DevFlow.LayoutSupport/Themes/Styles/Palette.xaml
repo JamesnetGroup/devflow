@@ -26,8 +26,8 @@
 	</Style>
 	
 	<Style TargetType="{x:Type flows:Palette}">
-        <Setter Property="Width" Value="270"/>
-        <Setter Property="Height" Value="270"/>
+        <Setter Property="Width" Value="330"/>
+        <Setter Property="Height" Value="330"/>
         <Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="Template">
 			<Setter.Value>

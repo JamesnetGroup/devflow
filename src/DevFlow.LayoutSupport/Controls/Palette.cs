@@ -33,6 +33,7 @@ namespace DevFlow.LayoutSupport.Controls
         public Palette()
         {
             this.buffer_graphics = Graphics.FromImage(buffer);
+            IsFixedSize = true;
         }
 
 

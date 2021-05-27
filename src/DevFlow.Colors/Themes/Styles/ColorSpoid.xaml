@@ -14,7 +14,8 @@
 								<Setter Property="Template">
 									<Setter.Value>
 										<ControlTemplate>
-											<Rectangle Width="18" Height="18" Margin="1" Fill="{Binding HexColor}" ToolTip="{Binding HexColor}"/>
+											<Border Margin="0 0 1 1" Background="{Binding HexColor}" ToolTip="{Binding HexColor}"
+                                                       UseLayoutRounding="True" SnapsToDevicePixels="True" Width="20" Height="20"/>
 										</ControlTemplate>
 									</Setter.Value>
 								</Setter>
@@ -40,7 +41,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate>
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" BorderThickness="0">
 						<ItemsPresenter/>
 					</ScrollViewer>
 				</ControlTemplate>
@@ -49,7 +50,7 @@
 		<Setter Property="ItemsPanel">
 			<Setter.Value>
 				<ItemsPanelTemplate>
-					<WrapPanel/>
+                    <UniformGrid Rows="8" Columns="8"/>
 				</ItemsPanelTemplate>
 			</Setter.Value>
 		</Setter>
@@ -77,9 +78,7 @@
 		<Setter Property="Grid.Row" Value="2"/>
 		<Setter Property="Grid.RowSpan" Value="2"/>
 		<Setter Property="Grid.Column" Value="0"/>
-		<Setter Property="Width" Value="160"/>
-		<Setter Property="Height" Value="160"/>
-		<Setter Property="Margin" Value="8 3 5 3"/>
+		<Setter Property="Margin" Value="8 0 4 0"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Control}">
@@ -126,14 +125,14 @@
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
 							</Grid.ColumnDefinitions>
 
 							<StackPanel Background="Transparent" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -153,7 +152,7 @@
 							
 							<Control Style="{StaticResource CTL.CURRENT}"/>
 
-							<ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="0 2 4 0"/>
+							<ListBox Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource LBX}" Grid.Column="1" Margin="4 0 8 0"/>
 							
 							<Border Grid.Row="3" Background="{Binding InvertColor}" Grid.Column="0" IsHitTestVisible="False" Margin="1" Visibility="Collapsed">
                                 <TextBox Grid.Row="1" Text="{Binding InvertColor}" Height="40"

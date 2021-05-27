@@ -76,7 +76,7 @@ namespace DevFlow.Controls.Primitives
 		{
 			if (FlowConfig.Config.ViewOptions.FirstOrDefault(x => x.IconType == item.Menu.IconType) is ViewOptionModel view)
 			{
-				if (item.Content is ContentControl ui)
+				if (item.Content is Widget ui && !ui.IsFixedSize)
 				{
 					if (!(ui.RenderTransform is TranslateTransform transform))
 					{
