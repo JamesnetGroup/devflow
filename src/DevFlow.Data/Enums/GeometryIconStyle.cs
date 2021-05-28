@@ -17,7 +17,9 @@
 		Web,
 		Palette,
         Crop,
-        Menu
+        Menu,
+        ContentPaste,
+        CheckBold
     }
 }
 

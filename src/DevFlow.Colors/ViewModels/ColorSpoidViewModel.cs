@@ -1,7 +1,10 @@
 ﻿using DevFlow.Data.Colors;
 using DevFlow.Windowbase.Mvvm;
+using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -21,6 +24,7 @@ namespace DevFlow.Colors.ViewModels
         #region Commands
 
         public ICommand DragCaptureCommand { get; }
+        public ICommand ContentPasteCommand { get; }
 		#endregion
 
 		#region CaptureImage
@@ -100,13 +104,14 @@ namespace DevFlow.Colors.ViewModels
 		public ColorSpoidViewModel()
         {
             DragCaptureCommand = new RelayCommand<byte[]>(DragCapture);
+            ContentPasteCommand = new RelayCommand<object>(ContentPaste);
             ColorMap = new ObservableCollection<ColorStampModel>();
 
             DragCapture(new byte[] { (byte)255, (byte)255, (byte)255, (byte)255 });
         }
-        #endregion
+		#endregion
 
-        private void SetRgb()
+		private void SetRgb()
         {
             if (!isCaptureColor)
             {
@@ -173,7 +178,17 @@ namespace DevFlow.Colors.ViewModels
         }
         #endregion
 
-    }
+        #region ContentPaste
+
+        private void ContentPaste(object obj)
+        {
+            if (obj is "COPY")
+            {
+                Clipboard.SetText(CurrentColor);
+            }
+        }
+		#endregion
+	}
 }
 
 
