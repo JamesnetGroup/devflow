@@ -18,6 +18,7 @@ using DevFlow.Histories.Views;
 using DevFlow.Histories.ViewModels;
 using DevFlow.Colors.Views;
 using DevFlow.Colors.ViewModels;
+using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -86,15 +87,31 @@ namespace DevFlow.Main.ViewModels
                     case GeometryIconStyle.Web: content = new Translator().UseMvvm(Translate); break;
                     default: content = new EmptyView(); break;
                 }
-                Works.Add(new WorkspaceModel(menu, content));
+
+                Window win = new Window();
+				win.PreviewMouseMove += Win_PreviewMouseMove;
+                win.Content = content;
+                win.AllowsTransparency = true;
+                win.WindowStyle = WindowStyle.None;
+                win.SizeToContent = SizeToContent.WidthAndHeight;
+                win.Show();
+                //Works.Add(new WorkspaceModel(menu, content));
             }
 
         }
-        #endregion
 
-        #region SkinSelected
+		private void Win_PreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+		{
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+            {
+                ((Window)sender).DragMove();
+            }
+		}
+		#endregion
 
-        private void SkinSelected(SkinModel theme)
+		#region SkinSelected
+
+		private void SkinSelected(SkinModel theme)
         {
             this.theme.Switch(theme.Skin);
             FlowConfig.SaveTheme(theme.Skin);

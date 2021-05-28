@@ -74,20 +74,23 @@ namespace DevFlow.Controls.Primitives
 
         private void Widget_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            if (_isDragging && sender is DragBorder)
-            {
-                Point currentPosition = e.GetPosition(Parent as Canvas);
+			if (_isDragging && sender is DragBorder)
+			{
+                //Window.GetWindow(this).DragMove();
+                //Point currentPosition = e.GetPosition(Parent as Canvas);
 
-                if (!(this.RenderTransform is TranslateTransform transform))
-                {
-                    transform = new TranslateTransform();
-                    this.RenderTransform = transform;
-                }
+                //if (!(this.RenderTransform is TranslateTransform transform))
+                //{
+                //	transform = new TranslateTransform();
+                //	this.RenderTransform = transform;
+                //}
 
-                transform.X = currentPosition.X - clickPosition.X;
-                transform.Y = currentPosition.Y - clickPosition.Y;
+                //transform.X = currentPosition.X - clickPosition.X;
+                //transform.Y = currentPosition.Y - clickPosition.Y;
             }
-        }
+
+
+		}
 
         private void Btn_DragDelta(object sender, DragDeltaEventArgs e)
         {

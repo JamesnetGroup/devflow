@@ -31,19 +31,12 @@
 
 
 	<Style TargetType="{x:Type views:MainView}" x:Key="MAINVIEW">
+		<Setter Property="Width" Value="Auto"/>
+		<Setter Property="SizeToContent" Value="WidthAndHeight"/>
 		<Setter Property="BorderThickness" Value="0"/>
 		<Setter Property="WindowStyle" Value="None"/>
 		<Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
-		<Setter Property="WindowState" Value="Maximized"/>
-		<!--<Setter Property="WindowChrome.WindowChrome">
-        <Setter.Value>
-            <WindowChrome GlassFrameThickness="0"
-                          NonClientFrameEdges="None"
-                          ResizeBorderThickness="3" 
-                          CaptionHeight="0"
-                          CornerRadius="0"/>
-        </Setter.Value>
-    </Setter>-->
+		<Setter Property="WindowState" Value="Normal"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:MainView}">
@@ -51,11 +44,7 @@
                         <Image Source="/DevFlow.Resources;component/Images/wallpaper-08.jpg" Stretch="UniformToFill" Visibility="Collapsed"/>
 						<ContentPresenter Style="{StaticResource CONTENT}"/>
 
-						<!--<Grid>
-                            <history:HistoryView/>
-                            <tasker:TaskView HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                        </Grid>-->
-						<prims:Workspace WorksSource="{Binding Works}"/>
+						<prims:Workspace WorksSource="{Binding Works}" Visibility="Collapsed"/>
 
 						<Rectangle x:Name="film" Style="{StaticResource FILM}" Visibility="Collapsed"/>
 						<Border x:Name="border" Style="{StaticResource BORDER}"/>

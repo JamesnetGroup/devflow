@@ -16,9 +16,27 @@ namespace DevFlow.Main.Views
 			WindowStyle = WindowStyle.None;
 			AllowsTransparency = true;
 			Topmost = true;
+			Loaded += MainView_Loaded;
+
+			PreviewMouseMove += MainView_MouseMove;
 		}
 
-        protected override void OnDesignerMode()
+		private void MainView_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+		{
+            //if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+            //{
+            //    this.DragMove();
+            //}
+		}
+
+		private void MainView_Loaded(object sender, RoutedEventArgs e)
+        {
+            var width = System.Windows.SystemParameters.WorkArea.Width;
+            Left = (width - ActualWidth) / 2;
+            Top = 0;
+        }
+
+		protected override void OnDesignerMode()
         {
             DataContext = new MainViewModel();
         }
