@@ -30,9 +30,8 @@ namespace DevFlow.LayoutSupport.Controls
 
 		public Preview()
 		{
-			//RenderTransform = new TranslateTransform(100, 100);
 		}
-    }
+	}
 }
 
 

@@ -10,6 +10,7 @@ namespace DevFlow.Windowbase.Flowcore
 {
 	public interface IFlowUIElement : IInputElement
 	{
-		public IFlowUIElement UseMvvm(ObservableObject vm);
+		IFlowUIElement UseMvvm(ObservableObject vm);
+		void Show();
 	}
 }

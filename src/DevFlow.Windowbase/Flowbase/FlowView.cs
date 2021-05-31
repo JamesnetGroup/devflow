@@ -10,6 +10,8 @@ namespace DevFlow.Windowbase.Flowbase
 {
 	public class FlowView : ContentControl, IFlowUIElement
     {
+		Window _window;
+
 		#region DependencyProperty
 
 		public static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.Register("MouseDownCommand", typeof(ICommand), typeof(FlowView));
@@ -39,11 +41,26 @@ namespace DevFlow.Windowbase.Flowbase
             DataContext = vm;
             return this;
         }
-        #endregion
+		#endregion
 
-        #region OnDesignerMode
+		#region Show
+		public void Show()
+		{
+			if (_window == null)
+			{
+				_window = new Window();
+				_window.Content = this;
+				_window.AllowsTransparency = true;
+				_window.WindowStyle = WindowStyle.None;
+				_window.SizeToContent = SizeToContent.WidthAndHeight;
+			}
+			_window.Show();
+		}
+		#endregion
 
-        protected virtual void OnDesignerMode()
+		#region OnDesignerMode
+
+		protected virtual void OnDesignerMode()
         {
 
         }

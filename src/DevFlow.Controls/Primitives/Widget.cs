@@ -10,9 +10,7 @@ namespace DevFlow.Controls.Primitives
 {
 	public class Widget : FlowView
     {
-        private bool _isDragging;
         private bool IsResizing;
-        private Point clickPosition;
         public bool IsFixedSize;
 
         public WorkspaceModel MenuInfo;
@@ -27,8 +25,6 @@ namespace DevFlow.Controls.Primitives
 
             if (GetTemplateChild("PART_DragBar") is DragBorder bar)
             {
-                bar.MouseLeftButtonDown += Widget_MouseLeftButtonDown;
-                bar.MouseLeftButtonUp += Widget_MouseLeftButtonUp;
                 bar.MouseMove += Widget_MouseMove;
             }
 
@@ -46,50 +42,15 @@ namespace DevFlow.Controls.Primitives
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (Parent is Workspace workspace)
-            {
-                workspace.Remove(this);
-            }
-        }
-
-        private void Widget_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-		{
-			_isDragging = true;
-			var draggableControl = sender as DragBorder;
-			clickPosition = e.GetPosition(draggableControl);
-			draggableControl.CaptureMouse();
-		}
-
-        private void Widget_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-			_isDragging = false;
-			var draggable = sender as DragBorder;
-			draggable.ReleaseMouseCapture();
-
-            if (this.RenderTransform is TranslateTransform transform)
-            {
-                FlowConfig.SaveLocation(MenuInfo, (int)transform.X, (int)transform.Y, (int)ActualWidth, (int)ActualHeight);
-            }
+            Window.GetWindow(sender as UIElement).Close();
         }
 
         private void Widget_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-			if (_isDragging && sender is DragBorder)
-			{
-                //Window.GetWindow(this).DragMove();
-                //Point currentPosition = e.GetPosition(Parent as Canvas);
-
-                //if (!(this.RenderTransform is TranslateTransform transform))
-                //{
-                //	transform = new TranslateTransform();
-                //	this.RenderTransform = transform;
-                //}
-
-                //transform.X = currentPosition.X - clickPosition.X;
-                //transform.Y = currentPosition.Y - clickPosition.Y;
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+            {
+                Window.GetWindow(this).DragMove();
             }
-
-
 		}
 
         private void Btn_DragDelta(object sender, DragDeltaEventArgs e)

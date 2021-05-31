@@ -144,10 +144,6 @@
 								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="Auto"/>
 							</Grid.ColumnDefinitions>
-
-							<Border Grid.Row="0" Grid.ColumnSpan="2" Background="Transparent" Margin="10 30 0 15">
-								<TextBlock Text="Color Spoid" Foreground="#FFFFFF" FontSize="13"/>
-							</Border>
 							
 							<Control Style="{StaticResource CTL.CURRENT}"/>
 

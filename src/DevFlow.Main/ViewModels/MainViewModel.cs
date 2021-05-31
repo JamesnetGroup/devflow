@@ -88,25 +88,11 @@ namespace DevFlow.Main.ViewModels
                     default: content = new EmptyView(); break;
                 }
 
-                Window win = new Window();
-				win.PreviewMouseMove += Win_PreviewMouseMove;
-                win.Content = content;
-                win.AllowsTransparency = true;
-                win.WindowStyle = WindowStyle.None;
-                win.SizeToContent = SizeToContent.WidthAndHeight;
-                win.Show();
+                content.Show();
                 //Works.Add(new WorkspaceModel(menu, content));
             }
 
         }
-
-		private void Win_PreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-		{
-            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
-            {
-                ((Window)sender).DragMove();
-            }
-		}
 		#endregion
 
 		#region SkinSelected
