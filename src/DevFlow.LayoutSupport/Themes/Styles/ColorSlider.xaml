@@ -42,7 +42,6 @@
 						</Style>
 					</ControlTemplate.Resources>
 					<Grid Style="{StaticResource IN.GRID}">
-						<!--<Border x:Name="bd" Width="13" Height="18" CornerRadius="0" Background="#CCFFFFFF"/>-->
 						<TextBlock Text="▲" FontSize="9" Foreground="#CCFFFFFF" Margin="-5 0 0 3"/>
 					</Grid>
 					<ControlTemplate.Triggers>

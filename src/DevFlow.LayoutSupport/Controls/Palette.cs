@@ -39,7 +39,7 @@ namespace DevFlow.LayoutSupport.Controls
 
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
         {
-            if (e.OriginalSource is DropImageCanvas cnavas)
+            if (e.OriginalSource is DropImageCanvas canvas)
             {
                 BeginCapture();
             }
