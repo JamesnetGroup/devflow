@@ -4,8 +4,23 @@
 					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport"
 					xmlns:cnvt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
 
+	<Style TargetType="{x:Type Button}" x:Key="BTN.SPOID">
+		<Setter Property="Command" Value="{Binding CaptureCommand}"/>
+		<Setter Property="CommandParameter" Value="COPY"/>
+		<Setter Property="Margin" Value="20 0 0 0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Border Background="Transparent">
+						<flows:FlowIcon x:Name="icon" IconType="EyedropperVariant" Width="30" Height="30" Fill="{DynamicResource BRUSH.FONT.H01}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
 	<Style TargetType="{x:Type Button}" x:Key="BTN.PASTE">
-		<Setter Property="Command" Value="{Binding ContentPasteCommand}"/>
+		<Setter Property="Command" Value="{Binding PasteCommand}"/>
 		<Setter Property="CommandParameter" Value="COPY"/>
 		<Setter Property="Margin" Value="20 0 0 0"/>
 		<Setter Property="Template">
@@ -34,9 +49,7 @@
 						</Border>
 						<Border x:Name="border" Background="Transparent"/>
 						<StackPanel x:Name="icon" Orientation="Horizontal" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
-							<flows:DropImageCanvas x:Name="drop" Background="Transparent">
-								<flows:FlowIcon IconType="EyedropperVariant" Width="30" Height="30" Fill="{DynamicResource BRUSH.FONT.H01}" IsHitTestVisible="False"/>
-							</flows:DropImageCanvas>
+							<Button Style="{StaticResource BTN.SPOID}"/>
 							<Button x:Name="paste" Style="{StaticResource BTN.PASTE}"/>
 						</StackPanel>
 					</Grid>
@@ -49,10 +62,9 @@
 							<Setter TargetName="text" Property="Text" Value=""/>
 							<Setter TargetName="border" Property="Background" Value="#AA000000"/>
 							<Setter TargetName="icon" Property="Visibility" Value="Visible"/>
-							<Setter TargetName="drop" Property="Cursor" Value="Hand"/>
 							<Setter TargetName="paste" Property="Cursor" Value="Hand"/>
 						</MultiDataTrigger>
-						<DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=flows:Palette}, Path=IsCaptureColor}" Value="True">
+						<DataTrigger Binding="{Binding IsCaptureColor}" Value="True">
 							<Setter TargetName="text" Property="Text" Value="{Binding CurrentColor}"/>
 							<Setter TargetName="border" Property="Background" Value="Transparent"/>
 							<Setter TargetName="icon" Property="Visibility" Value="Collapsed"/>
@@ -126,9 +138,7 @@
 	</Style>
 
 	<Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Palette}}">
-        <Setter Property="Title" Value="Color Picker"/>
-		<Setter Property="SubTitle" Value="This app is a color picker program."/>
-        <Setter Property="DragCaptureCommand" Value="{Binding DragCaptureCommand}"/>
+        <Setter Property="Title" Value="Color Spoid"/>
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>

@@ -64,6 +64,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Local\Capture\CaptureProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -111,5 +112,6 @@
       <Name>DevFlow.Windowbase</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
