@@ -131,7 +131,33 @@ namespace DevFlow.Colors.ViewModels
             Capture.Exit = () => IsCaptureColor = false;
 
             ColorStruct color = ConvertColor.Parse(FlowConfig.Config.SpoidColor);
-            ShowColor(color);
+
+            bool addmode = false;
+            if (color.Blue < 128)
+            {
+                addmode = true;
+            }
+
+            if (addmode)
+            {
+                color.AddBlue(128);
+                for (int i = 0; i < 64; i++)
+                {
+                    color.AddBlue(-2);
+                    ShowColor(color);
+                }
+            }
+            else
+            {
+                color.AddBlue(-128);
+
+                for (int i = 0; i < 64; i++)
+                {
+                    color.AddBlue(2);
+                    ShowColor(color);
+                }
+            }
+            
         }
 		#endregion
 
@@ -156,7 +182,7 @@ namespace DevFlow.Colors.ViewModels
 
 		void ColorSelected(ColorStamModel color)
         {
-            ShowColor(new ColorStruct(Red, Green, Blue, Alpha));
+            ShowColor(new ColorStruct(color.Red, color.Green, color.Blue, (byte)255));
         }
         #endregion
 

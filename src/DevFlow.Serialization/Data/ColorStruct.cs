@@ -32,5 +32,10 @@ namespace DevFlow.Serialization.Data
 			Blue = color.B;
 			Alpha = color.A;
 		}
+
+		public void AddBlue(int value)
+		{
+			Blue = (byte)((int)Blue + (int)value);
+		}
 	}
 }

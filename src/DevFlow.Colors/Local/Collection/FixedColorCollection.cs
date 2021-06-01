@@ -26,7 +26,7 @@ namespace DevFlow.Colors.Local.Collection
 
 		private void RemoveLast()
 		{
-			if (this.Count == 65)
+			if (this.Count > 65)
 			{
 				this.RemoveAt(this.Count - 1);
 			}

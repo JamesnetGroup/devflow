@@ -14,6 +14,7 @@ namespace DevFlow.Colors.Views
 
         public ColorSpoid()
         {
+			Loaded += (s, e) => Window.Topmost = true;
         }
     }
 }

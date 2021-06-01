@@ -156,7 +156,6 @@
 							</Grid.ColumnDefinitions>
 							
 							<Control Style="{StaticResource CTL.CURRENT}"/>
-
 							<ListBox Style="{StaticResource LBX}"/>
 							
 							<UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Columns="1" Margin="10 30 80 0">
