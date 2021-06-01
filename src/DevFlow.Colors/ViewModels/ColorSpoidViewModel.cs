@@ -132,29 +132,20 @@ namespace DevFlow.Colors.ViewModels
 
             ColorStruct color = ConvertColor.Parse(FlowConfig.Config.SpoidColor);
 
-            bool addmode = false;
             if (color.Blue < 128)
             {
-                addmode = true;
-            }
-
-            if (addmode)
-            {
-                color.AddBlue(128);
+                color.SetAddBlue(128);
                 for (int i = 0; i < 64; i++)
                 {
-                    color.AddBlue(-2);
-                    ShowColor(color);
+                    ShowColor(color.SetAddBlue(-2));
                 }
             }
             else
             {
-                color.AddBlue(-128);
-
+                color.SetAddBlue(-128);
                 for (int i = 0; i < 64; i++)
                 {
-                    color.AddBlue(2);
-                    ShowColor(color);
+                    ShowColor(color.SetAddBlue(2));
                 }
             }
             
