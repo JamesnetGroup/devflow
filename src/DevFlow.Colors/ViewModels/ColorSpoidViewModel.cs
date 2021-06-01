@@ -1,4 +1,5 @@
 ﻿using DevFlow.Colors.Local.Capture;
+using DevFlow.Colors.Local.Collection;
 using DevFlow.Data.Colors;
 using DevFlow.Serialization.Color;
 using DevFlow.Serialization.Data;
@@ -112,9 +113,9 @@ namespace DevFlow.Colors.ViewModels
 		}
 		#endregion
 
-		#region ColorMap
+		#region FixedColorSet
 
-		public ObservableCollection<ColorStampModel> ColorMap { get; set; }
+		public FixedColorCollection FixedColorSet { get; set; }
 		#endregion
 
 		#region Constructor
@@ -123,7 +124,7 @@ namespace DevFlow.Colors.ViewModels
         {
             CaptureCommand = new RelayCommand<object>(BeginCapture);
             PasteCommand = new RelayCommand<object>(Paste);
-            ColorMap = new ObservableCollection<ColorStampModel>();
+            FixedColorSet = new FixedColorCollection();
 
             Capture = new CaptureProvider();
             Capture.Extract = ShowColor;
@@ -153,7 +154,7 @@ namespace DevFlow.Colors.ViewModels
 
 		#region ColorSelected
 
-		void ColorSelected(ColorStampModel color)
+		void ColorSelected(ColorStamModel color)
         {
             ShowColor(new ColorStruct(Red, Green, Blue, Alpha));
         }
@@ -182,15 +183,8 @@ namespace DevFlow.Colors.ViewModels
             Green = rgba.Green;
             Blue = rgba.Blue;
 
-            if (ColorMap.FirstOrDefault(x => x.HexColor == CurrentColor) is null)
-            {
-                var item = new ColorStampModel(CurrentColor, rgba, new RelayCommand<ColorStampModel>(ColorSelected));
-                ColorMap.Insert(0, item);
-            }
-            if (ColorMap.Count == 65)
-            {
-                ColorMap.RemoveAt(ColorMap.Count - 1);
-            }
+            FixedColorSet.Insert(rgba, ColorSelected);
+
             WaitCapture = false;
         }
 		#endregion

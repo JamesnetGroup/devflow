@@ -1,37 +1,35 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Data.Colors;
+using DevFlow.Serialization.Color;
+using DevFlow.Serialization.Data;
+using DevFlow.Windowbase.Mvvm;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace DevFlow.Colors.Local.Collection
 {
-	public class FixedColorCollection<T> : ICollection
+	public class FixedColorCollection : ObservableCollection<ColorStamModel>
 	{
-		private ObservableCollection<T> Source { get; }
+		private RelayCommand<ColorStamModel> colorSelected;
 
-		public int Count => Source.Count;
-
-		public object SyncRoot => throw new NotImplementedException();
-
-		public bool IsSynchronized => throw new NotImplementedException();
-
-		public void CopyTo(Array array, int index)
+		internal void Insert(ColorStruct rgba, Action<ColorStamModel> command)
 		{
-			throw new NotImplementedException();
+			colorSelected ??= new RelayCommand<ColorStamModel>(command);
+
+			if (this.FirstOrDefault(x => x.HexColor == ConvertColor.GetHex(rgba)) is null)
+			{
+				this.Insert(0, new ColorStamModel(rgba, colorSelected));
+			}
+			RemoveLast();
 		}
 
-		public IEnumerator GetEnumerator()
+		private void RemoveLast()
 		{
-			throw new NotImplementedException();
-		}
-
-		public FixedColorCollection()
-		{
-			Source = new();
+			if (this.Count == 65)
+			{
+				this.RemoveAt(this.Count - 1);
+			}
 		}
 	}
 }

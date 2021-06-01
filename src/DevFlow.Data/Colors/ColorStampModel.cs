@@ -1,4 +1,5 @@
-﻿using DevFlow.Serialization.Data;
+﻿using DevFlow.Serialization.Color;
+using DevFlow.Serialization.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Windows.Input;
 
 namespace DevFlow.Data.Colors
 {
-	public class ColorStampModel
+	public class ColorStamModel
 	{
 
 		public string HexColor { get; set; }
@@ -17,9 +18,9 @@ namespace DevFlow.Data.Colors
 		public byte Blue { get; set; }
 		public ICommand ColorClickCommand { get; set; }
 
-		public ColorStampModel(string color, ColorStruct rgba, ICommand command)
+		public ColorStamModel(ColorStruct rgba, ICommand command)
 		{
-			HexColor = color;
+			HexColor = ConvertColor.GetHex(rgba);
             Red = rgba.Red;
 			Green = rgba.Green;
 			Blue = rgba.Blue;

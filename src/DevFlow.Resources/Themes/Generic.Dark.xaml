@@ -9,33 +9,35 @@
     <SolidColorBrush Color="#FF333333" x:Key="BRUSH.BD.WIN.I"/>
     <SolidColorBrush Color="#FF777777" x:Key="BRUSH.BD.WIN.O"/>
 
-    <SolidColorBrush Color="#000000" x:Key="BRUSH.00"/>
-    <SolidColorBrush Color="#333333" x:Key="BRUSH.33"/>
-    <SolidColorBrush Color="#666666" x:Key="BRUSH.66"/>
-    <SolidColorBrush Color="#999999" x:Key="BRUSH.99"/>
-    <SolidColorBrush Color="#AAAAAA" x:Key="BRUSH.AA"/>
-    <SolidColorBrush Color="#CCCCCC" x:Key="BRUSH.CC"/>
-    <SolidColorBrush Color="#F1F1F1" x:Key="BRUSH.F1"/>
-    <SolidColorBrush Color="#F7F7F7" x:Key="BRUSH.F7"/>
-    <SolidColorBrush Color="#FAFAFA" x:Key="BRUSH.FA"/>
-	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FF"/>
+    <SolidColorBrush Color="#FF000000" x:Key="BRUSH.00"/>
+    <SolidColorBrush Color="#FF333333" x:Key="BRUSH.33"/>
+    <SolidColorBrush Color="#FF666666" x:Key="BRUSH.66"/>
+    <SolidColorBrush Color="#FF999999" x:Key="BRUSH.99"/>
+    <SolidColorBrush Color="#FFAAAAAA" x:Key="BRUSH.AA"/>
+    <SolidColorBrush Color="#FFCCCCCC" x:Key="BRUSH.CC"/>
+    <SolidColorBrush Color="#FFF1F1F1" x:Key="BRUSH.F1"/>
+    <SolidColorBrush Color="#FFF7F7F7" x:Key="BRUSH.F7"/>
+    <SolidColorBrush Color="#FFFAFAFA" x:Key="BRUSH.FA"/>
+	<SolidColorBrush Color="#FFFFFFFF" x:Key="BRUSH.FF"/>
 
-	<SolidColorBrush Color="#C9D1D3" x:Key="BRUSH.FONT.H01"/>
-	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FONT.I01"/>
+	<SolidColorBrush Color="#FFC9D1D3" x:Key="BRUSH.FONT.H01"/>
+	<SolidColorBrush Color="#FFFFFFFF" x:Key="BRUSH.FONT.I01"/>
 
-    <SolidColorBrush Color="#C4AC27" x:Key="BRUSH.CHECK.CIRCLE"/>
-	<SolidColorBrush Color="#666666" x:Key="BRUSH.CHECK.CIRCLE.FALSE"/>
-    <SolidColorBrush Color="#C4AC27" x:Key="BRUSH.SELECTED.LINE"/>
+    <SolidColorBrush Color="#FFC4AC27" x:Key="BRUSH.CHECK.CIRCLE"/>
+	<SolidColorBrush Color="#FF666666" x:Key="BRUSH.CHECK.CIRCLE.FALSE"/>
+    <SolidColorBrush Color="#FFC4AC27" x:Key="BRUSH.SELECTED.LINE"/>
 
-	<SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.SLOT.FILL"/>
-    <SolidColorBrush Color="#000000" x:Key="BRUSH.SLOT.BACK"/>
+	<SolidColorBrush Color="#FFFFFFFF" x:Key="BRUSH.SLOT.FILL"/>
+    <SolidColorBrush Color="#FF000000" x:Key="BRUSH.SLOT.BACK"/>
 
-    <SolidColorBrush Color="#a370cb" x:Key="BRUSH.BG.SELECT"/>
-    <SolidColorBrush Color="#FFFFFF" x:Key="BRUSH.FG.SELECT"/>
+    <SolidColorBrush Color="#FFA370CB" x:Key="BRUSH.BG.SELECT"/>
+    <SolidColorBrush Color="#FFFFFFFF" x:Key="BRUSH.FG.SELECT"/>
 
-    <SolidColorBrush Color="#333333" x:Key="BRUSH.BD.BLINE"/>
+    <SolidColorBrush Color="#FF333333" x:Key="BRUSH.BD.BLINE"/>
 
-    <Storyboard x:Key="SB.WIN.IN">
+	<SolidColorBrush Color="#CCFFFFFF" x:Key="BRUSH.COLORSL.POINT"/>
+
+	<Storyboard x:Key="SB.WIN.IN">
 		<DoubleAnimation Storyboard.TargetName="film" Storyboard.TargetProperty="(Rectangle.Opacity)" To="1" Duration="0:0:0.3" BeginTime="0" AutoReverse="False"/>
     </Storyboard>
 

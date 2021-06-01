@@ -11,7 +11,7 @@ namespace DevFlow.Data.Settings
         public ThemeType Theme { get; set; }
         public LanguageType Language { get; set; }
 		public List<ViewOptionModel> ViewOptions { get; set; }
-		public string SpoidColor { get; set; }
+        public string SpoidColor { get; set; } = "#FFFFFFFF";
 
 		public ConfigModel()
         {

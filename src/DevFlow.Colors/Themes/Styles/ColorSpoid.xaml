@@ -7,7 +7,7 @@
 	<Style TargetType="{x:Type Button}" x:Key="BTN.SPOID">
 		<Setter Property="Command" Value="{Binding CaptureCommand}"/>
 		<Setter Property="CommandParameter" Value="COPY"/>
-		<Setter Property="Margin" Value="20 0 0 0"/>
+		<Setter Property="Margin" Value="10 0 10 0"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
@@ -22,7 +22,7 @@
 	<Style TargetType="{x:Type Button}" x:Key="BTN.PASTE">
 		<Setter Property="Command" Value="{Binding PasteCommand}"/>
 		<Setter Property="CommandParameter" Value="COPY"/>
-		<Setter Property="Margin" Value="20 0 0 0"/>
+		<Setter Property="Margin" Value="10 0 10 0"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
@@ -112,7 +112,7 @@
 		<Setter Property="VerticalAlignment" Value="Top"/>
 		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
-		<Setter Property="ItemsSource" Value="{Binding ColorMap}"/>
+		<Setter Property="ItemsSource" Value="{Binding FixedColorSet}"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate>
@@ -138,7 +138,7 @@
 	</Style>
 
 	<Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Palette}}">
-        <Setter Property="Title" Value="Color Spoid"/>
+		<Setter Property="Title" Value="{DynamicResource SPOID_TITLE}"/>
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
@@ -165,7 +165,7 @@
 								<flows:ColorSlider x:Name="blue" Tag="Blue" Value="{Binding Blue}" Margin="0 2"/>
 							</UniformGrid>
 
-							<UniformGrid Grid.Row="3" Grid.Column="1" Columns="1" Margin="110 30 0 -4">
+							<UniformGrid Grid.Row="3" Grid.Column="1" Columns="1" Margin="110 30 0 0">
 								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=red, Path=Value, StringFormat={}R: {0:N0}}"/>
 								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=green, Path=Value, StringFormat={}G: {0:N0}}"/>
 								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=blue, Path=Value, StringFormat={}B: {0:N0}}"/>
