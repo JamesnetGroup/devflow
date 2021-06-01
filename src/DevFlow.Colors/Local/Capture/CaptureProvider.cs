@@ -1,4 +1,5 @@
-﻿using Gma.System.MouseKeyHook;
+﻿using DevFlow.Serialization.Data;
+using Gma.System.MouseKeyHook;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,7 +16,7 @@ namespace DevFlow.Colors.Local.Capture
         private Bitmap buffer = new Bitmap(1, 1);
         private Graphics buffer_graphics = null;
         private IKeyboardMouseEvents globalMouseHook;
-        public Action<byte[]> Extract = (p) => { };
+        public Action<ColorStruct> Extract = (p) => { };
         public Action Exit = () => { };
         public CaptureProvider()
         {
@@ -64,9 +65,8 @@ namespace DevFlow.Colors.Local.Capture
             if (count > 3)
             {
                 count = 0;
-                var color = ScreenColor(x, y);
-
-                Extract(new byte[] { color.R, color.G, color.B, color.A });
+                var color = new ColorStruct(ScreenColor(x, y));
+                Extract(color);
             }
             else
             {

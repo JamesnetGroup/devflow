@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevFlow.Serialization.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,20 @@ namespace DevFlow.Data.Colors
 {
 	public class ColorStampModel
 	{
+
 		public string HexColor { get; set; }
 		public byte Red { get; set; }
 		public byte Green { get; set; }
 		public byte Blue { get; set; }
 		public ICommand ColorClickCommand { get; set; }
+
+		public ColorStampModel(string color, ColorStruct rgba, ICommand command)
+		{
+			HexColor = color;
+            Red = rgba.Red;
+			Green = rgba.Green;
+			Blue = rgba.Blue;
+			ColorClickCommand = command;
+		}
 	}
 }

@@ -55,6 +55,11 @@
     <Compile Include="Theme\SkinModel.cs" />
     <Compile Include="Works\WorkspaceModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Serialization\DevFlow.Serialization.csproj">
+      <Project>{5164EC60-CB8F-41D8-8386-E6B258F8F0C5}</Project>
+      <Name>DevFlow.Serialization</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -56,6 +56,7 @@
     <Compile Include="Flowbase\FlowWindow.cs" />
     <Compile Include="Flowbase\FlowView.cs" />
     <Compile Include="Flowcore\IFlowUIElement.cs" />
+    <Compile Include="Mvvm\ObservableData.cs" />
     <Compile Include="Mvvm\ObservableObject.cs" />
     <Compile Include="Mvvm\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

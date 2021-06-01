@@ -130,18 +130,7 @@ namespace DevFlow.Colors.ViewModels
             Capture.Exit = () => IsCaptureColor = false;
 
             ColorStruct color = ConvertColor.Parse(FlowConfig.Config.SpoidColor);
-
-            bool isAdd = false;
-            if (color.Green > (65 * 2))
-            {
-                isAdd = true;
-            }
-
-            for (int i = 0; i < 65; i++)
-            {
-                ShowColor(new byte[] { color.Red, color.Green, color.Blue, color.Alpha });
-                color.Green = isAdd ? (byte)(color.Green - 2) : (byte)(color.Green +2);
-            }
+            ShowColor(color);
         }
 		#endregion
 
@@ -157,7 +146,7 @@ namespace DevFlow.Colors.ViewModels
         {
             if (!WaitCapture)
             {
-                ShowColor(new byte[] { (byte)Red, (byte)Green, (byte)Blue, (byte)Alpha });
+                ShowColor(new ColorStruct(Red, Green, Blue, Alpha));
             }
         }
 		#endregion
@@ -166,7 +155,7 @@ namespace DevFlow.Colors.ViewModels
 
 		void ColorSelected(ColorStampModel color)
         {
-            ShowColor(new byte[] { color.Red, color.Green, color.Blue, (byte)Alpha });
+            ShowColor(new ColorStruct(Red, Green, Blue, Alpha));
         }
         #endregion
 
@@ -181,47 +170,23 @@ namespace DevFlow.Colors.ViewModels
 
 		#region ShowColor
 
-		private void ShowColor(byte[] rgba)
+		private void ShowColor(ColorStruct rgba)
         {
             WaitCapture = true;
 
-            string r = rgba[0].ToString("X2");
-            string g = rgba[1].ToString("X2");
-            string b = rgba[2].ToString("X2");
-            string a = rgba[3].ToString("X2");
-            byte inv = 255;
-            string xr = ((byte)(inv - rgba[0])).ToString("X2");
-            string xg = ((byte)(inv - rgba[1])).ToString("X2");
-            string xb = ((byte)(inv - rgba[2])).ToString("X2");
+            CurrentColor = ConvertColor.GetHex(rgba);
+            InvertColor = ConvertColor.GetInvertHex(rgba);
+            ReverseColor = ConvertColor.GetReverseColor(rgba);
 
-            CurrentColor = $"#{a}{r}{g}{b}";
-            InvertColor = $"#{a}{xr}{xg}{xb}";
-
-            if ((rgba[0] * 0.299 + rgba[1] * 0.587 + rgba[2] * 0.114) > 142)
-            {
-                ReverseColor = "#FF000000";
-            }
-            else
-            {
-                ReverseColor = "#FFFFFFFF";
-            }
-
-            Red = rgba[0];
-            Green = rgba[1];
-            Blue = rgba[2];
+            Red = rgba.Red;
+            Green = rgba.Green;
+            Blue = rgba.Blue;
 
             if (ColorMap.FirstOrDefault(x => x.HexColor == CurrentColor) is null)
             {
-                ColorMap.Insert(0, new ColorStampModel
-                {
-                    HexColor = CurrentColor,
-                    Red = rgba[0],
-                    Green = rgba[1],
-                    Blue = rgba[2],
-                    ColorClickCommand = new RelayCommand<ColorStampModel>(ColorSelected)
-                });
+                var item = new ColorStampModel(CurrentColor, rgba, new RelayCommand<ColorStampModel>(ColorSelected));
+                ColorMap.Insert(0, item);
             }
-
             if (ColorMap.Count == 65)
             {
                 ColorMap.RemoveAt(ColorMap.Count - 1);
