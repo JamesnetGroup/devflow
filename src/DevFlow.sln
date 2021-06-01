@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Histories", "DevFlo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Colors", "DevFlow.Colors\DevFlow.Colors.csproj", "{D0A1EA4C-FAFD-4ACF-8027-537A354BDF0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Serialization", "DevFlow.Serialization\DevFlow.Serialization.csproj", "{5164EC60-CB8F-41D8-8386-E6B258F8F0C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{D0A1EA4C-FAFD-4ACF-8027-537A354BDF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0A1EA4C-FAFD-4ACF-8027-537A354BDF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0A1EA4C-FAFD-4ACF-8027-537A354BDF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5164EC60-CB8F-41D8-8386-E6B258F8F0C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5164EC60-CB8F-41D8-8386-E6B258F8F0C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5164EC60-CB8F-41D8-8386-E6B258F8F0C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5164EC60-CB8F-41D8-8386-E6B258F8F0C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{EB691890-E172-4F99-BBB8-6E7D19E63FD1} = {0FC648BB-D1D2-477C-812C-1403A4152F6C}
 		{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
 		{D0A1EA4C-FAFD-4ACF-8027-537A354BDF0E} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
+		{5164EC60-CB8F-41D8-8386-E6B258F8F0C5} = {80AB8951-3876-4E60-BF31-851FDB265BAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D98CFB60-F81E-497B-AA6A-1770892F8EF5}

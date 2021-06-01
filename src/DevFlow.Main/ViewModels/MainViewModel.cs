@@ -77,7 +77,7 @@ namespace DevFlow.Main.ViewModels
         {
             if (Works.FirstOrDefault(x => x.Menu.Equals(menu)) is null)
             {
-                IFlowUIElement content;
+                IFlowElement content;
 
                 switch (menu.IconType)
                 {

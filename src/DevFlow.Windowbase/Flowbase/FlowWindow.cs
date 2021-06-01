@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowWindow : Window, IFlowUIElement
+	public class FlowWindow : Window, IFlowElement
     {
         public FlowWindow()
         {
@@ -16,7 +16,7 @@ namespace DevFlow.Windowbase.Flowbase
 
         #region UseMvvm
 
-        public IFlowUIElement UseMvvm(ObservableObject vm)
+        public IFlowElement UseMvvm(ObservableObject vm)
         {
             DataContext = vm;
             return this;

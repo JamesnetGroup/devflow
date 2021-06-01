@@ -1,5 +1,7 @@
 ﻿using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,9 +10,9 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowView : ContentControl, IFlowUIElement
+	public class FlowView : ContentControl, IFlowElement
     {
-		Window _window;
+		public Window Window { get; private set; }
 
 		#region DependencyProperty
 
@@ -36,7 +38,7 @@ namespace DevFlow.Windowbase.Flowbase
 
 		#region UseMvvm
 
-		public IFlowUIElement UseMvvm(ObservableObject vm)
+		public IFlowElement UseMvvm(ObservableObject vm)
         {
             DataContext = vm;
             return this;
@@ -44,17 +46,17 @@ namespace DevFlow.Windowbase.Flowbase
 		#endregion
 
 		#region Show
+
 		public void Show()
 		{
-			if (_window == null)
+			Window = new Window
 			{
-				_window = new Window();
-				_window.Content = this;
-				_window.AllowsTransparency = true;
-				_window.WindowStyle = WindowStyle.None;
-				_window.SizeToContent = SizeToContent.WidthAndHeight;
-			}
-			_window.Show();
+				Content = this,
+				AllowsTransparency = true,
+				WindowStyle = WindowStyle.None,
+				SizeToContent = SizeToContent.WidthAndHeight
+			};
+			Window.Show();
 		}
 		#endregion
 

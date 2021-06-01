@@ -58,6 +58,12 @@ namespace DevFlow.Windowbase.Flowbase
             SaveConfig(Config);
         }
 
+        public static void SaveSpoidColor(string color)
+        {
+            Config.SpoidColor = color;
+            SaveConfig(Config);
+        }
+
         public static ConfigModel LoadConfig()
         {
             return Config;
@@ -90,6 +96,6 @@ namespace DevFlow.Windowbase.Flowbase
 
             File.WriteAllText(CFG_PATH, yaml);
         }
-    }
+	}
 }
   

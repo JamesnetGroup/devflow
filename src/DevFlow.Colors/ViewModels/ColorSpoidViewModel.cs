@@ -1,11 +1,15 @@
 ﻿using DevFlow.Colors.Local.Capture;
 using DevFlow.Data.Colors;
+using DevFlow.Serialization.Color;
+using DevFlow.Serialization.Data;
+using DevFlow.Windowbase.Flowbase;
 using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -125,9 +129,27 @@ namespace DevFlow.Colors.ViewModels
             Capture.Extract = ShowColor;
             Capture.Exit = () => IsCaptureColor = false;
 
-            ShowColor(new byte[] { (byte)255, (byte)255, (byte)255, (byte)255 });
+            ColorStruct color = ConvertColor.Parse(FlowConfig.Config.SpoidColor);
+
+            bool isAdd = false;
+            if (color.Green > (65 * 2))
+            {
+                isAdd = true;
+            }
+
+            for (int i = 0; i < 65; i++)
+            {
+                ShowColor(new byte[] { color.Red, color.Green, color.Blue, color.Alpha });
+                color.Green = isAdd ? (byte)(color.Green - 2) : (byte)(color.Green +2);
+            }
         }
 		#endregion
+
+		protected override void OnLoaded(Control view)
+		{
+			base.OnLoaded(view);
+			((FlowView)view).Window.Closed += Window_Closed;
+		}
 
 		#region SetRgb
 
@@ -216,6 +238,14 @@ namespace DevFlow.Colors.ViewModels
             {
                 Clipboard.SetText(CurrentColor);
             }
+        }
+		#endregion
+
+		#region Window_Closed
+
+		private void Window_Closed(object sender, EventArgs e)
+        {
+            FlowConfig.SaveSpoidColor(CurrentColor);
         }
 		#endregion
 	}

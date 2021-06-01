@@ -8,9 +8,9 @@ using System.Windows;
 
 namespace DevFlow.Windowbase.Flowcore
 {
-	public interface IFlowUIElement : IInputElement
+	public interface IFlowElement : IInputElement
 	{
-		IFlowUIElement UseMvvm(ObservableObject vm);
+		IFlowElement UseMvvm(ObservableObject vm);
 		void Show();
 	}
 }
