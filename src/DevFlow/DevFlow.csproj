@@ -118,10 +118,6 @@
       <Project>{4F92EC03-384B-4463-8AFC-099C7FB9941C}</Project>
       <Name>DevFlow.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Histories\DevFlow.Histories.csproj">
-      <Project>{36f4c6c2-f796-41c0-9b47-da1bec97ae5a}</Project>
-      <Name>DevFlow.Histories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Languages\DevFlow.Languages.csproj">
       <Project>{44f5bd64-2816-46e4-b302-4bdf60120cd4}</Project>
       <Name>DevFlow.Languages</Name>

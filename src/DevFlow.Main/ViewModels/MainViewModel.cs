@@ -14,8 +14,6 @@ using DevFlow.Windowbase.Flowbase;
 using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
 using DevFlow.Data.Language;
-using DevFlow.Histories.Views;
-using DevFlow.Histories.ViewModels;
 using DevFlow.Colors.Views;
 using DevFlow.Colors.ViewModels;
 using System.Windows;
@@ -82,7 +80,6 @@ namespace DevFlow.Main.ViewModels
                 switch (menu.IconType)
                 {
                     case GeometryIconStyle.EyedropperVariant: content = new ColorSpoid().UseMvvm(new ColorSpoidViewModel()); break;
-                    case GeometryIconStyle.MovieOpenPlay: content = new History().UseMvvm(new HistoryViewModel()); break;
                     case GeometryIconStyle.Palette: content = new SwitchSkin().UseMvvm(Skin); break;
                     case GeometryIconStyle.Web: content = new Translator().UseMvvm(Translate); break;
                     default: content = new EmptyView(); break;

@@ -152,15 +152,18 @@ namespace DevFlow.Colors.ViewModels
         }
 		#endregion
 
+		#region OnLoaded
+
 		protected override void OnLoaded(Control view)
 		{
 			base.OnLoaded(view);
 			((FlowView)view).Window.Closed += Window_Closed;
 		}
+        #endregion
 
-		#region SetRgb
+        #region RgbChanged
 
-		private void RgbChanged()
+        private void RgbChanged()
         {
             if (!WaitCapture)
             {
