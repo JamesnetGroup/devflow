@@ -16,7 +16,6 @@ using DevFlow.Windowbase.Mvvm;
 using DevFlow.Data.Language;
 using DevFlow.Colors.Views;
 using DevFlow.Colors.ViewModels;
-using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -111,3 +110,4 @@ namespace DevFlow.Main.ViewModels
         #endregion
     }
 }
+    

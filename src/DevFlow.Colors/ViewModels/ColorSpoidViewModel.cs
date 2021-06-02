@@ -29,7 +29,7 @@ namespace DevFlow.Colors.ViewModels
         private BitmapSource _captureImage;
 
         private bool WaitCapture;
-        private CaptureProvider Capture;
+        private PixelExtractWorker Capture;
 
 		#region Commands
 
@@ -126,7 +126,7 @@ namespace DevFlow.Colors.ViewModels
             PasteCommand = new RelayCommand<object>(Paste);
             FixedColorSet = new FixedColorCollection();
 
-            Capture = new CaptureProvider();
+            Capture = new PixelExtractWorker();
             Capture.Extract = ShowColor;
             Capture.Exit = () => IsCaptureColor = false;
 

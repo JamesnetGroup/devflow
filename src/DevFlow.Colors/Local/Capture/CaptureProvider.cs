@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace DevFlow.Colors.Local.Capture
 {
-	public class CaptureProvider
+	public class PixelExtractWorker
     {
         // 임시 버퍼의 graphic 타입
         private Bitmap buffer = new Bitmap(1, 1);
@@ -18,7 +18,7 @@ namespace DevFlow.Colors.Local.Capture
         private IKeyboardMouseEvents globalMouseHook;
         public Action<ColorStruct> Extract = (p) => { };
         public Action Exit = () => { };
-        public CaptureProvider()
+        public PixelExtractWorker()
         {
             this.buffer_graphics = Graphics.FromImage(buffer);
         }
