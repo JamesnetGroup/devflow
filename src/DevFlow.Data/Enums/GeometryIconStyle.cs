@@ -19,8 +19,9 @@
         Crop,
         Menu,
         ContentPaste,
-        CheckBold
-    }
+        CheckBold,
+		FolderOpenOutline
+	}
 }
 
 

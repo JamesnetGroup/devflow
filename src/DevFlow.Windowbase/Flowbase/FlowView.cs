@@ -38,7 +38,7 @@ namespace DevFlow.Windowbase.Flowbase
 
 		#region UseMvvm
 
-		public IFlowElement UseMvvm(ObservableObject vm)
+		public IFlowElement UseViewModel(ObservableObject vm)
         {
             DataContext = vm;
             return this;

@@ -39,13 +39,11 @@ namespace DevFlow.Menus.ViewModels
         private List<MenuModel> GetMenus()
         {
             var menus = new List<MenuModel>();
-            menus.Add(new MenuModel { Seq = 0, Name = "Background", IconType = GeometryIconStyle.MonitorShimmer });
-            menus.Add(new MenuModel { Seq = 1, Name = "History", IconType = GeometryIconStyle.MovieOpenPlay });
-            menus.Add(new MenuModel { Seq = 2, Name = "Color", IconType = GeometryIconStyle.EyedropperVariant });
-            menus.Add(new MenuModel { Seq = 3, Name = "Setting", IconType = GeometryIconStyle.OcgRefreshOutline });
-            menus.Add(new MenuModel { Seq = 4, Name = "Theme", IconType = GeometryIconStyle.Palette });
-            menus.Add(new MenuModel { Seq = 5, Name = "Web", IconType = GeometryIconStyle.Web });
-            menus.Add(new MenuModel { Seq = 6, Name = "Color2", IconType = GeometryIconStyle.Crop });
+            menus.Add(new MenuModel { Seq = 0, Name = "Directory", IconType = GeometryIconStyle.FolderOpenOutline });
+            menus.Add(new MenuModel { Seq = 1, Name = "Color", IconType = GeometryIconStyle.EyedropperVariant });
+            menus.Add(new MenuModel { Seq = 2, Name = "Theme", IconType = GeometryIconStyle.Palette });
+            menus.Add(new MenuModel { Seq = 3, Name = "Web", IconType = GeometryIconStyle.Web });
+            menus.Add(new MenuModel { Seq = 99, Name = "Close", IconType = GeometryIconStyle.Close });
             return menus;
         }
         #endregion

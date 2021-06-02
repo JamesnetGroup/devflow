@@ -16,6 +16,9 @@ using DevFlow.Windowbase.Mvvm;
 using DevFlow.Data.Language;
 using DevFlow.Colors.Views;
 using DevFlow.Colors.ViewModels;
+using DevFlow.Finders.Views;
+using DevFlow.Finders.ViewModels;
+using System;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -74,18 +77,18 @@ namespace DevFlow.Main.ViewModels
         {
             if (Works.FirstOrDefault(x => x.Menu.Equals(menu)) is null)
             {
-                IFlowElement content;
+                IFlowElement content = null;
 
                 switch (menu.IconType)
                 {
-                    case GeometryIconStyle.EyedropperVariant: content = new ColorSpoid().UseMvvm(new ColorSpoidViewModel()); break;
-                    case GeometryIconStyle.Palette: content = new SwitchSkin().UseMvvm(Skin); break;
-                    case GeometryIconStyle.Web: content = new Translator().UseMvvm(Translate); break;
+                    case GeometryIconStyle.FolderOpenOutline: content = new Finder().UseViewModel(new FinderViewModel()); break;
+                    case GeometryIconStyle.EyedropperVariant: content = new ColorSpoid().UseViewModel(new ColorSpoidViewModel()); break;
+                    case GeometryIconStyle.Palette: content = new SwitchSkin().UseViewModel(Skin); break;
+                    case GeometryIconStyle.Web: content = new Translator().UseViewModel(Translate); break;
+                    case GeometryIconStyle.Close: Environment.Exit(0); break;
                     default: content = new EmptyView(); break;
                 }
-
                 content.Show();
-                //Works.Add(new WorkspaceModel(menu, content));
             }
 
         }

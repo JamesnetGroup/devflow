@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D0A1EA4C-FAFD-4ACF-8027-537A354BDF0E}</ProjectGuid>
+    <ProjectGuid>{44BB52F1-559C-43BC-B6D7-88FE7FFD3A89}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>DevFlow.Colors</RootNamespace>
-    <AssemblyName>DevFlow.Colors</AssemblyName>
+    <RootNamespace>DevFlow.Finders</RootNamespace>
+    <AssemblyName>DevFlow.Finders</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <Deterministic>true</Deterministic>
-    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,13 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gma.System.MouseKeyHook, Version=5.6.130.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MouseKeyHook.5.6.0\lib\net40\Gma.System.MouseKeyHook.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,14 +52,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\Styles\ColorSpoid.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Local\Capture\PixelExtractWorker.cs" />
-    <Compile Include="Local\Collection\FixedColorCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,13 +67,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewModels\ColorSpoidViewModel.cs" />
-    <Compile Include="Views\ColorSpoid.cs" />
+    <Compile Include="ViewModels\FinderViewModel.cs" />
+    <Compile Include="Views\Finder.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,27 +83,14 @@
       <Project>{D77874A6-4C26-4CE5-B3FE-4DE1E067E5A8}</Project>
       <Name>DevFlow.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
-      <Project>{7c22b438-112a-4554-8f51-78c2992ac632}</Project>
-      <Name>DevFlow.Converter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
-      <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
-      <Name>DevFlow.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj">
       <Project>{EB691890-E172-4F99-BBB8-6E7D19E63FD1}</Project>
       <Name>DevFlow.LayoutSupport</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Serialization\DevFlow.Serialization.csproj">
-      <Project>{5164EC60-CB8F-41D8-8386-E6B258F8F0C5}</Project>
-      <Name>DevFlow.Serialization</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{3D2AAB15-663D-4EF4-B80E-0AFECA05C910}</Project>
       <Name>DevFlow.Windowbase</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

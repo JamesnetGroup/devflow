@@ -118,6 +118,10 @@
       <Project>{4F92EC03-384B-4463-8AFC-099C7FB9941C}</Project>
       <Name>DevFlow.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Finders\DevFlow.Finders.csproj">
+      <Project>{44bb52f1-559c-43bc-b6d7-88fe7ffd3a89}</Project>
+      <Name>DevFlow.Finders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.Languages\DevFlow.Languages.csproj">
       <Project>{44f5bd64-2816-46e4-b302-4bdf60120cd4}</Project>
       <Name>DevFlow.Languages</Name>
