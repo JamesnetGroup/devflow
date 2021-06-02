@@ -20,7 +20,17 @@
         Menu,
         ContentPaste,
         CheckBold,
-		FolderOpenOutline
+		FolderOpenOutline,
+		FolderTable,
+		Maximize,
+		Resize,
+		SelectAll,
+		ConsoleLine,
+		Folder,
+		Plus,
+		ArrowUpBold,
+		ArrowRightBold,
+		ArrowLeftBold
 	}
 }
 

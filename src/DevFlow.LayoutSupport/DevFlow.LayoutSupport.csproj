@@ -65,6 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Explorer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Preview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ColorSlider.cs" />
+    <Compile Include="Controls\Explorer.cs" />
     <Compile Include="Controls\Palette.cs" />
     <Compile Include="Controls\DropImageCanvas.cs" />
     <Compile Include="Controls\FlowIcon.cs" />

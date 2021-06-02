@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace DevFlow.Finders.Views
 {
-	public class Finder : Preview
+	public class Finder : Explorer
 	{
 		static Finder()
 		{

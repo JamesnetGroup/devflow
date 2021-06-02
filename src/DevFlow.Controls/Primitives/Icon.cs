@@ -30,6 +30,19 @@ namespace DevFlow.Controls.Primitives
         internal readonly static string CONTENTPASTE = "M19,20H5V4H7V7H17V4H19M12,2A1,1 0 0,1 13,3A1,1 0 0,1 12,4A1,1 0 0,1 11,3A1,1 0 0,1 12,2M19,2H14.82C14.4,0.84 13.3,0 12,0C10.7,0 9.6,0.84 9.18,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V4A2,2 0 0,0 19,2Z";
         internal readonly static string CHECKBOLD = "M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z";
         internal readonly static string FOLDER_OPEN_OUTLINE = "M6.1,10L4,18V8H21A2,2 0 0,0 19,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H19C19.9,20 20.7,19.4 20.9,18.5L23.2,10H6.1M19,18H6L7.6,12H20.6L19,18Z";
+
+        internal readonly static string FOLDER_TABLE = "M4 4C2.89 4 2 4.89 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V8C22 6.89 21.1 6 20 6H12L10 4H4M12 9H15V11H12V9M16 9H19V11H16V9M12 12H15V14H12V12M16 12H19V14H16V12M12 15H15V17H12V15M16 15H19V17H16V15Z";
+        internal readonly static string MAXIMIZE = "M4,4H20V20H4V4M6,8V18H18V8H6Z";
+        internal readonly static string RESIZE = "M22,22H20V20H22V22M22,18H20V16H22V18M18,22H16V20H18V22M18,18H16V16H18V18M14,22H12V20H14V22M22,14H20V12H22V14Z";
+
+        internal readonly static string SELECT_ALL = "M9,9H15V15H9M7,17H17V7H7M15,5H17V3H15M15,21H17V19H15M19,17H21V15H19M19,9H21V7H19M19,21A2,2 0 0,0 21,19H19M19,13H21V11H19M11,21H13V19H11M9,3H7V5H9M3,17H5V15H3M5,21V19H3A2,2 0 0,0 5,21M19,3V5H21A2,2 0 0,0 19,3M13,3H11V5H13M3,9H5V7H3M7,21H9V19H7M3,13H5V11H3M3,5H5V3A2,2 0 0,0 3,5Z";
+
+        internal readonly static string ARROW_LEFT_BOLD = "M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z";
+        internal readonly static string ARROW_RIGHT_BOLD = "M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z";
+        internal readonly static string ARROW_UP_BOLD = "M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z";
+        internal readonly static string CONSOLE_LINE = "M13,19V16H21V19H13M8.5,13L2.47,7H6.71L11.67,11.95C12.25,12.54 12.25,13.5 11.67,14.07L6.74,19H2.5L8.5,13Z";
+        internal readonly static string PLUS = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
+        internal readonly static string FOLDER = "M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z";
     }
 
     public class Icon : ContentControl
@@ -94,6 +107,16 @@ namespace DevFlow.Controls.Primitives
                 case GeometryIconStyle.ContentPaste: icon.Data = IconData.CONTENTPASTE.ToGeometry(); break;
                 case GeometryIconStyle.CheckBold: icon.Data = IconData.CHECKBOLD.ToGeometry(); break;
                 case GeometryIconStyle.FolderOpenOutline: icon.Data = IconData.FOLDER_OPEN_OUTLINE.ToGeometry(); break;
+                case GeometryIconStyle.FolderTable: icon.Data = IconData.FOLDER_TABLE.ToGeometry(); break;
+                case GeometryIconStyle.Maximize: icon.Data = IconData.MAXIMIZE.ToGeometry(); break;
+                case GeometryIconStyle.Resize: icon.Data = IconData.RESIZE.ToGeometry(); break;
+                case GeometryIconStyle.SelectAll: icon.Data = IconData.SELECT_ALL.ToGeometry(); break;
+                case GeometryIconStyle.ArrowLeftBold: icon.Data = IconData.ARROW_LEFT_BOLD.ToGeometry(); break;
+                case GeometryIconStyle.ArrowRightBold: icon.Data = IconData.ARROW_RIGHT_BOLD.ToGeometry(); break;
+                case GeometryIconStyle.ArrowUpBold: icon.Data = IconData.ARROW_UP_BOLD.ToGeometry(); break;
+                case GeometryIconStyle.Plus: icon.Data = IconData.PLUS.ToGeometry(); break;
+                case GeometryIconStyle.Folder: icon.Data = IconData.FOLDER.ToGeometry(); break;
+                case GeometryIconStyle.ConsoleLine: icon.Data = IconData.CONSOLE_LINE.ToGeometry(); break;
             }
         }
         #endregion

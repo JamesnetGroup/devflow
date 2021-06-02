@@ -34,6 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,8 +54,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Finder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Local\Api\MousePosition.cs" />
+    <Compile Include="Local\Api\ShellContextMenu.cs" />
+    <Compile Include="Local\Enum\FileTypes.cs" />
+    <Compile Include="Local\Model\FileData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -68,6 +78,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\FinderViewModel.cs" />
+    <Compile Include="Views\ExplorerListBox.cs" />
     <Compile Include="Views\Finder.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,9 +94,21 @@
       <Project>{D77874A6-4C26-4CE5-B3FE-4DE1E067E5A8}</Project>
       <Name>DevFlow.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
+      <Project>{7c22b438-112a-4554-8f51-78c2992ac632}</Project>
+      <Name>DevFlow.Converter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
+      <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
+      <Name>DevFlow.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj">
       <Project>{EB691890-E172-4F99-BBB8-6E7D19E63FD1}</Project>
       <Name>DevFlow.LayoutSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
+      <Project>{049fb84c-5047-416b-b1a2-ebf2a02f0cdb}</Project>
+      <Name>DevFlow.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
       <Project>{3D2AAB15-663D-4EF4-B80E-0AFECA05C910}</Project>
