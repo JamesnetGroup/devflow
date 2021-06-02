@@ -45,7 +45,7 @@
 					<Grid>
 						<Border Background="{Binding CurrentColor}">
 							<TextBox x:Name="text" Text="{Binding CurrentColor}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" 
-									 Foreground="{Binding ReverseColor}" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
+									 Foreground="{Binding ContrastColor}" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
 						</Border>
 						<Border x:Name="border" Background="Transparent"/>
 						<StackPanel x:Name="icon" Orientation="Horizontal" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -112,7 +112,7 @@
 		<Setter Property="VerticalAlignment" Value="Top"/>
 		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
-		<Setter Property="ItemsSource" Value="{Binding FixedColorSet}"/>
+		<Setter Property="ItemsSource" Value="{Binding ExtractedColorSet}"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate>

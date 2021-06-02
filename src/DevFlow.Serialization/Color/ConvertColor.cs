@@ -25,7 +25,7 @@ namespace DevFlow.Serialization.Color
 			return color;
 		}
 
-		public static string GetHex(ColorStruct rgba)
+		public static string Hex(ColorStruct rgba)
 		{
 			string r = rgba.Red.ToString("X2");
 			string g = rgba.Green.ToString("X2");
@@ -35,7 +35,7 @@ namespace DevFlow.Serialization.Color
 			return $"#{a}{r}{g}{b}";
 		}
 
-		public static string GetInvertHex(ColorStruct rgba)
+		public static string ReverseHex(ColorStruct rgba)
 		{
 			byte max = 255;
 			
@@ -45,7 +45,7 @@ namespace DevFlow.Serialization.Color
 			return $"#FF{xr}{xg}{xb}";
 		}
 
-		public static string GetReverseColor(ColorStruct rgba, int standard = 142)
+		public static string Contrast(ColorStruct rgba, int standard = 142)
 		{
 			string reverse = "#FFFFFFFF";
 			if ((rgba.Red * 0.299 + rgba.Green * 0.587 + rgba.Blue * 0.114) > standard)

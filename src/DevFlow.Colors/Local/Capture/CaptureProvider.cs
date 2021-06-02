@@ -16,8 +16,8 @@ namespace DevFlow.Colors.Local.Capture
         private Bitmap buffer = new Bitmap(1, 1);
         private Graphics buffer_graphics = null;
         private IKeyboardMouseEvents globalMouseHook;
-        public Action<ColorStruct> Extract = (p) => { };
-        public Action Exit = () => { };
+        public Action<ColorStruct> StartExtract = (p) => { };
+        public Action FinishExtract = () => { };
         public PixelExtractWorker()
         {
             this.buffer_graphics = Graphics.FromImage(buffer);
@@ -39,21 +39,17 @@ namespace DevFlow.Colors.Local.Capture
 
 		private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            globalMouseHook.MouseUp += MainWindow_MouseUp;
+            CaptureFinished();
+            FinishExtract();
         }
-        private void EndCapture()
+        private void CaptureFinished()
         {
             globalMouseHook.MouseMove -= MainWindow_MouseMove;
-            globalMouseHook.MouseUp -= MainWindow_MouseUp;
             globalMouseHook.MouseDown -= GlobalMouseHook_MouseDown;
             globalMouseHook.Dispose();
             Mouse.OverrideCursor = null;
         }
-        private void MainWindow_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            EndCapture();
-            Exit();
-        }
+
         private void MainWindow_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             SetView(e.X, e.Y);
@@ -66,7 +62,7 @@ namespace DevFlow.Colors.Local.Capture
             {
                 count = 0;
                 var color = new ColorStruct(ScreenColor(x, y));
-                Extract(color);
+                StartExtract(color);
             }
             else
             {

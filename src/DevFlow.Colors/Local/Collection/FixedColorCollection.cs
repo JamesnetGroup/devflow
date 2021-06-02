@@ -9,17 +9,17 @@ using System.Windows.Input;
 
 namespace DevFlow.Colors.Local.Collection
 {
-	public class FixedColorCollection : ObservableCollection<ColorStamModel>
+	public class ExtractedColorCollection : ObservableCollection<ColorStampModel>
 	{
-		private RelayCommand<ColorStamModel> colorSelected;
+		private RelayCommand<ColorStampModel> colorExtracted;
 
-		internal void Insert(ColorStruct rgba, Action<ColorStamModel> command)
+		internal void Insert(ColorStruct rgba, Action<ColorStampModel> command)
 		{
-			colorSelected ??= new RelayCommand<ColorStamModel>(command);
+			colorExtracted ??= new RelayCommand<ColorStampModel>(command);
 
-			if (this.FirstOrDefault(x => x.HexColor == ConvertColor.GetHex(rgba)) is null)
+			if (this.FirstOrDefault(x => x.HexColor == ConvertColor.Hex(rgba)) is null)
 			{
-				this.Insert(0, new ColorStamModel(rgba, colorSelected));
+				this.Insert(0, new ColorStampModel(rgba, colorExtracted));
 			}
 			RemoveLast();
 		}

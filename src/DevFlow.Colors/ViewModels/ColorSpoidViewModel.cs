@@ -23,12 +23,12 @@ namespace DevFlow.Colors.ViewModels
         private int _blue;
         private string _currentColor;
         private string _reverseColor;
-        private string _invertColor;
-		private bool _isCaptureColor;
+        private string _contrastColor;
+        private bool _isCaptureColor;
         
         private BitmapSource _captureImage;
 
-        private bool WaitCapture;
+        private bool IsCaptureActivated;
         private PixelExtractWorker Capture;
 
 		#region Commands
@@ -48,7 +48,7 @@ namespace DevFlow.Colors.ViewModels
 
         #region IsCaptureColor
 
-        public bool IsCaptureColor
+        public bool IsColorCapturing
         {
             get { return _isCaptureColor; }
             set { _isCaptureColor = value; OnPropertyChanged(); }
@@ -62,23 +62,23 @@ namespace DevFlow.Colors.ViewModels
             get { return _currentColor; }
             set { _currentColor = value; OnPropertyChanged(); }
         }
-		#endregion
+        #endregion
 
-		#region ReverseColor 
+        #region ReverseColor 
 
-		public string ReverseColor
+        public string ReverseColor
         {
             get { return _reverseColor; }
             set { _reverseColor = value; OnPropertyChanged(); }
         }
         #endregion
 
-        #region InvertColor 
+        #region ContrastColor 
 
-        public string InvertColor
+        public string ContrastColor
         {
-            get { return _invertColor; }
-            set { _invertColor = value; OnPropertyChanged(); }
+            get { return _contrastColor; }
+            set { _contrastColor = value; OnPropertyChanged(); }
         }
         #endregion
 
@@ -111,11 +111,11 @@ namespace DevFlow.Colors.ViewModels
 			get { return _blue; }
 			set { _blue = value; OnPropertyChanged(); RgbChanged(); }
 		}
-		#endregion
+        #endregion
 
-		#region FixedColorSet
+        #region ExtractedColorSet
 
-		public FixedColorCollection FixedColorSet { get; set; }
+        public ExtractedColorCollection ExtractedColorSet { get; set; }
 		#endregion
 
 		#region Constructor
@@ -124,11 +124,11 @@ namespace DevFlow.Colors.ViewModels
         {
             CaptureCommand = new RelayCommand<object>(BeginCapture);
             PasteCommand = new RelayCommand<object>(Paste);
-            FixedColorSet = new FixedColorCollection();
+            ExtractedColorSet = new ExtractedColorCollection();
 
             Capture = new PixelExtractWorker();
-            Capture.Extract = ShowColor;
-            Capture.Exit = () => IsCaptureColor = false;
+            Capture.StartExtract = ExtractColor;
+            Capture.FinishExtract = () => IsColorCapturing = false;
 
             ColorStruct color = ConvertColor.Parse(FlowConfig.Config.SpoidColor);
 
@@ -137,7 +137,7 @@ namespace DevFlow.Colors.ViewModels
                 color.SetAddBlue(128);
                 for (int i = 0; i < 64; i++)
                 {
-                    ShowColor(color.SetAddBlue(-2));
+                    ExtractColor(color.SetAddBlue(-2));
                 }
             }
             else
@@ -145,11 +145,12 @@ namespace DevFlow.Colors.ViewModels
                 color.SetAddBlue(-128);
                 for (int i = 0; i < 64; i++)
                 {
-                    ShowColor(color.SetAddBlue(2));
+                    ExtractColor(color.SetAddBlue(2));
                 }
             }
             
         }
+
 		#endregion
 
 		#region OnLoaded
@@ -165,18 +166,18 @@ namespace DevFlow.Colors.ViewModels
 
         private void RgbChanged()
         {
-            if (!WaitCapture)
+            if (!IsCaptureActivated)
             {
-                ShowColor(new ColorStruct(Red, Green, Blue, Alpha));
+                ExtractColor(new ColorStruct(Red, Green, Blue, Alpha));
             }
         }
 		#endregion
 
 		#region ColorSelected
 
-		void ColorSelected(ColorStamModel color)
+		void ColorSelected(ColorStampModel color)
         {
-            ShowColor(new ColorStruct(color.Red, color.Green, color.Blue, (byte)255));
+            ExtractColor(new ColorStruct(color.Red, color.Green, color.Blue, (byte)255));
         }
         #endregion
 
@@ -184,28 +185,28 @@ namespace DevFlow.Colors.ViewModels
 
         private void BeginCapture(object obj)
         {
-            IsCaptureColor = true;
+            IsColorCapturing = true;
             Capture.Begin();
         }
-		#endregion
+        #endregion
 
-		#region ShowColor
+        #region ExtractColor
 
-		private void ShowColor(ColorStruct rgba)
+        private void ExtractColor(ColorStruct rgba)
         {
-            WaitCapture = true;
+            IsCaptureActivated = true;
 
-            CurrentColor = ConvertColor.GetHex(rgba);
-            InvertColor = ConvertColor.GetInvertHex(rgba);
-            ReverseColor = ConvertColor.GetReverseColor(rgba);
+            CurrentColor = ConvertColor.Hex(rgba);
+            ReverseColor = ConvertColor.ReverseHex(rgba);
+            ContrastColor = ConvertColor.Contrast(rgba);
 
             Red = rgba.Red;
             Green = rgba.Green;
             Blue = rgba.Blue;
 
-            FixedColorSet.Insert(rgba, ColorSelected);
+            ExtractedColorSet.Insert(rgba, ColorSelected);
 
-            WaitCapture = false;
+            IsCaptureActivated = false;
         }
 		#endregion
 

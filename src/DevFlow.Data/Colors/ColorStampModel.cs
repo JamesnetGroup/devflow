@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace DevFlow.Data.Colors
 {
-	public class ColorStamModel
+	public class ColorStampModel
 	{
 
 		public string HexColor { get; set; }
@@ -18,9 +18,9 @@ namespace DevFlow.Data.Colors
 		public byte Blue { get; set; }
 		public ICommand ColorClickCommand { get; set; }
 
-		public ColorStamModel(ColorStruct rgba, ICommand command)
+		public ColorStampModel(ColorStruct rgba, ICommand command)
 		{
-			HexColor = ConvertColor.GetHex(rgba);
+			HexColor = ConvertColor.Hex(rgba);
             Red = rgba.Red;
 			Green = rgba.Green;
 			Blue = rgba.Blue;
