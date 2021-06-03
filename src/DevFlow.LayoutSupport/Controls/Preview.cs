@@ -1,7 +1,5 @@
 ﻿using DevFlow.Controls.Primitives;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace DevFlow.LayoutSupport.Controls
 {

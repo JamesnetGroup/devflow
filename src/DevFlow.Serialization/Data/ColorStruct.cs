@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-
-namespace DevFlow.Serialization.Data
+﻿namespace DevFlow.Serialization.Data
 {
 	public struct ColorStruct
 	{

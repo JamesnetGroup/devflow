@@ -1,5 +1,4 @@
-﻿using DevFlow.Data.Menu;
-using DevFlow.Data.Works;
+﻿using DevFlow.Data.Works;
 using DevFlow.Windowbase.Flowbase;
 using System.Windows;
 using System.Windows.Controls;
