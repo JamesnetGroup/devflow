@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>set.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -174,6 +177,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AddTest.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dev1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="idea.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dev2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="setting.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="set.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
