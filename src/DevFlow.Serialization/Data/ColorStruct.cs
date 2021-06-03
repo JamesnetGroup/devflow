@@ -3,9 +3,9 @@
 	public struct ColorStruct
 	{
 		public byte Red { get; set; }
-		public byte Green{ get; set; }
+		public byte Green { get; set; }
 		public byte Blue { get; set; }
-		public byte Alpha{ get; set; }
+		public byte Alpha { get; set; }
 
 		public ColorStruct(byte red, byte green, byte blue, byte alpha)
 		{
@@ -32,7 +32,7 @@
 
 		public ColorStruct SetAddBlue(int value)
 		{
-			Blue = (byte)((int)Blue + (int)value);
+			Blue = (byte)(Blue + value);
 			return this;
 		}
 	}

@@ -16,7 +16,7 @@ namespace DevFlow.Data.Colors
 		public ColorStampModel(ColorStruct rgba, ICommand command)
 		{
 			HexColor = ConvertColor.Hex(rgba);
-            Red = rgba.Red;
+			Red = rgba.Red;
 			Green = rgba.Green;
 			Blue = rgba.Blue;
 			ColorClickCommand = command;

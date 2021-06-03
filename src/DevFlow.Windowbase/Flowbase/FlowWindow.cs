@@ -2,47 +2,45 @@
 using DevFlow.Windowbase.Mvvm;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
 	public class FlowWindow : Window, IFlowElement
-    {
-        public FlowWindow()
-        {
+	{
+		public FlowWindow()
+		{
 			Loaded += FlowWindow_Loaded;
-        }
+		}
 
-        #region UseMvvm
+		#region UseMvvm
 
-        public IFlowElement UseViewModel(ObservableObject vm)
-        {
-            DataContext = vm;
-            return this;
-        }
-        #endregion
+		public IFlowElement UseViewModel(ObservableObject vm)
+		{
+			DataContext = vm;
+			return this;
+		}
+		#endregion
 
-        #region OnDesignerMode
+		#region OnDesignerMode
 
-        protected virtual void OnDesignerMode()
-        {
+		protected virtual void OnDesignerMode()
+		{
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private void FlowWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (DesignerProperties.GetIsInDesignMode(this))
-            {
-                OnDesignerMode();
-            }
+		private void FlowWindow_Loaded(object sender, RoutedEventArgs e)
+		{
+			if (DesignerProperties.GetIsInDesignMode(this))
+			{
+				OnDesignerMode();
+			}
 
-            if (DataContext is ObservableObject vm)
-            {
-                vm.ViewRegister(this);
-            }
-        }
+			if (DataContext is ObservableObject vm)
+			{
+				vm.ViewRegister(this);
+			}
+		}
 	}
 }

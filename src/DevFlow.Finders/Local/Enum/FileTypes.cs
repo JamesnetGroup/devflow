@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevFlow.Finders.Local.Enum
+﻿namespace DevFlow.Finders.Local.Enum
 {
-    public enum FileTypes
-    {
-        Directory,
-        File,
-        SystemFile,
-        Parent,
-        HiddenDirectory,
-        Hidden
-    }
+	public enum FileTypes
+	{
+		Directory,
+		File,
+		SystemFile,
+		Parent,
+		HiddenDirectory,
+		Hidden
+	}
 }

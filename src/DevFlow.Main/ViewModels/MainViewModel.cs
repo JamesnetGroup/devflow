@@ -19,103 +19,101 @@ using DevFlow.Colors.ViewModels;
 using DevFlow.Finders.Views;
 using DevFlow.Finders.ViewModels;
 using System;
-using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
-    public class MainViewModel : ObservableObject
-    {
-        private FlowTheme theme;
-        private FlowCulture culture;
+	public class MainViewModel : ObservableObject
+	{
+		private readonly FlowTheme theme;
+		private readonly FlowCulture culture;
 
-        #region Wallpaper
+		#region Wallpaper
 
-        public string Wallpaper { get; set; }
-        #endregion
+		public string Wallpaper { get; set; }
+		#endregion
 
-        #region Menu
+		#region Menu
 
-        public QuickSlotViewModel Menu { get; }
-        #endregion
+		public QuickSlotViewModel Menu { get; }
+		#endregion
 
-        #region Theme
+		#region Theme
 
-        public SwitchSkinViewModel Skin { get; }
+		public SwitchSkinViewModel Skin { get; }
 		#endregion
 
 		#region Translate
 
-        TranslatorViewModel Translate { get; }
+		private TranslatorViewModel Translate { get; }
 		#endregion
 
 		#region Works
 
 		public ObservableCollection<WorkspaceModel> Works { get; set; }
-        #endregion
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public MainViewModel()
-        {
-            Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
+		public MainViewModel()
+		{
+			Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
-            Works = new ObservableCollection<WorkspaceModel>();
-            Menu = new QuickSlotViewModel(new RelayCommand<MenuModel>(MenuSelected));
-        }
+			Works = new ObservableCollection<WorkspaceModel>();
+			Menu = new QuickSlotViewModel(new RelayCommand<MenuModel>(MenuSelected));
+		}
 
-        public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()
-        {
-            theme = _theme;
-            culture = _culture;
-            Skin = new SwitchSkinViewModel(SkinSelected, theme.GetCurrentTheme());
-            Translate = new TranslatorViewModel(LanguageChanged, culture.GetCurrentLanguage());
-        }
-        #endregion
+		public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()
+		{
+			theme = _theme;
+			culture = _culture;
+			Skin = new SwitchSkinViewModel(SkinSelected, theme.GetCurrentTheme());
+			Translate = new TranslatorViewModel(LanguageChanged, culture.GetCurrentLanguage());
+		}
+		#endregion
 
-        #region MenuSelected
+		#region MenuSelected
 
-        private void MenuSelected(MenuModel menu)
-        {
-            if (Works.FirstOrDefault(x => x.Menu.Equals(menu)) is null)
-            {
-                IFlowElement content = null;
+		private void MenuSelected(MenuModel menu)
+		{
+			if (Works.FirstOrDefault(x => x.Menu.Equals(menu)) is null)
+			{
+				IFlowElement content = null;
 
-                switch (menu.IconType)
-                {
-                    case GeometryIconStyle.FolderOpenOutline: content = new Finder().UseViewModel(new FinderViewModel()); break;
-                    case GeometryIconStyle.EyedropperVariant: content = new ColorSpoid().UseViewModel(new ColorSpoidViewModel()); break;
-                    case GeometryIconStyle.Palette: content = new SwitchSkin().UseViewModel(Skin); break;
-                    case GeometryIconStyle.Web: content = new Translator().UseViewModel(Translate); break;
-                    case GeometryIconStyle.Close: Environment.Exit(0); break;
-                    default: content = new EmptyView(); break;
-                }
+				switch (menu.IconType)
+				{
+					case GeometryIconStyle.FolderOpenOutline: content = new Finder().UseViewModel(new FinderViewModel()); break;
+					case GeometryIconStyle.EyedropperVariant: content = new ColorSpoid().UseViewModel(new ColorSpoidViewModel()); break;
+					case GeometryIconStyle.Palette: content = new SwitchSkin().UseViewModel(Skin); break;
+					case GeometryIconStyle.Web: content = new Translator().UseViewModel(Translate); break;
+					case GeometryIconStyle.Close: Environment.Exit(0); break;
+					default: content = new EmptyView(); break;
+				}
 
-                if (content != null)
-                {
-                    content.Show();
-                }
-            }
+				if (content != null)
+				{
+					content.Show();
+				}
+			}
 
-        }
+		}
 		#endregion
 
 		#region SkinSelected
 
 		private void SkinSelected(SkinModel theme)
-        {
-            this.theme.Switch(theme.Skin);
-            FlowConfig.SaveTheme(theme.Skin);
-        }
-        #endregion
+		{
+			this.theme.Switch(theme.Skin);
+			FlowConfig.SaveTheme(theme.Skin);
+		}
+		#endregion
 
-        #region LanguageChanged
+		#region LanguageChanged
 
-        private void LanguageChanged(LanguageModel culture)
-        {
-            this.culture.Switch(culture.Language);
-            FlowConfig.SaveLanguage(culture.Language);
-        }
-        #endregion
-    }
+		private void LanguageChanged(LanguageModel culture)
+		{
+			this.culture.Switch(culture.Language);
+			FlowConfig.SaveLanguage(culture.Language);
+		}
+		#endregion
+	}
 }
-    

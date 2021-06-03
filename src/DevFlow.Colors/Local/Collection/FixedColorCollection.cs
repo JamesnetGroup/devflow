@@ -5,7 +5,6 @@ using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
 
 namespace DevFlow.Colors.Local.Collection
 {
@@ -19,16 +18,16 @@ namespace DevFlow.Colors.Local.Collection
 
 			if (this.FirstOrDefault(x => x.HexColor == ConvertColor.Hex(rgba)) is null)
 			{
-				this.Insert(0, new ColorStampModel(rgba, colorExtracted));
+				Insert(0, new ColorStampModel(rgba, colorExtracted));
 			}
 			RemoveLast();
 		}
 
 		private void RemoveLast()
 		{
-			if (this.Count > 65)
+			if (Count > 65)
 			{
-				this.RemoveAt(this.Count - 1);
+				RemoveAt(Count - 1);
 			}
 		}
 	}

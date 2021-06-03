@@ -15,9 +15,9 @@ namespace DevFlow.Controls.Primitives
 		public static readonly DependencyProperty WorksSourceProperty = DependencyProperty.Register("WorksSource", typeof(ObservableCollection<WorkspaceModel>), typeof(Workspace), new PropertyMetadata(null, ItemsSourceChanged));
 
 		public ObservableCollection<WorkspaceModel> WorksSource
-        {
-            get { return (ObservableCollection<WorkspaceModel>)this.GetValue(WorksSourceProperty); }
-            set { this.SetValue(WorksSourceProperty, value); }
+		{
+			get => (ObservableCollection<WorkspaceModel>)GetValue(WorksSourceProperty);
+			set => SetValue(WorksSourceProperty, value);
 		}
 
 		private static void ItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -38,7 +38,7 @@ namespace DevFlow.Controls.Primitives
 			WorksSource.CollectionChanged += ItemsSource_CollectionChanged;
 		}
 
-		private void ItemsSource_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+		private void ItemsSource_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
 			if (e.Action == NotifyCollectionChangedAction.Add)
 			{
@@ -66,8 +66,8 @@ namespace DevFlow.Controls.Primitives
 
 			if (item.Content is UIElement ui)
 			{
-				Children.Add(ui);
-				SetTransform(item);				
+				_ = Children.Add(ui);
+				SetTransform(item);
 			}
 		}
 
@@ -102,7 +102,7 @@ namespace DevFlow.Controls.Primitives
 		{
 			if (WorksSource.FirstOrDefault(x => x.Content.Equals(ui)) is WorkspaceModel item)
 			{
-				WorksSource.Remove(item);
+				_ = WorksSource.Remove(item);
 			}
 		}
 	}

@@ -1,10 +1,10 @@
 ﻿namespace DevFlow.Data
 {
-    public enum ThemeType
-    {
-        Dark,
-        White,
-        James,
-        Elena
-    }
+	public enum ThemeType
+	{
+		Dark,
+		White,
+		James,
+		Elena
+	}
 }

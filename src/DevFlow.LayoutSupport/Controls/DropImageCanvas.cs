@@ -2,10 +2,10 @@
 
 namespace DevFlow.LayoutSupport.Controls
 {
-    public class DropImageCanvas : Grid
-    {
-        public DropImageCanvas()
-        {
-        }
-    }
+	public class DropImageCanvas : Grid
+	{
+		public DropImageCanvas()
+		{
+		}
+	}
 }

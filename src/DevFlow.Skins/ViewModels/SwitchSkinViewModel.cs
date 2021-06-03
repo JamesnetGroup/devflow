@@ -4,8 +4,6 @@ using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFlow.Skins.ViewModels
 {
@@ -17,7 +15,7 @@ namespace DevFlow.Skins.ViewModels
 
 		public SkinModel CurrentSkin
 		{
-			get { return _currentSkin; }
+			get => _currentSkin;
 			set { _currentSkin = value; OnPropertyChanged(); }
 		}
 
@@ -26,7 +24,7 @@ namespace DevFlow.Skins.ViewModels
 			Skins = GetSkins();
 			Skins.ForEach(x => x.SelectSkinCommand = new RelayCommand<SkinModel>(SkinSelected));
 
-			CurrentSkin = Skins.First(x=>x.Skin == nowTheme);
+			CurrentSkin = Skins.First(x => x.Skin == nowTheme);
 		}
 
 		#region GetSkins 

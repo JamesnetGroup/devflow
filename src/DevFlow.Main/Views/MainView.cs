@@ -5,15 +5,15 @@ using DevFlow.Main.ViewModels;
 
 namespace DevFlow.Main.Views
 {
-    public class MainView : MainWindow
-    {
-        static MainView()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(MainView), new FrameworkPropertyMetadata(typeof(MainView)));
-        }
+	public class MainView : MainWindow
+	{
+		static MainView()
+		{
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(MainView), new FrameworkPropertyMetadata(typeof(MainView)));
+		}
 
-        public MainView()
-        {
+		public MainView()
+		{
 			WindowStyle = WindowStyle.None;
 			AllowsTransparency = true;
 			Topmost = true;
@@ -30,20 +30,20 @@ namespace DevFlow.Main.Views
 				{
 					return;
 				}
-				this.DragMove();
+				DragMove();
 			}
 		}
 
 		private void MainView_Loaded(object sender, RoutedEventArgs e)
-        {
-            var width = System.Windows.SystemParameters.WorkArea.Width;
-            Left = (width - ActualWidth) / 2;
-            Top = 0;
-        }
+		{
+			double width = System.Windows.SystemParameters.WorkArea.Width;
+			Left = (width - ActualWidth) / 2;
+			Top = 0;
+		}
 
 		protected override void OnDesignerMode()
-        {
-            DataContext = new MainViewModel();
-        }
+		{
+			DataContext = new MainViewModel();
+		}
 	}
 }

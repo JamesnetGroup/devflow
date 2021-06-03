@@ -1,17 +1,14 @@
 ﻿using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
 	public class FlowView : ContentControl, IFlowElement
-    {
+	{
 		public Window Window { get; private set; }
 
 		#region DependencyProperty
@@ -23,26 +20,26 @@ namespace DevFlow.Windowbase.Flowbase
 
 		public ICommand MouseDownCommand
 		{
-			get { return (ICommand)this.GetValue(MouseDownCommandProperty); }
-			set { this.SetValue(MouseDownCommandProperty, value); }
+			get => (ICommand)GetValue(MouseDownCommandProperty);
+			set => SetValue(MouseDownCommandProperty, value);
 		}
 		#endregion
 
 		#region Constructor
 
 		public FlowView()
-        {
+		{
 			Loaded += FlowView_Loaded;
-        }
+		}
 		#endregion
 
 		#region UseMvvm
 
 		public IFlowElement UseViewModel(ObservableObject vm)
-        {
-            DataContext = vm;
-            return this;
-        }
+		{
+			DataContext = vm;
+			return this;
+		}
 		#endregion
 
 		#region Show
@@ -63,25 +60,25 @@ namespace DevFlow.Windowbase.Flowbase
 		#region OnDesignerMode
 
 		protected virtual void OnDesignerMode()
-        {
+		{
 
-        }
+		}
 		#endregion
 
 		#region Loaded
 
 		private void FlowView_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (DesignerProperties.GetIsInDesignMode(this))
-            {
-                OnDesignerMode();
-            }
+		{
+			if (DesignerProperties.GetIsInDesignMode(this))
+			{
+				OnDesignerMode();
+			}
 
-            if (DataContext is ObservableObject vm)
-            {
-                vm.ViewRegister(this);
-            }
-        }
+			if (DataContext is ObservableObject vm)
+			{
+				vm.ViewRegister(this);
+			}
+		}
 		#endregion
 	}
 }

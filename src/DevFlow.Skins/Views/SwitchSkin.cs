@@ -1,6 +1,5 @@
 ﻿using DevFlow.LayoutSupport.Controls;
 using System.Windows;
-using System.Windows.Media;
 
 namespace DevFlow.Skins.Views
 {
@@ -15,10 +14,10 @@ namespace DevFlow.Skins.Views
 		{
 		}
 
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-        }
+		public override void OnApplyTemplate()
+		{
+			base.OnApplyTemplate();
+		}
 
-    }
+	}
 }

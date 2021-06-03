@@ -1,25 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
 namespace DevFlow.Converter
 {
-public class ResourceNameConverter : IValueConverter
-{
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        //var dynamic = FrameworkElement.SetResourceReference(targetType as DependencyProperty, value.ToString());
-        return Application.Current.FindResource(value);
-    }
+	public class ResourceNameConverter : IValueConverter
+	{
+		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			//var dynamic = FrameworkElement.SetResourceReference(targetType as DependencyProperty, value.ToString());
+			return Application.Current.FindResource(value);
+		}
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
-    }
-}
+		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }
