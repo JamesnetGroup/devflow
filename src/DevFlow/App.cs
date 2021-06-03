@@ -10,7 +10,10 @@ namespace DevFlow
 {
 	public class App : FlowApp
 	{
-		protected override ThemeType OnSetDefaultTheme(ThemeType type) => ThemeType.Dark;
+		protected override ThemeType OnSetDefaultTheme(ThemeType type)
+		{
+			return ThemeType.Dark;
+		}
 
 		protected override void OnApplyThemeManager()
 		{
@@ -40,7 +43,7 @@ namespace DevFlow
 			while (dialogResult)
 			{
 				ShutdownMode = ShutdownMode.OnExplicitShutdown;
-				MainView main = new MainView
+				MainView main = new()
 				{
 					DataContext = new MainViewModel(Theme, Culture)
 				};

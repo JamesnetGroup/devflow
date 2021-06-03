@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0010: 누락된 사례 추가
+dotnet_diagnostic.IDE0010.severity = none

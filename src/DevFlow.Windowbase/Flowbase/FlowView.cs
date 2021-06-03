@@ -1,5 +1,7 @@
-﻿using DevFlow.Windowbase.Flowcore;
+﻿using DevFlow.Data.Menu;
+using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +11,13 @@ namespace DevFlow.Windowbase.Flowbase
 {
 	public class FlowView : ContentControl, IFlowElement
 	{
-		public Window Window { get; private set; }
+		public Window Window { get; protected set; }
+		public Action<Window> Closed { get; set; }
+
+		public virtual void Show(MenuModel menu)
+		{
+
+		}
 
 		#region DependencyProperty
 
@@ -39,21 +47,6 @@ namespace DevFlow.Windowbase.Flowbase
 		{
 			DataContext = vm;
 			return this;
-		}
-		#endregion
-
-		#region Show
-
-		public void Show()
-		{
-			Window = new Window
-			{
-				Content = this,
-				AllowsTransparency = true,
-				WindowStyle = WindowStyle.None,
-				SizeToContent = SizeToContent.WidthAndHeight
-			};
-			Window.Show();
 		}
 		#endregion
 

@@ -1,25 +1,26 @@
-﻿using DevFlow.Windowbase.Flowcore;
-using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Windowbase.Mvvm;
 using System.ComponentModel;
 using System.Windows;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowWindow : Window, IFlowElement
+	public class FlowWindow : Window
 	{
+		//public Action<Window> Closed { get; set; }
+
 		public FlowWindow()
 		{
 			Loaded += FlowWindow_Loaded;
 		}
 
-		#region UseMvvm
+		//#region UseMvvm
 
-		public IFlowElement UseViewModel(ObservableObject vm)
-		{
-			DataContext = vm;
-			return this;
-		}
-		#endregion
+		//public IFlowElement UseViewModel(ObservableObject vm)
+		//{
+		//	DataContext = vm;
+		//	return this;
+		//}
+		//#endregion
 
 		#region OnDesignerMode
 

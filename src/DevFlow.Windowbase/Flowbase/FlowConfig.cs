@@ -1,6 +1,6 @@
 ﻿using DevFlow.Data;
+using DevFlow.Data.Menu;
 using DevFlow.Data.Settings;
-using DevFlow.Data.Works;
 using System;
 using System.IO;
 using System.Linq;
@@ -67,9 +67,9 @@ namespace DevFlow.Windowbase.Flowbase
 			return Config;
 		}
 
-		public static void SaveLocation(WorkspaceModel menu, int x, int y, int width, int height)
+		public static void SaveLocation(MenuModel menu, int x, int y, int width, int height)
 		{
-			if (Config.ViewOptions.FirstOrDefault(x => menu.Menu.IconType == x.IconType) is ViewOptionModel view)
+			if (Config.ViewOptions.FirstOrDefault(x => menu.IconType == x.IconType) is ViewOptionModel view)
 			{
 				view.LocX = x;
 				view.LocY = y;
@@ -78,7 +78,7 @@ namespace DevFlow.Windowbase.Flowbase
 			}
 			else
 			{
-				Config.ViewOptions.Add(new ViewOptionModel { IconType = menu.Menu.IconType, LocX = x, LocY = y, Width = width, Height = height });
+				Config.ViewOptions.Add(new ViewOptionModel { IconType = menu.IconType, LocX = x, LocY = y, Width = width, Height = height });
 			}
 
 			SaveConfig(Config);

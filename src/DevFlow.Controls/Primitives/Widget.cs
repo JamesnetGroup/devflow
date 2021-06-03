@@ -1,17 +1,19 @@
-﻿using DevFlow.Data.Works;
+﻿using DevFlow.Data.Menu;
+using DevFlow.Data.Settings;
 using DevFlow.Windowbase.Flowbase;
+using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Media;
 
 namespace DevFlow.Controls.Primitives
 {
 	public class Widget : FlowView
 	{
 		public bool IsFixedSize;
-
-		public WorkspaceModel MenuInfo;
+		public bool IsResizing;
+		public MenuModel MenuInfo;
 
 		public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(object), typeof(Widget), new PropertyMetadata(null));
 
@@ -31,7 +33,48 @@ namespace DevFlow.Controls.Primitives
 
 		public Widget()
 		{
+			IsResizing = false;
 		}
+
+		#region Show
+
+		public override void Show(MenuModel menu)
+		{
+			Window = new Window
+			{
+				Content = this,
+				AllowsTransparency = true,
+				WindowStyle = WindowStyle.None,
+				SizeToContent = SizeToContent.WidthAndHeight
+			};
+			Window.Closed += Window_Closed;
+
+			ShowWindow(menu);
+
+		}
+
+		private void ShowWindow(MenuModel menu)
+		{
+			if (FlowConfig.Config.ViewOptions.FirstOrDefault(x => x.IconType == menu.IconType) is ViewOptionModel view)
+			{
+				Window.Left = view.LocX;
+				Window.Top = view.LocY;
+
+				if (this is Widget ui && !ui.IsFixedSize)
+				{
+					Window.Width = view.Width;
+					Window.Height = view.Height;
+				}
+			}
+			MenuInfo = menu;
+			Window.Show();
+		}
+
+		private void Window_Closed(object sender, EventArgs e)
+		{
+			Closed(Window);
+		}
+		#endregion
 
 		public override void OnApplyTemplate()
 		{
@@ -47,11 +90,11 @@ namespace DevFlow.Controls.Primitives
 				btn.Click += Btn_Click;
 			}
 
-			//if (GetTemplateChild("PART_Resize") is Thumb thumb)
-			//{
-			//	thumb.DragDelta += Btn_DragDelta;
-			//	thumb.DragCompleted += Btn_DragCompleted;
-			//}
+			if (GetTemplateChild("PART_Resize") is Thumb thumb)
+			{
+				thumb.DragDelta += Btn_DragDelta;
+				thumb.DragCompleted += Btn_DragCompleted;
+			}
 		}
 
 		private void Btn_Click(object sender, RoutedEventArgs e)
@@ -67,31 +110,22 @@ namespace DevFlow.Controls.Primitives
 			}
 		}
 
-		//private void Btn_DragDelta(object sender, DragDeltaEventArgs e)
-		//{
-		//	IsResizing = true;
-		//	double yadjust = Height + e.VerticalChange;
-		//	double xadjust = Width + e.HorizontalChange;
-		//	if ((xadjust >= 0) && (yadjust >= 0))
-		//	{
-		//		Width = xadjust;
-		//		Height = yadjust;
-		//		_ = Parent as Canvas;
-		//	}
-		//}
+		private void Btn_DragDelta(object sender, DragDeltaEventArgs e)
+		{
+			IsResizing = true;
+			double yadjust = Height + e.VerticalChange;
+			double xadjust = Width + e.HorizontalChange;
+			if ((xadjust >= 0) && (yadjust >= 0))
+			{
+				Width = xadjust;
+				Height = yadjust;
+				_ = Parent as Canvas;
+			}
+		}
 
 		private void Btn_DragCompleted(object sender, DragCompletedEventArgs e)
 		{
-			if (RenderTransform is TranslateTransform transform)
-			{
-				FlowConfig.SaveLocation(MenuInfo, (int)transform.X, (int)transform.Y, (int)ActualWidth, (int)ActualHeight);
-			}
+			FlowConfig.SaveLocation(MenuInfo, (int)Window.Left, (int)Window.Top, (int)ActualWidth, (int)ActualHeight);
 		}
 	}
 }
-
-
-
-
-
-

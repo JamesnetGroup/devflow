@@ -19,6 +19,7 @@ using DevFlow.Colors.ViewModels;
 using DevFlow.Finders.Views;
 using DevFlow.Finders.ViewModels;
 using System;
+using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -91,10 +92,16 @@ namespace DevFlow.Main.ViewModels
 
 				if (content != null)
 				{
-					content.Show();
+					content.Closed = (w) => Closed(w, menu);
+					content.Show(menu);
 				}
 			}
 
+		}
+
+		private void Closed(Window obj, MenuModel menu)
+		{
+			FlowConfig.SaveLocation(menu, (int)obj.Left, (int)obj.Top, (int)obj.ActualWidth, (int)obj.ActualHeight);
 		}
 		#endregion
 
