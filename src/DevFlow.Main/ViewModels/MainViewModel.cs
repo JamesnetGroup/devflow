@@ -19,6 +19,7 @@ using DevFlow.Colors.ViewModels;
 using DevFlow.Finders.Views;
 using DevFlow.Finders.ViewModels;
 using System;
+using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -88,7 +89,11 @@ namespace DevFlow.Main.ViewModels
                     case GeometryIconStyle.Close: Environment.Exit(0); break;
                     default: content = new EmptyView(); break;
                 }
-                content.Show();
+
+                if (content != null)
+                {
+                    content.Show();
+                }
             }
 
         }

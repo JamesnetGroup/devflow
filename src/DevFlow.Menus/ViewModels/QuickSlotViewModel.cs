@@ -39,6 +39,7 @@ namespace DevFlow.Menus.ViewModels
         private List<MenuModel> GetMenus()
         {
             var menus = new List<MenuModel>();
+            menus.Add(new MenuModel { Seq = 0, Name = "Move", IconType = GeometryIconStyle.ArrowAll });
             menus.Add(new MenuModel { Seq = 0, Name = "Directory", IconType = GeometryIconStyle.FolderOpenOutline });
             menus.Add(new MenuModel { Seq = 1, Name = "Color", IconType = GeometryIconStyle.EyedropperVariant });
             menus.Add(new MenuModel { Seq = 2, Name = "Theme", IconType = GeometryIconStyle.Palette });

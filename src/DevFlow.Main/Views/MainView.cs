@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using DevFlow.Data.Menu;
 using DevFlow.LayoutSupport.Controls;
 using DevFlow.Main.ViewModels;
 
@@ -23,10 +24,14 @@ namespace DevFlow.Main.Views
 
 		private void MainView_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
 		{
-            //if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
-            //{
-            //    this.DragMove();
-            //}
+			if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+			{
+				if ((e.OriginalSource as FrameworkElement).DataContext is MenuModel)
+				{
+					return;
+				}
+				this.DragMove();
+			}
 		}
 
 		private void MainView_Loaded(object sender, RoutedEventArgs e)

@@ -30,7 +30,8 @@
 		Plus,
 		ArrowUpBold,
 		ArrowRightBold,
-		ArrowLeftBold
+		ArrowLeftBold,
+		ArrowAll
 	}
 }
 

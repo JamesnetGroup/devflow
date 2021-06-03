@@ -43,6 +43,7 @@ namespace DevFlow.Controls.Primitives
         internal readonly static string CONSOLE_LINE = "M13,19V16H21V19H13M8.5,13L2.47,7H6.71L11.67,11.95C12.25,12.54 12.25,13.5 11.67,14.07L6.74,19H2.5L8.5,13Z";
         internal readonly static string PLUS = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
         internal readonly static string FOLDER = "M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z";
+        internal readonly static string ARROW_ALL = "M13,11H18L16.5,9.5L17.92,8.08L21.84,12L17.92,15.92L16.5,14.5L18,13H13V18L14.5,16.5L15.92,17.92L12,21.84L8.08,17.92L9.5,16.5L11,18V13H6L7.5,14.5L6.08,15.92L2.16,12L6.08,8.08L7.5,9.5L6,11H11V6L9.5,7.5L8.08,6.08L12,2.16L15.92,6.08L14.5,7.5L13,6V11Z";
     }
 
     public class Icon : ContentControl
@@ -117,6 +118,7 @@ namespace DevFlow.Controls.Primitives
                 case GeometryIconStyle.Plus: icon.Data = IconData.PLUS.ToGeometry(); break;
                 case GeometryIconStyle.Folder: icon.Data = IconData.FOLDER.ToGeometry(); break;
                 case GeometryIconStyle.ConsoleLine: icon.Data = IconData.CONSOLE_LINE.ToGeometry(); break;
+                case GeometryIconStyle.ArrowAll: icon.Data = IconData.ARROW_ALL.ToGeometry(); break;
             }
         }
         #endregion
