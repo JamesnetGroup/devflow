@@ -369,15 +369,62 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+
+	<Style TargetType="{x:Type TreeViewItem}" x:Key="TRVI">
+		<Setter Property="ItemsSource" Value="{Binding Children}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TreeViewItem}">
+					<Border>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<TextBlock Grid.Row="0" Text="{Binding Name}" ToolTip="{Binding}" Foreground="{DynamicResource BRUSH.FONT.H01}"/>
+							<ItemsPresenter Grid.Row="1"/>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="{x:Type TreeView}" x:Key="TRV">
+		<Setter Property="ItemContainerStyle" Value="{StaticResource TRVI}"/>
+		<Setter Property="ItemsSource" Value="{Binding Roots}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TreeView}">
+					<ItemsPresenter/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 	
 	<Style TargetType="{x:Type views:Finder}" BasedOn="{StaticResource {x:Type flows:Explorer}}">
-		<Setter Property="Title" Value="Finder"/>
+		<Setter Property="Title" Value="DevFinder"/>
 		<Setter Property="ContentTemplate">
 			<Setter.Value>
 				<DataTemplate>
-					<views:ExplorerListBox/>
+					<!--<views:ExplorerListBox/>-->
+					<Border>
+						<StackPanel>
+							<TreeView Style="{StaticResource TRV}"/>
+						</StackPanel>
+					</Border>
 				</DataTemplate>
 			</Setter.Value>
 		</Setter>
 	</Style>
 </ResourceDictionary>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
