@@ -64,7 +64,6 @@
     <Compile Include="Local\Api\ShellContextMenu.cs" />
     <Compile Include="Local\Enum\FileTypes.cs" />
     <Compile Include="Local\Model\FileData.cs" />
-    <Compile Include="Local\Model\RootModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -85,8 +84,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Content Include="Local\xml.xml" />
-    <None Include="Local\json1.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

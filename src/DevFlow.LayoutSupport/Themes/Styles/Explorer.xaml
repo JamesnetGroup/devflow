@@ -223,7 +223,7 @@
 							</Grid>
 						</prims:DragBorder>
 						<Grid>
-							<ContentPresenter  ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+							<ContentPresenter/>
 							<Thumb x:Name="PART_Resize" Style="{StaticResource IN.THUMB}"/>
 						</Grid>
 					</DockPanel>

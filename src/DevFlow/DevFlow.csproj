@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>code.ico</ApplicationIcon>
+    <ApplicationIcon>set.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -195,9 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="set.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="code.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,6 +13,7 @@ namespace DevFlow.Finders.Views
 
 		public Finder()
 		{
+			DataContext = new FinderViewModel();
 		}
 	}
 }
