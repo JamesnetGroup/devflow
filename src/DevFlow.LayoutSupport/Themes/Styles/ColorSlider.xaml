@@ -42,8 +42,7 @@
 						</Style>
 					</ControlTemplate.Resources>
 					<Grid Style="{StaticResource IN.GRID}">
-						<!--<Border x:Name="bd" Width="13" Height="18" CornerRadius="0" Background="#CCFFFFFF"/>-->
-						<TextBlock Text="▲" FontSize="9" Foreground="#CCFFFFFF" Margin="-5 0 0 3"/>
+						<TextBlock Text="▲" FontSize="9" Foreground="{DynamicResource BRUSH.COLORSL.POINT}" Margin="-5 0 0 3"/>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="true">
@@ -60,8 +59,6 @@
 
 	<Style TargetType="{x:Type flows:ColorSlider}">
 		<Setter Property="MinHeight" Value="18"/>
-        <!--<Setter Property="MaxHeight" Value="18"/>
-        <Setter Property="Height" Value="18"/>-->
 		<Setter Property="HorizontalAlignment" Value="Stretch"/>
 		<Setter Property="VerticalAlignment" Value="Top"/>
 		<Setter Property="Margin" Value="0 0 0 0"/>

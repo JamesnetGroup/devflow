@@ -5,6 +5,7 @@
 		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/FlowIcon.xaml"/>
 		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/ColorSlider.xaml"/>
 		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Preview.xaml"/>
+		<ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Explorer.xaml"/>
         <ResourceDictionary Source="/DevFlow.LayoutSupport;component/Themes/Styles/Palette.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

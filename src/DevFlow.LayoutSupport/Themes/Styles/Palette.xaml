@@ -11,8 +11,12 @@
 				<ControlTemplate TargetType="{x:Type Button}">
 					<Border Background="Transparent">
 						<Grid>
-							<flows:FlowIcon x:Name="icon" IconType="Close" Width="20" Height="20" 
-											Fill="{DynamicResource BRUSH.FONT.H01}" Opacity="0.5"/>
+							<flows:FlowIcon x:Name="icon"
+											Fill="{DynamicResource BRUSH.FONT.H01}" 
+											IconType="Close" 
+											Width="20" 
+											Height="20" 
+											Opacity="0.5"/>
 						</Grid>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -39,41 +43,36 @@
                         <Grid>
 							<Border IsHitTestVisible="False"/>
                             <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <Border BorderThickness="0 1 0 0" Grid.Row="1" Margin="30 0 30 0"
-                                    BorderBrush="{DynamicResource BRUSH.BD.BLINE}" Visibility="Collapsed"/>
+								<Border Grid.Row="1"
+										BorderThickness="0 1 0 0" 
+										Margin="30 0 30 0"
+										BorderBrush="{DynamicResource BRUSH.BD.BLINE}" 
+										Visibility="Collapsed"/>
 
-                                <TextBlock Grid.Row="1" Text="{TemplateBinding SubTitle}" Visibility="Collapsed"
-									   Foreground="{DynamicResource BRUSH.FONT.I01}" 
-                                       TextWrapping="Wrap" HorizontalAlignment="Stretch"
-                                       Margin="30 20 30 20"/>
-
-
-								<prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
-										      Padding="10" Background="Transparent" VerticalAlignment="Top">
+								<prims:DragBorder x:Name="PART_DragBar" 
+												  VerticalAlignment="Top"
+												  Background="Transparent" 
+												  Grid.Row="0" 
+												  Margin="0 0 0 0"
+												  Padding="10" >
 									<Grid>
 										<TextBlock Text="{TemplateBinding Title}" 
-											   Foreground="{DynamicResource BRUSH.FONT.H01}" 
-											   FontSize="18" Visibility="Collapsed"
-											   HorizontalAlignment="Left"/>
-										<Button x:Name="PART_CloseButton" Style="{StaticResource CLOSE}"/>
+												   Foreground="{DynamicResource BRUSH.FONT.H01}" 
+												   FontSize="13"
+												   FontWeight="Bold"
+												   HorizontalAlignment="Left"/>
+										
+										<Button x:Name="PART_CloseButton" 
+												Style="{StaticResource CLOSE}"/>
 									</Grid>
 								</prims:DragBorder>
-                                <ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
-                                
-								<!--<Thumb x:Name="PART_Resize" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"
-								   Margin="6" Width="8" Height="8" Visibility="Visible">
-                                    <Thumb.Template>
-                                        <ControlTemplate>
-                                            <Border Width="8" Height="8" CornerRadius="4" Opacity="0.1"
-												Background="{DynamicResource BRUSH.FONT.H01}">
-
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Thumb.Template>
-                                </Thumb>-->
+                                <ContentPresenter Grid.Row="1" 
+												  ContentTemplate="{TemplateBinding ContentTemplate}"
+												  ContentSource="DataContext"/>
                             </Grid>
                         </Grid>
                     </Border>

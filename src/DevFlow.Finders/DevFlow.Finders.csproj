@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44BB52F1-559C-43BC-B6D7-88FE7FFD3A89}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>DevFlow.Finders</RootNamespace>
+    <AssemblyName>DevFlow.Finders</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Finder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Local\Api\MousePosition.cs" />
+    <Compile Include="Local\Api\ShellContextMenu.cs" />
+    <Compile Include="Local\Enum\FileTypes.cs" />
+    <Compile Include="Local\Model\FileData.cs" />
+    <Compile Include="Local\Model\RootModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ViewModels\FinderViewModel.cs" />
+    <Compile Include="Views\ExplorerListBox.cs" />
+    <Compile Include="Views\Finder.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="Local\xml.xml" />
+    <None Include="Local\json1.json" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevFlow.Controls\DevFlow.Controls.csproj">
+      <Project>{D77874A6-4C26-4CE5-B3FE-4DE1E067E5A8}</Project>
+      <Name>DevFlow.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Converter\DevFlow.Converter.csproj">
+      <Project>{7c22b438-112a-4554-8f51-78c2992ac632}</Project>
+      <Name>DevFlow.Converter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
+      <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
+      <Name>DevFlow.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj">
+      <Project>{EB691890-E172-4F99-BBB8-6E7D19E63FD1}</Project>
+      <Name>DevFlow.LayoutSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Resources\DevFlow.Resources.csproj">
+      <Project>{049fb84c-5047-416b-b1a2-ebf2a02f0cdb}</Project>
+      <Name>DevFlow.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
+      <Project>{3D2AAB15-663D-4EF4-B80E-0AFECA05C910}</Project>
+      <Name>DevFlow.Windowbase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

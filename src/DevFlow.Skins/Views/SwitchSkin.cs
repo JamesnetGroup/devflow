@@ -14,10 +14,10 @@ namespace DevFlow.Skins.Views
 		{
 		}
 
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-        }
+		public override void OnApplyTemplate()
+		{
+			base.OnApplyTemplate();
+		}
 
-    }
+	}
 }

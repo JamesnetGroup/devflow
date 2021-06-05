@@ -2,11 +2,11 @@
 
 namespace DevFlow.Main.Designs
 {
-    public partial class DemoMainWindow : MainView
-    {
-        public DemoMainWindow()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class DemoMainWindow : MainView
+	{
+		public DemoMainWindow()
+		{
+			InitializeComponent();
+		}
+	}
 }

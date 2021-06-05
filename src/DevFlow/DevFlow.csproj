@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>code.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -118,9 +121,9 @@
       <Project>{4F92EC03-384B-4463-8AFC-099C7FB9941C}</Project>
       <Name>DevFlow.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Histories\DevFlow.Histories.csproj">
-      <Project>{36f4c6c2-f796-41c0-9b47-da1bec97ae5a}</Project>
-      <Name>DevFlow.Histories</Name>
+    <ProjectReference Include="..\DevFlow.Finders\DevFlow.Finders.csproj">
+      <Project>{44bb52f1-559c-43bc-b6d7-88fe7ffd3a89}</Project>
+      <Name>DevFlow.Finders</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Languages\DevFlow.Languages.csproj">
       <Project>{44f5bd64-2816-46e4-b302-4bdf60120cd4}</Project>
@@ -174,6 +177,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AddTest.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dev1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="idea.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dev2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="setting.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="set.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="code.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

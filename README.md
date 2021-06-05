@@ -16,7 +16,7 @@ You can always share information with us and we are looking forward to it.
 
 ***
 ## Overview
-- TBD...
+- TBD.
 
 <br />
 
@@ -28,9 +28,9 @@ You can always share information with us and we are looking forward to it.
 
 ![image](https://user-images.githubusercontent.com/52397976/115972804-8f691d80-a58b-11eb-8627-47416f0a9318.png)
 
-...
+.
 
-...
+.
 
 
 ## Application

@@ -41,6 +41,9 @@
 						</Viewbox>
 					</Border>
 					<ControlTemplate.Triggers>
+						<DataTrigger Binding="{Binding IconType}" Value="ArrowAll">
+							<Setter Property="IsHitTestVisible" Value="False"/>
+						</DataTrigger>
 						<Trigger Property="IsMouseOver" Value="True">
 							<Setter TargetName="border" Property="Background" Value="#FFFFFF"/>
 							<Setter TargetName="path" Property="Fill" Value="#000000"/>
@@ -117,5 +120,9 @@
 	</Style>
 </ResourceDictionary>
 
+	
+	
+	
+	
 	
 	

@@ -10,8 +10,8 @@ namespace DevFlow.Data.Language
 
 		public LanguageModel(string name, LanguageType languageType)
 		{
-			this.Name = name;
-			this.Language = languageType;
+			Name = name;
+			Language = languageType;
 		}
 	}
 }

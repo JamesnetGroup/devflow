@@ -1,18 +1,19 @@
 ﻿using System.Windows;
+using DevFlow.Data.Menu;
 using DevFlow.LayoutSupport.Controls;
 using DevFlow.Main.ViewModels;
 
 namespace DevFlow.Main.Views
 {
-    public class MainView : MainWindow
-    {
-        static MainView()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(MainView), new FrameworkPropertyMetadata(typeof(MainView)));
-        }
+	public class MainView : MainWindow
+	{
+		static MainView()
+		{
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(MainView), new FrameworkPropertyMetadata(typeof(MainView)));
+		}
 
-        public MainView()
-        {
+		public MainView()
+		{
 			WindowStyle = WindowStyle.None;
 			AllowsTransparency = true;
 			Topmost = true;
@@ -23,22 +24,26 @@ namespace DevFlow.Main.Views
 
 		private void MainView_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
 		{
-            //if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
-            //{
-            //    this.DragMove();
-            //}
+			if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+			{
+				if ((e.OriginalSource as FrameworkElement).DataContext is MenuModel)
+				{
+					return;
+				}
+				DragMove();
+			}
 		}
 
 		private void MainView_Loaded(object sender, RoutedEventArgs e)
-        {
-            var width = System.Windows.SystemParameters.WorkArea.Width;
-            Left = (width - ActualWidth) / 2;
-            Top = 0;
-        }
+		{
+			double width = System.Windows.SystemParameters.WorkArea.Width;
+			Left = (width - ActualWidth) / 2;
+			Top = 0;
+		}
 
 		protected override void OnDesignerMode()
-        {
-            DataContext = new MainViewModel();
-        }
+		{
+			DataContext = new MainViewModel();
+		}
 	}
 }

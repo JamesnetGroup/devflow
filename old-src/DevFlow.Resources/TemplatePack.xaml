@@ -1,8 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:DevFlow.Resources">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/DevFlow.Resources;component/Design/ScrollViewerResource.xaml"/>
-        <ResourceDictionary Source="/DevFlow.Resources;component/Design/ViewResource.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-</ResourceDictionary>

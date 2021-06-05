@@ -99,9 +99,9 @@
       <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
       <Name>DevFlow.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Histories\DevFlow.Histories.csproj">
-      <Project>{36F4C6C2-F796-41C0-9B47-DA1BEC97AE5A}</Project>
-      <Name>DevFlow.Histories</Name>
+    <ProjectReference Include="..\DevFlow.Finders\DevFlow.Finders.csproj">
+      <Project>{44BB52F1-559C-43BC-B6D7-88FE7FFD3A89}</Project>
+      <Name>DevFlow.Finders</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.Languages\DevFlow.Languages.csproj">
       <Project>{44F5BD64-2816-46E4-B302-4BDF60120CD4}</Project>

@@ -13,9 +13,11 @@ namespace DevFlow.Converter
 
 			switch (parameter)
 			{
-				case "R": hex = $"#FF{color.ToString("X2")}0000";break;
-				case "G": hex = $"#FF00{color.ToString("X2")}00"; break;
-				case "B": hex = $"#FF0000{color.ToString("X2")}"; break;
+				case "R": hex = $"#FF{color:X2}0000"; break;
+				case "G": hex = $"#FF00{color:X2}00"; break;
+				case "B": hex = $"#FF0000{color:X2}"; break;
+				default:
+					break;
 			}
 
 			return hex;

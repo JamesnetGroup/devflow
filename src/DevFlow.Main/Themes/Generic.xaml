@@ -44,8 +44,6 @@
                         <Image Source="/DevFlow.Resources;component/Images/wallpaper-08.jpg" Stretch="UniformToFill" Visibility="Collapsed"/>
 						<ContentPresenter Style="{StaticResource CONTENT}"/>
 
-						<prims:Workspace WorksSource="{Binding Works}" Visibility="Collapsed"/>
-
 						<Rectangle x:Name="film" Style="{StaticResource FILM}" Visibility="Collapsed"/>
 						<Border x:Name="border" Style="{StaticResource BORDER}"/>
 						<menus:QuickSlot x:Name="quickbar" DataContext="{Binding Menu}"/>
