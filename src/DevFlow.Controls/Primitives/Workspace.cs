@@ -1,7 +1,6 @@
 ﻿using DevFlow.Data.Settings;
 using DevFlow.Data.Works;
 using DevFlow.Windowbase.Flowbase;
-using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
@@ -11,7 +10,7 @@ using System.Windows.Media;
 
 namespace DevFlow.Controls.Primitives
 {
-	public class Workspace : Canvas
+    public class Workspace : Canvas
 	{
 		public static readonly DependencyProperty WorksSourceProperty = DependencyProperty.Register("WorksSource", typeof(ObservableCollection<WorkspaceModel>), typeof(Workspace), new PropertyMetadata(null, ItemsSourceChanged));
 

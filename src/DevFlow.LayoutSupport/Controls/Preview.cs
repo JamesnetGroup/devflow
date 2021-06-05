@@ -1,11 +1,9 @@
 ﻿using DevFlow.Controls.Primitives;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace DevFlow.LayoutSupport.Controls
 {
-	public class Preview : Widget
+    public class Preview : Widget
 	{
 		public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(object), typeof(Preview), new PropertyMetadata(null));
 

@@ -1,8 +1,6 @@
 ﻿using DevFlow.Data.Colors;
 using DevFlow.Windowbase.Mvvm;
-using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;

@@ -1,9 +1,7 @@
 ﻿using DevFlow.Controls.Extends;
 using DevFlow.Data;
-using DevFlow.Windowbase;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 
 namespace DevFlow.Controls.Primitives

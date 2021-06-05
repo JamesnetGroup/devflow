@@ -1,5 +1,4 @@
-﻿using DevFlow.Data.Menu;
-using DevFlow.Data.Works;
+﻿using DevFlow.Data.Works;
 using DevFlow.Windowbase.Flowbase;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,7 +7,7 @@ using System.Windows.Media;
 
 namespace DevFlow.Controls.Primitives
 {
-	public class Widget : FlowView
+    public class Widget : FlowView
     {
         private bool _isDragging;
         private bool IsResizing;

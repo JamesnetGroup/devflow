@@ -1,7 +1,5 @@
-﻿using DevFlow.Colors.ViewModels;
-using DevFlow.LayoutSupport.Controls;
+﻿using DevFlow.LayoutSupport.Controls;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace DevFlow.Colors.Views
 {

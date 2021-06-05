@@ -3,12 +3,11 @@ using DevFlow.Windowbase.Mvvm;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowView : ContentControl, IFlowUIElement
+    public class FlowView : ContentControl, IFlowUIElement
     {
 		#region DependencyProperty
 

@@ -2,12 +2,10 @@
 using DevFlow.Windowbase.Mvvm;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowWindow : Window, IFlowUIElement
+    public class FlowWindow : Window, IFlowUIElement
     {
         public FlowWindow()
         {

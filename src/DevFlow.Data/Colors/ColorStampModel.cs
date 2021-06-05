@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace DevFlow.Data.Colors
 {
-	public class ColorStampModel
+    public class ColorStampModel
 	{
 		public string HexColor { get; set; }
 		public byte Red { get; set; }
