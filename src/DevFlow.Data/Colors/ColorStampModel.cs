@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-﻿using System.Windows.Input;
-=======
 ﻿using DevFlow.Serialization.Color;
 using DevFlow.Serialization.Data;
 using System.Windows.Input;
->>>>>>> 2a576b7fde0e188b9e62ab3008e9d6f90580709d
 
 namespace DevFlow.Data.Colors
 {
-    public class ColorStampModel
+	public class ColorStampModel
 	{
 
 		public string HexColor { get; set; }

@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using DevFlow.Data.Works;
-=======
 ﻿using DevFlow.Data.Menu;
 using DevFlow.Data.Settings;
->>>>>>> 2a576b7fde0e188b9e62ab3008e9d6f90580709d
 using DevFlow.Windowbase.Flowbase;
 using System;
 using System.Linq;
@@ -13,53 +9,6 @@ using System.Windows.Controls.Primitives;
 
 namespace DevFlow.Controls.Primitives
 {
-<<<<<<< HEAD
-    public class Widget : FlowView
-    {
-        private bool _isDragging;
-        private bool IsResizing;
-        private Point clickPosition;
-        public bool IsFixedSize;
-
-        public WorkspaceModel MenuInfo;
-
-
-        public Widget()
-        {
-        }
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-
-            if (GetTemplateChild("PART_DragBar") is DragBorder bar)
-            {
-                bar.MouseLeftButtonDown += Widget_MouseLeftButtonDown;
-                bar.MouseLeftButtonUp += Widget_MouseLeftButtonUp;
-                bar.MouseMove += Widget_MouseMove;
-            }
-
-            if (GetTemplateChild("PART_CloseButton") is Button btn)
-            {
-                btn.Click += Btn_Click;
-            }
-
-            if (GetTemplateChild("PART_Resize") is Thumb thumb)
-            {
-                thumb.DragDelta += Btn_DragDelta;
-                thumb.DragCompleted += Btn_DragCompleted;
-            }
-        }
-
-        private void Btn_Click(object sender, RoutedEventArgs e)
-        {
-            if (Parent is Workspace workspace)
-            {
-                workspace.Remove(this);
-            }
-        }
-
-        private void Widget_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-=======
 	public class Widget : FlowView
 	{
 		public bool IsFixedSize;
@@ -83,7 +32,6 @@ namespace DevFlow.Controls.Primitives
 		}
 
 		public Widget()
->>>>>>> 2a576b7fde0e188b9e62ab3008e9d6f90580709d
 		{
 			IsResizing = false;
 		}

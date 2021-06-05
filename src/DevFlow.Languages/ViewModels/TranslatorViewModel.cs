@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DevFlow.Languages.ViewModels
 {
-    public class TranslatorViewModel : ObservableObject
+	public class TranslatorViewModel : ObservableObject
 	{
 		private LanguageModel _currentLanguage;
 

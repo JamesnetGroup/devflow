@@ -2,7 +2,7 @@
 
 namespace DevFlow.Data.Menu
 {
-    public class MenuModel
+	public class MenuModel
 	{
 		public int Seq { get; set; }
 		public string Name { get; set; }

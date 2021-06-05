@@ -2,7 +2,7 @@
 
 namespace DevFlow.Controls.Extends
 {
-    public static class GeometryExtends
+	public static class GeometryExtends
 	{
 		public static Geometry ToGeometry(this string geometryString)
 		{

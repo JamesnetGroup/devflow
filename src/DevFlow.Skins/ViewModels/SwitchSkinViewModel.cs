@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DevFlow.Skins.ViewModels
 {
-    public class SwitchSkinViewModel : ObservableObject
+	public class SwitchSkinViewModel : ObservableObject
 	{
 		private SkinModel _currentSkin;
 

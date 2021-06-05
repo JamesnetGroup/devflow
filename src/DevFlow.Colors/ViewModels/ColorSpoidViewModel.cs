@@ -5,12 +5,7 @@ using DevFlow.Serialization.Color;
 using DevFlow.Serialization.Data;
 using DevFlow.Windowbase.Flowbase;
 using DevFlow.Windowbase.Mvvm;
-<<<<<<< HEAD
-using System.Collections.ObjectModel;
-using System.Linq;
-=======
 using System;
->>>>>>> 2a576b7fde0e188b9e62ab3008e9d6f90580709d
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;

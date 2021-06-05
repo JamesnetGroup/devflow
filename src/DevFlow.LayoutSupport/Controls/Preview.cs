@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace DevFlow.LayoutSupport.Controls
 {
-    public class Preview : Widget
+	public class Preview : Widget
 	{
 
 		static Preview()

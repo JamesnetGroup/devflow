@@ -1,6 +1,6 @@
 ﻿namespace DevFlow.Data.Settings
 {
-    public class ViewOptionModel
+	public class ViewOptionModel
 	{
 		public GeometryIconStyle IconType { get; set; }
 		public int LocX { get; set; }

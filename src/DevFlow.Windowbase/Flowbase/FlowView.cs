@@ -9,10 +9,6 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-<<<<<<< HEAD
-    public class FlowView : ContentControl, IFlowUIElement
-    {
-=======
 	public class FlowView : ContentControl, IFlowElement
 	{
 		public Window Window { get; protected set; }
@@ -23,7 +19,6 @@ namespace DevFlow.Windowbase.Flowbase
 
 		}
 
->>>>>>> 2a576b7fde0e188b9e62ab3008e9d6f90580709d
 		#region DependencyProperty
 
 		public static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.Register("MouseDownCommand", typeof(ICommand), typeof(FlowView));

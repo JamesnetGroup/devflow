@@ -4,19 +4,12 @@ using System.Windows;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-<<<<<<< HEAD
-    public class FlowWindow : Window, IFlowUIElement
-    {
-        public FlowWindow()
-        {
-=======
 	public class FlowWindow : Window
 	{
 		//public Action<Window> Closed { get; set; }
 
 		public FlowWindow()
 		{
->>>>>>> 2a576b7fde0e188b9e62ab3008e9d6f90580709d
 			Loaded += FlowWindow_Loaded;
 		}
 

@@ -36,5 +36,3 @@ namespace DevFlow.Windowbase.Mvvm
 		}
 	}
 }
-
-

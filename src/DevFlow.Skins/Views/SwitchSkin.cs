@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace DevFlow.Skins.Views
 {
-    public class SwitchSkin : Preview
+	public class SwitchSkin : Preview
 	{
 		static SwitchSkin()
 		{

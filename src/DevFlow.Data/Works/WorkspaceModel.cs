@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace DevFlow.Data.Works
 {
-    public class WorkspaceModel
+	public class WorkspaceModel
 	{
 		public MenuModel Menu { get; set; }
 		public IInputElement Content { get; set; }
