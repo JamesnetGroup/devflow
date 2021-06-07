@@ -1,13 +1,18 @@
 ﻿using DevFlow.Data;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Windowbase.Mvvm;
+using System;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace DevFlow.Finders.ViewModels
 {
 	public class FinderViewModel : ObservableObject
 	{
 		private ObservableCollection<RootModel> _roots;
+
+		public ICommand RootSelectionCommand { get; }
+
 		public ObservableCollection<RootModel> Roots
 		{
 			get { return _roots; }
@@ -16,6 +21,7 @@ namespace DevFlow.Finders.ViewModels
 
 		public FinderViewModel()
 		{
+			RootSelectionCommand = new RelayCommand<RootModel>(RootSelectionChanged);
 			Roots = new ObservableCollection<RootModel>();
 			InitRoots();
 		}
@@ -36,6 +42,10 @@ namespace DevFlow.Finders.ViewModels
 			AddChild(new RootModel(lv2, "Windows (C:)", GeometryIconStyle.MicrosoftWindows, false));
 
 			Roots.Add(myPC);
+		}
+
+		private void RootSelectionChanged(RootModel obj)
+		{
 		}
 	}
 }
