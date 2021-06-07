@@ -30,7 +30,7 @@ namespace DevFlow.Finders.Views
 			{
 				SelectionCommand.Execute(null);
 			}
-			else if (e.OriginalSource is FrameworkElement fe && fe.DataContext.Equals(SelectedItem))
+			else if (e.NewValue is FrameworkElement fe && fe.DataContext.Equals(SelectedItem))
 			{
 				SelectionCommand.Execute(SelectedItem);
 			}
