@@ -1,5 +1,4 @@
-﻿using DevFlow.Finders.ViewModels;
-using DevFlow.LayoutSupport.Controls;
+﻿using DevFlow.LayoutSupport.Controls;
 using System.Windows;
 
 namespace DevFlow.Finders.Views

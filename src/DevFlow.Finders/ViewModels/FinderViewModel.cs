@@ -1,7 +1,6 @@
-﻿using DevFlow.Finders.Local.Model;
+﻿using DevFlow.Data;
+using DevFlow.Finders.Local.Model;
 using DevFlow.Windowbase.Mvvm;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace DevFlow.Finders.ViewModels
@@ -23,11 +22,18 @@ namespace DevFlow.Finders.ViewModels
 
 		private void InitRoots()
 		{
-			var myPC = new RootModel("MY PC");
-			myPC.Children.Add(new RootModel("Downloads"));
-			myPC.Children.Add(new RootModel("Documents"));
-			myPC.Children.Add(new RootModel("Pictures"));
-			myPC.Children.Add(new RootModel("Windows (C:)"));
+			RootModel myPC = new RootModel(0, "MY PC", GeometryIconStyle.DesktopClassic, true);
+
+			void AddChild(RootModel root)
+			{
+				myPC.Children.Add(root);
+			}
+
+			int lv2 = myPC.Depth + 1;
+			AddChild(new RootModel(lv2, "Downloads", GeometryIconStyle.ArrowDownBox, false));
+			AddChild(new RootModel(lv2, "Documents", GeometryIconStyle.TextBox, false));
+			AddChild(new RootModel(lv2, "Pictures", GeometryIconStyle.Image, false));
+			AddChild(new RootModel(lv2, "Windows (C:)", GeometryIconStyle.MicrosoftWindows, false));
 
 			Roots.Add(myPC);
 		}

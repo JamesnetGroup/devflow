@@ -31,7 +31,14 @@
 		ArrowUpBold,
 		ArrowRightBold,
 		ArrowLeftBold,
-		ArrowAll
+		ArrowAll,
+		MicrosoftWindows,
+		ArrowDownBox,
+		TextBox,
+		Harddisk,
+		DesktopClassic,
+		ChevronRight,
+		ChevronDown
 	}
 }
 

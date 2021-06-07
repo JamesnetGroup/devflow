@@ -33,6 +33,8 @@ namespace DevFlow
 
 		protected override void OnStartup(StartupEventArgs e)
 		{
+			Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/DevFlow.Resources;component/Themes/Generic.Drawings.xaml", UriKind.RelativeOrAbsolute) });
+
 			bool dialogResult = true;
 
 			ConfigModel config = FlowConfig.LoadConfig();

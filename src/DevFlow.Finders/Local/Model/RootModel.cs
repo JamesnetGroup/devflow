@@ -1,19 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DevFlow.Data;
+using DevFlow.Windowbase.Mvvm;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFlow.Finders.Local.Model
 {
-	public class RootModel
+	public class RootModel : ObservableData
 	{
+		private bool _isExpanded;
+
+		public int Depth { get; }
 		public string Name { get; set; }
-		public ObservableCollection<RootModel> Children { get; private set; }
-		public RootModel(string name)
+		public bool IsExpanded
 		{
+			get => _isExpanded;
+			set { _isExpanded = value; OnPropertyChanged(); }
+		}
+
+		public GeometryIconStyle IconType { get; }
+		public ObservableCollection<RootModel> Children { get; private set; }
+		public RootModel(int depth, string name, GeometryIconStyle icon, bool isExpanded)
+		{
+			Depth = depth;
 			Name = name;
+			IconType = icon;
+			IsExpanded = isExpanded;
 			Children = new ObservableCollection<RootModel>();
 		}
 	}
