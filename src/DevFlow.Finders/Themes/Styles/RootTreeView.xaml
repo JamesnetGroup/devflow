@@ -26,6 +26,7 @@
 	</Style>
 
 	<Style TargetType="{x:Type TreeViewItem}" x:Key="TRVI">
+		<Setter Property="AlternationCount" Value="2"/>
 		<Setter Property="ItemsSource" Value="{Binding Children}"/>
 		<Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
 		<Setter Property="Background" Value="Transparent"/>
@@ -43,8 +44,8 @@
 							</Grid.RowDefinitions>
 							<Border Padding="{Binding Depth, Converter={convt:LeftMarginConverter}}"
 									Background="{TemplateBinding Background}"
-									BorderThickness="0 0 0 1"
-									BorderBrush="#515151">
+									BorderThickness="0 0 0 0"
+									BorderBrush="#313131">
 								<Grid Margin="0 4 0 4">
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="Auto"/>
@@ -64,7 +65,7 @@
 									<TextBlock Grid.Row="0" Grid.Column="2" 
 										       Foreground="{TemplateBinding Foreground}"
 										       Text="{Binding Name}"
-											   Margin="0 0 10 0"
+											   Margin="0 0 30 0"
 											   TextTrimming="CharacterEllipsis"
 										       ToolTip="{Binding}"
 											   VerticalAlignment="Center"/>
@@ -74,13 +75,17 @@
 						</Grid>
 					</Border>
 					<ControlTemplate.Triggers>
+						<DataTrigger Binding="{Binding IconType}" Value="Folder">
+							<Setter TargetName="icon" Property="Fill" Value="#FFEFB13A"/>
+							<Setter Property="Background" Value="#313131"/>
+						</DataTrigger>
 						<Trigger Property="IsExpanded" Value="True">
 							<Setter TargetName="items" Property="Visibility" Value="Visible"/>
 							<Setter TargetName="expand" Property="IsChecked" Value="True"/>
 						</Trigger>
 						<Trigger Property="IsSelected" Value="True">
-							<Setter Property="Background" Value="#FFFFFF"/>
-							<Setter Property="Foreground" Value="#333333"/>
+							<Setter Property="Background" Value="#FFE26285"/>
+							<!--<Setter Property="Foreground" Value="#333333"/>-->
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
@@ -93,9 +98,12 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:RootTreeView}">
-					<ScrollViewer Background="#393939">
-						<ItemsPresenter/>
-					</ScrollViewer>
+					<Border BorderThickness="0 0 1 0"
+							BorderBrush="#393939">
+						<flows:BasicScrollViewer>
+							<ItemsPresenter/>
+						</flows:BasicScrollViewer>
+					</Border>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>

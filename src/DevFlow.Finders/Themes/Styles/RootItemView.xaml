@@ -356,7 +356,6 @@
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="Auto"/>
 						</Grid.RowDefinitions>
-						<Control Style="{StaticResource IN.FUNCTION}"/>
 						<Control Style="{StaticResource IN.HEADER}"/>
 						<Grid Grid.Row="2">
 							<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">

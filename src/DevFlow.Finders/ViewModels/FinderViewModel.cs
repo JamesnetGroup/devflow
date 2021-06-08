@@ -4,6 +4,7 @@ using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Input;
 
@@ -66,15 +67,22 @@ namespace DevFlow.Finders.ViewModels
 			if (!string.IsNullOrWhiteSpace(data.FullPath)
 				&& Directory.Exists(data.FullPath))
 			{
-				var dirs = Directory.GetDirectories(data.FullPath);
-
-				foreach (var dir in dirs)
+				try
 				{
-					var item = new RootModel(data.Depth + 1, Path.GetFileName(dir), GeometryIconStyle.Folder, false, dir);
-					data.Children.Add(item);
-				}
+					var dirs = Directory.GetDirectories(data.FullPath);
 
-				InitCurrentItems(data);
+					foreach (var dir in dirs)
+					{
+						var item = new RootModel(data.Depth + 1, Path.GetFileName(dir), GeometryIconStyle.Folder, false, dir);
+						data.Children.Add(item);
+					}
+
+					InitCurrentItems(data);
+				}
+				catch(Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+				}
 			}
 		}
 

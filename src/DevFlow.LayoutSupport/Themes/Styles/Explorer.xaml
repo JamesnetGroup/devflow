@@ -212,8 +212,7 @@
 						<prims:DragBorder x:Name="PART_DragBar" Background="Transparent" DockPanel.Dock="Top">
 							<Grid Style="{StaticResource IN.TITLEBAR}">
 								<StackPanel Style="{StaticResource IN.LEFT}">
-									<flows:FlowIcon Style="{StaticResource ICON.TITLE}"/>
-									<TextBlock Style="{StaticResource IN.TITLE}"/>
+									<ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding TitleTemplate}"/>
 								</StackPanel>
 								<StackPanel Style="{StaticResource IN.RIGHT}">
 									<Button Style="{StaticResource IN.MINIMIZE}"/>
