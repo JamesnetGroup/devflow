@@ -9,18 +9,18 @@ using System.Windows.Input;
 
 namespace DevFlow.Finders.Views
 {
-	public class ExplorerListBox : ListBox
+	public class RootItemView : ListBox
 	{
-		static ExplorerListBox()
+		static RootItemView()
 		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(ExplorerListBox), new FrameworkPropertyMetadata(typeof(ExplorerListBox)));
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(RootItemView), new FrameworkPropertyMetadata(typeof(RootItemView)));
 		}
 
 
 		#region DependencyProperty
 
-		public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(ExplorerListBox));
-		public static readonly DependencyProperty PreviewKeyDownCommandProperty = DependencyProperty.Register("PreviewKeyDownCommand", typeof(ICommand), typeof(ExplorerListBox));
+		public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RootItemView));
+		public static readonly DependencyProperty PreviewKeyDownCommandProperty = DependencyProperty.Register("PreviewKeyDownCommand", typeof(ICommand), typeof(RootItemView));
 		#endregion
 
 		#region DoubleClickCommand

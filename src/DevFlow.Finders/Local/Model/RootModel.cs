@@ -8,6 +8,7 @@ namespace DevFlow.Finders.Local.Model
 	{
 		private bool _isExpanded;
 
+		public string FullPath { get; set; }
 		public int Depth { get; }
 		public string Name { get; set; }
 		public bool IsExpanded
@@ -18,8 +19,9 @@ namespace DevFlow.Finders.Local.Model
 
 		public GeometryIconStyle IconType { get; }
 		public ObservableCollection<RootModel> Children { get; private set; }
-		public RootModel(int depth, string name, GeometryIconStyle icon, bool isExpanded)
+		public RootModel(int depth, string name, GeometryIconStyle icon, bool isExpanded, string fullPath)
 		{
+			FullPath = fullPath;
 			Depth = depth;
 			Name = name;
 			IconType = icon;
