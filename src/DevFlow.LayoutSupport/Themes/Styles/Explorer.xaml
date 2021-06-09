@@ -211,10 +211,12 @@
 					<DockPanel Style="{StaticResource IN.DOCK}">
 						<prims:DragBorder x:Name="PART_DragBar" Background="Transparent" DockPanel.Dock="Top">
 							<Grid Style="{StaticResource IN.TITLEBAR}">
-								<StackPanel Style="{StaticResource IN.LEFT}">
-									<ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding TitleTemplate}"/>
-								</StackPanel>
-								<StackPanel Style="{StaticResource IN.RIGHT}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+								<ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding TitleTemplate}"/>
+								<StackPanel Style="{StaticResource IN.RIGHT}" Grid.Column="1">
 									<Button Style="{StaticResource IN.MINIMIZE}"/>
 									<Button Style="{StaticResource IN.MAXIMIZE}"/>
 									<Button x:Name="PART_CloseButton" Style="{StaticResource IN.CLOSE}"/>

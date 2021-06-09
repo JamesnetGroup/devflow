@@ -14,6 +14,7 @@ namespace DevFlow.Finders.ViewModels
 	{
 		private ObservableCollection<RootModel> _roots;
 		private List<RootModel> _currentItems;
+		private RootModel _currentRoot;
 
 		public ICommand RootSelectionCommand { get; }
 
@@ -27,6 +28,12 @@ namespace DevFlow.Finders.ViewModels
 		{
 			get { return _currentItems; }
 			set { _currentItems = value; OnPropertyChanged(); }
+		}
+
+		public RootModel CurrentRoot
+		{
+			get { return _currentRoot; }
+			set { _currentRoot = value; OnPropertyChanged(); }
 		}
 
 		public FinderViewModel()
@@ -64,6 +71,8 @@ namespace DevFlow.Finders.ViewModels
 
 		private void RootSelectionChanged(RootModel data)
 		{
+			CurrentRoot = data;
+
 			if (!string.IsNullOrWhiteSpace(data.FullPath)
 				&& Directory.Exists(data.FullPath))
 			{
