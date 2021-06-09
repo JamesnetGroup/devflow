@@ -28,15 +28,12 @@ You can always share information with us and we are looking forward to it.
 
 ![image](https://user-images.githubusercontent.com/52397976/115972804-8f691d80-a58b-11eb-8627-47416f0a9318.png)
 
-.
+...
 
-.
+...
 
 
 ## Application
-```
-App : FlowApp : Application
-```
 
 ```csharp
 using System;
@@ -73,3 +70,29 @@ namespace DevFlow
     }
 }
 ```
+
+## _QuickSlot_
+
+#### QuickSlot : Widget
+
+- ContentTemplate
+
+![image](https://user-images.githubusercontent.com/52397976/121200753-f11ce700-c8ae-11eb-95f0-1932818f87de.png)
+
+## _ColorSpoid_
+
+#### ColorSpoid : Preview
+
+- ContentTemplate
+
+![image](https://user-images.githubusercontent.com/52397976/121201771-bd8e8c80-c8af-11eb-85a2-730d7c4ec7b5.png)
+
+## _Finder_
+
+#### Finder : Explorer
+
+- TitleTemplate
+- ContentTemplate
+
+![image](https://user-images.githubusercontent.com/52397976/121201052-2f1a0b00-c8af-11eb-82b2-5b6e1e2b2456.png)
+
