@@ -255,7 +255,6 @@
 						<Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
 							<Setter Property="Margin" Value="0"/>
 							<Setter Property="Padding" Value="8 3 8 3"/>
-							<Setter Property="Background" Value="{StaticResource LGB.LBX.BOTTOM}"/>
 						</Style>
 						<Style TargetType="{x:Type StackPanel}" x:Key="IN.HORIZ">
 							<Setter Property="Orientation" Value="Horizontal"/>
@@ -289,16 +288,16 @@
 	</Style>
 
 	<Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.EXP">
+		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
 					<ControlTemplate.Resources>
 						<Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-							<Setter Property="Background" Value="Transparent"/>
-							<Setter Property="Height" Value="24"/>
+							<Setter Property="Height" Value="28"/>
 						</Style>
 					</ControlTemplate.Resources>
-					<Border x:Name="border" Style="{StaticResource IN.BORDER}">
+					<Border x:Name="border" Style="{StaticResource IN.BORDER}" Background="{TemplateBinding Background}">
 						<Grid>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition SharedSizeGroup="A" Width="Auto"/>
@@ -306,9 +305,10 @@
 								<ColumnDefinition SharedSizeGroup="C" Width="Auto"/>
 								<ColumnDefinition SharedSizeGroup="D" Width="80"/>
 							</Grid.ColumnDefinitions>
-							<Image Grid.Column="0" Source="{Binding IconSource}" Stretch="Uniform" x:Name="imgFile" Width="16" Height="16"
+							<Image Grid.Column="0" Source="{Binding IconSource}" Stretch="Uniform" x:Name="imgFile" Width="16" Height="16" Visibility="Collapsed"
                                    SnapsToDevicePixels="True" UseLayoutRounding="True" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
-							<TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="6 0 6 0"/>
+							<flows:FlowIcon x:Name="icon" Width="16" Height="16" IconType="{Binding IconType}" Fill="#DDDDDD" Margin="10 0 0 0"/>
+							<TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="10 0 6 0"/>
 							<TextBlock Grid.Column="2" Text="{Binding LastAccessTime}" Margin="6 0 6 0" Foreground="#CCCCCC" VerticalAlignment="Center"/>
 							<TextBlock Grid.Column="3" Text="{Binding FileSize, Converter={convt:FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
                                        Foreground="#CCCCCC" Margin="6 0 10 0" VerticalAlignment="Center"/>
@@ -321,6 +321,30 @@
 						<Trigger Property="IsSelected" Value="True">
 							<Setter TargetName="border" Property="Background" Value="#3256a7"/>
 						</Trigger>
+						<DataTrigger Binding="{Binding IconType}" Value="Folder">
+							<Setter TargetName="icon" Property="Fill" Value="#FFEFB13A"/>
+							<Setter Property="Background" Value="Transparent"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding IconType}" Value="FileImage">
+							<Setter TargetName="icon" Property="Fill" Value="#FFFE9C84"/>
+							<Setter Property="Background" Value="Transparent"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding IconType}" Value="FileZip">
+							<Setter TargetName="icon" Property="Fill" Value="#FFFED484"/>
+							<Setter Property="Background" Value="Transparent"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding IconType}" Value="FileCheck">
+							<Setter TargetName="icon" Property="Fill" Value="#FF44A7FF"/>
+							<Setter Property="Background" Value="Transparent"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding IconType}" Value="FilePDF">
+							<Setter TargetName="icon" Property="Fill" Value="#FFF85E7C"/>
+							<Setter Property="Background" Value="Transparent"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding IconType}" Value="FileWord">
+							<Setter TargetName="icon" Property="Fill" Value="#FF16E2FF"/>
+							<Setter Property="Background" Value="Transparent"/>
+						</DataTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
@@ -343,7 +367,6 @@
 				<ControlTemplate TargetType="{x:Type views:RootItemView}">
 					<ControlTemplate.Resources>
 						<Style TargetType="{x:Type Border}" x:Key="IN.DOWN">
-							<Setter Property="Background" Value="{StaticResource LGB.LBX.DOWN}"/>
 							<Setter Property="IsHitTestVisible" Value="False"/>
 							<Setter Property="VerticalAlignment" Value="Bottom"/>
 							<Setter Property="Height" Value="60"/>
@@ -356,7 +379,7 @@
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="Auto"/>
 						</Grid.RowDefinitions>
-						<Control Style="{StaticResource IN.HEADER}"/>
+						<Control Style="{StaticResource IN.HEADER}" Visibility="Collapsed"/>
 						<Grid Grid.Row="2">
 							<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
 								<ItemsPresenter/>

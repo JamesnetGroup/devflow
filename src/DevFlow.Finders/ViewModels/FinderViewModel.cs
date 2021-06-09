@@ -107,15 +107,35 @@ namespace DevFlow.Finders.ViewModels
 				items.Add(item);
 			}
 
-			var files = Directory.GetDirectories(data.FullPath);
+			var files = Directory.GetFiles(data.FullPath);
 
 			foreach (var file in files)
 			{
-				var item = new RootModel(data.Depth + 1, Path.GetFileName(file), GeometryIconStyle.Folder, false, file);
+				var item = new RootModel(data.Depth + 1, Path.GetFileName(file), GetExtensionType(file), false, file);
 				items.Add(item);
 			}
 
 			CurrentItems = items;
 		}
+
+		private GeometryIconStyle GetExtensionType(string file)
+		{
+			GeometryIconStyle ext = GeometryIconStyle.File;
+			switch (Path.GetExtension(file).ToUpper())
+			{
+				case ".JPG":
+				case ".JPEG":
+				case ".GIF":
+				case ".BMP":
+				case ".PNG": ext = GeometryIconStyle.FileImage; break;
+				case ".PDF": ext = GeometryIconStyle.FilePDF; break;
+				case ".ZIP": ext = GeometryIconStyle.FileZIP; break;
+				case ".EXE": ext = GeometryIconStyle.FileCheck; break;
+				case ".DOCX":
+				case ".DOC": ext = GeometryIconStyle.FileWord; break;
+			}
+			return ext;
+		}
 	}
 }
+

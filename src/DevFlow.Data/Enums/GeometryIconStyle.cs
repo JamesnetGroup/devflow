@@ -27,6 +27,8 @@
 		SelectAll,
 		ConsoleLine,
 		Folder,
+		File,
+		FileImage,
 		Plus,
 		ArrowUpBold,
 		ArrowRightBold,
@@ -38,7 +40,12 @@
 		Harddisk,
 		DesktopClassic,
 		ChevronRight,
-		ChevronDown
+		ChevronDown,
+		DotsHorizontalCircle,
+		FilePDF,
+		FileZIP,
+		FileCheck,
+		FileWord
 	}
 }
 
