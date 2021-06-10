@@ -8,10 +8,13 @@ namespace DevFlow.Windowbase.Flowbase
 {
 	public abstract class FlowWindow : Window, IFlowElement
 	{
+		#region Constructor
+
 		public FlowWindow()
 		{
 			Loaded += FlowWindow_Loaded;
 		}
+		#endregion
 
 		#region UseMvvm
 
@@ -33,6 +36,8 @@ namespace DevFlow.Windowbase.Flowbase
 
 		#endregion
 
+		#region Loaded
+
 		private void FlowWindow_Loaded(object sender, RoutedEventArgs e)
 		{
 			if (DesignerProperties.GetIsInDesignMode(this))
@@ -45,5 +50,6 @@ namespace DevFlow.Windowbase.Flowbase
 				vm.ViewRegister(this);
 			}
 		}
+		#endregion
 	}
 }
