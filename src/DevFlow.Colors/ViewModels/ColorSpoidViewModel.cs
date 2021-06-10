@@ -157,7 +157,7 @@ namespace DevFlow.Colors.ViewModels
 		protected override void OnLoaded(Control view)
 		{
 			base.OnLoaded(view);
-			((FlowView)view).Window.Closed += Window_Closed;
+			((Window)UIView).Closed += Window_Closed;
 		}
 		#endregion
 

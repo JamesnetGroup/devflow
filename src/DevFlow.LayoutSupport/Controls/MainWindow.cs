@@ -34,5 +34,9 @@ namespace DevFlow.LayoutSupport.Controls
 			Left = (width - ActualWidth) / 2;
 			Top = 0;
 		}
+
+		public override void Show(MenuModel menu)
+		{
+		}
 	}
 }

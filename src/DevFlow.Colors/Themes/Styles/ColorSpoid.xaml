@@ -137,7 +137,7 @@
 		<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=TextBlock}, Path=Text}"/>
 	</Style>
 
-	<Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Palette}}">
+	<Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Explorer}}">
 		<Setter Property="Title" Value="{DynamicResource SPOID_TITLE}"/>
         <Setter Property="ContentTemplate">
             <Setter.Value>

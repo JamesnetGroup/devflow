@@ -84,7 +84,7 @@ namespace DevFlow.Controls.Primitives
 
 			if (GetTemplateChild("PART_DragBar") is DragBorder bar)
 			{
-				//bar.MouseMove += Widget_MouseMove;
+				bar.MouseDown += Bar_MouseDown;
 			}
 
 			if (GetTemplateChild("PART_CloseButton") is Button btn)
@@ -99,17 +99,17 @@ namespace DevFlow.Controls.Primitives
 			}
 		}
 
-		private void Btn_Click(object sender, RoutedEventArgs e)
-		{
-			Window.GetWindow(sender as UIElement).Close();
-		}
-
-		private void Widget_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+		private void Bar_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
 			if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
 			{
 				Window.GetWindow(this).DragMove();
 			}
+		}
+
+		private void Btn_Click(object sender, RoutedEventArgs e)
+		{
+			Window.GetWindow(sender as UIElement).Close();
 		}
 
 		private void Btn_DragDelta(object sender, DragDeltaEventArgs e)

@@ -16,7 +16,6 @@ namespace DevFlow.Windowbase.Flowbase
 
 		public virtual void Show(MenuModel menu)
 		{
-
 		}
 
 		#region DependencyProperty

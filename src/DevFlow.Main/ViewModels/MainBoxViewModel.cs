@@ -23,7 +23,7 @@ using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
-	public class MainViewModel : ObservableObject
+	public class MainBoxViewModel : ObservableObject
 	{
 		private readonly FlowTheme theme;
 		private readonly FlowCulture culture;
@@ -55,7 +55,7 @@ namespace DevFlow.Main.ViewModels
 
 		#region Constructor
 
-		public MainViewModel()
+		public MainBoxViewModel()
 		{
 			Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
@@ -63,7 +63,7 @@ namespace DevFlow.Main.ViewModels
 			Menu = new QuickSlotViewModel(new RelayCommand<MenuModel>(MenuSelected));
 		}
 
-		public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()
+		public MainBoxViewModel(FlowTheme _theme, FlowCulture _culture) : this()
 		{
 			theme = _theme;
 			culture = _culture;
@@ -92,16 +92,10 @@ namespace DevFlow.Main.ViewModels
 
 				if (content != null)
 				{
-					content.Closed = (w) => Closed(w, menu);
 					content.Show(menu);
 				}
 			}
 
-		}
-
-		private void Closed(Window obj, MenuModel menu)
-		{
-			FlowConfig.SaveLocation(menu, (int)obj.Left, (int)obj.Top, (int)obj.ActualWidth, (int)obj.ActualHeight);
 		}
 		#endregion
 

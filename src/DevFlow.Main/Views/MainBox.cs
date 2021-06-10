@@ -5,21 +5,21 @@ using DevFlow.Main.ViewModels;
 
 namespace DevFlow.Main.Views
 {
-	public class Main : MainWindow
+	public class MainBox : MainWindow
 	{
-		static Main()
+		static MainBox()
 		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(Main), new FrameworkPropertyMetadata(typeof(Main)));
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(MainBox), new FrameworkPropertyMetadata(typeof(MainBox)));
 		}
 
-		public Main()
+		public MainBox()
 		{
 
 		}
 
 		protected override void OnDesignerMode()
 		{
-			DataContext = new MainViewModel();
+			DataContext = new MainBoxViewModel();
 		}
 	}
 }

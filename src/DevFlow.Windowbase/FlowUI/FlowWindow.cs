@@ -1,26 +1,31 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Data.Menu;
+using DevFlow.Windowbase.Flowcore;
+using DevFlow.Windowbase.Mvvm;
+using System;
 using System.ComponentModel;
 using System.Windows;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowWindow : Window
+	public abstract class FlowWindow : Window, IFlowElement
 	{
-		//public Action<Window> Closed { get; set; }
+		public Action<Window> Closed { get; set; }
 
 		public FlowWindow()
 		{
 			Loaded += FlowWindow_Loaded;
 		}
 
-		//#region UseMvvm
+		#region UseMvvm
 
-		//public IFlowElement UseViewModel(ObservableObject vm)
-		//{
-		//	DataContext = vm;
-		//	return this;
-		//}
-		//#endregion
+		public IFlowElement UseViewModel(ObservableObject vm)
+		{
+			DataContext = vm;
+			return this;
+		}
+		#endregion
+
+		public abstract void Show(MenuModel menu);
 
 		#region OnDesignerMode
 

@@ -45,9 +45,9 @@ namespace DevFlow
 			while (dialogResult)
 			{
 				ShutdownMode = ShutdownMode.OnExplicitShutdown;
-				Main.Views.Main main = new()
+				Main.Views.MainBox main = new()
 				{
-					DataContext = new MainViewModel(Theme, Culture)
+					DataContext = new MainBoxViewModel(Theme, Culture)
 				};
 				_ = main.ShowDialog();
 				dialogResult = (bool)main.DialogResult;
