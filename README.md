@@ -97,3 +97,28 @@ namespace DevFlow
 ![image](https://user-images.githubusercontent.com/52397976/121201052-2f1a0b00-c8af-11eb-82b2-5b6e1e2b2456.png)
 
 ![image](https://user-images.githubusercontent.com/52397976/121374770-255dd980-c97b-11eb-8417-408499728691.png)
+
+```csharp
+public class Finder : Explorer
+{
+    static Finder()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(Finder), 
+            new FrameworkPropertyMetadata(typeof(Finder)));
+    }
+}
+
+public class Explorer : FlowWindow
+{
+    static Explorer()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(Explorer), 
+            new FrameworkPropertyMetadata(typeof(Explorer)));
+    }
+}
+
+public class FlowWindow : Window
+{
+
+}
+```
