@@ -103,7 +103,8 @@ public class Finder : Explorer
 {
     static Finder()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(Finder), new FrameworkPropertyMetadata(typeof(Finder)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(Finder), 
+            new FrameworkPropertyMetadata(typeof(Finder)));
     }
 }
 
@@ -111,7 +112,8 @@ public class Explorer : FlowWindow
 {
     static Explorer()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(Explorer), new FrameworkPropertyMetadata(typeof(Explorer)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(Explorer), 
+            new FrameworkPropertyMetadata(typeof(Explorer)));
     }
 }
 
