@@ -358,7 +358,7 @@
 		<Setter Property="ItemsSource" Value="{Binding FileDatas}"/>
 		<Setter Property="SelectedItem" Value="{Binding FileData}"/>
 		<Setter Property="SelectionMode" Value="Extended"/>
-		<Setter Property="Background" Value="#292929"/>
+		<Setter Property="Background" Value="#2B2B2B"/>
 		<Setter Property="BorderThickness" Value="0"/>
 		<Setter Property="Foreground" Value="#FFFFFF"/>
 		<Setter Property="Grid.IsSharedSizeScope" Value="True"/>
@@ -372,7 +372,7 @@
 							<Setter Property="Height" Value="60"/>
 						</Style>
 					</ControlTemplate.Resources>
-					<Grid>
+					<Grid Background="{TemplateBinding Background}">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="Auto"/>
 							<RowDefinition Height="Auto"/>

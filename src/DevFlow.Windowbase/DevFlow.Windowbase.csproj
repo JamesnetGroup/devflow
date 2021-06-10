@@ -53,8 +53,8 @@
     <Compile Include="Flowbase\FlowConfig.cs" />
     <Compile Include="Flowbase\FlowCulture.cs" />
     <Compile Include="Flowbase\FlowTheme.cs" />
-    <Compile Include="Flowbase\FlowWindow.cs" />
-    <Compile Include="Flowbase\FlowView.cs" />
+    <Compile Include="FlowUI\FlowWindow.cs" />
+    <Compile Include="FlowUI\FlowView.cs" />
     <Compile Include="Flowcore\IFlowUIElement.cs" />
     <Compile Include="Mvvm\ObservableData.cs" />
     <Compile Include="Mvvm\ObservableObject.cs" />

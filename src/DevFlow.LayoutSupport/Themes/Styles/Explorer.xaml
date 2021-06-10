@@ -125,12 +125,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<ControlTemplate.Resources>
-						<Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-							<Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Background}"/>
-						</Style>
-					</ControlTemplate.Resources>
-					<Border Style="{StaticResource IN.BORDER}">
+					<Border Background="{TemplateBinding Background}">
 						<flows:FlowIcon Style="{StaticResource ICON.CLOSE}"/>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -151,46 +146,15 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type Thumb}" x:Key="IN.THUMB">
-		<Setter Property="Grid.Row" Value="1"/>
-		<Setter Property="VerticalAlignment" Value="Bottom"/>
-		<Setter Property="HorizontalAlignment" Value="Right"/>
-		<Setter Property="Cursor" Value="SizeNWSE"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type Thumb}">
-					<ControlTemplate.Resources>
-						<Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-							<Setter Property="Background" Value="Transparent"/>
-							<Setter Property="Width" Value="20"/>
-							<Setter Property="Height" Value="20"/>
-						</Style>
-					</ControlTemplate.Resources>
-					<Border Style="{StaticResource IN.BORDER}">
-						<flows:FlowIcon Style="{StaticResource IN.RESIZE}"/>
-					</Border>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-
 	<Style TargetType="{x:Type flows:Explorer}">
 		<Setter Property="Background" Value="#252525"/>
 		<Setter Property="BorderThickness" Value="0"/>
-		<Setter Property="Width" Value="400"/>
-		<Setter Property="Height" Value="400"/>
 		<Setter Property="MinWidth" Value="200"/>
 		<Setter Property="MinHeight" Value="200"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type flows:Explorer}">
 					<ControlTemplate.Resources>
-						<Style TargetType="{x:Type DockPanel}" x:Key="IN.DOCK">
-							<Setter Property="Background" Value="#252525"/>
-						</Style>
-						<Style TargetType="{x:Type Grid}" x:Key="IN.TITLEBAR">
-							<Setter Property="DockPanel.Dock" Value="Top"/>
-						</Style>
 						<Style TargetType="{x:Type TextBlock}" x:Key="IN.TITLE">
 							<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:Explorer}, Path=Title}"/>
 							<Setter Property="VerticalAlignment" Value="Center"/>
@@ -208,26 +172,26 @@
 							<Setter Property="VerticalAlignment" Value="Top"/>
 						</Style>
 					</ControlTemplate.Resources>
-					<DockPanel Style="{StaticResource IN.DOCK}">
-						<prims:DragBorder x:Name="PART_DragBar" Background="Transparent" DockPanel.Dock="Top">
-							<Grid Style="{StaticResource IN.TITLEBAR}">
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="*"/>
-									<ColumnDefinition Width="Auto"/>
-								</Grid.ColumnDefinitions>
-								<ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding TitleTemplate}"/>
-								<StackPanel Style="{StaticResource IN.RIGHT}" Grid.Column="1">
-									<Button Style="{StaticResource IN.MINIMIZE}"/>
-									<Button Style="{StaticResource IN.MAXIMIZE}"/>
-									<Button x:Name="PART_CloseButton" Style="{StaticResource IN.CLOSE}"/>
-								</StackPanel>
-							</Grid>
-						</prims:DragBorder>
-						<Grid>
-							<ContentPresenter  ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
-							<Thumb x:Name="PART_Resize" Style="{StaticResource IN.THUMB}"/>
-						</Grid>
-					</DockPanel>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<prims:DragBorder x:Name="PART_DragBar" Grid.ColumnSpan="4" Background="#222222" IsHitTestVisible="False"/>
+
+						<ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding TitleTemplate}"/>
+						<Button Grid.Column="1" Style="{StaticResource IN.MINIMIZE}"/>
+						<Button Grid.Column="2" Style="{StaticResource IN.MAXIMIZE}"/>
+						<Button Grid.Column="3" x:Name="PART_CloseButton" Style="{StaticResource IN.CLOSE}"/>
+
+						<ContentPresenter Grid.Row="1" Grid.ColumnSpan="4" ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>

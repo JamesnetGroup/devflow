@@ -353,11 +353,6 @@
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="*"/>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
 						</Grid.ColumnDefinitions>
 
 						<Border Background="#444444"
@@ -373,16 +368,6 @@
 							</StackPanel>
 						</Border>
 						<TextBox Grid.Column="3" Style="{StaticResource TXT.PATH}" Text="{Binding CurrentRoot.FullPath}" Margin="0 4 10 4"/>
-
-						<!--<ToggleButton Grid.Column="4" Content="Hidden Visible" Style="{StaticResource IN.HIDDEN}" ToolTip="Show All Files" Padding="4" IsChecked="{Binding IsHiddenVisibility, Mode=TwoWay}"/>
-						<Button Grid.Column="5" Content="Open CMD" ToolTip="Command Prompt" x:Name="btnCMD" Style="{StaticResource IN.ICON}" Tag="CMD"
-                                Command="{Binding PromptCommand}"/>
-						<Button Grid.Column="6" Content="New Folder" ToolTip="New Folder" x:Name="btnNewFolder" Style="{StaticResource IN.ICON}" Tag="CREATEFOLDER"
-                                Command="{Binding NewCommand}"/>
-						<Button Grid.Column="7" Content="Copy Tab" ToolTip="Copy Tab" x:Name="btnCopyTab" Style="{StaticResource IN.ICON}" Tag="NEWFOLDER"
-                                Command="{Binding CopyCommand}"/>
-						<Button Grid.Column="8" Content="Close Tab" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{StaticResource IN.ICON}" Tag="CLOSE"
-                                Command="{Binding CloseCommand}"/>-->
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>

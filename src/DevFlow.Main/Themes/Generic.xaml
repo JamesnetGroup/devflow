@@ -26,11 +26,11 @@
 	</Style>
 
 
-	<Style TargetType="{x:Type views:MainView}" x:Key="MAINVIEW11">
+	<Style TargetType="{x:Type views:Main}" x:Key="MAINVIEW11">
 	</Style>
 
 
-	<Style TargetType="{x:Type views:MainView}" x:Key="MAINVIEW">
+	<Style TargetType="{x:Type views:Main}" x:Key="MAINVIEW">
 		<Setter Property="Width" Value="Auto"/>
 		<Setter Property="SizeToContent" Value="WidthAndHeight"/>
 		<Setter Property="BorderThickness" Value="0"/>
@@ -39,7 +39,7 @@
 		<Setter Property="WindowState" Value="Normal"/>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type views:MainView}">
+				<ControlTemplate TargetType="{x:Type views:Main}">
 					<Grid>
                         <Image Source="/DevFlow.Resources;component/Images/wallpaper-08.jpg" Stretch="UniformToFill" Visibility="Collapsed"/>
 						<ContentPresenter Style="{StaticResource CONTENT}"/>
@@ -64,7 +64,7 @@
 	</Style>
 
 
-	<Style TargetType="{x:Type views:MainView}" BasedOn="{StaticResource MAINVIEW}"/>
+	<Style TargetType="{x:Type views:Main}" BasedOn="{StaticResource MAINVIEW}"/>
 
 	<Style TargetType="{x:Type views:EmptyView}">
 		<Setter Property="Template">

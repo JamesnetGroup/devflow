@@ -2,7 +2,7 @@
 
 namespace DevFlow.Main.Designs
 {
-	public partial class DemoMainWindow : MainView
+	public partial class DemoMainWindow : Views.Main
 	{
 		public DemoMainWindow()
 		{

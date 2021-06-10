@@ -1,4 +1,4 @@
-﻿<main:MainView x:Class="DevFlow.Designs.DemoWindow"
+﻿<main:Main x:Class="DevFlow.Designs.DemoWindow"
                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,13 +6,13 @@
                xmlns:main="clr-namespace:DevFlow.Main.Views;assembly=DevFlow.Main"
                mc:Ignorable="d"        
 			   Style="{DynamicResource MAINVIEW}">
-	<main:MainView.Resources>
+	<main:Main.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="/DevFlow.Main;component/Themes/Generic.xaml"/>
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
-    </main:MainView.Resources>
-</main:MainView>
+    </main:Main.Resources>
+</main:Main>
 
     

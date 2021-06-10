@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Shell;
 
 namespace DevFlow.Controls.Primitives
 {
@@ -45,9 +46,10 @@ namespace DevFlow.Controls.Primitives
 				Content = this,
 				AllowsTransparency = true,
 				WindowStyle = WindowStyle.None,
-				SizeToContent = SizeToContent.WidthAndHeight
+				ResizeMode = ResizeMode.CanResize,
 			};
 			Window.Closed += Window_Closed;
+			WindowChrome.SetWindowChrome(Window, new WindowChrome { ResizeBorderThickness = new Thickness(5) });
 
 			ShowWindow(menu);
 
@@ -82,7 +84,7 @@ namespace DevFlow.Controls.Primitives
 
 			if (GetTemplateChild("PART_DragBar") is DragBorder bar)
 			{
-				bar.MouseMove += Widget_MouseMove;
+				//bar.MouseMove += Widget_MouseMove;
 			}
 
 			if (GetTemplateChild("PART_CloseButton") is Button btn)
@@ -92,8 +94,8 @@ namespace DevFlow.Controls.Primitives
 
 			if (GetTemplateChild("PART_Resize") is Thumb thumb)
 			{
-				thumb.DragDelta += Btn_DragDelta;
-				thumb.DragCompleted += Btn_DragCompleted;
+				//thumb.DragDelta += Btn_DragDelta;
+				//thumb.DragCompleted += Btn_DragCompleted;
 			}
 		}
 
@@ -113,12 +115,12 @@ namespace DevFlow.Controls.Primitives
 		private void Btn_DragDelta(object sender, DragDeltaEventArgs e)
 		{
 			IsResizing = true;
-			double yadjust = Height + e.VerticalChange;
-			double xadjust = Width + e.HorizontalChange;
+			double yadjust = Window.Width + e.VerticalChange;
+			double xadjust = Window.Height + e.HorizontalChange;
 			if ((xadjust >= 0) && (yadjust >= 0))
 			{
-				Width = xadjust;
-				Height = yadjust;
+				Window.Width = xadjust;
+				Window.Height = yadjust;
 				_ = Parent as Canvas;
 			}
 		}
