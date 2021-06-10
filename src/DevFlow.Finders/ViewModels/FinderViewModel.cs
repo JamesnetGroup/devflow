@@ -79,7 +79,7 @@ namespace DevFlow.Finders.ViewModels
 			first.Children.Add(docs);
 			first.Children.Add(pics);
 
-			foreach (var device in DriveInfo.GetDrives())
+			foreach (DriveInfo device in DriveInfo.GetDrives())
 			{
 				string discName = device.RootDirectory.FullName.Replace(@"\", "");
 				string rootName = string.Format("{0} ({1})", device.VolumeLabel, discName);
