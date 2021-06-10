@@ -139,6 +139,13 @@
 
 	<Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Explorer}}">
 		<Setter Property="Title" Value="{DynamicResource SPOID_TITLE}"/>
+		<Setter Property="TitleTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<TextBlock Text="ColorSpoid" VerticalAlignment="Center" Margin="10 0 10 0" Foreground="#FFFFFF" IsHitTestVisible="False"/>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>

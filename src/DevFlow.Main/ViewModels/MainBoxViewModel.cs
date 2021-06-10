@@ -19,7 +19,6 @@ using DevFlow.Colors.ViewModels;
 using DevFlow.Finders.Views;
 using DevFlow.Finders.ViewModels;
 using System;
-using System.Windows;
 
 namespace DevFlow.Main.ViewModels
 {
@@ -82,11 +81,11 @@ namespace DevFlow.Main.ViewModels
 
 				switch (menu.IconType)
 				{
-					case GeometryIconStyle.FolderOpenOutline: content = new Finder().UseViewModel(new FinderViewModel()); break;
-					case GeometryIconStyle.EyedropperVariant: content = new ColorSpoid().UseViewModel(new ColorSpoidViewModel()); break;
-					case GeometryIconStyle.Palette: content = new SwitchSkin().UseViewModel(Skin); break;
-					case GeometryIconStyle.Web: content = new Translator().UseViewModel(Translate); break;
-					case GeometryIconStyle.Close: Environment.Exit(0); break;
+					case GeoIcon.FolderOpenOutline: content = new Finder().UseViewModel(new FinderViewModel()); break;
+					case GeoIcon.EyedropperVariant: content = new ColorSpoid().UseViewModel(new ColorSpoidViewModel()); break;
+					case GeoIcon.Palette: content = new SwitchSkin().UseViewModel(Skin); break;
+					case GeoIcon.Web: content = new Translator().UseViewModel(Translate); break;
+					case GeoIcon.Close: Environment.Exit(0); break;
 					default: content = new EmptyView(); break;
 				}
 

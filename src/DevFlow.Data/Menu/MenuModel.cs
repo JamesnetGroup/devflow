@@ -6,7 +6,7 @@ namespace DevFlow.Data.Menu
 	{
 		public int Seq { get; set; }
 		public string Name { get; set; }
-		public GeometryIconStyle IconType { get; set; }
+		public GeoIcon IconType { get; set; }
 
 		public ICommand MenuClickCommand { get; set; }
 	}

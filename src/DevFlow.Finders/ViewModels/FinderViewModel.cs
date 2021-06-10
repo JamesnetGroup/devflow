@@ -1,4 +1,5 @@
 ﻿using DevFlow.Data;
+using DevFlow.Finders.Local.Api;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Windowbase.Mvvm;
 using System;
@@ -12,130 +13,141 @@ namespace DevFlow.Finders.ViewModels
 {
 	public class FinderViewModel : ObservableObject
 	{
+		#region Variables 
+
 		private ObservableCollection<RootModel> _roots;
 		private List<RootModel> _currentItems;
 		private RootModel _currentRoot;
+		#endregion
+
+		#region ICommands
 
 		public ICommand RootSelectionCommand { get; }
+		#endregion
+
+		#region Roots 
 
 		public ObservableCollection<RootModel> Roots
 		{
-			get { return _roots; }
+			get => _roots;
 			set { _roots = value; OnPropertyChanged(); }
 		}
+		#endregion
+
+		#region CurrentItems
 
 		public List<RootModel> CurrentItems
 		{
-			get { return _currentItems; }
+			get => _currentItems;
 			set { _currentItems = value; OnPropertyChanged(); }
 		}
+		#endregion
+
+		#region CurrentRoot
 
 		public RootModel CurrentRoot
 		{
-			get { return _currentRoot; }
+			get => _currentRoot;
 			set { _currentRoot = value; OnPropertyChanged(); }
 		}
+		#endregion
+
+		#region Constructor
 
 		public FinderViewModel()
 		{
-			RootSelectionCommand = new RelayCommand<RootModel>(RootSelectionChanged);
+			RootSelectionCommand = new RelayCommand<RootModel>(RootChanged);
 			Roots = new ObservableCollection<RootModel>();
-			InitRoots();
+			LoadRootDirectory();
 		}
+		#endregion
 
-		private void InitRoots()
+		#region LoadRootDirectory
+
+		private void LoadRootDirectory()
 		{
-			RootModel myPC = new RootModel(0, "MY PC", GeometryIconStyle.DesktopClassic, true, "");
+			int depth = 0;
+			RootModel first = new(depth, "MY PC", GeoIcon.DesktopClassic, "", true, false);
 
-			void AddChild(RootModel root)
+			depth += 1;
+
+			RootModel down = new(depth, "Downloads", GeoIcon.ArrowDownBox, SystemDirectory.Downloads, false, true);
+			RootModel docs = new(depth, "Documents", GeoIcon.TextBox, SystemDirectory.Documents, false, false);
+			RootModel pics = new(depth, "Pictures", GeoIcon.Image, SystemDirectory.Pictures, false, false);
+
+			first.Children.Add(down);
+			first.Children.Add(docs);
+			first.Children.Add(pics);
+
+			foreach (var device in DriveInfo.GetDrives())
 			{
-				myPC.Children.Add(root);
+				string discName = device.RootDirectory.FullName.Replace(@"\", "");
+				string rootName = string.Format("{0} ({1})", device.VolumeLabel, discName);
+				string fullPath = device.Name;
+				GeoIcon icon = GeoIcon.MicrosoftWindows;
+
+				first.Children.Add(new(depth, rootName, icon, fullPath, false, false));
 			}
-
-			int lv2 = myPC.Depth + 1;
-			string downPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @"Downloads");
-			string docuPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			string pictPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-			AddChild(new RootModel(lv2, "Downloads", GeometryIconStyle.ArrowDownBox, false, downPath));
-			AddChild(new RootModel(lv2, "Documents", GeometryIconStyle.TextBox, false, docuPath));
-			AddChild(new RootModel(lv2, "Pictures", GeometryIconStyle.Image, false, pictPath));
-
-			var devices = DriveInfo.GetDrives();
-
-			foreach (var device in devices)
-			{ 
-				AddChild(new RootModel(lv2, $"{device.VolumeLabel} ({device.RootDirectory.FullName.Replace(@"\", "")})", GeometryIconStyle.MicrosoftWindows, false, device.Name));
-			}
-			Roots.Add(myPC);
+			Roots.Add(first);
 		}
+		#endregion
 
-		private void RootSelectionChanged(RootModel data)
+		#region RootChanged
+
+		private void RootChanged(RootModel current)
 		{
-			CurrentRoot = data;
-
-			if (!string.IsNullOrWhiteSpace(data.FullPath)
-				&& Directory.Exists(data.FullPath))
+			try
 			{
-				try
+				CurrentRoot = current;
+				string[] childDirs = Directory.GetDirectories(current.FullPath);
+				foreach (string dir in childDirs)
 				{
-					var dirs = Directory.GetDirectories(data.FullPath);
+					int depth = current.Depth + 1;
+					string fullPath = dir;
+					bool isExpanded = false;
+					bool isSelected = false;
+					GeoIcon icon = GeoIcon.Folder;
 
-					foreach (var dir in dirs)
-					{
-						var item = new RootModel(data.Depth + 1, Path.GetFileName(dir), GeometryIconStyle.Folder, false, dir);
-						data.Children.Add(item);
-					}
+					RootModel item = new(depth, Path.GetFileName(dir), icon, fullPath, isExpanded, isSelected);
 
-					InitCurrentItems(data);
+					current.Children.Add(item);
 				}
-				catch(Exception ex)
-				{
-					Debug.WriteLine(ex.Message);
-				}
+				LoadCurrentList(current);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
 			}
 		}
+		#endregion
 
-		private void InitCurrentItems(RootModel data)
+		#region LoadCurrentList
+
+		private void LoadCurrentList(RootModel current)
 		{
+			int depth = current.Depth + 1;
+			GeoIcon icon = GeoIcon.Folder;
 			List<RootModel> items = new();
 
-			var dirs = Directory.GetDirectories(data.FullPath);
+			string[] dirs = Directory.GetDirectories(current.FullPath);
+			string[] files = Directory.GetFiles(current.FullPath);
 
-			foreach (var dir in dirs)
+			foreach (string dir in dirs)
 			{
-				var item = new RootModel(data.Depth + 1, Path.GetFileName(dir), GeometryIconStyle.Folder, false, dir);
+				RootModel item = new(depth, Path.GetFileName(dir), icon, dir, false, false);
 				items.Add(item);
 			}
 
-			var files = Directory.GetFiles(data.FullPath);
-
-			foreach (var file in files)
+			foreach (string file in files)
 			{
-				var item = new RootModel(data.Depth + 1, Path.GetFileName(file), GetExtensionType(file), false, file);
+				icon = FileExtensions.FindExtIcon(file);
+				RootModel item = new(depth, Path.GetFileName(file), icon, file, false, false);
 				items.Add(item);
 			}
 
 			CurrentItems = items;
 		}
-
-		private GeometryIconStyle GetExtensionType(string file)
-		{
-			GeometryIconStyle ext = GeometryIconStyle.File;
-			switch (Path.GetExtension(file).ToUpper())
-			{
-				case ".JPG":
-				case ".JPEG":
-				case ".GIF":
-				case ".BMP":
-				case ".PNG": ext = GeometryIconStyle.FileImage; break;
-				case ".PDF": ext = GeometryIconStyle.FilePDF; break;
-				case ".ZIP": ext = GeometryIconStyle.FileZIP; break;
-				case ".EXE": ext = GeometryIconStyle.FileCheck; break;
-				case ".DOCX":
-				case ".DOC": ext = GeometryIconStyle.FileWord; break;
-			}
-			return ext;
-		}
+		#endregion
 	}
 }
 

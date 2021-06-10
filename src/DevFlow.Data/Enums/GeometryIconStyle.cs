@@ -1,6 +1,6 @@
 ﻿namespace DevFlow.Data
 {
-	public enum GeometryIconStyle
+	public enum GeoIcon
 	{
 		None,
 		Close,

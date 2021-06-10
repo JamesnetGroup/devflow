@@ -12,7 +12,7 @@ namespace DevFlow.Colors.Views
 
 		public ColorSpoid()
 		{
-			Loaded += (s, e) => this.Topmost = true;
+			Loaded += (s, e) => Topmost = true;
 		}
 	}
 }

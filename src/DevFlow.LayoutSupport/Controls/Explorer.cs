@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Shell;
 
 namespace DevFlow.LayoutSupport.Controls
 {
@@ -17,11 +16,11 @@ namespace DevFlow.LayoutSupport.Controls
 		protected MenuModel MenuInfo;
 
 		public static readonly DependencyProperty TitleTemplateProperty = DependencyProperty.Register("TitleTemplate", typeof(DataTemplate), typeof(Explorer), new PropertyMetadata(null));
-    
+
 		public DataTemplate TitleTemplate
 		{
-			get { return (DataTemplate)this.GetValue(TitleTemplateProperty); }
-			set { this.SetValue(TitleTemplateProperty, value); }
+			get => (DataTemplate)GetValue(TitleTemplateProperty);
+			set => SetValue(TitleTemplateProperty, value);
 		}
 
 
@@ -47,7 +46,7 @@ namespace DevFlow.LayoutSupport.Controls
 		{
 			if (GetTemplateChild("PART_CloseButton") is Button btn)
 			{
-				btn.Click += (s, e) => this.Close();
+				btn.Click += (s, e) => Close();
 			}
 			if (GetTemplateChild("PART_DragBar") is DragBorder bar)
 			{
@@ -67,13 +66,13 @@ namespace DevFlow.LayoutSupport.Controls
 		{
 			if (FlowConfig.Config.ViewOptions.FirstOrDefault(x => x.IconType == menu.IconType) is ViewOptionModel view)
 			{
-				this.Left = view.LocX;
-				this.Top = view.LocY;
+				Left = view.LocX;
+				Top = view.LocY;
 
 				if (!IsFixedSize)
 				{
-					this.Width = view.Width;
-					this.Height = view.Height;
+					Width = view.Width;
+					Height = view.Height;
 				}
 			}
 			MenuInfo = menu;

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using DevFlow.Data.Menu;
 using DevFlow.LayoutSupport.Controls;
 using DevFlow.Main.ViewModels;
 

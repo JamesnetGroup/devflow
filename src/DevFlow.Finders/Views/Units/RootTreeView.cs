@@ -12,11 +12,11 @@ namespace DevFlow.Finders.Views
 		}
 
 		public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(RootTreeView));
-    
+
 		public ICommand SelectionCommand
 		{
-			get { return (ICommand)this.GetValue(SelectionCommandProperty); }
-			set { this.SetValue(SelectionCommandProperty, value); }
+			get => (ICommand)GetValue(SelectionCommandProperty);
+			set => SetValue(SelectionCommandProperty, value);
 		}
 
 		public RootTreeView()

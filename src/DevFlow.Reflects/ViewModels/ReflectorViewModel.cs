@@ -5,7 +5,7 @@ namespace DevFlow.Reflects.ViewModels
 	public class ReflectorViewModel : ObservableObject
 	{
 		public ReflectorViewModel()
-		{ 
+		{
 		}
 	}
 }

@@ -367,7 +367,7 @@
 								<Button Grid.Column="2" Style="{StaticResource BTN.REDO}"/>
 							</StackPanel>
 						</Border>
-						<TextBox Grid.Column="3" Style="{StaticResource TXT.PATH}" Text="{Binding CurrentRoot.FullPath}" Margin="0 4 10 4"/>
+						<TextBox Grid.Column="3" Style="{StaticResource TXT.PATH}" Text="{Binding CurrentRoot.FullPath}" Margin="0 4 20 4"/>
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
@@ -387,8 +387,7 @@
 		<Setter Property="ContentTemplate">
 			<Setter.Value>
 				<DataTemplate>
-					<Border BorderThickness="0 1 0 0" BorderBrush="#333333"
-							UseLayoutRounding="True" SnapsToDevicePixels="True">
+					<Border BorderThickness="0 1 0 0" BorderBrush="#333333" UseLayoutRounding="True" SnapsToDevicePixels="True">
 						<Grid>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="300"/>
