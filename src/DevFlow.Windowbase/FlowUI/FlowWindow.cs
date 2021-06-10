@@ -1,7 +1,6 @@
 ﻿using DevFlow.Data.Menu;
 using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
-using System;
 using System.ComponentModel;
 using System.Windows;
 
@@ -9,8 +8,6 @@ namespace DevFlow.Windowbase.Flowbase
 {
 	public abstract class FlowWindow : Window, IFlowElement
 	{
-		public Action<Window> Closed { get; set; }
-
 		public FlowWindow()
 		{
 			Loaded += FlowWindow_Loaded;

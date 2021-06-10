@@ -58,7 +58,7 @@ namespace DevFlow.LayoutSupport.Controls
 		{
 			if (e.LeftButton == MouseButtonState.Pressed)
 			{
-				Window.GetWindow(this).DragMove();
+				GetWindow(this).DragMove();
 			}
 		}
 
