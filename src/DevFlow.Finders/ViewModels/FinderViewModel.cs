@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DevFlow.Finders.ViewModels
@@ -14,6 +15,7 @@ namespace DevFlow.Finders.ViewModels
 	public class FinderViewModel : ObservableObject
 	{
 		#region Variables 
+		private readonly Stack<string> History;
 
 		private ObservableCollection<RootModel> _roots;
 		private List<RootModel> _currentItems;
@@ -60,8 +62,10 @@ namespace DevFlow.Finders.ViewModels
 		public FinderViewModel()
 		{
 			Roots = new();
+			History = new();
 			RootSelectionCommand = new RelayCommand<RootModel>(RootChanged);
-			UpCommand = new RelayCommand<RootModel>(UpButtonClick, (current)=> DirectorySupport.TryParent(current?.FullPath, out _));
+			UpCommand = new RelayCommand<RootModel>(MoveUp, (p) => DirectorySupport.TryParent(p?.FullPath, out _));
+			UndoCommand = new RelayCommand<RootModel>(Undo, (p) => History.Count > 1);
 			LoadRootDirectory();
 		}
 		#endregion
@@ -100,7 +104,20 @@ namespace DevFlow.Finders.ViewModels
 
 		private void RootChanged(RootModel current)
 		{
+			if ( History.Count == 0 || (History.Count > 0 && History.Peek() != current.FullPath))
+			{
+				Enqueue(current);
+			}
+
 			CurrentRoot = current;
+			LoadChild(current);
+		}
+		#endregion
+
+		#region LoadChild
+
+		private void LoadChild(RootModel current)
+		{
 			try
 			{
 				string[] childDirs = Directory.GetDirectories(current.FullPath);
@@ -153,9 +170,9 @@ namespace DevFlow.Finders.ViewModels
 		}
 		#endregion
 
-		#region UpButtonClick
+		#region MoveUp
 
-		private void UpButtonClick(RootModel current)
+		private void MoveUp(RootModel current)
 		{
 			if (DirectorySupport.TryParent(current.FullPath, out string parent))
 			{
@@ -164,6 +181,55 @@ namespace DevFlow.Finders.ViewModels
 			}
 		}
 		#endregion
+
+		#region Undo 
+
+		private void Undo(RootModel current)
+		{
+			var target = PopNext();
+			var root = new RootModel(0, Path.GetFileName(target), RootIcon.Folder, target, false, false);
+			CurrentRoot = root;
+			LoadChild(root);
+
+			try
+			{
+				FindRoot(root, Roots);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+		#endregion
+
+		#region Enqueue
+
+		private void Enqueue(RootModel current)
+		{
+			History.Push(current.FullPath);
+		}
+		#endregion
+
+		#region PopNext
+
+		private string PopNext()
+		{
+			History.Pop();
+			return History.Peek();
+		}
+		#endregion
+
+		private void FindRoot(RootModel current, IList<RootModel> roots)
+		{
+			foreach (var item in roots)
+			{
+				if(item.FullPath == current.FullPath)
+				{
+					item.IsSelected = true;
+				}
+				FindRoot(current, item.Children);
+			}
+		}
 	}
 }
 
