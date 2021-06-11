@@ -362,7 +362,7 @@
 								Margin="6 4 6 4"
 								BorderBrush="#222222">
 							<StackPanel Orientation="Horizontal">
-								<Button Grid.Column="0" Style="{StaticResource BTN.UP}"/>
+								<Button Grid.Column="0" Style="{StaticResource BTN.UP}" Command="{Binding UpCommand}" CommandParameter="{Binding CurrentRoot}"/>
 								<Button Grid.Column="1" Style="{StaticResource BTN.UNDO}"/>
 								<Button Grid.Column="2" Style="{StaticResource BTN.REDO}"/>
 							</StackPanel>

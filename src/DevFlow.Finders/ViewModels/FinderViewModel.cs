@@ -23,6 +23,9 @@ namespace DevFlow.Finders.ViewModels
 		#region ICommands
 
 		public ICommand RootSelectionCommand { get; }
+		public ICommand UndoCommand { get; }
+		public ICommand RedoCommand { get; }
+		public ICommand UpCommand { get; }
 		#endregion
 
 		#region Roots 
@@ -58,6 +61,7 @@ namespace DevFlow.Finders.ViewModels
 		{
 			Roots = new();
 			RootSelectionCommand = new RelayCommand<RootModel>(RootChanged);
+			UpCommand = new RelayCommand<RootModel>(UpButtonClick, (current)=> DirectorySupport.TryParent(current?.FullPath, out _));
 			LoadRootDirectory();
 		}
 		#endregion
@@ -71,9 +75,9 @@ namespace DevFlow.Finders.ViewModels
 
 			depth += 1;
 
-			RootModel down = new(depth, "Downloads", RootIcon.Download, SystemDirectory.Downloads, false, true);
-			RootModel docs = new(depth, "Documents", RootIcon.Document, SystemDirectory.Documents, false, false);
-			RootModel pics = new(depth, "Pictures", RootIcon.Pictures, SystemDirectory.Pictures, false, false);
+			RootModel down = new(depth, "Downloads", RootIcon.Download, DirectorySupport.Downloads, false, true);
+			RootModel docs = new(depth, "Documents", RootIcon.Document, DirectorySupport.Documents, false, false);
+			RootModel pics = new(depth, "Pictures", RootIcon.Pictures, DirectorySupport.Pictures, false, false);
 
 			first.Children.Add(down);
 			first.Children.Add(docs);
@@ -96,9 +100,9 @@ namespace DevFlow.Finders.ViewModels
 
 		private void RootChanged(RootModel current)
 		{
+			CurrentRoot = current;
 			try
 			{
-				CurrentRoot = current;
 				string[] childDirs = Directory.GetDirectories(current.FullPath);
 				foreach (string dir in childDirs)
 				{
@@ -146,6 +150,18 @@ namespace DevFlow.Finders.ViewModels
 			}
 
 			CurrentItems = items;
+		}
+		#endregion
+
+		#region UpButtonClick
+
+		private void UpButtonClick(RootModel current)
+		{
+			if (DirectorySupport.TryParent(current.FullPath, out string parent))
+			{
+				var root = new RootModel(0, Path.GetFileName(parent), RootIcon.Folder, parent, false, false);
+				RootChanged(root);
+			}
 		}
 		#endregion
 	}

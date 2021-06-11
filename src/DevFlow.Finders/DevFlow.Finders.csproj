@@ -71,8 +71,8 @@
   <ItemGroup>
     <Compile Include="Local\Api\MousePosition.cs" />
     <Compile Include="Local\Api\RootIcon.cs" />
+    <Compile Include="Local\Api\DirectorySupport.cs" />
     <Compile Include="Local\Api\ShellContextMenu.cs" />
-    <Compile Include="Local\Api\SystemPath.cs" />
     <Compile Include="Local\Enum\FileTypes.cs" />
     <Compile Include="Local\Model\FileData.cs" />
     <Compile Include="Local\Model\RootModel.cs" />
