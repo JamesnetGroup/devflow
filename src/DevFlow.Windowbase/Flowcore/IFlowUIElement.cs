@@ -1,6 +1,5 @@
 ﻿using DevFlow.Data.Menu;
 using DevFlow.Windowbase.Mvvm;
-using System.Windows;
 
 namespace DevFlow.Windowbase.Flowcore
 {

@@ -1,9 +1,9 @@
 ﻿using System.Windows;
-using DevFlow.Controls.Primitives;
+using DevFlow.LayoutSupport.Controls;
 
 namespace DevFlow.Main.Views
 {
-	public class EmptyView : Widget
+	public class EmptyView : Explorer
 	{
 		static EmptyView()
 		{

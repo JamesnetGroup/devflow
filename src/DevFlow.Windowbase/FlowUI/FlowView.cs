@@ -1,5 +1,4 @@
 ﻿using DevFlow.Data.Menu;
-using DevFlow.Windowbase.Flowcore;
 using DevFlow.Windowbase.Mvvm;
 using System;
 using System.ComponentModel;
@@ -9,43 +8,13 @@ using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-	public class FlowView : ContentControl, IFlowElement
+	public class FlowView : ContentControl
 	{
-		public Window Window { get; protected set; }
-		public Action<Window> Closed { get; set; }
-
-		public virtual void OnShow(MenuModel menu)
-		{
-		}
-
-		#region DependencyProperty
-
-		public static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.Register("MouseDownCommand", typeof(ICommand), typeof(FlowView));
-		#endregion
-
-		#region MouseDownCommand
-
-		public ICommand MouseDownCommand
-		{
-			get => (ICommand)GetValue(MouseDownCommandProperty);
-			set => SetValue(MouseDownCommandProperty, value);
-		}
-		#endregion
-
 		#region Constructor
 
 		public FlowView()
 		{
 			Loaded += FlowView_Loaded;
-		}
-		#endregion
-
-		#region UseMvvm
-
-		public IFlowElement UseViewModel(ObservableObject vm)
-		{
-			DataContext = vm;
-			return this;
 		}
 		#endregion
 
@@ -57,7 +26,7 @@ namespace DevFlow.Windowbase.Flowbase
 		}
 		#endregion
 
-		#region Loaded
+		#region FlowView_Loaded
 
 		private void FlowView_Loaded(object sender, RoutedEventArgs e)
 		{

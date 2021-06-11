@@ -31,6 +31,7 @@ namespace DevFlow.LayoutSupport.Controls
 
 		protected bool IsFixedSize;
 		protected MenuModel MenuInfo;
+		private List<ViewOptionModel> Options => FlowConfig.Config.ViewOptions;
 		#endregion
 
 		#region TitleTemplate
@@ -51,11 +52,6 @@ namespace DevFlow.LayoutSupport.Controls
 		}
 		#endregion
 
-		#region Options
-
-		public List<ViewOptionModel> Options => FlowConfig.Config.ViewOptions;
-		#endregion
-
 		#region Constructor
 
 		public Explorer()
@@ -63,7 +59,6 @@ namespace DevFlow.LayoutSupport.Controls
 			WindowStyle = WindowStyle.None;
 			ResizeMode = ResizeMode.CanResize;
 			AllowsTransparency = true;
-			////WindowChrome.SetWindowChrome(this, new WindowChrome { ResizeBorderThickness = new Thickness(1) });
 		}
 		#endregion
 
@@ -77,42 +72,30 @@ namespace DevFlow.LayoutSupport.Controls
 			}
 			if (GetTemplateChild("PART_DragBar") is DragBorder bar)
 			{
-				bar.MouseDown += Bar_MouseDown;
+				bar.MouseDown += WindowDragMove;
 			}
 		}
 		#endregion
 
-		private void Bar_MouseDown(object sender, MouseButtonEventArgs e)
-		{
-			if (e.LeftButton == MouseButtonState.Pressed)
-			{
-				GetWindow(this).DragMove();
-			}
-		}
+		#region OnShow
 
 		public override void OnShow(MenuModel menu)
 		{
 			MenuInfo = menu;
-
-			var options = FlowConfig.Config.ViewOptions;
-
-			ViewOptionModel option = (from q in FlowConfig.Config.ViewOptions
-									  where q.IconType == menu.IconType
-									  select q).FirstOrDefault();
-
-			if (option is ViewOptionModel view)
+			if (Options.FirstOrDefault(x=>x.IconType == menu.IconType) is ViewOptionModel option)
 			{
-				Left = view.LocX;
-				Top = view.LocY;
+				Left = option.LocX;
+				Top = option.LocY;
 
 				if (!IsFixedSize)
 				{
-					Width = view.Width;
-					Height = view.Height;
+					Width = option.Width;
+					Height = option.Height;
 				}
 			}
 			Show();
 		}
+		#endregion
 
 		#region OnClosed
 
@@ -120,6 +103,17 @@ namespace DevFlow.LayoutSupport.Controls
 		{
 			base.OnClosed(e);
 			FlowConfig.SaveLocation(MenuInfo, (int)Left, (int)Top, (int)ActualWidth, (int)ActualHeight);
+		}
+		#endregion
+
+		#region WindowDragMove
+
+		private void WindowDragMove(object sender, MouseButtonEventArgs e)
+		{
+			if (e.LeftButton == MouseButtonState.Pressed)
+			{
+				GetWindow(this).DragMove();
+			}
 		}
 		#endregion
 	}
