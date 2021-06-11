@@ -24,8 +24,11 @@ namespace DevFlow.Main.ViewModels
 {
 	public class MainBoxViewModel : ObservableObject
 	{
+		#region Variables
+
 		private readonly FlowTheme theme;
 		private readonly FlowCulture culture;
+		#endregion
 
 		#region Wallpaper
 

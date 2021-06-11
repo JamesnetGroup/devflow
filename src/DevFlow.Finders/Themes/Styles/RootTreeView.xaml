@@ -100,9 +100,9 @@
 				<ControlTemplate TargetType="{x:Type views:RootTreeView}">
 					<Border BorderThickness="0 0 1 0"
 							BorderBrush="#393939">
-						<flows:BasicScrollViewer>
+						<flows:BasicScroll>
 							<ItemsPresenter/>
-						</flows:BasicScrollViewer>
+						</flows:BasicScroll>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>

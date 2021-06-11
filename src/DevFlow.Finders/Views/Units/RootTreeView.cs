@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -6,26 +7,41 @@ namespace DevFlow.Finders.Views
 {
 	public class RootTreeView : TreeView
 	{
+		#region DefaultStyleKey
+
 		static RootTreeView()
 		{
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(RootTreeView), new FrameworkPropertyMetadata(typeof(RootTreeView)));
 		}
+		#endregion
+
+		#region DependencyProperties
 
 		public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(RootTreeView));
+		#endregion
+
+		#region ICommands
 
 		public ICommand SelectionCommand
 		{
 			get => (ICommand)GetValue(SelectionCommandProperty);
 			set => SetValue(SelectionCommandProperty, value);
 		}
+		#endregion
+
+		#region Constructor
 
 		public RootTreeView()
 		{
-			SelectedItemChanged += RootTreeView_SelectedItemChanged;
 		}
+		#endregion
 
-		private void RootTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+		#region OnSelectedItemChanged
+
+		protected override void OnSelectedItemChanged(RoutedPropertyChangedEventArgs<object> e)
 		{
+			base.OnSelectedItemChanged(e);
+
 			if (SelectedItem == null)
 			{
 				SelectionCommand.Execute(null);
@@ -35,5 +51,6 @@ namespace DevFlow.Finders.Views
 				SelectionCommand.Execute(SelectedItem);
 			}
 		}
+		#endregion
 	}
 }

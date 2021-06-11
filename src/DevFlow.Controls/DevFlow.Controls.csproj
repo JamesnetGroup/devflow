@@ -48,6 +48,7 @@
     <Compile Include="Extends\GeometryExtends.cs" />
     <Compile Include="Primitives\DragBorder.cs" />
     <Compile Include="Primitives\Icon.cs" />
+    <Compile Include="Primitives\MainWindow.cs" />
     <Compile Include="Primitives\Widget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

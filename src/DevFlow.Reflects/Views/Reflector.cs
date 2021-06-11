@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace DevFlow.Reflects.Views
 {
-	public class Reflector : Preview
+	public class Reflector : BasicWindow
 	{
 		static Reflector()
 		{

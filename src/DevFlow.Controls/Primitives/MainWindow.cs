@@ -2,21 +2,26 @@
 using DevFlow.Windowbase.Flowbase;
 using System.Windows;
 
-namespace DevFlow.LayoutSupport.Controls
+namespace DevFlow.Controls.Primitives
 {
 	public class MainWindow : FlowWindow
 	{
+		#region Constructor
+
 		public MainWindow()
 		{
 			WindowStyle = WindowStyle.None;
 			AllowsTransparency = true;
 			Topmost = true;
-			Loaded += MainView_Loaded;
-
-			PreviewMouseMove += MainView_MouseMove;
+			
+			Loaded += WindowLoaded;
+			PreviewMouseDown += WindowDragMove;
 		}
+		#endregion
 
-		private void MainView_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+		#region WindowDragMove
+
+		private void WindowDragMove(object sender, System.Windows.Input.MouseEventArgs e)
 		{
 			if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
 			{
@@ -27,16 +32,24 @@ namespace DevFlow.LayoutSupport.Controls
 				DragMove();
 			}
 		}
+		#endregion
 
-		private void MainView_Loaded(object sender, RoutedEventArgs e)
+		#region WindowLoaded
+
+		private void WindowLoaded(object sender, RoutedEventArgs e)
 		{
 			double width = System.Windows.SystemParameters.WorkArea.Width;
 			Left = (width - ActualWidth) / 2;
 			Top = 0;
 		}
+		#endregion
+
+		#region OnShow
 
 		public override void OnShow(MenuModel menu)
 		{
+			throw new System.NotImplementedException();
 		}
+		#endregion
 	}
 }

@@ -15,6 +15,8 @@ namespace DevFlow.Colors.ViewModels
 {
 	public class ColorSpoidViewModel : ObservableObject
 	{
+		#region Variables
+
 		private int _red;
 		private int _green;
 		private int _blue;
@@ -27,6 +29,7 @@ namespace DevFlow.Colors.ViewModels
 
 		private bool IsCaptureActivated;
 		private readonly PixelExtractWorker Capture;
+		#endregion
 
 		#region Commands
 

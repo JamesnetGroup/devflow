@@ -141,11 +141,11 @@
 		</Style.Triggers>
 	</Style>
 
-	<Style TargetType="{x:Type flows:BasicScrollViewer}">
+	<Style TargetType="{x:Type flows:BasicScroll}">
 		<Setter Property="CanContentScroll" Value="False"/>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type flows:BasicScrollViewer}">
+				<ControlTemplate TargetType="{x:Type flows:BasicScroll}">
 					<Grid Background="{TemplateBinding Background}">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition />

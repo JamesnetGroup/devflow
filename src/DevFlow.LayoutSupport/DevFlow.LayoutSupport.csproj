@@ -61,11 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\Styles\BasicScrollViewer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Styles\Palette.xaml">
+    <Page Include="Themes\Styles\BasicScroll.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -73,7 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\Styles\Preview.xaml">
+    <Page Include="Themes\Styles\BasicWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -83,14 +79,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\BasicScrollViewer.cs" />
+    <Compile Include="Controls\BasicScroll.cs" />
     <Compile Include="Controls\ColorSlider.cs" />
     <Compile Include="Controls\Explorer.cs" />
-    <Compile Include="Controls\Palette.cs" />
-    <Compile Include="Controls\DropImageCanvas.cs" />
     <Compile Include="Controls\FlowIcon.cs" />
-    <Compile Include="Controls\MainWindow.cs" />
-    <Compile Include="Controls\Preview.cs" />
+    <Compile Include="Controls\BasicWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

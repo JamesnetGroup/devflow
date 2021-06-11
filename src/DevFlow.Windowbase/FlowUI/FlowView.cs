@@ -1,10 +1,7 @@
-﻿using DevFlow.Data.Menu;
-using DevFlow.Windowbase.Mvvm;
-using System;
+﻿using DevFlow.Windowbase.Mvvm;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace DevFlow.Windowbase.Flowbase
 {

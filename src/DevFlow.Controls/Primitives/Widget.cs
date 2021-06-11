@@ -2,10 +2,13 @@
 
 namespace DevFlow.Controls.Primitives
 {
-	public class Widget : FlowView
+	public class Express : FlowView
 	{
-		public Widget()
+		#region Constructor
+
+		public Express()
 		{
 		}
+		#endregion
 	}
 }

@@ -11,11 +11,13 @@ namespace DevFlow.Finders.Views
 {
 	public class RootItemView : ListBox
 	{
+		#region DefaultStyleKey
+
 		static RootItemView()
 		{
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(RootItemView), new FrameworkPropertyMetadata(typeof(RootItemView)));
 		}
-
+		#endregion
 
 		#region DependencyProperty
 

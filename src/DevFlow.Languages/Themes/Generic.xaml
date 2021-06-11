@@ -36,7 +36,7 @@
 		</Setter>
 	</Style>
 
-    <Style TargetType="{x:Type views:Translator}" BasedOn="{StaticResource {x:Type flows:Preview}}">
+    <Style TargetType="{x:Type views:Translator}" BasedOn="{StaticResource {x:Type flows:BasicWindow}}">
         <Setter Property="Title" Value="{DynamicResource LANGUAGE_TITLE}"/>
         <Setter Property="SubTitle" Value="{DynamicResource LANGUAGE_SUBTITLE}"/>
         <Setter Property="ContentTemplate">

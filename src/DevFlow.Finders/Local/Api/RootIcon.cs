@@ -12,6 +12,8 @@ namespace DevFlow.Finders.Local.Api
 		internal static GeoIcon Document => GeoIcon.TextBox;
 		internal static GeoIcon Pictures => GeoIcon.Image;
 
+		#region Parse
+
 		internal static GeoIcon Parse(string file)
 		{
 			GeoIcon ext = GeoIcon.File;
@@ -30,5 +32,6 @@ namespace DevFlow.Finders.Local.Api
 			}
 			return ext;
 		}
+		#endregion
 	}
 }

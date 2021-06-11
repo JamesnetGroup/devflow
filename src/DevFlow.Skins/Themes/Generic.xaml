@@ -364,7 +364,7 @@
 		</Setter>
 	</Style>
 
-    <Style TargetType="{x:Type views:SwitchSkin}" BasedOn="{StaticResource {x:Type flows:Preview}}">
+    <Style TargetType="{x:Type views:SwitchSkin}" BasedOn="{StaticResource {x:Type flows:BasicWindow}}">
         <Setter Property="Title" Value="{DynamicResource THEME_TITLE}"/>
         <Setter Property="SubTitle" Value="{DynamicResource THEME_SUBTITLE}"/>
 		<Setter Property="Width" Value="800"/>

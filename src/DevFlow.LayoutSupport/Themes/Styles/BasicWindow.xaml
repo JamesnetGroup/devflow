@@ -25,7 +25,7 @@
 		</Setter>
 	</Style>
 	
-	<Style TargetType="{x:Type flows:Preview}">
+	<Style TargetType="{x:Type flows:BasicWindow}">
 		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
 		<Setter Property="WindowChrome.WindowChrome">
 			<Setter.Value>
@@ -34,7 +34,7 @@
 		</Setter>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type flows:Preview}">
+				<ControlTemplate TargetType="{x:Type flows:BasicWindow}">
 					<Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -48,7 +48,7 @@
 							</Grid.RowDefinitions>
                             <prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
 										      Padding="30 20 30 20" Background="Transparent" 
-                                              Tag="{Binding RelativeSource={RelativeSource AncestorType=flows:Preview}}">
+                                              Tag="{Binding RelativeSource={RelativeSource AncestorType=flows:BasicWindow}}">
 								<Grid>
 									<TextBlock Text="{TemplateBinding Title}" 
 											   Foreground="{DynamicResource BRUSH.FONT.H01}" 
