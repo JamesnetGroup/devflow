@@ -2,7 +2,7 @@
 
 namespace DevFlow.Designs
 {
-	public partial class DemoWindow : MainBox
+	public partial class DemoWindow : MainWindow
 	{
 		#region Constructor
 

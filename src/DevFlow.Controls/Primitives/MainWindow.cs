@@ -4,11 +4,11 @@ using System.Windows;
 
 namespace DevFlow.Controls.Primitives
 {
-	public class MainWindow : FlowWindow
+	public class SystemWindow : FlowWindow
 	{
 		#region Constructor
 
-		public MainWindow()
+		public SystemWindow()
 		{
 			WindowStyle = WindowStyle.None;
 			AllowsTransparency = true;

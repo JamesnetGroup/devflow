@@ -22,7 +22,7 @@ using System;
 
 namespace DevFlow.Main.ViewModels
 {
-	public class MainBoxViewModel : ObservableObject
+	public class MainViewModel : ObservableObject
 	{
 		#region Variables
 
@@ -57,7 +57,7 @@ namespace DevFlow.Main.ViewModels
 
 		#region Constructor
 
-		public MainBoxViewModel()
+		public MainViewModel()
 		{
 			Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
@@ -65,7 +65,7 @@ namespace DevFlow.Main.ViewModels
 			Menu = new QuickSlotViewModel(new RelayCommand<MenuModel>(MenuSelected));
 		}
 
-		public MainBoxViewModel(FlowTheme _theme, FlowCulture _culture) : this()
+		public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()
 		{
 			theme = _theme;
 			culture = _culture;
