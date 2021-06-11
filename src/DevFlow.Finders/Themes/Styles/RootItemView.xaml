@@ -310,7 +310,7 @@
 							<flows:FlowIcon x:Name="icon" Width="16" Height="16" IconType="{Binding IconType}" Fill="#DDDDDD" Margin="10 0 0 0"/>
 							<TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="10 0 6 0"/>
 							<TextBlock Grid.Column="2" Text="{Binding LastAccessTime}" Margin="6 0 6 0" Foreground="#CCCCCC" VerticalAlignment="Center"/>
-							<TextBlock Grid.Column="3" Text="{Binding FileSize, Converter={convt:FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
+							<TextBlock Grid.Column="3" Text="{Binding Length, Converter={convt:FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
                                        Foreground="#CCCCCC" Margin="6 0 10 0" VerticalAlignment="Center"/>
 						</Grid>
 					</Border>

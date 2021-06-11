@@ -56,8 +56,8 @@ namespace DevFlow.Finders.ViewModels
 
 		public FinderViewModel()
 		{
+			Roots = new();
 			RootSelectionCommand = new RelayCommand<RootModel>(RootChanged);
-			Roots = new ObservableCollection<RootModel>();
 			LoadRootDirectory();
 		}
 		#endregion
@@ -67,13 +67,13 @@ namespace DevFlow.Finders.ViewModels
 		private void LoadRootDirectory()
 		{
 			int depth = 0;
-			RootModel first = new(depth, "MY PC", GeoIcon.DesktopClassic, "", true, false);
+			RootModel first = new(depth, "MY PC", RootIcon.MyPC, "", true, false);
 
 			depth += 1;
 
-			RootModel down = new(depth, "Downloads", GeoIcon.ArrowDownBox, SystemDirectory.Downloads, false, true);
-			RootModel docs = new(depth, "Documents", GeoIcon.TextBox, SystemDirectory.Documents, false, false);
-			RootModel pics = new(depth, "Pictures", GeoIcon.Image, SystemDirectory.Pictures, false, false);
+			RootModel down = new(depth, "Downloads", RootIcon.Download, SystemDirectory.Downloads, false, true);
+			RootModel docs = new(depth, "Documents", RootIcon.Document, SystemDirectory.Documents, false, false);
+			RootModel pics = new(depth, "Pictures", RootIcon.Pictures, SystemDirectory.Pictures, false, false);
 
 			first.Children.Add(down);
 			first.Children.Add(docs);
@@ -106,9 +106,8 @@ namespace DevFlow.Finders.ViewModels
 					string fullPath = dir;
 					bool isExpanded = false;
 					bool isSelected = false;
-					GeoIcon icon = GeoIcon.Folder;
 
-					RootModel item = new(depth, Path.GetFileName(dir), icon, fullPath, isExpanded, isSelected);
+					RootModel item = new(depth, Path.GetFileName(dir), RootIcon.Folder, fullPath, isExpanded, isSelected);
 
 					current.Children.Add(item);
 				}
@@ -140,8 +139,9 @@ namespace DevFlow.Finders.ViewModels
 
 			foreach (string file in files)
 			{
-				icon = FileExtensions.FindExtIcon(file);
+				icon = RootConvert.FindExt(file);
 				RootModel item = new(depth, Path.GetFileName(file), icon, file, false, false);
+				item.Length = new FileInfo(file).Length;
 				items.Add(item);
 			}
 

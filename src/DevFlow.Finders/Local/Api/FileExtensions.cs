@@ -3,9 +3,9 @@ using System.IO;
 
 namespace DevFlow.Finders.Local.Api
 {
-	public class FileExtensions
+	public class RootConvert
 	{
-		internal static GeoIcon FindExtIcon(string file)
+		internal static GeoIcon FindExt(string file)
 		{
 			GeoIcon ext = GeoIcon.File;
 			switch (Path.GetExtension(file).ToUpper())

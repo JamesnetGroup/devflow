@@ -12,6 +12,7 @@ namespace DevFlow.Finders.Local.Model
 		public string FullPath { get; set; }
 		public int Depth { get; }
 		public string Name { get; set; }
+		public long Length { get; set; }
 		public bool IsExpanded
 		{
 			get => _isExpanded;
