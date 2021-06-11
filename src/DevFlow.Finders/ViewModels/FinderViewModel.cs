@@ -139,7 +139,7 @@ namespace DevFlow.Finders.ViewModels
 
 			foreach (string file in files)
 			{
-				icon = RootConvert.FindExt(file);
+				icon = RootIcon.Parse(file);
 				RootModel item = new(depth, Path.GetFileName(file), icon, file, false, false);
 				item.Length = new FileInfo(file).Length;
 				items.Add(item);

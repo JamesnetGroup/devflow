@@ -27,7 +27,7 @@ namespace DevFlow.Windowbase.Flowbase
 
 		#region Show
 
-		public abstract void Show(MenuModel menu);
+		public abstract void OnShow(MenuModel menu);
 		#endregion
 
 		#region OnDesignerMode

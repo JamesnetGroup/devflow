@@ -10,14 +10,19 @@ namespace DevFlow.Finders.Local.Model
 		private bool _isSelected;
 
 		public string FullPath { get; set; }
+
 		public int Depth { get; }
+
 		public string Name { get; set; }
+
 		public long Length { get; set; }
+
 		public bool IsExpanded
 		{
 			get => _isExpanded;
 			set { _isExpanded = value; OnPropertyChanged(); }
 		}
+
 		public bool IsSelected
 		{
 			get => _isSelected;
@@ -25,6 +30,7 @@ namespace DevFlow.Finders.Local.Model
 		}
 
 		public GeoIcon IconType { get; }
+
 		public ObservableCollection<RootModel> Children { get; private set; }
 
 		public RootModel(int depth, string name, GeoIcon icon, string fullPath, bool isExpanded, bool isSelected)

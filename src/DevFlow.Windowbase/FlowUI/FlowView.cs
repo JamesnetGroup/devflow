@@ -14,7 +14,7 @@ namespace DevFlow.Windowbase.Flowbase
 		public Window Window { get; protected set; }
 		public Action<Window> Closed { get; set; }
 
-		public virtual void Show(MenuModel menu)
+		public virtual void OnShow(MenuModel menu)
 		{
 		}
 

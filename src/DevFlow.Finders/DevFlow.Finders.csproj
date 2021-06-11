@@ -69,7 +69,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Local\Api\FileExtensions.cs" />
     <Compile Include="Local\Api\MousePosition.cs" />
     <Compile Include="Local\Api\RootIcon.cs" />
     <Compile Include="Local\Api\ShellContextMenu.cs" />

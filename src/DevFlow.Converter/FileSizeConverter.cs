@@ -9,7 +9,7 @@ namespace DevFlow.Converter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			value = value == null ? 0 : value;
+			value = value ?? 0;
 			string[] units = { "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
 			double size = long.Parse(value.ToString());
 			int unit = 0;

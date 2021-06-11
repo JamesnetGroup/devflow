@@ -35,7 +35,7 @@ namespace DevFlow.LayoutSupport.Controls
 			Top = 0;
 		}
 
-		public override void Show(MenuModel menu)
+		public override void OnShow(MenuModel menu)
 		{
 		}
 	}

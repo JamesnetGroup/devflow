@@ -4,9 +4,9 @@ using System.Windows;
 
 namespace DevFlow.Windowbase.Flowcore
 {
-	public interface IFlowElement : IInputElement
+	public interface IFlowElement
 	{
 		IFlowElement UseViewModel(ObservableObject vm);
-		void Show(MenuModel menu);
+		void OnShow(MenuModel menu);
 	}
 }

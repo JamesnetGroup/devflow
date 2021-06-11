@@ -39,7 +39,7 @@ namespace DevFlow.Controls.Primitives
 
 		#region Show
 
-		public override void Show(MenuModel menu)
+		public override void OnShow(MenuModel menu)
 		{
 			Window = new Window
 			{

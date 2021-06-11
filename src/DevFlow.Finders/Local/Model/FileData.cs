@@ -18,7 +18,7 @@ namespace DevFlow.Finders.Local.Model
 
 		public static FileData ParentDir(DirectoryInfo dir)
 		{
-			FileData parent = new FileData
+			FileData parent = new()
 			{
 				FileType = FileTypes.Parent,
 				FileName = "..",

@@ -88,11 +88,7 @@ namespace DevFlow.Main.ViewModels
 					case GeoIcon.Close: Environment.Exit(0); break;
 					default: content = new EmptyView(); break;
 				}
-
-				if (content != null)
-				{
-					content.Show(menu);
-				}
+				content.OnShow(menu);
 			}
 
 		}
