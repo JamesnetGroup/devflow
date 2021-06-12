@@ -1,10 +1,12 @@
 ﻿using DevFlow.Data;
+using DevFlow.Finders.Local.Api;
 using DevFlow.Windowbase.Mvvm;
 using System.Collections.ObjectModel;
+using System.IO;
 
 namespace DevFlow.Finders.Local.Model
 {
-	public class RootModel : ObservableData
+    public class RootModel : ObservableData
 	{
 		private bool _isExpanded;
 		private bool _isSelected;
@@ -43,5 +45,20 @@ namespace DevFlow.Finders.Local.Model
 			IsSelected = isSelected;
 			Children = new ObservableCollection<RootModel>();
 		}
-	}
+
+		public RootModel(string target, GeoIcon icon): this(0, Path.GetFileName(target), RootIcon.Folder, target, false, false)
+		{ 
+			
+		}
+
+        internal void AddRange(ObservableCollection<RootModel> rootModels)
+        {
+			Children.Clear();
+
+			foreach (var item in rootModels)
+			{
+				Children.Add(item);
+			}
+        }
+    }
 }

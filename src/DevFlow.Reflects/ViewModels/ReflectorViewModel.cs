@@ -4,8 +4,11 @@ namespace DevFlow.Reflects.ViewModels
 {
 	public class ReflectorViewModel : ObservableObject
 	{
-		public ReflectorViewModel()
+        #region Constructor
+
+        public ReflectorViewModel()
 		{
 		}
-	}
+        #endregion
+    }
 }

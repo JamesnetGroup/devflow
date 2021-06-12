@@ -3,13 +3,15 @@ using System.IO;
 
 namespace DevFlow.Finders.Local.Api
 {
-	public class DirectorySupport
+    internal class RootSupport
 	{
-		public static string Downloads => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @"Downloads");
-		public static string Documents => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-		public static string Pictures => Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+		internal static string Downloads => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @"Downloads");
+		internal static string Documents => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+		internal static string Pictures => Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
-		public static bool TryParent(string path, out string parentPath)
+        #region TryParent
+
+        internal static bool TryGetParentDirectory(string path, out string parentPath)
 		{
 			try
 			{
@@ -17,11 +19,12 @@ namespace DevFlow.Finders.Local.Api
 				parentPath = info.FullName;
 				return true;
 			}
-			catch (Exception ex)
-			{
+			catch (Exception)
+            {
 				parentPath = null;
 				return false;
 			}
 		}
+        #endregion
 	}
 }

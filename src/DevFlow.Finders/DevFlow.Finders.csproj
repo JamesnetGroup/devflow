@@ -74,8 +74,10 @@
     <Compile Include="Local\Api\DirectorySupport.cs" />
     <Compile Include="Local\Api\ShellContextMenu.cs" />
     <Compile Include="Local\Enum\FileTypes.cs" />
+    <Compile Include="Local\Enum\MoveType.cs" />
     <Compile Include="Local\Model\FileData.cs" />
     <Compile Include="Local\Model\RootModel.cs" />
+    <Compile Include="Local\Work\LocationWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
