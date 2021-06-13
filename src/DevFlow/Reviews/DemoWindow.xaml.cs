@@ -2,14 +2,14 @@
 
 namespace DevFlow.Designs
 {
-	public partial class DemoWindow : MainWindow
-	{
-		#region Constructor
+    public partial class DemoWindow : MainWindow
+    {
+        #region Constructor
 
-		public DemoWindow()
-		{
-			InitializeComponent();
-		}
-		#endregion
-	}
+        public DemoWindow()
+        {
+            InitializeComponent();
+        }
+        #endregion
+    }
 }

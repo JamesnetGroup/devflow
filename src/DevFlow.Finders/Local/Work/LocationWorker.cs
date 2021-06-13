@@ -14,31 +14,35 @@ namespace DevFlow.Finders.Local.Work
     internal class LocationWorker
     {
         private readonly Stack<string> _history;
-        private FinderViewModel _vm;
+        private FinderViewModel ViewModel;
+
+        private RootModel CurrentDirectory => ViewModel.Current;
 
         #region LocationWorker
 
         internal LocationWorker(FinderViewModel vm)
         {
             _history = new();
-            _vm = vm;
+            ViewModel = vm;
         }
         #endregion
 
         #region Load
 
-        internal void Load(RootModel current)
+        internal void LoadContent()
         {
-            current.AddRange(GetChildDirectories(current));
-            _vm.CurrentItems = GetFilesAndDirectories(current);
+            IList<RootModel> child = GetChildDirectories(CurrentDirectory);
+            IList<RootModel> items = GetFilesAndDirectories(CurrentDirectory);
+            CurrentDirectory.AddRange(child);
+            ViewModel.CurrentItems.AddRange(items);
         }
         #endregion
 
-        #region RootSelection
+        #region ChangeDirectory
 
-        internal void RootSelection(RootModel root)
+        internal void ChangeDirectory(RootModel root)
         {
-            _vm.CurrentRoot = root;
+            ViewModel.Current = root;
         }
         #endregion
 
@@ -60,42 +64,43 @@ namespace DevFlow.Finders.Local.Work
 
         #region TryEnqueue
 
-        internal void TryEnqueue(MoveType type, RootModel current)
+        internal void TryEnqueue(MoveType type)
         {
             bool isEmptyHistory = _history.Count == 0;
-            bool isDiffHistory = _history.Count > 0 && _history.Peek() != current.FullPath;
+            bool isDiffHistory = _history.Count > 0 && _history.Peek() != CurrentDirectory.FullPath;
             bool isUseType = type != MoveType.Undo;
 
             if (isUseType && (isEmptyHistory || isDiffHistory))
             {
-                _history.Push(current.FullPath);
+                _history.Push(CurrentDirectory.FullPath);
             }
         }
+
         #endregion
 
-        #region Pop
+        #region GetPopByPeek
 
-        private string Pop()
+        private string GetPopByPeek()
         {
             _history.Pop();
             return _history.Peek();
         }
+
+        #endregion
+        #region IsCanMoveUp
         #endregion
 
-        #region Up
+        #region IsCanMoveUp
 
-        internal bool IsCanMoveUp
+        internal bool TryGotoParent()
         {
-            get
+            bool result = false;
+            if (TryParent(CurrentDirectory, out RootModel parent))
             {
-                bool result = false;
-                if (TryParent(_vm.CurrentRoot, out RootModel parent))
-                {
-                    RootSelection(parent);
-                    result = true;
-                }
-                return result;
+                ChangeDirectory(parent);
+                result = true;
             }
+            return result;
         }
         #endregion
 
@@ -114,13 +119,21 @@ namespace DevFlow.Finders.Local.Work
             return result;
         }
 
-        internal bool IsCanMoveUndo
+        #endregion
+
+        #region TryGotoUndo
+
+        internal bool TryGotoUndo()
         {
-            get
+            bool result = false;
+            if (_history.Count > 1)
             {
-                RootSelection(GetUndoItem());
-                return true;
+                string target = GetPopByPeek();
+                RootModel root = new RootModel(target, RootIcon.Folder);
+                ChangeDirectory(root);
+                result = true;
             }
+            return result;
         }
         #endregion
 
@@ -156,7 +169,7 @@ namespace DevFlow.Finders.Local.Work
         {
             if (type == MoveType.Undo || type == MoveType.Up)
             {
-                if (TryFind(_vm.CurrentRoot, _vm.Roots, out RootModel item))
+                if (TryFind(CurrentDirectory, ViewModel.Roots, out RootModel item))
                 {
                     item.IsSelected = true;
                 }
@@ -197,14 +210,6 @@ namespace DevFlow.Finders.Local.Work
         }
         #endregion
 
-        #region GetUndoRoot 
-
-        internal RootModel GetUndoItem()
-        {
-            return new RootModel(Pop(), RootIcon.Folder);
-        }
-        #endregion
-
         #region GetFilesAndDirectories
 
         internal List<RootModel> GetFilesAndDirectories(RootModel current)
@@ -236,7 +241,7 @@ namespace DevFlow.Finders.Local.Work
 
         #region GetChildDirectores
 
-        internal ObservableCollection<RootModel> GetChildDirectories(RootModel current)
+        internal List<RootModel> GetChildDirectories(RootModel current)
         {
             try
             {
@@ -254,7 +259,7 @@ namespace DevFlow.Finders.Local.Work
 
                     child.Add(item);
                 }
-                return new(child);
+                return child;
             }
             catch (Exception ex)
             {

@@ -2,13 +2,13 @@
 
 namespace DevFlow.Reflects.ViewModels
 {
-	public class ReflectorViewModel : ObservableObject
-	{
+    public class ReflectorViewModel : ObservableObject
+    {
         #region Constructor
 
         public ReflectorViewModel()
-		{
-		}
+        {
+        }
         #endregion
     }
 }

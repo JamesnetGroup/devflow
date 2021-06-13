@@ -4,30 +4,30 @@ using DevFlow.Main.ViewModels;
 
 namespace DevFlow.Main.Views
 {
-	public class MainWindow : SystemWindow
-	{
-		#region DefaultStyleKey
+    public class MainWindow : SystemWindow
+    {
+        #region DefaultStyleKey
 
-		static MainWindow()
-		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(MainWindow), new FrameworkPropertyMetadata(typeof(MainWindow)));
-		}
-		#endregion
+        static MainWindow()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MainWindow), new FrameworkPropertyMetadata(typeof(MainWindow)));
+        }
+        #endregion
 
-		#region Constructor
+        #region Constructor
 
-		public MainWindow()
-		{
+        public MainWindow()
+        {
 
-		}
-		#endregion
+        }
+        #endregion
 
-		#region OnDesignerMode
+        #region OnDesignerMode
 
-		protected override void OnDesignerMode()
-		{
-			DataContext = new MainViewModel();
-		}
-		#endregion
-	}
+        protected override void OnDesignerMode()
+        {
+            DataContext = new MainViewModel();
+        }
+        #endregion
+    }
 }
