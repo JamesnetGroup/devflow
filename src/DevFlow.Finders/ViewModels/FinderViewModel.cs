@@ -1,4 +1,5 @@
-﻿using DevFlow.Finders.Local.Enum;
+﻿using DevFlow.Finders.Local.Api;
+using DevFlow.Finders.Local.Enum;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
 using DevFlow.Windowbase.Mvvm;
@@ -14,7 +15,7 @@ namespace DevFlow.Finders.ViewModels
 
         private ObservableCollection<RootModel> _roots;
         private List<RootModel> _currentItems;
-        private RootModel _current;
+        private RootModel _currentDirectory;
 
         private readonly LocationWorker LocWorker;
         #endregion
@@ -36,6 +37,17 @@ namespace DevFlow.Finders.ViewModels
         }
         #endregion
 
+        public ObservableCollection<RootModel> History { get; }
+
+        #region CurrentDirectory
+
+        public RootModel CurrentDirectory
+        {
+            get => _currentDirectory;
+            set { _currentDirectory = value; OnPropertyChanged(); }
+        }
+        #endregion
+
         #region CurrentItems
 
         public List<RootModel> CurrentItems
@@ -45,26 +57,19 @@ namespace DevFlow.Finders.ViewModels
         }
         #endregion
 
-        #region Current
-
-        public RootModel Current
-        {
-            get => _current;
-            set { _current = value; OnPropertyChanged(); }
-        }
-        #endregion
-
         #region Constructor
 
         public FinderViewModel()
         {
             LocWorker = new(this);
-            Roots = LocWorker.GetRootList();
+            Roots = LocWorker.GetTreeList();
             CurrentItems = new();
+            History = new();
 
             RootSelectionCommand = new RelayCommand<RootModel>(RootSelected);
-            UpCommand = new RelayCommand<RootModel>((p) => GotoParent(MoveType.Up));
-            UndoCommand = new RelayCommand<RootModel>((p) => GotoUndo(MoveType.Undo));
+            UpCommand = new RelayCommand<RootModel>((p) => TryGotoParent(MoveType.Up), LocWorker.UseAllowUp);
+            UndoCommand = new RelayCommand<RootModel>((p) => TryGotoUndo(MoveType.Undo), LocWorker.UseAllowUndo);
+            RedoCommand = new RelayCommand<RootModel>((p) => TryGotoRedo(MoveType.Redo), LocWorker.UseAllowRedo);
         }
         #endregion
 
@@ -72,8 +77,15 @@ namespace DevFlow.Finders.ViewModels
 
         private void RootSelected(RootModel root)
         {
-            Current = root;
-            ChangeDirectory(MoveType.Click);
+            if (RootSupport.CheckAccess(root.FullPath))
+            {
+                CurrentDirectory = root;
+                ChangeDirectory(MoveType.Click);
+            }
+            else
+            {
+                root.IsDenied = true;
+            }
         }
         #endregion
 
@@ -83,26 +95,37 @@ namespace DevFlow.Finders.ViewModels
         {
             LocWorker.TryEnqueue(type);
             LocWorker.LoadContent();
-            LocWorker.ForceFocus(type);
+            LocWorker.SetFocusTreeItem(type);
         }
         #endregion
 
-        #region GotoParent
+        #region TryGotoParent
 
-        private void GotoParent(MoveType type)
+        private void TryGotoParent(MoveType type)
         {
-            if (LocWorker.TryGotoParent())
+            if (LocWorker.GotoParent())
             {
                 ChangeDirectory(type);
             }
         }
         #endregion
 
-        #region GotoUndo
+        #region TryGotoUndo
 
-        private void GotoUndo(MoveType type)
+        private void TryGotoUndo(MoveType type)
         {
-            if (LocWorker.TryGotoUndo())
+			if (LocWorker.GotoUndo())
+            {
+                ChangeDirectory(type);
+            }
+        }
+        #endregion
+
+        #region TryGotoRedo
+
+        private void TryGotoRedo(MoveType type)
+        {
+            if (LocWorker.GotoRedo())
             {
                 ChangeDirectory(type);
             }

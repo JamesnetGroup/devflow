@@ -131,7 +131,7 @@
 						</Trigger>
 						<Trigger Property="Tag" Value="REDO">
 							<Setter TargetName="icon" Property="IconType" Value="ArrowRightBold"/>
-							<Setter TargetName="border" Property="CornerRadius" Value="0 4 4 0"/>
+							<Setter TargetName="border" Property="CornerRadius" Value="0 0 0 0"/>
 						</Trigger>
 						<Trigger Property="Tag" Value="UP">
 							<Setter TargetName="icon" Property="IconType" Value="ArrowUpBold"/>
@@ -148,6 +148,7 @@
 		<Setter Property="Content" Value="Up"/>
 		<Setter Property="ToolTip" Value="Up"/>
 		<Setter Property="Command" Value="{Binding UpCommand}"/>
+		<Setter Property="CommandParameter" Value="{Binding CurrentDirectory}"/>
 		<Setter Property="IsEnabled" Value="{Binding IsUpEnabled}"/>
 	</Style>
 
@@ -205,6 +206,55 @@
 		</Setter>
 	</Style>
 
+
+	<Style TargetType="{x:Type ToggleButton}" x:Key="BTN.HISTORY">
+		<Setter Property="Width" Value="26"/>
+		<Setter Property="Height" Value="26"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ToggleButton}">
+					<ControlTemplate.Resources>
+					</ControlTemplate.Resources>
+					<Border x:Name="border"
+							CornerRadius="0 4 4 0"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+						<Grid>
+							<flows:FlowIcon x:Name="icon" 
+											Width="15"
+											Height="15"
+											IconType="ChevronDown"
+											Fill="#DDDDDD"/>
+							<Popup Placement="Bottom" IsOpen="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}"
+								  StaysOpen="False">
+								<Border>
+									<ListBox ItemsSource="{Binding History}" DisplayMemberPath="FileName"/>
+								</Border>
+							</Popup>
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="icon" Property="Fill" Value="#FFFFFF"/>
+							<Setter TargetName="border" Property="Opacity" Value="1"/>
+							<Setter TargetName="border" Property="Background" Value="#333333"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="border" Property="Background" Value="#3665B3"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="border" Property="Opacity" Value="0.2"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
 	<Style x:Key="BTN.MENU" TargetType="{x:Type Button}">
 		<Setter Property="HorizontalAlignment" Value="Right"/>
 		<Setter Property="Margin" Value="0 0 0 0"/>
@@ -350,8 +400,6 @@
 					<Grid>
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="*"/>
 						</Grid.ColumnDefinitions>
 
@@ -362,12 +410,14 @@
 								Margin="6 4 6 4"
 								BorderBrush="#222222">
 							<StackPanel Orientation="Horizontal">
-                                <Button Grid.Column="0" Style="{StaticResource BTN.UP}" Command="{Binding UpCommand}" CommandParameter="{Binding Current}"/>
+                                <Button Grid.Column="0" Style="{StaticResource BTN.UP}"/>
 								<Button Grid.Column="1" Style="{StaticResource BTN.UNDO}"/>
 								<Button Grid.Column="2" Style="{StaticResource BTN.REDO}"/>
+								<ToggleButton Style="{StaticResource BTN.HISTORY}"/>
 							</StackPanel>
+
 						</Border>
-						<TextBox Grid.Column="3" Style="{StaticResource TXT.PATH}" Text="{Binding Current.FullPath}" Margin="0 4 20 4"/>
+						<TextBox Grid.Column="1" Style="{StaticResource TXT.PATH}" Text="{Binding CurrentDirectory.FullPath}" Margin="0 4 20 4"/>
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
@@ -377,6 +427,8 @@
 	
 	<Style TargetType="{x:Type views:Finder}" BasedOn="{StaticResource {x:Type flows:Explorer}}">
 		<Setter Property="Title" Value="DevFinder"/>
+		<Setter Property="SnapsToDevicePixels" Value="True"/>
+		<Setter Property="UseLayoutRounding" Value="True"/>
 		<Setter Property="TitleTemplate">
 			<Setter.Value>
 				<DataTemplate>
@@ -387,7 +439,10 @@
 		<Setter Property="ContentTemplate">
 			<Setter.Value>
 				<DataTemplate>
-					<Border BorderThickness="0 1 0 0" BorderBrush="#333333" UseLayoutRounding="True" SnapsToDevicePixels="True">
+					<Border BorderThickness="0 1 0 0" 
+							BorderBrush="#333333" 
+							UseLayoutRounding="True" 
+							SnapsToDevicePixels="True">
 						<Grid>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="300"/>

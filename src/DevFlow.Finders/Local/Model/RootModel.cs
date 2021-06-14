@@ -11,12 +11,18 @@ namespace DevFlow.Finders.Local.Model
     {
         private bool _isExpanded;
         private bool _isSelected;
+        private bool _isDenied;
 
         public string FullPath { get; set; }
 
         public int Depth { get; }
 
         public string Name { get; set; }
+
+        public string FileName
+        {
+			get { return Path.GetFileName(FullPath) == "" ? FullPath : Path.GetFileName(FullPath); }
+        }
 
         public long Length { get; set; }
 
@@ -30,6 +36,12 @@ namespace DevFlow.Finders.Local.Model
         {
             get => _isSelected;
             set { _isSelected = value; OnPropertyChanged(); }
+        }
+
+        public bool IsDenied
+        {
+            get => _isDenied;
+            set { _isDenied = value; OnPropertyChanged(); }
         }
 
         public GeoIcon IconType { get; }

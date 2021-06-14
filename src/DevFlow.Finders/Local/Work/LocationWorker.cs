@@ -8,41 +8,27 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace DevFlow.Finders.Local.Work
 {
     internal class LocationWorker
     {
         private readonly Stack<string> _history;
+        private readonly Stack<string> _undoHistory;
         private FinderViewModel ViewModel;
 
-        private RootModel CurrentDirectory => ViewModel.Current;
+        private RootModel CurrentDirectory => ViewModel.CurrentDirectory;
 
-        #region LocationWorker
+        // Internal Methods.
+
+        #region Constructor
 
         internal LocationWorker(FinderViewModel vm)
         {
             _history = new();
+            _undoHistory = new();
             ViewModel = vm;
-        }
-        #endregion
-
-        #region Load
-
-        internal void LoadContent()
-        {
-            IList<RootModel> child = GetChildDirectories(CurrentDirectory);
-            IList<RootModel> items = GetFilesAndDirectories(CurrentDirectory);
-            CurrentDirectory.AddRange(child);
-            ViewModel.CurrentItems.AddRange(items);
-        }
-        #endregion
-
-        #region ChangeDirectory
-
-        internal void ChangeDirectory(RootModel root)
-        {
-            ViewModel.Current = root;
         }
         #endregion
 
@@ -54,11 +40,39 @@ namespace DevFlow.Finders.Local.Work
         }
         #endregion
 
+        #region UseAllowRedo
+
+        internal bool UseAllowRedo(RootModel p)
+        {
+            return _undoHistory.Count > 0;
+        }
+        #endregion
+
         #region UseAllowUp
 
         internal bool UseAllowUp(RootModel p)
         {
             return RootSupport.TryGetParentDirectory(p?.FullPath, out _);
+        }
+        #endregion
+
+        #region LoadContent
+
+        internal void LoadContent()
+        {
+            IList<RootModel> child = GetChildDirectories(CurrentDirectory);
+            IList<RootModel> items = GetFilesAndDirectories(CurrentDirectory);
+
+            CurrentDirectory.AddRange(child);
+            ViewModel.CurrentItems = new(items);
+        }
+        #endregion
+
+        #region ChangeDirectory
+
+        internal void Change(RootModel root)
+        {
+            ViewModel.CurrentDirectory = root;
         }
         #endregion
 
@@ -73,40 +87,124 @@ namespace DevFlow.Finders.Local.Work
             if (isUseType && (isEmptyHistory || isDiffHistory))
             {
                 _history.Push(CurrentDirectory.FullPath);
+                ViewModel.History.Add(new RootModel(CurrentDirectory.FullPath, GeoIcon.Folder));
             }
         }
 
-        #endregion
+		#endregion
 
-        #region GetPopByPeek
+		#region GotoParent
 
-        private string GetPopByPeek()
-        {
-            _history.Pop();
-            return _history.Peek();
-        }
-
-        #endregion
-        #region IsCanMoveUp
-        #endregion
-
-        #region IsCanMoveUp
-
-        internal bool TryGotoParent()
+		internal bool GotoParent()
         {
             bool result = false;
             if (TryParent(CurrentDirectory, out RootModel parent))
             {
-                ChangeDirectory(parent);
+                _undoHistory.Clear();
+                Change(parent);
+                result = true;
+            }
+            return result;
+        }
+		#endregion
+
+		#region GotoUndo
+
+		internal bool GotoUndo()
+        {
+            bool result = false;
+            if (UseAllowUndo(null))
+            {
+                string target = PopAndPeek();
+                RootModel root = new RootModel(target, RootIcon.Folder);
+                Change(root);
                 result = true;
             }
             return result;
         }
         #endregion
 
+        #region GotoRedo
+
+        internal bool GotoRedo()
+        {
+            bool result = false;
+            if (UseAllowRedo(null))
+            {
+                string target = _undoHistory.Pop();
+                RootModel root = new RootModel(target, RootIcon.Folder);
+                Change(root);
+                result = true;
+            }
+            return result;
+        }
+        #endregion
+
+        #region SetFocusTreeItem
+
+        internal void SetFocusTreeItem(MoveType type)
+        {
+            if (type == MoveType.Undo || type == MoveType.Up || type== MoveType.Redo)
+            {
+                if (TryFind(CurrentDirectory, ViewModel.Roots, out RootModel item))
+                {
+                    item.IsSelected = true;
+                }
+            }
+        }
+        #endregion
+
+        #region GetTreeList
+
+        internal ObservableCollection<RootModel> GetTreeList()
+        {
+            ObservableCollection<RootModel> roots = new();
+            int depth = 0;
+            //RootModel first = new(depth, "MY PC", RootIcon.MyPC, "", true, false);
+
+            depth += 1;
+
+            RootModel down = new(depth, "Downloads", RootIcon.Download, RootSupport.Downloads, false, true);
+            RootModel docs = new(depth, "Documents", RootIcon.Document, RootSupport.Documents, false, false);
+            RootModel pics = new(depth, "Pictures", RootIcon.Pictures, RootSupport.Pictures, false, false);
+
+            roots.Add(down);
+            roots.Add(docs);
+            roots.Add(pics);
+
+            foreach (DriveInfo device in DriveInfo.GetDrives())
+            {
+                string discName = device.RootDirectory.FullName.Replace(@"\", "");
+                string rootName = string.Format("{0} ({1})", device.VolumeLabel, discName);
+                string fullPath = device.Name;
+                GeoIcon icon = GeoIcon.MicrosoftWindows;
+
+                roots.Add(new(depth, rootName, icon, fullPath, false, false));
+            }
+
+            return roots;
+        }
+        #endregion
+
+        // Private Methods.
+
+        #region PopAndPeek
+
+        private string PopAndPeek()
+        {
+
+            ViewModel.History.Remove(ViewModel.History.Last());
+
+            var pop = _history.Pop();
+            _undoHistory.Push(pop);
+            return _history.Peek();
+        }
+
+        #endregion
+
         #region TryParent
 
-        internal bool TryParent(RootModel current, out RootModel root)
+        private bool TryParent(RootModel current, out RootModel root)
         {
             root = null;
             bool result = false;
@@ -119,22 +217,6 @@ namespace DevFlow.Finders.Local.Work
             return result;
         }
 
-        #endregion
-
-        #region TryGotoUndo
-
-        internal bool TryGotoUndo()
-        {
-            bool result = false;
-            if (_history.Count > 1)
-            {
-                string target = GetPopByPeek();
-                RootModel root = new RootModel(target, RootIcon.Folder);
-                ChangeDirectory(root);
-                result = true;
-            }
-            return result;
-        }
         #endregion
 
         #region TryFind
@@ -163,56 +245,9 @@ namespace DevFlow.Finders.Local.Work
         }
         #endregion
 
-        #region ForceFocus
-
-        internal void ForceFocus(MoveType type)
-        {
-            if (type == MoveType.Undo || type == MoveType.Up)
-            {
-                if (TryFind(CurrentDirectory, ViewModel.Roots, out RootModel item))
-                {
-                    item.IsSelected = true;
-                }
-            }
-        }
-        #endregion
-
-        #region GetRootList
-
-        internal ObservableCollection<RootModel> GetRootList()
-        {
-            ObservableCollection<RootModel> roots = new();
-            int depth = 0;
-            RootModel first = new(depth, "MY PC", RootIcon.MyPC, "", true, false);
-
-            depth += 1;
-
-            RootModel down = new(depth, "Downloads", RootIcon.Download, RootSupport.Downloads, false, true);
-            RootModel docs = new(depth, "Documents", RootIcon.Document, RootSupport.Documents, false, false);
-            RootModel pics = new(depth, "Pictures", RootIcon.Pictures, RootSupport.Pictures, false, false);
-
-            first.Children.Add(down);
-            first.Children.Add(docs);
-            first.Children.Add(pics);
-
-            foreach (DriveInfo device in DriveInfo.GetDrives())
-            {
-                string discName = device.RootDirectory.FullName.Replace(@"\", "");
-                string rootName = string.Format("{0} ({1})", device.VolumeLabel, discName);
-                string fullPath = device.Name;
-                GeoIcon icon = GeoIcon.MicrosoftWindows;
-
-                first.Children.Add(new(depth, rootName, icon, fullPath, false, false));
-            }
-            roots.Add(first);
-
-            return roots;
-        }
-        #endregion
-
         #region GetFilesAndDirectories
 
-        internal List<RootModel> GetFilesAndDirectories(RootModel current)
+        private List<RootModel> GetFilesAndDirectories(RootModel current)
         {
             int depth = current.Depth + 1;
             GeoIcon icon = GeoIcon.Folder;
@@ -241,7 +276,7 @@ namespace DevFlow.Finders.Local.Work
 
         #region GetChildDirectores
 
-        internal List<RootModel> GetChildDirectories(RootModel current)
+        private List<RootModel> GetChildDirectories(RootModel current)
         {
             try
             {

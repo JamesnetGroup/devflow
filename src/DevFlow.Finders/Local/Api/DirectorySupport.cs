@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Security;
+using System.Security.Permissions;
 
 namespace DevFlow.Finders.Local.Api
 {
@@ -19,12 +21,25 @@ namespace DevFlow.Finders.Local.Api
                 parentPath = info.FullName;
                 return true;
             }
-            catch (Exception)
+            catch
             {
                 parentPath = null;
                 return false;
             }
         }
         #endregion
+
+        internal static bool CheckAccess(string filename)
+        {
+            try
+            {
+                var d = Directory.GetDirectories(filename);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

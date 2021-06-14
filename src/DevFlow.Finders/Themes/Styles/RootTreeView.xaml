@@ -28,7 +28,7 @@
 	<Style TargetType="{x:Type TreeViewItem}" x:Key="TRVI">
 		<Setter Property="AlternationCount" Value="2"/>
 		<Setter Property="ItemsSource" Value="{Binding Children}"/>
-		<Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
+		<Setter Property="IsExpanded" Value="{Binding IsExpanded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 		<Setter Property="IsSelected" Value="{Binding IsSelected}"/>
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -43,7 +43,8 @@
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
-							<Border Padding="{Binding Depth, Converter={convt:LeftMarginConverter}}"
+							<Border x:Name="item" 
+									Padding="{Binding Depth, Converter={convt:LeftMarginConverter}}"
 									Background="{TemplateBinding Background}"
 									BorderThickness="0 0 0 0"
 									BorderBrush="#313131">
@@ -55,6 +56,7 @@
 									</Grid.ColumnDefinitions>
 									<ToggleButton Grid.Column="0" 
 												  x:Name="expand"
+												  IsChecked="{Binding IsExpanded}"
 												  Foreground="{TemplateBinding Foreground}"
 												  Style="{StaticResource EXPANDER}"/>
 									<flows:FlowIcon x:Name="icon" 
@@ -64,6 +66,7 @@
 													Margin="4 2 4 2" 
 													Fill="{TemplateBinding Foreground}"/>
 									<TextBlock Grid.Row="0" Grid.Column="2" 
+											   x:Name="text"
 										       Foreground="{TemplateBinding Foreground}"
 										       Text="{Binding Name}"
 											   Margin="0 0 30 0"
@@ -80,9 +83,16 @@
 							<Setter TargetName="icon" Property="Fill" Value="#FFEFB13A"/>
 							<Setter Property="Background" Value="#313131"/>
 						</DataTrigger>
+						<DataTrigger Binding="{Binding IsDenied}" Value="True">
+							<Setter TargetName="icon" Property="Opacity" Value="0.3"/>
+							<Setter TargetName="text" Property="Opacity" Value="0.3"/>
+						</DataTrigger>
+						<!--<DataTrigger Binding="{Binding ElementName=expand, Path=IsChecked}" Value="True">
+							<Setter Property="IsExpanded" Value="True"/>
+							<Setter Property="Background" Value="#313131"/>
+						</DataTrigger>-->
 						<Trigger Property="IsExpanded" Value="True">
 							<Setter TargetName="items" Property="Visibility" Value="Visible"/>
-							<Setter TargetName="expand" Property="IsChecked" Value="True"/>
 						</Trigger>
 						<Trigger Property="IsSelected" Value="True">
 							<Setter Property="Background" Value="#FFE26285"/>
