@@ -93,6 +93,9 @@ namespace DevFlow.Controls.Primitives
                 case GeoIcon.FileZIP: icon.Data = IconData.FILE_ZIP.ToGeometry(); break;
                 case GeoIcon.FileCheck: icon.Data = IconData.FILE_CHECK.ToGeometry(); break;
                 case GeoIcon.FileWord: icon.Data = IconData.FILE_WORD.ToGeometry(); break;
+                case GeoIcon.AlphaR: icon.Data = IconData.ALPHA_R.ToGeometry(); break;
+                case GeoIcon.AlphaG: icon.Data = IconData.ALPHA_G.ToGeometry(); break;
+                case GeoIcon.AlphaB: icon.Data = IconData.ALPHA_B.ToGeometry(); break;
                 case GeoIcon.None:
                     break;
                 default:

@@ -4,6 +4,14 @@
 					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport"
 					xmlns:cnvt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
 
+	<Style TargetType="{x:Type flows:FlowIcon}" x:Key="ICON.RGB">
+		<Setter Property="Fill" Value="#AACDCDCD"/>
+		<Setter Property="Width" Value="20"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="Margin" Value="0 0 0 0"/>
+	</Style>
+
 	<Style TargetType="{x:Type Button}" x:Key="BTN.SPOID">
 		<Setter Property="Command" Value="{Binding CaptureCommand}"/>
 		<Setter Property="CommandParameter" Value="COPY"/>
@@ -137,6 +145,31 @@
 		<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=TextBlock}, Path=Text}"/>
 	</Style>
 
+	<Style TargetType="{x:Type ContentControl}" x:Key="RGB.BASE">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ContentControl}">
+					<StackPanel Orientation="Horizontal">
+						<flows:FlowIcon x:Name="icon" Style="{StaticResource ICON.RGB}"/>
+						<TextBlock Foreground="#FFFFFF" FontSize="13" FontWeight="Bold" VerticalAlignment="Top" Margin="5 0 0 0"
+								   Text="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Content}"/>
+					</StackPanel>
+					<ControlTemplate.Triggers>
+						<Trigger Property="Tag" Value="R">
+							<Setter TargetName="icon" Property="IconType" Value="AlphaR"/>
+						</Trigger>
+						<Trigger Property="Tag" Value="G">
+							<Setter TargetName="icon" Property="IconType" Value="AlphaG"/>
+						</Trigger>
+						<Trigger Property="Tag" Value="B">
+							<Setter TargetName="icon" Property="IconType" Value="AlphaB"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
 	<Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Explorer}}">
 		<Setter Property="Title" Value="{DynamicResource SPOID_TITLE}"/>
 		<Setter Property="TitleTemplate">
@@ -172,9 +205,12 @@
 							</UniformGrid>
 
 							<UniformGrid Grid.Row="3" Grid.Column="1" Columns="1" Margin="110 30 0 0">
-								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=red, Path=Value, StringFormat={}R: {0:N0}}"/>
+								<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=red, Path=Value}" Tag="R"/>
+								<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=green, Path=Value}" Tag="G"/>
+								<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=blue, Path=Value}" Tag="B"/>
+								<!--<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=red, Path=Value, StringFormat={}R: {0:N0}}"/>
 								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=green, Path=Value, StringFormat={}G: {0:N0}}"/>
-								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=blue, Path=Value, StringFormat={}B: {0:N0}}"/>
+								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=blue, Path=Value, StringFormat={}B: {0:N0}}"/>-->
 							</UniformGrid>
 
                         </Grid>

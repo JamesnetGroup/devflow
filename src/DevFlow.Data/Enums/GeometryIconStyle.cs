@@ -45,7 +45,10 @@
         FilePDF,
         FileZIP,
         FileCheck,
-        FileWord
+        FileWord,
+        AlphaR,
+        AlphaG,
+        AlphaB
     }
 }
 
