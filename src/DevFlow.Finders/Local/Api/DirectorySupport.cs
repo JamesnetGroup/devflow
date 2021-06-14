@@ -1,11 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Security;
-using System.Security.Permissions;
 
 namespace DevFlow.Finders.Local.Api
 {
-    internal class RootSupport
+	internal class RootSupport
     {
         internal static string Downloads => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @"Downloads");
         internal static string Documents => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

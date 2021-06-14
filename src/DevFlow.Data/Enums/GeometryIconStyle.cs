@@ -48,8 +48,9 @@
         FileWord,
         AlphaR,
         AlphaG,
-        AlphaB
-    }
+        AlphaB,
+		FolderOpen
+	}
 }
 
 

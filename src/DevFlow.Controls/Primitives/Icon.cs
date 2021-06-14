@@ -68,6 +68,7 @@ namespace DevFlow.Controls.Primitives
                 case GeoIcon.ContentPaste: icon.Data = IconData.CONTENTPASTE.ToGeometry(); break;
                 case GeoIcon.CheckBold: icon.Data = IconData.CHECKBOLD.ToGeometry(); break;
                 case GeoIcon.FolderOpenOutline: icon.Data = IconData.FOLDER_OPEN_OUTLINE.ToGeometry(); break;
+                case GeoIcon.FolderOpen: icon.Data = IconData.FOLDER_OPEN.ToGeometry(); break;
                 case GeoIcon.FolderTable: icon.Data = IconData.FOLDER_TABLE.ToGeometry(); break;
                 case GeoIcon.Maximize: icon.Data = IconData.MAXIMIZE.ToGeometry(); break;
                 case GeoIcon.Resize: icon.Data = IconData.RESIZE.ToGeometry(); break;

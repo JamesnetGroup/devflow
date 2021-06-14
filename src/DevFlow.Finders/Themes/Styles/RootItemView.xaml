@@ -305,10 +305,8 @@
 								<ColumnDefinition SharedSizeGroup="C" Width="Auto"/>
 								<ColumnDefinition SharedSizeGroup="D" Width="80"/>
 							</Grid.ColumnDefinitions>
-							<Image Grid.Column="0" Source="{Binding IconSource}" Stretch="Uniform" x:Name="imgFile" Width="16" Height="16" Visibility="Collapsed"
-                                   SnapsToDevicePixels="True" UseLayoutRounding="True" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
 							<flows:FlowIcon x:Name="icon" Width="16" Height="16" IconType="{Binding IconType}" Fill="#DDDDDD" Margin="10 0 0 0"/>
-							<TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="10 0 6 0"/>
+							<TextBlock Grid.Column="1" Text="{Binding Name}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="10 0 6 0"/>
 							<TextBlock Grid.Column="2" Text="{Binding LastAccessTime}" Margin="6 0 6 0" Foreground="#CCCCCC" VerticalAlignment="Center"/>
 							<TextBlock Grid.Column="3" Text="{Binding Length, Converter={convt:FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
                                        Foreground="#CCCCCC" Margin="6 0 10 0" VerticalAlignment="Center"/>

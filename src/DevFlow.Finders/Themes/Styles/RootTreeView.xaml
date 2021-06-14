@@ -87,16 +87,19 @@
 							<Setter TargetName="icon" Property="Opacity" Value="0.3"/>
 							<Setter TargetName="text" Property="Opacity" Value="0.3"/>
 						</DataTrigger>
-						<!--<DataTrigger Binding="{Binding ElementName=expand, Path=IsChecked}" Value="True">
-							<Setter Property="IsExpanded" Value="True"/>
-							<Setter Property="Background" Value="#313131"/>
-						</DataTrigger>-->
 						<Trigger Property="IsExpanded" Value="True">
 							<Setter TargetName="items" Property="Visibility" Value="Visible"/>
 						</Trigger>
 						<Trigger Property="IsSelected" Value="True">
 							<Setter Property="Background" Value="#FFE26285"/>
 						</Trigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IconType}" Value="Folder"/>
+								<Condition Binding="{Binding IsExpanded}" Value="True"/>
+							</MultiDataTrigger.Conditions>
+							<Setter TargetName="icon" Property="IconType" Value="FolderOpen"/>
+						</MultiDataTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
