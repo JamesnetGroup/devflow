@@ -1,18 +1,14 @@
-﻿using DevFlow.Data;
-using DevFlow.Finders.Local.Api;
-using DevFlow.Finders.Local.Enum;
+﻿using DevFlow.Finders.Local.Enum;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
 using DevFlow.Windowbase.Mvvm;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Windows.Input;
 
 namespace DevFlow.Finders.ViewModels
 {
-    public class FinderViewModel : ObservableObject
+	public class FinderViewModel : ObservableObject
     {
         #region Variables 
 
@@ -64,6 +60,7 @@ namespace DevFlow.Finders.ViewModels
         {
             LocWorker = new(this);
             Roots = LocWorker.GetRootList();
+            CurrentItems = new();
 
             RootSelectionCommand = new RelayCommand<RootModel>(RootSelected);
             UpCommand = new RelayCommand<RootModel>((p) => GotoParent(MoveType.Up));
