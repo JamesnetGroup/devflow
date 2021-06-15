@@ -47,11 +47,11 @@
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
-							<Setter Property="Background" Value="#3665b3"/>
-							<Setter Property="Foreground" Value="#ffffff"/>
+							<Setter Property="Background" Value="#3665B3"/>
+							<Setter Property="Foreground" Value="#FFFFFF"/>
 						</Trigger>
 						<Trigger Property="IsPressed" Value="True">
-							<Setter Property="Background" Value="#c75050"/>
+							<Setter Property="Background" Value="#C75050"/>
 							<Setter Property="Foreground" Value="#FFFFFF"/>
 						</Trigger>
 						<Trigger Property="IsEnabled" Value="False">
@@ -65,7 +65,7 @@
 
 	<Style TargetType="{x:Type Button}" x:Key="BTN.CLOSE">
 		<Setter Property="Background" Value="Transparent"/>
-		<Setter Property="Foreground" Value="#ffffff"/>
+		<Setter Property="Foreground" Value="#FFFFFF"/>
 		<Setter Property="Width" Value="35"/>
 		<Setter Property="Height" Value="35"/>
 		<Setter Property="Margin" Value="0"/>
@@ -77,11 +77,11 @@
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
-							<Setter Property="Background" Value="#e04343"/>
-							<Setter Property="Foreground" Value="#ffffff"/>
+							<Setter Property="Background" Value="#E04343"/>
+							<Setter Property="Foreground" Value="#FFFFFF"/>
 						</Trigger>
 						<Trigger Property="IsPressed" Value="True">
-							<Setter Property="Background" Value="#b43838"/>
+							<Setter Property="Background" Value="#B43838"/>
 							<Setter Property="Foreground" Value="#FFFFFF"/>
 						</Trigger>
 						<Trigger Property="IsEnabled" Value="False">

@@ -14,11 +14,11 @@ namespace DevFlow.Finders.Local.Work
 {
     internal class LocationWorker
     {
-        private readonly Stack<string> _history;
-        private readonly Stack<string> _undoHistory;
+        private readonly Stack<string> SavedStack;
+        private readonly Stack<string> SavedStackBackup;
         private FinderViewModel ViewModel;
 
-        private RootModel CurrentDirectory => ViewModel.CurrentDirectory;
+        private FileModel CurrentDirectory => ViewModel.CurrentDirectory;
 
         // Internal Methods.
 
@@ -26,31 +26,31 @@ namespace DevFlow.Finders.Local.Work
 
         internal LocationWorker(FinderViewModel vm)
         {
-            _history = new();
-            _undoHistory = new();
+            SavedStack = new();
+            SavedStackBackup = new();
             ViewModel = vm;
         }
         #endregion
 
         #region UseAllowundo
 
-        internal bool UseAllowUndo(RootModel p)
+        internal bool UseAllowUndo(FileModel p)
         {
-            return _history.Count > 1;
+            return SavedStack.Count > 1;
         }
         #endregion
 
         #region UseAllowRedo
 
-        internal bool UseAllowRedo(RootModel p)
+        internal bool UseAllowRedo(FileModel p)
         {
-            return _undoHistory.Count > 0;
+            return SavedStackBackup.Count > 0;
         }
         #endregion
 
         #region UseAllowUp
 
-        internal bool UseAllowUp(RootModel p)
+        internal bool UseAllowUp(FileModel p)
         {
             return RootSupport.TryGetParentDirectory(p?.FullPath, out _);
         }
@@ -60,7 +60,7 @@ namespace DevFlow.Finders.Local.Work
 
         internal void LoadContent()
         {
-            IList<RootModel> child = GetChildDirectories(CurrentDirectory);
+            IList<FileModel> child = GetChildDirectories(CurrentDirectory);
             IList<RootModel> items = GetFilesAndDirectories(CurrentDirectory);
 
             CurrentDirectory.AddRange(child);
@@ -80,13 +80,13 @@ namespace DevFlow.Finders.Local.Work
 
         internal void TryEnqueue(MoveType type)
         {
-            bool isEmptyHistory = _history.Count == 0;
-            bool isDiffHistory = _history.Count > 0 && _history.Peek() != CurrentDirectory.FullPath;
+            bool isEmptyHistory = SavedStack.Count == 0;
+            bool isDiffHistory = SavedStack.Count > 0 && SavedStack.Peek() != CurrentDirectory.FullPath;
             bool isUseType = type != MoveType.Undo;
 
             if (isUseType && (isEmptyHistory || isDiffHistory))
             {
-                _history.Push(CurrentDirectory.FullPath);
+                SavedStack.Push(CurrentDirectory.FullPath);
 
                 AddHistory(CurrentDirectory.FullPath);
             }
@@ -101,7 +101,7 @@ namespace DevFlow.Finders.Local.Work
             bool result = false;
             if (TryParent(CurrentDirectory, out RootModel parent))
             {
-                _undoHistory.Clear();
+                SavedStackBackup.Clear();
                 Change(parent);
                 result = true;
             }
@@ -116,7 +116,7 @@ namespace DevFlow.Finders.Local.Work
             bool result = false;
             if (UseAllowUndo(null))
             {
-                string target = PopAndPeek();
+                string target = UndoHistory();
                 RootModel root = new RootModel(target, RootIcon.Folder);
                 Change(root);
                 result = true;
@@ -132,7 +132,7 @@ namespace DevFlow.Finders.Local.Work
             bool result = false;
             if (UseAllowRedo(null))
             {
-                string target = _undoHistory.Pop();
+                string target = SavedStackBackup.Pop();
                 RootModel root = new RootModel(target, RootIcon.Folder);
                 Change(root);
                 result = true;
@@ -157,9 +157,9 @@ namespace DevFlow.Finders.Local.Work
 
         #region GetTreeList
 
-        internal ObservableCollection<RootModel> GetTreeList()
+        internal List<FileModel> GetTreeList()
         {
-            ObservableCollection<RootModel> roots = new();
+            List<FileModel> roots = new();
             int depth = 0;
             //RootModel first = new(depth, "MY PC", RootIcon.MyPC, "", true, false);
 
@@ -180,7 +180,7 @@ namespace DevFlow.Finders.Local.Work
                 string fullPath = device.Name;
                 GeoIcon icon = GeoIcon.MicrosoftWindows;
 
-                roots.Add(new(depth, rootName, icon, fullPath, false, false));
+                roots.Add(new RootModel(depth, rootName, icon, fullPath, false, false));
             }
 
             return roots;
@@ -189,21 +189,22 @@ namespace DevFlow.Finders.Local.Work
 
         // Private Methods..
 
-        #region PopAndPeek
+        #region UndoHistory
 
-        private string PopAndPeek()
+        private string UndoHistory()
         {
-            RemoveHistory();
+			string target = SavedStack.Pop();
+            SavedStackBackup.Push(target);
+			string peek = SavedStack.Peek();
 
-            var pop = _history.Pop();
-            _undoHistory.Push(pop);
-            return _history.Peek();
+            RemoveHistory();
+            return peek;
         }
 		#endregion
 
 		#region TryParent
 
-		private bool TryParent(RootModel current, out RootModel root)
+		private bool TryParent(FileModel current, out RootModel root)
         {
             root = null;
             bool result = false;
@@ -220,11 +221,11 @@ namespace DevFlow.Finders.Local.Work
 
         #region TryFind
 
-        private bool TryFind(RootModel current, IList<RootModel> roots, out RootModel root)
+        private bool TryFind(FileModel current, IList<FileModel> roots, out RootModel root)
         {
             RootModel find = null;
 
-            void Find(RootModel current, IList<RootModel> roots)
+            void Find(FileModel current, IList<FileModel> roots)
             {
                 foreach (RootModel item in roots)
                 {
@@ -246,7 +247,7 @@ namespace DevFlow.Finders.Local.Work
 
         #region GetFilesAndDirectories
 
-        private List<RootModel> GetFilesAndDirectories(RootModel current)
+        private List<RootModel> GetFilesAndDirectories(FileModel current)
         {
             int depth = current.Depth + 1;
             GeoIcon icon = GeoIcon.Folder;
@@ -275,11 +276,11 @@ namespace DevFlow.Finders.Local.Work
 
         #region GetChildDirectores
 
-        private List<RootModel> GetChildDirectories(RootModel current)
+        private List<FileModel> GetChildDirectories(FileModel current)
         {
             try
             {
-                List<RootModel> child = new();
+                List<FileModel> child = new();
 
                 string[] childDirs = Directory.GetDirectories(current.FullPath);
                 foreach (string dir in childDirs)
@@ -309,6 +310,8 @@ namespace DevFlow.Finders.Local.Work
         {
             HistoryFileModel history = new HistoryFileModel(CurrentDirectory.FullPath, GeoIcon.Folder);
             ViewModel.History.Insert(0, history);
+
+            ViewModel.CurrentHistory = history;
         }
 		#endregion
 
@@ -316,7 +319,11 @@ namespace DevFlow.Finders.Local.Work
 
 		private void RemoveHistory()
         {
-            ViewModel.History.Remove(ViewModel.History.First());
+            if (ViewModel.History.First() is HistoryFileModel target)
+            {
+                ViewModel.History.Remove(target);
+                ViewModel.CurrentHistory = ViewModel.History.First();
+            }
         }
 		#endregion
 	}

@@ -49,7 +49,8 @@
         AlphaR,
         AlphaG,
         AlphaB,
-		FolderOpen
+		FolderOpen,
+		Check
 	}
 }
 

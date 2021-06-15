@@ -3,6 +3,7 @@ using DevFlow.Finders.Local.Enum;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
 using DevFlow.Windowbase.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -13,9 +14,10 @@ namespace DevFlow.Finders.ViewModels
     {
         #region Variables 
 
-        private ObservableCollection<RootModel> _roots;
+        private ObservableCollection<FileModel> _roots;
         private List<RootModel> _currentItems;
-        private RootModel _currentDirectory;
+        private FileModel _currentDirectory;
+        private HistoryFileModel _currentHistory;
 
         private readonly LocationWorker LocWorker;
         #endregion
@@ -30,30 +32,32 @@ namespace DevFlow.Finders.ViewModels
 
         #region Roots 
 
-        public ObservableCollection<RootModel> Roots
+        public ObservableCollection<FileModel> Roots
         {
             get => _roots;
             set { _roots = value; OnPropertyChanged(); }
         }
-		#endregion
-
-		#region History
-
-		public ObservableCollection<HistoryFileModel> History { get; }
-		#endregion
-
-		#region CurrentDirectory
-
-		public RootModel CurrentDirectory
+        public FileModel CurrentDirectory
         {
             get => _currentDirectory;
             set { _currentDirectory = value; OnPropertyChanged(); }
         }
         #endregion
 
-        #region CurrentItems
+		#region History
 
-        public List<RootModel> CurrentItems
+		public ObservableCollection<HistoryFileModel> History { get; }
+
+        public HistoryFileModel CurrentHistory
+        {
+            get => _currentHistory;
+            set { _currentHistory = value; OnPropertyChanged(); HistoryBack(value); }
+        }
+		#endregion
+
+		#region CurrentItems
+
+		public List<RootModel> CurrentItems
         {
             get => _currentItems;
             set { _currentItems = value; OnPropertyChanged(); }
@@ -65,20 +69,32 @@ namespace DevFlow.Finders.ViewModels
         public FinderViewModel()
         {
             LocWorker = new(this);
-            Roots = LocWorker.GetTreeList();
+            Roots = new(LocWorker.GetTreeList());
             CurrentItems = new();
             History = new();
 
             RootSelectionCommand = new RelayCommand<RootModel>(RootSelected);
-            UpCommand = new RelayCommand<RootModel>((p) => TryGotoParent(MoveType.Up), LocWorker.UseAllowUp);
-            UndoCommand = new RelayCommand<RootModel>((p) => TryGotoUndo(MoveType.Undo), LocWorker.UseAllowUndo);
-            RedoCommand = new RelayCommand<RootModel>((p) => TryGotoRedo(MoveType.Redo), LocWorker.UseAllowRedo);
+            UpCommand = new RelayCommand<FileModel>((p) => TryGotoParent(MoveType.Up), LocWorker.UseAllowUp);
+            UndoCommand = new RelayCommand<FileModel>((p) => TryGotoUndo(MoveType.Undo), LocWorker.UseAllowUndo);
+            RedoCommand = new RelayCommand<FileModel>((p) => TryGotoRedo(MoveType.Redo), LocWorker.UseAllowRedo);
         }
-        #endregion
+		#endregion
 
-        #region RootSelected
+		#region HistoryBack
 
-        private void RootSelected(RootModel root)
+		private void HistoryBack(HistoryFileModel value)
+        {
+            if (CurrentDirectory.FullPath != value.FullPath)
+            {
+                CurrentDirectory = value;
+                ChangeDirectory(MoveType.Click);
+            }
+        }
+		#endregion
+
+		#region RootSelected
+
+		private void RootSelected(RootModel root)
         {
             if (RootSupport.CheckAccess(root.FullPath))
             {

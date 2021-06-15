@@ -12,7 +12,6 @@ namespace DevFlow.Finders.Local.Model
         private bool _isDenied;
 
 
-        public int Depth { get; }
 
         public long Length { get; set; }
 
@@ -28,7 +27,7 @@ namespace DevFlow.Finders.Local.Model
             set { _isDenied = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection<RootModel> Children { get; private set; }
+        public ObservableCollection<FileModel> Children { get; private set; }
 
         public RootModel(int depth, string name, GeoIcon icon, string fullPath, bool isExpanded, bool isSelected)
         {
@@ -38,7 +37,7 @@ namespace DevFlow.Finders.Local.Model
             IconType = icon;
             IsExpanded = isExpanded;
             IsSelected = isSelected;
-            Children = new ObservableCollection<RootModel>();
+            Children = new ObservableCollection<FileModel>();
         }
 
         public RootModel(string target, GeoIcon icon) : this(0, Path.GetFileName(target), RootIcon.Folder, target, false, false)
@@ -46,8 +45,8 @@ namespace DevFlow.Finders.Local.Model
 
         }
 
-        internal void AddRange(IList<RootModel> rootModels)
-        {
+		internal override void AddRange(IList<FileModel> rootModels)
+		{
             Children.Clear();
 
             foreach (var item in rootModels)
@@ -55,5 +54,5 @@ namespace DevFlow.Finders.Local.Model
                 Children.Add(item);
             }
         }
-    }
+	}
 }
