@@ -89,10 +89,9 @@
 									  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
 
 						<Popup Placement="Bottom"
-							   HorizontalOffset="10"
 							   IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
 							   StaysOpen="False" PopupAnimation="Fade">
-							<Border Background="#333333" BorderThickness="1" BorderBrush="#222222">
+							<Border Background="#474747" BorderThickness="1" BorderBrush="#222222">
 								<ItemsPresenter/>
 							</Border>
 						</Popup>
@@ -102,13 +101,13 @@
 		</Setter>
 	</Style>
 </ResourceDictionary>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+

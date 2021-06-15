@@ -87,7 +87,8 @@ namespace DevFlow.Finders.Local.Work
             if (isUseType && (isEmptyHistory || isDiffHistory))
             {
                 _history.Push(CurrentDirectory.FullPath);
-                ViewModel.History.Add(new RootModel(CurrentDirectory.FullPath, GeoIcon.Folder));
+
+                AddHistory(CurrentDirectory.FullPath);
             }
         }
 
@@ -192,19 +193,17 @@ namespace DevFlow.Finders.Local.Work
 
         private string PopAndPeek()
         {
-
-            ViewModel.History.Remove(ViewModel.History.Last());
+            RemoveHistory();
 
             var pop = _history.Pop();
             _undoHistory.Push(pop);
             return _history.Peek();
         }
+		#endregion
 
-        #endregion
+		#region TryParent
 
-        #region TryParent
-
-        private bool TryParent(RootModel current, out RootModel root)
+		private bool TryParent(RootModel current, out RootModel root)
         {
             root = null;
             bool result = false;
@@ -303,5 +302,16 @@ namespace DevFlow.Finders.Local.Work
             }
         }
         #endregion
+
+        private void AddHistory(string fullPath)
+        {
+            HistoryFileModel history = new HistoryFileModel(CurrentDirectory.FullPath, GeoIcon.Folder);
+            ViewModel.History.Insert(0, history);
+        }
+
+        private void RemoveHistory()
+        {
+            ViewModel.History.Remove(ViewModel.History.First());
+        }
     }
 }

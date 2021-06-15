@@ -35,13 +35,16 @@ namespace DevFlow.Finders.ViewModels
             get => _roots;
             set { _roots = value; OnPropertyChanged(); }
         }
-        #endregion
+		#endregion
 
-        public ObservableCollection<RootModel> History { get; }
+		#region History
 
-        #region CurrentDirectory
+		public ObservableCollection<HistoryFileModel> History { get; }
+		#endregion
 
-        public RootModel CurrentDirectory
+		#region CurrentDirectory
+
+		public RootModel CurrentDirectory
         {
             get => _currentDirectory;
             set { _currentDirectory = value; OnPropertyChanged(); }

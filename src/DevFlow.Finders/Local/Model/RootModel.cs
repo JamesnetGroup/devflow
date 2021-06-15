@@ -1,28 +1,18 @@
 ﻿using DevFlow.Data;
 using DevFlow.Finders.Local.Api;
-using DevFlow.Windowbase.Mvvm;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 
 namespace DevFlow.Finders.Local.Model
 {
-    public class RootModel : ObservableData
+	public class RootModel : FileModel
     {
         private bool _isExpanded;
-        private bool _isSelected;
         private bool _isDenied;
 
-        public string FullPath { get; set; }
 
         public int Depth { get; }
-
-        public string Name { get; set; }
-
-        public string FileName
-        {
-			get { return Path.GetFileName(FullPath) == "" ? FullPath : Path.GetFileName(FullPath); }
-        }
 
         public long Length { get; set; }
 
@@ -32,19 +22,11 @@ namespace DevFlow.Finders.Local.Model
             set { _isExpanded = value; OnPropertyChanged(); }
         }
 
-        public bool IsSelected
-        {
-            get => _isSelected;
-            set { _isSelected = value; OnPropertyChanged(); }
-        }
-
         public bool IsDenied
         {
             get => _isDenied;
             set { _isDenied = value; OnPropertyChanged(); }
         }
-
-        public GeoIcon IconType { get; }
 
         public ObservableCollection<RootModel> Children { get; private set; }
 
