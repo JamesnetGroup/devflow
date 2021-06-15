@@ -46,7 +46,7 @@
 								<RowDefinition Height="*"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
-                            <prims:DragBorder x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
+                            <prims:DraggableBar x:Name="PART_DragBar" Grid.Row="0" Margin="0 0 0 0"
 										      Padding="30 20 30 20" Background="Transparent" 
                                               Tag="{Binding RelativeSource={RelativeSource AncestorType=flows:BasicWindow}}">
 								<Grid>
@@ -56,7 +56,7 @@
 											   HorizontalAlignment="Left"/>
 									<Button x:Name="PART_CloseButton" Style="{StaticResource CLOSE}"/>
 								</Grid>
-							</prims:DragBorder>
+							</prims:DraggableBar>
                             <Border BorderThickness="0 1 0 0" Grid.Row="1" Margin="30 0 30 0"
                                     BorderBrush="{DynamicResource BRUSH.BD.BLINE}"/>
 

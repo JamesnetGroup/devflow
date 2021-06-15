@@ -70,7 +70,7 @@ namespace DevFlow.LayoutSupport.Controls
             {
                 btn.Click += (s, e) => Close();
             }
-            if (GetTemplateChild("PART_DragBar") is DragBorder bar)
+            if (GetTemplateChild("PART_DragBar") is DraggableBar bar)
             {
                 bar.MouseDown += WindowDragMove;
             }

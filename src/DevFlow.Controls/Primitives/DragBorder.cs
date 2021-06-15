@@ -2,7 +2,7 @@
 
 namespace DevFlow.Controls.Primitives
 {
-    public class DragBorder : Border
+    public class DraggableBar : Border
     {
     }
 }

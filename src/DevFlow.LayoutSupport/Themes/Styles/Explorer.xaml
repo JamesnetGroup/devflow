@@ -3,61 +3,17 @@
 					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls"
 					xmlns:prims="clr-namespace:DevFlow.Controls.Primitives;assembly=DevFlow.Controls">
 
-
-	<LinearGradientBrush x:Key="LGB.BAR" StartPoint="0.5, 0" EndPoint="0.5, 1">
-		<GradientStop Color="#101010" Offset="0.0" />
-		<GradientStop Color="#252525" Offset="1.0" />
-	</LinearGradientBrush>
-
-	<Style TargetType="{x:Type prims:Icon}" x:Key="ICON.MINIMIZE">
-		<Setter Property="IconType" Value="Minimize"/>
-		<Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"/>
-		<Setter Property="HorizontalAlignment" Value="Center"/>
-		<Setter Property="Margin" Value="10 10 10 10"/>
-		<Setter Property="Width" Value="15"/>
-		<Setter Property="Height" Value="15"/>
-	</Style>
-
-	<Style TargetType="{x:Type prims:Icon}" x:Key="ICON.MAXIMIZE">
-		<Setter Property="IconType" Value="Maximize"/>
-		<Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"/>
-		<Setter Property="Margin" Value="10 10 10 10"/>
-		<Setter Property="Width" Value="15"/>
-		<Setter Property="Height" Value="15"/>
-	</Style>
-
-	<Style TargetType="{x:Type prims:Icon}" x:Key="ICON.TITLE">
-		<Setter Property="IconType" Value="FolderTable"/>
-		<Setter Property="Fill" Value="#FFFFFF"/>
-		<Setter Property="Margin" Value="10 10 6 10"/>
-		<Setter Property="Width" Value="18"/>
-		<Setter Property="Height" Value="18"/>
-	</Style>
-
-	<Style TargetType="{x:Type prims:Icon}" x:Key="IN.RESIZE">
-		<Setter Property="IconType" Value="Resize"/>
-		<Setter Property="HorizontalAlignment" Value="Center"/>
-		<Setter Property="VerticalAlignment" Value="Center"/>
-		<Setter Property="Data" Value="{StaticResource GEO.RESIZE}"/>
-		<Setter Property="Fill" Value="#AAAAAA"/>
-		<Setter Property="Width" Value="15"/>
-		<Setter Property="Height" Value="15"/>
-	</Style>
-
-	<Style TargetType="{x:Type Button}" x:Key="IN.MINIMIZE">
+	<Style TargetType="{x:Type Button}" x:Key="BTN.MIN">
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Foreground" Value="#DDDDDD"/>
 		<Setter Property="Margin" Value="0"/>
+		<Setter Property="Padding" Value="10"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<ControlTemplate.Resources>
-						<Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-							<Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Background}"/>
-						</Style>
-					</ControlTemplate.Resources>
-					<Border Style="{StaticResource IN.BORDER}">
-						<flows:FlowIcon Style="{StaticResource ICON.MINIMIZE}"/>
+					<Border Background="{TemplateBinding Background}"
+							Padding="{TemplateBinding Padding}">
+						<flows:FlowIcon IconType="Minimize" Fill="{TemplateBinding Foreground}"/>
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
@@ -77,20 +33,17 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type Button}" x:Key="IN.MAXIMIZE">
+	<Style TargetType="{x:Type Button}" x:Key="BTN.MAX">
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Foreground" Value="#DDDDDD"/>
 		<Setter Property="Margin" Value="0"/>
+		<Setter Property="Padding" Value="10"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<ControlTemplate.Resources>
-						<Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-							<Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Background}"/>
-						</Style>
-					</ControlTemplate.Resources>
-					<Border Style="{StaticResource IN.BORDER}">
-						<flows:FlowIcon Style="{StaticResource ICON.MAXIMIZE}"/>
+					<Border Background="{TemplateBinding Background}"
+							Padding="{TemplateBinding Padding}">
+						<flows:FlowIcon IconType="Maximize" Fill="{TemplateBinding Foreground}"/>
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
@@ -110,7 +63,7 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type Button}" x:Key="IN.CLOSE">
+	<Style TargetType="{x:Type Button}" x:Key="BTN.CLOSE">
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Foreground" Value="#ffffff"/>
 		<Setter Property="Width" Value="35"/>
@@ -120,7 +73,7 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
 					<Border Background="{TemplateBinding Background}">
-						<flows:FlowIcon IconType="Close" Fill="{TemplateBinding Foreground}" Width="15" Height="15"/>
+						<flows:FlowIcon IconType="Close" Fill="{TemplateBinding Foreground}"/>
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
@@ -140,57 +93,62 @@
 		</Setter>
 	</Style>
 
+	<Style TargetType="{x:Type prims:DraggableBar}" x:Key="BAR.DRAGGABLE">
+		<Setter Property="Grid.ColumnSpan" Value="4"/>
+		<Setter Property="Background" Value="#222222"/>
+	</Style>
+
 	<Style TargetType="{x:Type flows:Explorer}">
 		<Setter Property="Background" Value="#252525"/>
-		<Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="BorderBrush" Value="#141414"/>
+		<Setter Property="SnapsToDevicePixels" Value="True"/>
+		<Setter Property="UseLayoutRounding" Value="True"/>
 		<Setter Property="MinWidth" Value="200"/>
 		<Setter Property="MinHeight" Value="200"/>
 		<Setter Property="WindowChrome.WindowChrome">
 			<Setter.Value>
-				<WindowChrome CaptionHeight="0" CornerRadius="0" GlassFrameThickness="0" NonClientFrameEdges="None" ResizeBorderThickness="5" UseAeroCaptionButtons="False" />
+				<WindowChrome CaptionHeight="0" 
+							  CornerRadius="0" 
+							  GlassFrameThickness="0"
+							  NonClientFrameEdges="None" 
+							  ResizeBorderThickness="5" 
+							  UseAeroCaptionButtons="False"/>
 			</Setter.Value>
 		</Setter>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type flows:Explorer}">
-					<ControlTemplate.Resources>
-						<Style TargetType="{x:Type TextBlock}" x:Key="IN.TITLE">
-							<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=flows:Explorer}, Path=Title}"/>
-							<Setter Property="VerticalAlignment" Value="Center"/>
-							<Setter Property="Margin" Value="0 0 0 0"/>
-							<Setter Property="Foreground" Value="#FFFFFF"/>
-							<Setter Property="FontSize" Value="11.5"/>
-						</Style>
-						<Style TargetType="{x:Type StackPanel}" x:Key="IN.LEFT">
-							<Setter Property="Orientation" Value="Horizontal"/>
-							<Setter Property="HorizontalAlignment" Value="Left"/>
-						</Style>
-						<Style TargetType="{x:Type StackPanel}" x:Key="IN.RIGHT">
-							<Setter Property="Orientation" Value="Horizontal"/>
-							<Setter Property="HorizontalAlignment" Value="Right"/>
-							<Setter Property="VerticalAlignment" Value="Top"/>
-						</Style>
-					</ControlTemplate.Resources>
-					<Grid Background="{TemplateBinding Background}">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="*"/>
-						</Grid.RowDefinitions>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*"/>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
-						</Grid.ColumnDefinitions>
-						<prims:DragBorder x:Name="PART_DragBar" Grid.ColumnSpan="4" Background="#222222"/>
-
-						<ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding TitleTemplate}"/>
-						<Button Grid.Column="1" Style="{StaticResource IN.MINIMIZE}"/>
-						<Button Grid.Column="2" Style="{StaticResource IN.MAXIMIZE}"/>
-						<Button Grid.Column="3" x:Name="PART_CloseButton" Style="{StaticResource IN.CLOSE}"/>
-
-						<ContentPresenter Grid.Row="1" Grid.ColumnSpan="4" ContentSource="DataContext" ContentTemplate="{TemplateBinding ContentTemplate}"/>
-					</Grid>
+					<Border Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="*"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
+							
+							<prims:DraggableBar x:Name="PART_DragBar" Style="{StaticResource BAR.DRAGGABLE}"/>
+							
+							<ContentPresenter ContentSource="DataContext" ContentTemplate="{TemplateBinding TitleTemplate}"/>								
+							<Button Grid.Column="1" Style="{StaticResource BTN.MIN}"/>
+							<Button Grid.Column="2" Style="{StaticResource BTN.MAX}"/>
+							<Button Grid.Column="3" Style="{StaticResource BTN.CLOSE}" x:Name="PART_CloseButton"/>
+							
+							<ContentPresenter Grid.Row="1" 
+											  Grid.ColumnSpan="4" 
+											  ContentSource="DataContext" 
+											  ContentTemplate="{TemplateBinding ContentTemplate}"/>
+						</Grid>
+					</Border>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
