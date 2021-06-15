@@ -187,7 +187,7 @@ namespace DevFlow.Finders.Local.Work
         }
         #endregion
 
-        // Private Methods.
+        // Private Methods..
 
         #region PopAndPeek
 
@@ -301,17 +301,23 @@ namespace DevFlow.Finders.Local.Work
                 return new();
             }
         }
-        #endregion
+		#endregion
 
-        private void AddHistory(string fullPath)
+		#region AddHistory
+
+		private void AddHistory(string fullPath)
         {
             HistoryFileModel history = new HistoryFileModel(CurrentDirectory.FullPath, GeoIcon.Folder);
             ViewModel.History.Insert(0, history);
         }
+		#endregion
 
-        private void RemoveHistory()
+		#region RemoveHistory
+
+		private void RemoveHistory()
         {
             ViewModel.History.Remove(ViewModel.History.First());
         }
-    }
+		#endregion
+	}
 }
