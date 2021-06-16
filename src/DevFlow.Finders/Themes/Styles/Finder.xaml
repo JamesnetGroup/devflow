@@ -368,7 +368,7 @@
 							</StackPanel>
 
 						</Border>
-						<TextBox Grid.Column="1" Style="{StaticResource TXT.PATH}" Text="{Binding CurrentDirectory.FullPath}" Margin="0 4 20 4"/>
+						<TextBox Grid.Column="1" Style="{StaticResource TXT.PATH}" Text="{Binding Record.FullPath}" Margin="0 4 20 4"/>
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>

@@ -5,6 +5,9 @@
         Up,
         Undo,
         Redo,
-        Click
-    }
+        Click,
+        History,
+		TreeSelect,
+		Record
+	}
 }

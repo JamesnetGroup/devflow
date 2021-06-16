@@ -9,22 +9,13 @@ namespace DevFlow.Finders.Local.Model
 	public class RootModel : FileModel
     {
         private bool _isExpanded;
-        private bool _isDenied;
-
-
-
+        
         public long Length { get; set; }
 
         public bool IsExpanded
         {
             get => _isExpanded;
             set { _isExpanded = value; OnPropertyChanged(); }
-        }
-
-        public bool IsDenied
-        {
-            get => _isDenied;
-            set { _isDenied = value; OnPropertyChanged(); }
         }
 
         public ObservableCollection<FileModel> Children { get; private set; }

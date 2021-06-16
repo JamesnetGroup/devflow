@@ -16,14 +16,14 @@ namespace DevFlow.Finders.ViewModels
 
         private ObservableCollection<FileModel> _roots;
         private List<RootModel> _currentItems;
-        private FileModel _currentDirectory;
-        private HistoryFileModel _currentHistory;
+        private FileModel _currentDir;
 
         private readonly LocationWorker LocWorker;
         #endregion
 
         #region ICommands
 
+        public ICommand RecordSelectionCommand { get; }
         public ICommand RootSelectionCommand { get; }
         public ICommand UndoCommand { get; }
         public ICommand RedoCommand { get; }
@@ -37,21 +37,16 @@ namespace DevFlow.Finders.ViewModels
             get => _roots;
             set { _roots = value; OnPropertyChanged(); }
         }
-        public FileModel CurrentDirectory
-        {
-            get => _currentDirectory;
-            set { _currentDirectory = value; OnPropertyChanged(); }
-        }
         #endregion
 
 		#region History
 
-		public ObservableCollection<HistoryFileModel> History { get; }
+		public ObservableCollection<FileModel> Records { get; }
 
-        public HistoryFileModel CurrentHistory
+        public FileModel Record
         {
-            get => _currentHistory;
-            set { _currentHistory = value; OnPropertyChanged(); HistoryBack(value); }
+            get => _currentDir;
+            set { _currentDir = value; OnPropertyChanged(); }
         }
 		#endregion
 
@@ -69,42 +64,32 @@ namespace DevFlow.Finders.ViewModels
         public FinderViewModel()
         {
             LocWorker = new(this);
+            LocWorker.Refresh = Refresh;
             Roots = new(LocWorker.GetTreeList());
             CurrentItems = new();
-            History = new();
+            Records = new();
 
-            RootSelectionCommand = new RelayCommand<RootModel>(RootSelected);
+            RootSelectionCommand = new RelayCommand<FileModel>(RootSelected);
+            RecordSelectionCommand = new RelayCommand<FileModel>(RecordSelected);
             UpCommand = new RelayCommand<FileModel>((p) => TryGotoParent(MoveType.Up), LocWorker.UseAllowUp);
             UndoCommand = new RelayCommand<FileModel>((p) => TryGotoUndo(MoveType.Undo), LocWorker.UseAllowUndo);
             RedoCommand = new RelayCommand<FileModel>((p) => TryGotoRedo(MoveType.Redo), LocWorker.UseAllowRedo);
         }
-		#endregion
+        #endregion
 
-		#region HistoryBack
+        #region RecordSelected
 
-		private void HistoryBack(HistoryFileModel value)
+        private void RecordSelected(FileModel root)
         {
-            if (CurrentDirectory.FullPath != value.FullPath)
-            {
-                CurrentDirectory = value;
-                ChangeDirectory(MoveType.Click);
-            }
+            LocWorker.RecordSelect(root);
         }
-		#endregion
+        #endregion
 
-		#region RootSelected
+        #region RootSelected
 
-		private void RootSelected(RootModel root)
+        private void RootSelected(FileModel root)
         {
-            if (RootSupport.CheckAccess(root.FullPath))
-            {
-                CurrentDirectory = root;
-                ChangeDirectory(MoveType.Click);
-            }
-            else
-            {
-                root.IsDenied = true;
-            }
+            LocWorker.TreeSelect(root);
         }
         #endregion
 
@@ -113,10 +98,14 @@ namespace DevFlow.Finders.ViewModels
         private void ChangeDirectory(MoveType type)
         {
             LocWorker.TryEnqueue(type);
-            LocWorker.LoadContent();
-            LocWorker.SetFocusTreeItem(type);
         }
         #endregion
+
+        private void Refresh(FileModel obj, MoveType type)
+        {
+            LocWorker.LoadContent();
+            LocWorker.SetFocusTreeItem();
+        }
 
         #region TryGotoParent
 
@@ -133,10 +122,7 @@ namespace DevFlow.Finders.ViewModels
 
         private void TryGotoUndo(MoveType type)
         {
-			if (LocWorker.GotoUndo())
-            {
-                ChangeDirectory(type);
-            }
+            LocWorker.UndoSelect();
         }
         #endregion
 

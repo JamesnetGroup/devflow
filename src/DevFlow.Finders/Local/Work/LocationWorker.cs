@@ -14,11 +14,17 @@ namespace DevFlow.Finders.Local.Work
 {
     internal class LocationWorker
     {
-        private readonly Stack<string> SavedStack;
-        private readonly Stack<string> SavedStackBackup;
+        internal Action<FileModel, MoveType> Refresh = (file, type) => { };
+
+
+        private readonly Stack<DirModel> Memento;
+        private readonly Stack<DirModel> ReMemento;
         private FinderViewModel ViewModel;
 
-        private FileModel CurrentDirectory => ViewModel.CurrentDirectory;
+        private FileModel Current => ViewModel.Record;
+
+        public bool IsFreezingRecord { get; private set; } = true;
+
 
         // Internal Methods.
 
@@ -26,8 +32,8 @@ namespace DevFlow.Finders.Local.Work
 
         internal LocationWorker(FinderViewModel vm)
         {
-            SavedStack = new();
-            SavedStackBackup = new();
+            Memento = new();
+            ReMemento = new();
             ViewModel = vm;
         }
         #endregion
@@ -36,7 +42,7 @@ namespace DevFlow.Finders.Local.Work
 
         internal bool UseAllowUndo(FileModel p)
         {
-            return SavedStack.Count > 1;
+            return Memento.Count > 1;
         }
         #endregion
 
@@ -44,7 +50,7 @@ namespace DevFlow.Finders.Local.Work
 
         internal bool UseAllowRedo(FileModel p)
         {
-            return SavedStackBackup.Count > 0;
+            return ReMemento.Count > 0;
         }
         #endregion
 
@@ -60,19 +66,11 @@ namespace DevFlow.Finders.Local.Work
 
         internal void LoadContent()
         {
-            IList<FileModel> child = GetChildDirectories(CurrentDirectory);
-            IList<RootModel> items = GetFilesAndDirectories(CurrentDirectory);
+            IList<FileModel> child = GetChildDirectories(Current);
+            IList<RootModel> items = GetFilesAndDirectories(Current);
 
-            CurrentDirectory.AddRange(child);
+            Current.AddRange(child);
             ViewModel.CurrentItems = new(items);
-        }
-        #endregion
-
-        #region ChangeDirectory
-
-        internal void Change(RootModel root)
-        {
-            ViewModel.CurrentDirectory = root;
         }
         #endregion
 
@@ -80,45 +78,46 @@ namespace DevFlow.Finders.Local.Work
 
         internal void TryEnqueue(MoveType type)
         {
-            bool isEmptyHistory = SavedStack.Count == 0;
-            bool isDiffHistory = SavedStack.Count > 0 && SavedStack.Peek() != CurrentDirectory.FullPath;
+            bool isEmptyHistory = Memento.Count == 0;
+            //bool isDiffHistory = SavedStack.Count > 0 && SavedStack.Peek() != CurrentDirectory.FullPath;
             bool isUseType = type != MoveType.Undo;
 
-            if (isUseType && (isEmptyHistory || isDiffHistory))
+            if (isUseType)
             {
-                SavedStack.Push(CurrentDirectory.FullPath);
+                DirModel history = new(Current.FullPath, GeoIcon.Folder);
 
-                AddHistory(CurrentDirectory.FullPath);
+                Memento.Push(history);
+                AddRecord(history);
             }
         }
 
-		#endregion
+        #endregion
 
-		#region GotoParent
+        #region GotoParent
 
-		internal bool GotoParent()
+        internal bool GotoParent()
         {
             bool result = false;
-            if (TryParent(CurrentDirectory, out RootModel parent))
+            if (TryParent(Current, out RootModel parent))
             {
-                SavedStackBackup.Clear();
-                Change(parent);
+                ReMemento.Clear();
+                ChangeRecord(parent, MoveType.Up);
                 result = true;
             }
             return result;
         }
-		#endregion
+        #endregion
 
-		#region GotoUndo
+        #region GotoUndo
 
-		internal bool GotoUndo()
+        internal bool GotoUndo()
         {
             bool result = false;
             if (UseAllowUndo(null))
             {
                 string target = UndoHistory();
                 RootModel root = new RootModel(target, RootIcon.Folder);
-                Change(root);
+                ChangeRecord(root, MoveType.Undo);
                 result = true;
             }
             return result;
@@ -132,9 +131,9 @@ namespace DevFlow.Finders.Local.Work
             bool result = false;
             if (UseAllowRedo(null))
             {
-                string target = SavedStackBackup.Pop();
-                RootModel root = new RootModel(target, RootIcon.Folder);
-                Change(root);
+                var target = ReMemento.Pop();
+                RootModel root = new RootModel(target.FullPath, RootIcon.Folder);
+                ChangeRecord(root, MoveType.Redo);
                 result = true;
             }
             return result;
@@ -143,11 +142,11 @@ namespace DevFlow.Finders.Local.Work
 
         #region SetFocusTreeItem
 
-        internal void SetFocusTreeItem(MoveType type)
+        internal void SetFocusTreeItem()
         {
-            if (type == MoveType.Undo || type == MoveType.Up || type== MoveType.Redo)
+            //if (type != MoveType.Click)
             {
-                if (TryFind(CurrentDirectory, ViewModel.Roots, out RootModel item))
+                if (TryFind(Current, ViewModel.Roots, out RootModel item))
                 {
                     item.IsSelected = true;
                 }
@@ -187,24 +186,36 @@ namespace DevFlow.Finders.Local.Work
         }
         #endregion
 
+        internal void HistoryBack(DirModel value)
+        {
+            while (true)
+            {
+                if (value == Memento.Peek())
+                {
+                    break;
+                }
+                GotoUndo();
+            }
+        }
+
         // Private Methods..
 
         #region UndoHistory
 
         private string UndoHistory()
         {
-			string target = SavedStack.Pop();
-            SavedStackBackup.Push(target);
-			string peek = SavedStack.Peek();
+            var target = Memento.Pop();
+            ReMemento.Push(target);
+            var peek = Memento.Peek();
 
             RemoveHistory();
-            return peek;
+            return peek.FullPath;
         }
-		#endregion
+        #endregion
 
-		#region TryParent
+        #region TryParent
 
-		private bool TryParent(FileModel current, out RootModel root)
+        private bool TryParent(FileModel current, out RootModel root)
         {
             root = null;
             bool result = false;
@@ -302,28 +313,127 @@ namespace DevFlow.Finders.Local.Work
                 return new();
             }
         }
-		#endregion
+        #endregion
 
-		#region AddHistory
+        #region RemoveHistory
 
-		private void AddHistory(string fullPath)
+        private void RemoveHistory()
         {
-            HistoryFileModel history = new HistoryFileModel(CurrentDirectory.FullPath, GeoIcon.Folder);
-            ViewModel.History.Insert(0, history);
+            if (ViewModel.Records.First() is DirModel target)
+            {
+                ViewModel.Records.Remove(target);
+            }
+        }
+        #endregion
 
-            ViewModel.CurrentHistory = history;
+        internal void RecordSelect(FileModel dir)
+        {
+            if (!IsFreezingRecord)
+            {
+                Dequeue(dir);
+                Refresh(dir, MoveType.TreeSelect);
+            }
+            else
+            {
+                IsFreezingRecord = false;
+            }
+        }
+
+		#region TreeSelect
+
+		internal void TreeSelect(FileModel dir)
+        {
+			MoveType type = MoveType.TreeSelect;
+
+            if (TryAccess(dir))
+            {
+                var record = Enqueue(dir);
+                ChangeRecord(record, type);
+                Refresh(record, type);
+            }
         }
 		#endregion
 
-		#region RemoveHistory
+		#region UndoSelect
 
-		private void RemoveHistory()
+		internal void UndoSelect()
+		{
+
+		}
+        #endregion
+
+
+        #region Change
+
+        internal void ChangeRecord(FileModel root, MoveType type)
         {
-            if (ViewModel.History.First() is HistoryFileModel target)
+            IsFreezingRecord = true;
+            ViewModel.Record = root;
+        }
+        #endregion
+
+        #region Enqueue
+
+        private DirModel Enqueue(FileModel dir)
+        {
+            DirModel copyDir = new(dir.FullPath, GeoIcon.Folder);
+
+            PushMemento(copyDir);
+            AddRecord(copyDir);
+
+            return copyDir;
+        }
+
+        private void Dequeue(FileModel dir)
+        {
+            while (true)
             {
-                ViewModel.History.Remove(target);
-                ViewModel.CurrentHistory = ViewModel.History.First();
+                if (dir == Memento.Peek())
+                {
+                    break;
+                }
+                Undo(dir);
             }
+        }
+
+		private void Undo(FileModel dir)
+		{
+            var pop = Memento.Pop();
+
+            IsFreezingRecord = true;
+            ViewModel.Records.RemoveAt(0);
+		}
+
+		#endregion
+
+		#region AddRecord
+
+		private void AddRecord(DirModel history)
+        {
+            ViewModel.Records.Insert(0, history);
+        }
+		#endregion
+
+		#region PushMemento
+
+		private void PushMemento(DirModel copyDir)
+        {
+            Memento.Push(copyDir);
+        }
+		#endregion
+
+		#region TryAccess
+
+		private bool TryAccess(FileModel root)
+        {
+            bool isAccess = true;
+
+            if (!RootSupport.CheckAccess(root.FullPath))
+            {
+                isAccess = false;
+                root.IsDenied = true;
+            }
+            return isAccess;
         }
 		#endregion
 	}

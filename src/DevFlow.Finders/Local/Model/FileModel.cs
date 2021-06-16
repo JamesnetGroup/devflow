@@ -7,6 +7,7 @@ namespace DevFlow.Finders.Local.Model
 	public class FileModel : ObservableData
 	{
         private bool _isSelected;
+        private bool _isDenied;
 
         public string Name { get; set; }
         public string FullPath { get; set; }
@@ -17,6 +18,12 @@ namespace DevFlow.Finders.Local.Model
         {
             get => _isSelected;
             set { _isSelected = value; OnPropertyChanged(); }
+        }
+
+        public bool IsDenied
+        {
+            get => _isDenied;
+            set { _isDenied = value; OnPropertyChanged(); }
         }
 
         internal virtual void AddRange(IList<FileModel> rootModels)
