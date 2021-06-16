@@ -13,21 +13,22 @@ namespace DevFlow.Finders.Local.Work
 {
 	internal class LocationWorker
 	{
-		internal Action<FileModel, MoveType> Refresh = (file, type) => { };
+		#region Variables
+
+		private bool IsFreezingRecord = true;
+		private bool IsFreezingRoot = false;
 
 		private readonly Stack<FolderModel> Memento;
 		private readonly Stack<FolderModel> ReMemento;
 		private readonly FinderViewModel ViewModel;
-
 		private FileModel Current => ViewModel.Record;
 
-		public bool IsFreezingRecord { get; private set; } = true;
-		public bool IsFreezingRoot { get; private set; } = false;
+		internal Action<FileModel, MoveType> Refresh;
 
-		internal bool UseAllowUndo(FileModel _) => Memento.Count > 1;
-
-		internal bool UseAllowRedo(FileModel _) => ReMemento.Count > 0;
-		internal bool UseAllowGoUp(FileModel p) => RootSupport.TryGetParentDirectory(p?.FullPath, out _);
+		internal bool IsUsedUndo => Memento.Count > 1;
+		internal bool IsUsedRedo => ReMemento.Count > 0;
+		internal bool IsUsedGoUp => RootSupport.TryParent(Current?.FullPath, out _);
+		#endregion
 
 		#region Constructor
 
@@ -39,7 +40,7 @@ namespace DevFlow.Finders.Local.Work
 		}
 		#endregion
 
-		// Internal Methods.
+		// Internal..♥
 
 		#region GetContent
 
@@ -162,7 +163,7 @@ namespace DevFlow.Finders.Local.Work
 		}
 		#endregion
 
-		// Private Methods..
+		// Private..♥
 
 		#region GetDirectories
 
@@ -230,7 +231,7 @@ namespace DevFlow.Finders.Local.Work
 			root = null;
 			bool result = false;
 
-			if (RootSupport.TryGetParentDirectory(current.FullPath, out string parent))
+			if (RootSupport.TryParent(current.FullPath, out string parent))
 			{
 				root = new RootModel(parent, RootIcon.Folder);
 				result = true;

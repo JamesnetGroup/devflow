@@ -69,9 +69,9 @@ namespace DevFlow.Finders.ViewModels
 
 			RootSelectionCommand = new RelayCommand<FileModel>(TreeSelected);
 			RecordSelectionCommand = new RelayCommand<FileModel>(RecordSelected);
-			GoUpCommand = new RelayCommand<FileModel>((p) => LocWorker.GoUpSelect(MoveType.GoUp), LocWorker.UseAllowGoUp);
-			UndoCommand = new RelayCommand<FileModel>((p) => LocWorker.UndoSelect(MoveType.Undo), LocWorker.UseAllowUndo);
-			RedoCommand = new RelayCommand<FileModel>((p) => LocWorker.RedoSelect(MoveType.Redo), LocWorker.UseAllowRedo);
+			GoUpCommand = new RelayCommand<FileModel>((p) => LocWorker.GoUpSelect(MoveType.GoUp), (p) => LocWorker.IsUsedGoUp);
+			UndoCommand = new RelayCommand<FileModel>((p) => LocWorker.UndoSelect(MoveType.Undo), (p) => LocWorker.IsUsedUndo);
+			RedoCommand = new RelayCommand<FileModel>((p) => LocWorker.RedoSelect(MoveType.Redo), (p) => LocWorker.IsUsedRedo);
 		}
 		#endregion
 

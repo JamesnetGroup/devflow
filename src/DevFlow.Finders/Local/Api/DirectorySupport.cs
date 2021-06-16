@@ -11,7 +11,7 @@ namespace DevFlow.Finders.Local.Api
 
 		#region TryParent
 
-		internal static bool TryGetParentDirectory(string path, out string parentPath)
+		internal static bool TryParent(string path, out string parentPath)
 		{
 			try
 			{
