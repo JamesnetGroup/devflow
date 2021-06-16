@@ -4,29 +4,29 @@ using System.Windows;
 
 namespace DevFlow.Menus.Views
 {
-    public class QuickSlot : Express
-    {
-        #region DefaultStyleKey
+	public class QuickSlot : Express
+	{
+		#region DefaultStyleKey
 
-        static QuickSlot()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(QuickSlot), new FrameworkPropertyMetadata(typeof(QuickSlot)));
-        }
-        #endregion
+		static QuickSlot()
+		{
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(QuickSlot), new FrameworkPropertyMetadata(typeof(QuickSlot)));
+		}
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public QuickSlot()
-        {
-        }
-        #endregion
+		public QuickSlot()
+		{
+		}
+		#endregion
 
-        #region OnDesignerMode
+		#region OnDesignerMode
 
-        protected override void OnDesignerMode()
-        {
-            DataContext = new QuickSlotViewModel();
-        }
-        #endregion
-    }
+		protected override void OnDesignerMode()
+		{
+			DataContext = new QuickSlotViewModel();
+		}
+		#endregion
+	}
 }

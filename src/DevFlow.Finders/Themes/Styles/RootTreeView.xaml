@@ -37,7 +37,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type TreeViewItem}">
-					<Border Padding="0 0 0 0">
+					<Border Padding="0 0 0 0" ToolTip="{Binding Children.Count}">
 						<Grid>
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto"/>

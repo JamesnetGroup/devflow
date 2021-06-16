@@ -79,9 +79,8 @@
     <Compile Include="Local\Api\ShellContextMenu.cs" />
     <Compile Include="Local\Enum\FileTypes.cs" />
     <Compile Include="Local\Enum\MoveType.cs" />
-    <Compile Include="Local\Model\FileData.cs" />
     <Compile Include="Local\Model\FileModel.cs" />
-    <Compile Include="Local\Model\HistoryFileModel.cs" />
+    <Compile Include="Local\Model\FolderModel.cs" />
     <Compile Include="Local\Model\RootModel.cs" />
     <Compile Include="Local\Work\LocationWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -123,6 +122,10 @@
     <ProjectReference Include="..\DevFlow.Data\DevFlow.Data.csproj">
       <Project>{4f92ec03-384b-4463-8afc-099c7fb9941c}</Project>
       <Name>DevFlow.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFlow.Extensions\DevFlow.Extensions.csproj">
+      <Project>{a9782514-9231-4c6b-9419-e8289c268b21}</Project>
+      <Name>DevFlow.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevFlow.LayoutSupport\DevFlow.LayoutSupport.csproj">
       <Project>{EB691890-E172-4F99-BBB8-6E7D19E63FD1}</Project>

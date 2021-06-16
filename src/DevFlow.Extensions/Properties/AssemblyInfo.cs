@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Windows;
 
 // 어셈블리에 대한 일반 정보는 다음 특성 집합을 통해 
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이러한 특성 값을 변경하세요.
-[assembly: AssemblyTitle("DevFlow")]
+[assembly: AssemblyTitle("DevFlow.Extensions")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DevFlow")]
+[assembly: AssemblyProduct("DevFlow.Extensions")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,25 +18,8 @@ using System.Windows;
 // 해당 형식에 대해 ComVisible 특성을 true로 설정하세요.
 [assembly: ComVisible(false)]
 
-//지역화 가능 애플리케이션 빌드를 시작하려면 다음을 설정하세요.
-//.csproj 파일에서 <PropertyGroup> 내에 <UICulture>CultureYouAreCodingWith</UICulture>를
-//설정하십시오. 예를 들어 소스 파일에서 영어(미국)를
-//사용하는 경우 <UICulture>를 en-US로 설정합니다. 그런 다음 아래
-//NeutralResourceLanguage 특성의 주석 처리를 제거합니다. 아래 줄의 "en-US"를 업데이트하여
-//프로젝트 파일의 UICulture 설정과 일치시킵니다.
-
-//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
-
-
-[assembly: ThemeInfo(
-	ResourceDictionaryLocation.None, //테마별 리소스 사전의 위치
-									 //(페이지 또는 응용 프로그램 리소스 사진에
-									 // 리소스가 없는 경우에 사용됨)
-	ResourceDictionaryLocation.SourceAssembly //제네릭 리소스 사전의 위치
-											  //(페이지 또는 응용 프로그램 리소스 사진에
-											  // 리소스가 없는 경우에 사용됨)
-)]
-
+// 이 프로젝트가 COM에 노출되는 경우 다음 GUID는 typelib의 ID를 나타냅니다.
+[assembly: Guid("a9782514-9231-4c6b-9419-e8289c268b21")]
 
 // 어셈블리의 버전 정보는 다음 네 가지 값으로 구성됩니다.
 //

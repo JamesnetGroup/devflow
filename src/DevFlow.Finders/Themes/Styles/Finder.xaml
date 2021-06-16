@@ -147,9 +147,8 @@
 		<Setter Property="Tag" Value="UP"/>
 		<Setter Property="Content" Value="Up"/>
 		<Setter Property="ToolTip" Value="Up"/>
-		<Setter Property="Command" Value="{Binding UpCommand}"/>
-		<Setter Property="CommandParameter" Value="{Binding CurrentDirectory}"/>
-		<Setter Property="IsEnabled" Value="{Binding IsUpEnabled}"/>
+		<Setter Property="Command" Value="{Binding GoUpCommand}"/>
+		<Setter Property="CommandParameter" Value="{Binding Record}"/>
 	</Style>
 
 	<Style TargetType="{x:Type Button}" x:Key="BTN.UNDO" BasedOn="{StaticResource BTN.LOCATION}">
@@ -157,7 +156,6 @@
 		<Setter Property="Content" Value="Undo"/>
 		<Setter Property="ToolTip" Value="Undo"/>
 		<Setter Property="Command" Value="{Binding UndoCommand}"/>
-		<Setter Property="IsEnabled" Value="{Binding IsUndoEnabled}"/>
 	</Style>
 
 	<Style TargetType="{x:Type Button}" x:Key="BTN.REDO" BasedOn="{StaticResource BTN.LOCATION}">
@@ -165,7 +163,6 @@
 		<Setter Property="Content" Value="Redo"/>
 		<Setter Property="ToolTip" Value="Redo"/>
 		<Setter Property="Command" Value="{Binding RedoCommand}"/>
-		<Setter Property="IsEnabled" Value="{Binding IsRedoEnabled}"/>
 	</Style>
 
 	<Style TargetType="{x:Type ToggleButton}" x:Key="IN.HIDDEN">

@@ -5,38 +5,38 @@ using System.Windows.Controls;
 
 namespace DevFlow.Windowbase.Flowbase
 {
-    public class FlowView : ContentControl
-    {
-        #region Constructor
+	public class FlowView : ContentControl
+	{
+		#region Constructor
 
-        public FlowView()
-        {
-            Loaded += FlowView_Loaded;
-        }
-        #endregion
+		public FlowView()
+		{
+			Loaded += FlowView_Loaded;
+		}
+		#endregion
 
-        #region OnDesignerMode
+		#region OnDesignerMode
 
-        protected virtual void OnDesignerMode()
-        {
+		protected virtual void OnDesignerMode()
+		{
 
-        }
-        #endregion
+		}
+		#endregion
 
-        #region FlowView_Loaded
+		#region FlowView_Loaded
 
-        private void FlowView_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (DesignerProperties.GetIsInDesignMode(this))
-            {
-                OnDesignerMode();
-            }
+		private void FlowView_Loaded(object sender, RoutedEventArgs e)
+		{
+			if (DesignerProperties.GetIsInDesignMode(this))
+			{
+				OnDesignerMode();
+			}
 
-            if (DataContext is ObservableObject vm)
-            {
-                vm.ViewRegister(this);
-            }
-        }
-        #endregion
-    }
+			if (DataContext is ObservableObject vm)
+			{
+				vm.ViewRegister(this);
+			}
+		}
+		#endregion
+	}
 }

@@ -50,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlow.Extensions", "DevFlow.Extensions\DevFlow.Extensions.csproj", "{A9782514-9231-4C6B-9419-E8289C268B21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,10 @@ Global
 		{44BB52F1-559C-43BC-B6D7-88FE7FFD3A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44BB52F1-559C-43BC-B6D7-88FE7FFD3A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44BB52F1-559C-43BC-B6D7-88FE7FFD3A89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9782514-9231-4C6B-9419-E8289C268B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9782514-9231-4C6B-9419-E8289C268B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9782514-9231-4C6B-9419-E8289C268B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9782514-9231-4C6B-9419-E8289C268B21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{5164EC60-CB8F-41D8-8386-E6B258F8F0C5} = {80AB8951-3876-4E60-BF31-851FDB265BAA}
 		{DE63F811-7B1F-4793-95F6-B88568D713D9} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
 		{44BB52F1-559C-43BC-B6D7-88FE7FFD3A89} = {CC5E4C97-F7ED-45D1-8D55-29046F94937B}
+		{A9782514-9231-4C6B-9419-E8289C268B21} = {80AB8951-3876-4E60-BF31-851FDB265BAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D98CFB60-F81E-497B-AA6A-1770892F8EF5}

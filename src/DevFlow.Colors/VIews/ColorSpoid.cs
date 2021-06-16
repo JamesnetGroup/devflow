@@ -3,27 +3,27 @@ using System.Windows;
 
 namespace DevFlow.Colors.Views
 {
-    public class ColorSpoid : Explorer
-    {
-        #region DefaultStyleKey
+	public class ColorSpoid : Explorer
+	{
+		#region DefaultStyleKey
 
-        static ColorSpoid()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorSpoid), new FrameworkPropertyMetadata(typeof(ColorSpoid)));
-        }
-        #endregion
+		static ColorSpoid()
+		{
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorSpoid), new FrameworkPropertyMetadata(typeof(ColorSpoid)));
+		}
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public ColorSpoid()
-        {
-            IsFixedSize = true;
-            ResizeMode = System.Windows.ResizeMode.NoResize;
-            Width = 400;
-            Height = 360;
+		public ColorSpoid()
+		{
+			IsFixedSize = true;
+			ResizeMode = System.Windows.ResizeMode.NoResize;
+			Width = 400;
+			Height = 360;
 
-            Loaded += (s, e) => Topmost = true;
-        }
-        #endregion
-    }
+			Loaded += (s, e) => Topmost = true;
+		}
+		#endregion
+	}
 }

@@ -3,21 +3,21 @@ using System.Windows;
 
 namespace DevFlow.Skins.Views
 {
-    public class SwitchSkin : BasicWindow
-    {
-        #region DefaultStyleKey
+	public class SwitchSkin : BasicWindow
+	{
+		#region DefaultStyleKey
 
-        static SwitchSkin()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(SwitchSkin), new FrameworkPropertyMetadata(typeof(SwitchSkin)));
-        }
-        #endregion
+		static SwitchSkin()
+		{
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(SwitchSkin), new FrameworkPropertyMetadata(typeof(SwitchSkin)));
+		}
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public SwitchSkin()
-        {
-        }
-        #endregion
-    }
+		public SwitchSkin()
+		{
+		}
+		#endregion
+	}
 }

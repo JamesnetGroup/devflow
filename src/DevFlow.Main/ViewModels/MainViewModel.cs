@@ -22,97 +22,97 @@ using System;
 
 namespace DevFlow.Main.ViewModels
 {
-    public class MainViewModel : ObservableObject
-    {
-        #region Variables
+	public class MainViewModel : ObservableObject
+	{
+		#region Variables
 
-        private readonly FlowTheme theme;
-        private readonly FlowCulture culture;
-        #endregion
+		private readonly FlowTheme theme;
+		private readonly FlowCulture culture;
+		#endregion
 
-        #region Wallpaper
+		#region Wallpaper
 
-        public string Wallpaper { get; set; }
-        #endregion
+		public string Wallpaper { get; set; }
+		#endregion
 
-        #region Menu
+		#region Menu
 
-        public QuickSlotViewModel Menu { get; }
-        #endregion
+		public QuickSlotViewModel Menu { get; }
+		#endregion
 
-        #region Theme
+		#region Theme
 
-        public SwitchSkinViewModel Skin { get; }
-        #endregion
+		public SwitchSkinViewModel Skin { get; }
+		#endregion
 
-        #region Translate
+		#region Translate
 
-        private TranslatorViewModel Translate { get; }
-        #endregion
+		private TranslatorViewModel Translate { get; }
+		#endregion
 
-        #region Works
+		#region Works
 
-        public ObservableCollection<WorkspaceModel> Works { get; set; }
-        #endregion
+		public ObservableCollection<WorkspaceModel> Works { get; set; }
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public MainViewModel()
-        {
-            Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
+		public MainViewModel()
+		{
+			Wallpaper = "/DevFlow.Resources;component/Images/wallpaper-08.jpg";
 
-            Works = new ObservableCollection<WorkspaceModel>();
-            Menu = new QuickSlotViewModel(new RelayCommand<MenuModel>(MenuSelected));
-        }
+			Works = new ObservableCollection<WorkspaceModel>();
+			Menu = new QuickSlotViewModel(new RelayCommand<MenuModel>(MenuSelected));
+		}
 
-        public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()
-        {
-            theme = _theme;
-            culture = _culture;
-            Skin = new SwitchSkinViewModel(SkinSelected, theme.GetCurrentTheme());
-            Translate = new TranslatorViewModel(LanguageChanged, culture.GetCurrentLanguage());
-        }
-        #endregion
+		public MainViewModel(FlowTheme _theme, FlowCulture _culture) : this()
+		{
+			theme = _theme;
+			culture = _culture;
+			Skin = new SwitchSkinViewModel(SkinSelected, theme.GetCurrentTheme());
+			Translate = new TranslatorViewModel(LanguageChanged, culture.GetCurrentLanguage());
+		}
+		#endregion
 
-        #region MenuSelected
+		#region MenuSelected
 
-        private void MenuSelected(MenuModel menu)
-        {
-            if (Works.FirstOrDefault(x => x.Menu.Equals(menu)) is null)
-            {
-                IFlowElement content = null;
+		private void MenuSelected(MenuModel menu)
+		{
+			if (Works.FirstOrDefault(x => x.Menu.Equals(menu)) is null)
+			{
+				IFlowElement content = null;
 
-                switch (menu.IconType)
-                {
-                    case GeoIcon.FolderOpenOutline: content = new Finder().UseViewModel(new FinderViewModel()); break;
-                    case GeoIcon.EyedropperVariant: content = new ColorSpoid().UseViewModel(new ColorSpoidViewModel()); break;
-                    case GeoIcon.Palette: content = new SwitchSkin().UseViewModel(Skin); break;
-                    case GeoIcon.Web: content = new Translator().UseViewModel(Translate); break;
-                    case GeoIcon.Close: Environment.Exit(0); break;
-                    default: content = new EmptyView(); break;
-                }
-                content.OnShow(menu);
-            }
+				switch (menu.IconType)
+				{
+					case GeoIcon.FolderOpenOutline: content = new Finder().UseViewModel(new FinderViewModel()); break;
+					case GeoIcon.EyedropperVariant: content = new ColorSpoid().UseViewModel(new ColorSpoidViewModel()); break;
+					case GeoIcon.Palette: content = new SwitchSkin().UseViewModel(Skin); break;
+					case GeoIcon.Web: content = new Translator().UseViewModel(Translate); break;
+					case GeoIcon.Close: Environment.Exit(0); break;
+					default: content = new EmptyView(); break;
+				}
+				content.OnShow(menu);
+			}
 
-        }
-        #endregion
+		}
+		#endregion
 
-        #region SkinSelected
+		#region SkinSelected
 
-        private void SkinSelected(SkinModel theme)
-        {
-            this.theme.Switch(theme.Skin);
-            FlowConfig.SaveTheme(theme.Skin);
-        }
-        #endregion
+		private void SkinSelected(SkinModel theme)
+		{
+			this.theme.Switch(theme.Skin);
+			FlowConfig.SaveTheme(theme.Skin);
+		}
+		#endregion
 
-        #region LanguageChanged
+		#region LanguageChanged
 
-        private void LanguageChanged(LanguageModel culture)
-        {
-            this.culture.Switch(culture.Language);
-            FlowConfig.SaveLanguage(culture.Language);
-        }
-        #endregion
-    }
+		private void LanguageChanged(LanguageModel culture)
+		{
+			this.culture.Switch(culture.Language);
+			FlowConfig.SaveLanguage(culture.Language);
+		}
+		#endregion
+	}
 }

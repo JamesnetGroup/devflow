@@ -6,72 +6,72 @@ using System.Windows.Media.Imaging;
 
 namespace DevFlow.Data.History
 {
-    public class HistoryModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+	public class HistoryModel : INotifyPropertyChanged
+	{
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected void OnPropertyChanged([CallerMemberName] string name = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+		}
 
-        private BitmapImage _image;
-        private BitmapImage _previewImage;
+		private BitmapImage _image;
+		private BitmapImage _previewImage;
 
-        #region Index
+		#region Index
 
-        public int Index { get; set; }
-        #endregion
+		public int Index { get; set; }
+		#endregion
 
-        #region ImagePath
+		#region ImagePath
 
-        public string ImagePath { get; set; }
-        #endregion
+		public string ImagePath { get; set; }
+		#endregion
 
-        #region Image 
+		#region Image 
 
-        public BitmapImage Image
-        {
-            get => _image;
-            set { _image = value; OnPropertyChanged(); }
-        }
-        #endregion
+		public BitmapImage Image
+		{
+			get => _image;
+			set { _image = value; OnPropertyChanged(); }
+		}
+		#endregion
 
-        #region PreviewImage
+		#region PreviewImage
 
-        public BitmapImage PreviewImage
-        {
-            get => _previewImage;
-            set { _previewImage = value; OnPropertyChanged(); }
-        }
-        #endregion
+		public BitmapImage PreviewImage
+		{
+			get => _previewImage;
+			set { _previewImage = value; OnPropertyChanged(); }
+		}
+		#endregion
 
-        #region Created
+		#region Created
 
-        public DateTime Created { get; set; }
-        #endregion
+		public DateTime Created { get; set; }
+		#endregion
 
-        #region Size
+		#region Size
 
-        public long Size { get; set; }
-        #endregion
+		public long Size { get; set; }
+		#endregion
 
-        #region FileName
+		#region FileName
 
-        public string FileName { get; set; }
-        #endregion
+		public string FileName { get; set; }
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public HistoryModel(int index, string x)
-        {
-            FileInfo fi = new FileInfo(x);
+		public HistoryModel(int index, string x)
+		{
+			FileInfo fi = new FileInfo(x);
 
-            Index = index;
-            ImagePath = x;
-            FileName = fi.Name;
-            Created = fi.CreationTime;
-            Size = fi.Length;
-        }
-        #endregion
-    }
+			Index = index;
+			ImagePath = x;
+			FileName = fi.Name;
+			Created = fi.CreationTime;
+			Size = fi.Length;
+		}
+		#endregion
+	}
 }

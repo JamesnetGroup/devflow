@@ -12,20 +12,20 @@ namespace DevFlow.Finders.Views
 		{
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(RootDropBox), new FrameworkPropertyMetadata(typeof(RootDropBox)));
 		}
-        #endregion
+		#endregion
 
-        #region DependencyProperties
+		#region DependencyProperties
 
-        public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(RootDropBox));
-        #endregion
+		public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(RootDropBox));
+		#endregion
 
-        #region ICommands
+		#region ICommands
 
-        public ICommand SelectionCommand
-        {
-            get => (ICommand)GetValue(SelectionCommandProperty);
-            set => SetValue(SelectionCommandProperty, value);
-        }
+		public ICommand SelectionCommand
+		{
+			get => (ICommand)GetValue(SelectionCommandProperty);
+			set => SetValue(SelectionCommandProperty, value);
+		}
 		#endregion
 
 		#region OnSelectedItemChanged
@@ -33,15 +33,15 @@ namespace DevFlow.Finders.Views
 		{
 			base.OnSelectionChanged(e);
 
-            if (SelectedItem == null)
-            {
-                SelectionCommand.Execute(null);
-            }
-            else
-            {
-                SelectionCommand.Execute(SelectedItem);
-            }
-        }
-        #endregion
-    }
+			if (SelectedItem == null)
+			{
+				SelectionCommand.Execute(null);
+			}
+			else
+			{
+				SelectionCommand.Execute(SelectedItem);
+			}
+		}
+		#endregion
+	}
 }
