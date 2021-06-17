@@ -112,6 +112,13 @@ namespace DevFlow.Finders.Local.Work
 		}
 		#endregion
 
+		internal void FolderSelect(FileModel dir, MoveType type)
+		{
+			FolderModel record = GotoMove(dir);
+			SwitchRecord(record, type);
+			Refresh(record, type);
+		}
+
 		#region TreeSelect
 
 		internal void TreeSelect(FileModel dir, MoveType type)

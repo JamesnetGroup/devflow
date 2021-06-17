@@ -351,7 +351,7 @@
 
 	<Style TargetType="{x:Type views:RootItemView}">
 		<Setter Property="Grid.Row" Value="1"/>
-		<Setter Property="DoubleClickCommand" Value="{Binding ChooseCommand}"/>
+		<Setter Property="DoubleClickCommand" Value="{Binding DoubleClickCommand}"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.EXP}"/>
 		<Setter Property="ItemsSource" Value="{Binding FileDatas}"/>
 		<Setter Property="SelectedItem" Value="{Binding FileData}"/>

@@ -65,11 +65,10 @@ namespace DevFlow.Finders.Views
 		{
 			base.OnMouseDoubleClick(e);
 
-			//if (e.OriginalSource is FrameworkElement fe && fe.DataContext is FileData data)
-			//{
-			//	DoubleClickCommand?.Execute(data);
-
-			//}
+			if (e.OriginalSource is FrameworkElement fe && fe.DataContext.Equals(SelectedItem))
+			{
+				DoubleClickCommand?.Execute(SelectedItem);
+			}
 		}
 		#endregion
 

@@ -8,6 +8,7 @@
 		Click,
 		History,
 		TreeSelect,
-		Record
+		Record,
+		File
 	}
 }

@@ -2,6 +2,7 @@
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
 using DevFlow.Windowbase.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -23,6 +24,7 @@ namespace DevFlow.Finders.ViewModels
 
 		public ICommand RecordSelectionCommand { get; }
 		public ICommand RootSelectionCommand { get; }
+		public ICommand DoubleClickCommand { get; }
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
 		public ICommand GoUpCommand { get; }
@@ -69,6 +71,8 @@ namespace DevFlow.Finders.ViewModels
 
 			RootSelectionCommand = new RelayCommand<FileModel>(TreeSelected);
 			RecordSelectionCommand = new RelayCommand<FileModel>(RecordSelected);
+			DoubleClickCommand = new RelayCommand<FileModel>(FileClick);
+
 			GoUpCommand = new RelayCommand<FileModel>((p) => LocWorker.GoUpSelect(MoveType.GoUp), (p) => LocWorker.IsUsedGoUp);
 			UndoCommand = new RelayCommand<FileModel>((p) => LocWorker.UndoSelect(MoveType.Undo), (p) => LocWorker.IsUsedUndo);
 			RedoCommand = new RelayCommand<FileModel>((p) => LocWorker.RedoSelect(MoveType.Redo), (p) => LocWorker.IsUsedRedo);
@@ -90,6 +94,14 @@ namespace DevFlow.Finders.ViewModels
 			LocWorker.TreeSelect(root, MoveType.TreeSelect);
 		}
 		#endregion
+
+		private void FileClick(FileModel file)
+		{
+			if (file.IconType == Data.GeoIcon.Folder)
+			{
+				LocWorker.FolderSelect(file, MoveType.File);
+			}
+		}
 
 		#region Refresh
 
