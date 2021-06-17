@@ -27,6 +27,7 @@
 		SelectAll,
 		ConsoleLine,
 		Folder,
+		FolderOutline,
 		File,
 		FileImage,
 		Plus,

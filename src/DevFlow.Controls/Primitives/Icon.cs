@@ -67,8 +67,10 @@ namespace DevFlow.Controls.Primitives
 				case GeoIcon.Web: icon.Data = IconData.WEB.ToGeometry(); break;
 				case GeoIcon.ContentPaste: icon.Data = IconData.CONTENTPASTE.ToGeometry(); break;
 				case GeoIcon.CheckBold: icon.Data = IconData.CHECKBOLD.ToGeometry(); break;
-				case GeoIcon.FolderOpenOutline: icon.Data = IconData.FOLDER_OPEN_OUTLINE.ToGeometry(); break;
+				case GeoIcon.Folder: icon.Data = IconData.FOLDER.ToGeometry(); break;
+				case GeoIcon.FolderOutline: icon.Data = IconData.FOLDER_OUTLINE.ToGeometry(); break;
 				case GeoIcon.FolderOpen: icon.Data = IconData.FOLDER_OPEN.ToGeometry(); break;
+				case GeoIcon.FolderOpenOutline: icon.Data = IconData.FOLDER_OPEN_OUTLINE.ToGeometry(); break;
 				case GeoIcon.FolderTable: icon.Data = IconData.FOLDER_TABLE.ToGeometry(); break;
 				case GeoIcon.Maximize: icon.Data = IconData.MAXIMIZE.ToGeometry(); break;
 				case GeoIcon.Resize: icon.Data = IconData.RESIZE.ToGeometry(); break;
@@ -77,7 +79,6 @@ namespace DevFlow.Controls.Primitives
 				case GeoIcon.ArrowRightBold: icon.Data = IconData.ARROW_RIGHT_BOLD.ToGeometry(); break;
 				case GeoIcon.ArrowUpBold: icon.Data = IconData.ARROW_UP_BOLD.ToGeometry(); break;
 				case GeoIcon.Plus: icon.Data = IconData.PLUS.ToGeometry(); break;
-				case GeoIcon.Folder: icon.Data = IconData.FOLDER.ToGeometry(); break;
 				case GeoIcon.ConsoleLine: icon.Data = IconData.CONSOLE_LINE.ToGeometry(); break;
 				case GeoIcon.ArrowAll: icon.Data = IconData.ARROW_ALL.ToGeometry(); break;
 				case GeoIcon.MicrosoftWindows: icon.Data = IconData.MICROSOFT_WINDOWS.ToGeometry(); break;

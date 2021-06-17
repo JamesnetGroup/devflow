@@ -4,7 +4,9 @@
 					xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport"
 					xmlns:cnvt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
 
-	<Style TargetType="{x:Type flows:FlowIcon}" x:Key="ICON.RGB">
+	<Style TargetType="{x:Type flows:FlowIcon}" x:Key="ICON">
+		<Setter Property="SnapsToDevicePixels" Value="True"/>
+		<Setter Property="UseLayoutRounding" Value="True"/>
 		<Setter Property="Fill" Value="#AACDCDCD"/>
 		<Setter Property="Width" Value="20"/>
 		<Setter Property="Height" Value="20"/>
@@ -12,137 +14,12 @@
 		<Setter Property="Margin" Value="0 0 0 0"/>
 	</Style>
 
-	<Style TargetType="{x:Type Button}" x:Key="BTN.SPOID">
-		<Setter Property="Command" Value="{Binding CaptureCommand}"/>
-		<Setter Property="CommandParameter" Value="COPY"/>
-		<Setter Property="Margin" Value="10 0 10 0"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type Button}">
-					<Border Background="Transparent">
-						<flows:FlowIcon x:Name="icon" IconType="EyedropperVariant" Width="30" Height="30" Fill="{DynamicResource BRUSH.FONT.H01}"/>
-					</Border>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-
-	<Style TargetType="{x:Type Button}" x:Key="BTN.PASTE">
-		<Setter Property="Command" Value="{Binding PasteCommand}"/>
-		<Setter Property="CommandParameter" Value="COPY"/>
-		<Setter Property="Margin" Value="10 0 10 0"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type Button}">
-					<Border Background="Transparent">
-						<flows:FlowIcon x:Name="icon" IconType="ContentPaste" Width="26" Height="26" Fill="{DynamicResource BRUSH.FONT.H01}" IsHitTestVisible="False"/>
-					</Border>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-	
-	<Style TargetType="{x:Type Control}" x:Key="CTL.CURRENT">
-		<Setter Property="Grid.Row" Value="1"/>
-		<Setter Property="Grid.RowSpan" Value="2"/>
-		<Setter Property="Grid.Column" Value="0"/>
-		<Setter Property="Margin" Value="8 0 4 1"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type Control}">
-					<Grid>
-						<Border Background="{Binding CurrentColor}">
-							<TextBox x:Name="text" Text="{Binding CurrentColor}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" 
-									 Foreground="{Binding ContrastColor}" IsReadOnly="True" Background="Transparent" BorderThickness="0"/>
-						</Border>
-						<Border x:Name="border" Background="Transparent"/>
-						<StackPanel x:Name="icon" Orientation="Horizontal" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
-							<Button Style="{StaticResource BTN.SPOID}"/>
-							<Button x:Name="paste" Style="{StaticResource BTN.PASTE}"/>
-						</StackPanel>
-					</Grid>
-					<ControlTemplate.Triggers>
-						<MultiDataTrigger>
-							<MultiDataTrigger.Conditions>
-								<Condition Binding="{Binding CurrentColor, Converter={cnvt:EqualsToBooleanConverter}}" Value="false"/>
-								<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="true"/>
-							</MultiDataTrigger.Conditions>
-							<Setter TargetName="text" Property="Text" Value=""/>
-							<Setter TargetName="border" Property="Background" Value="#AA000000"/>
-							<Setter TargetName="icon" Property="Visibility" Value="Visible"/>
-							<Setter TargetName="paste" Property="Cursor" Value="Hand"/>
-						</MultiDataTrigger>
-						<DataTrigger Binding="{Binding IsCaptureColor}" Value="True">
-							<Setter TargetName="text" Property="Text" Value="{Binding CurrentColor}"/>
-							<Setter TargetName="border" Property="Background" Value="Transparent"/>
-							<Setter TargetName="icon" Property="Visibility" Value="Collapsed"/>
-						</DataTrigger>
-					</ControlTemplate.Triggers>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-
-	<Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI">
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate>
-					<Button x:Name="btn" Command="{Binding ColorClickCommand}" CommandParameter="{Binding}">
-						<Button.Resources>
-							<Style TargetType="{x:Type Button}">
-								<Setter Property="Template">
-									<Setter.Value>
-										<ControlTemplate>
-											<Border Margin="0 0 1 1" Background="{Binding HexColor}" ToolTip="{Binding HexColor}"
-                                                       UseLayoutRounding="True" SnapsToDevicePixels="True" Width="20" Height="20"/>
-										</ControlTemplate>
-									</Setter.Value>
-								</Setter>
-							</Style>
-						</Button.Resources>
-					</Button>
-					<ControlTemplate.Triggers>
-						<DataTrigger Binding="{Binding ElementName=btn, Path=IsMouseOver}" Value="True">
-							<Setter Property="Cursor" Value="Hand"/>
-						</DataTrigger>
-					</ControlTemplate.Triggers>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-
-	<Style TargetType="{x:Type ListBox}" x:Key="LBX">
-		<Setter Property="Grid.Row" Value="1"/>
-		<Setter Property="Grid.RowSpan" Value="2"/>
-		<Setter Property="Grid.Column" Value="1"/>
-		<Setter Property="Margin" Value="4 0 8 0"/>
-		<Setter Property="BorderThickness" Value="0"/>
-		<Setter Property="VerticalAlignment" Value="Top"/>
-		<Setter Property="Background" Value="{DynamicResource BRUSH.BG}"/>
-		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
-		<Setter Property="ItemsSource" Value="{Binding ExtractedColorSet}"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate>
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" BorderThickness="0">
-						<ItemsPresenter/>
-					</ScrollViewer>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-		<Setter Property="ItemsPanel">
-			<Setter.Value>
-				<ItemsPanelTemplate>
-					<UniformGrid Rows="8" Columns="8"/>
-				</ItemsPanelTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-
 	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.BASE">
 		<Setter Property="Foreground" Value="#ffffff"/>
 		<Setter Property="FontSize" Value="13"/>
-		<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=TextBlock}, Path=Text}"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="Margin" Value="5 0 0 0"/>
 	</Style>
 
 	<Style TargetType="{x:Type ContentControl}" x:Key="RGB.BASE">
@@ -150,9 +27,8 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ContentControl}">
 					<StackPanel Orientation="Horizontal">
-						<flows:FlowIcon x:Name="icon" Style="{StaticResource ICON.RGB}"/>
-						<TextBlock Foreground="#FFFFFF" FontSize="13" FontWeight="Bold" VerticalAlignment="Top" Margin="5 0 0 0"
-								   Text="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Content}"/>
+						<flows:FlowIcon x:Name="icon" Style="{StaticResource ICON}"/>
+						<TextBlock Style="{StaticResource TXB.BASE}" Text="{TemplateBinding Content}"/>
 					</StackPanel>
 					<ControlTemplate.Triggers>
 						<Trigger Property="Tag" Value="R">
@@ -169,58 +45,57 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
+
+	<Style TargetType="{x:Type TextBlock}" x:Key="TXB.TITLE">
+		<Setter Property="Text" Value="ColorSpoid"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Margin" Value="10 0 10 0"/>
+		<Setter Property="Foreground" Value="#FFFFFF"/>
+		<Setter Property="IsHitTestVisible" Value="False"/>
+	</Style>
+
+	<DataTemplate x:Key="TITLE">
+		<TextBlock Style="{StaticResource TXB.TITLE}"/>
+	</DataTemplate>
+
 	<Style TargetType="{x:Type views:ColorSpoid}" BasedOn="{StaticResource {x:Type flows:Explorer}}">
 		<Setter Property="Title" Value="{DynamicResource SPOID_TITLE}"/>
-		<Setter Property="TitleTemplate">
+		<Setter Property="TitleTemplate" Value="{StaticResource TITLE}"/>
+		<Setter Property="ContentTemplate">
 			<Setter.Value>
 				<DataTemplate>
-					<TextBlock Text="ColorSpoid" VerticalAlignment="Center" Margin="10 0 10 0" Foreground="#FFFFFF" IsHitTestVisible="False"/>
+					<Grid Margin="1">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+
+						<views:ExtractColorBox/>
+						<views:PaletteGridBox/>
+
+						<UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Columns="1" Margin="10 30 80 0">
+							<flows:ColorSlider x:Name="red" Tag="Red" Value="{Binding Red}" Margin="0 2"/>
+							<flows:ColorSlider x:Name="green" Tag="Green" Value="{Binding Green}" Margin="0 2"/>
+							<flows:ColorSlider x:Name="blue" Tag="Blue" Value="{Binding Blue}" Margin="0 2"/>
+						</UniformGrid>
+
+						<UniformGrid Grid.Row="3" Grid.Column="1" Columns="1" Margin="110 30 0 0">
+							<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=red, Path=Value}" Tag="R"/>
+							<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=green, Path=Value}" Tag="G"/>
+							<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=blue, Path=Value}" Tag="B"/>
+						</UniformGrid>
+					</Grid>
 				</DataTemplate>
 			</Setter.Value>
 		</Setter>
-        <Setter Property="ContentTemplate">
-            <Setter.Value>
-                <DataTemplate>
-					<Border>
-						<Grid Margin="1">
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-								<RowDefinition Height="Auto"/>
-								<RowDefinition Height="Auto"/>
-							</Grid.RowDefinitions>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*"/>
-								<ColumnDefinition Width="Auto"/>
-							</Grid.ColumnDefinitions>
-							
-							<Control Style="{StaticResource CTL.CURRENT}"/>
-							<ListBox Style="{StaticResource LBX}"/>
-							
-							<UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Columns="1" Margin="10 30 80 0">
-								<flows:ColorSlider x:Name="red" Tag="Red" Value="{Binding Red}" Margin="0 2"/>
-								<flows:ColorSlider x:Name="green" Tag="Green" Value="{Binding Green}" Margin="0 2"/>
-								<flows:ColorSlider x:Name="blue" Tag="Blue" Value="{Binding Blue}" Margin="0 2"/>
-							</UniformGrid>
-
-							<UniformGrid Grid.Row="3" Grid.Column="1" Columns="1" Margin="110 30 0 0">
-								<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=red, Path=Value}" Tag="R"/>
-								<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=green, Path=Value}" Tag="G"/>
-								<ContentControl Style="{StaticResource RGB.BASE}" Content="{Binding ElementName=blue, Path=Value}" Tag="B"/>
-								<!--<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=red, Path=Value, StringFormat={}R: {0:N0}}"/>
-								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=green, Path=Value, StringFormat={}G: {0:N0}}"/>
-								<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding ElementName=blue, Path=Value, StringFormat={}B: {0:N0}}"/>-->
-							</UniformGrid>
-
-                        </Grid>
-					</Border>
-				</DataTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+	</Style>
 </ResourceDictionary>
-
 
 
 
