@@ -28,7 +28,7 @@
 				<ControlTemplate TargetType="{x:Type ContentControl}">
 					<StackPanel Orientation="Horizontal">
 						<flows:FlowIcon x:Name="icon" Style="{StaticResource ICON}"/>
-						<TextBlock Style="{StaticResource TXB.BASE}" Text="{TemplateBinding Content}"/>
+						<TextBlock Style="{StaticResource TXB.BASE}" Text="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Content}"/>
 					</StackPanel>
 					<ControlTemplate.Triggers>
 						<Trigger Property="Tag" Value="R">

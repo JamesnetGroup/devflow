@@ -114,9 +114,20 @@ namespace DevFlow.Finders.Local.Work
 
 		internal void FolderSelect(FileModel dir, MoveType type)
 		{
-			FolderModel record = GotoMove(dir);
-			SwitchRecord(record, type);
-			Refresh(record, type);
+			if (CheckSame(dir))
+			{
+				FolderModel record = GotoMove(dir);
+				SwitchRecord(record, type);
+				Refresh(record, type);
+			}
+		}
+		private bool CheckSame(FileModel dir)
+		{
+			if (Memento.Count > 0 && dir.FullPath == Memento.Peek().FullPath)
+			{
+				return false;
+			}
+			return true;
 		}
 
 		#region TreeSelect
@@ -124,7 +135,7 @@ namespace DevFlow.Finders.Local.Work
 		internal void TreeSelect(FileModel dir, MoveType type)
 		{
 			// TODO James: IsFreezingRoot 로직 개선이 필요합니다.
-			if (!IsFreezingRoot && CheckDenied(dir))
+			if (!IsFreezingRoot && CheckDenied(dir) && CheckSame(dir))
 			{
 				FolderModel record = GotoMove(dir);
 				SwitchRecord(record, type);

@@ -19,7 +19,7 @@ namespace DevFlow.Finders.Views
 		public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(RootTreeView));
 		#endregion
 
-		#region ICommands
+		#region SelectionCommand
 
 		public ICommand SelectionCommand
 		{

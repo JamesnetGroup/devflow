@@ -1,7 +1,9 @@
 ﻿using DevFlow.Finders.Local.Enum;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
+using DevFlow.Finders.Views;
 using DevFlow.Windowbase.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -23,6 +25,7 @@ namespace DevFlow.Finders.ViewModels
 
 		public ICommand RecordSelectionCommand { get; }
 		public ICommand RootSelectionCommand { get; }
+		public ICommand PolygonSelectionCommand { get; }
 		public ICommand DoubleClickCommand { get; }
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
@@ -49,6 +52,8 @@ namespace DevFlow.Finders.ViewModels
 		}
 		#endregion
 
+		public string MachineName => Environment.MachineName.ToString();
+
 		#region CurrentItems
 
 		public List<RootModel> CurrentItems
@@ -71,6 +76,7 @@ namespace DevFlow.Finders.ViewModels
 			RootSelectionCommand = new RelayCommand<FileModel>(TreeSelected);
 			RecordSelectionCommand = new RelayCommand<FileModel>(RecordSelected);
 			DoubleClickCommand = new RelayCommand<FileModel>(FileClick);
+			PolygonSelectionCommand = new RelayCommand<LocatorModel>(PolygonSelected);
 
 			GoUpCommand = new RelayCommand<FileModel>((p) => LocWorker.GoUpSelect(MoveType.GoUp), (p) => LocWorker.IsUsedGoUp);
 			UndoCommand = new RelayCommand<FileModel>((p) => LocWorker.UndoSelect(MoveType.Undo), (p) => LocWorker.IsUsedUndo);
@@ -94,12 +100,20 @@ namespace DevFlow.Finders.ViewModels
 		}
 		#endregion
 
+		#region FileClick
+
 		private void FileClick(FileModel file)
 		{
 			if (file.IconType == Data.GeoIcon.Folder)
 			{
 				LocWorker.FolderSelect(file, MoveType.File);
 			}
+		}
+		#endregion
+
+		private void PolygonSelected(LocatorModel loc)
+		{
+			LocWorker.TreeSelect(new RootModel(loc.FullPath, Data.GeoIcon.Folder), MoveType.TreeSelect);
 		}
 
 		#region Refresh

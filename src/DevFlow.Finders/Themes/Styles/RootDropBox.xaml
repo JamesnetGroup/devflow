@@ -92,7 +92,7 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type views:RootDropBox}">
+	<Style TargetType="{x:Type views:MementoBox}">
 		<Setter Property="ItemContainerStyle" Value="{StaticResource CBXI.DROPBOX}"/>
 		<Setter Property="ItemsSource" Value="{Binding Records}"/>
 		<Setter Property="SelectedItem" Value="{Binding Record}"/>
@@ -101,7 +101,7 @@
 		<Setter Property="Foreground" Value="#FFFFFF"/>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type views:RootDropBox}">
+				<ControlTemplate TargetType="{x:Type views:MementoBox}">
 					<Grid>
 						<ToggleButton Style="{StaticResource TGB}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
 

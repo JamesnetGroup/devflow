@@ -102,7 +102,7 @@
     </Compile>
     <Compile Include="ViewModels\FinderViewModel.cs" />
     <Compile Include="Views\Units\PolygonSelector.cs" />
-    <Compile Include="Views\Units\RootDropBox.cs" />
+    <Compile Include="Views\Units\MementoBox.cs" />
     <Compile Include="Views\Units\RootItemView.cs" />
     <Compile Include="Views\Finder.cs" />
     <Compile Include="Views\Units\RootTreeView.cs" />

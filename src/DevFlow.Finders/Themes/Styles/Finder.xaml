@@ -361,7 +361,7 @@
                                 <Button Grid.Column="0" Style="{StaticResource BTN.UP}"/>
 								<Button Grid.Column="1" Style="{StaticResource BTN.UNDO}"/>
 								<Button Grid.Column="2" Style="{StaticResource BTN.REDO}"/>
-								<views:RootDropBox/>
+								<views:MementoBox/>
 							</StackPanel>
 
 						</Border>
@@ -401,12 +401,13 @@
 								<RowDefinition Height="*"/>
 							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="300"/>
+								<ColumnDefinition Width="240"/>
 								<ColumnDefinition Width="*"/>
 							</Grid.ColumnDefinitions>
 
-							<views:RootTreeView ItemsSource="{Binding Roots}"/>
-							<views:PolygonSelector/>
+							<TextBlock Text="{Binding MachineName}" Visibility="Collapsed"/>
+							<views:RootTreeView Grid.RowSpan="1" Grid.Row="1" ItemsSource="{Binding Roots}"/>
+							<views:PolygonSelector Grid.ColumnSpan="2" Grid.Column="0" Margin="0"/>
 							<views:RootItemView ItemsSource="{Binding CurrentItems}"/>
 						</Grid>
 					</Border>

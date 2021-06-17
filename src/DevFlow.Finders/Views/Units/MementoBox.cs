@@ -4,19 +4,19 @@ using System.Windows.Input;
 
 namespace DevFlow.Finders.Views
 {
-	public class RootDropBox : ComboBox
+	public class MementoBox : ComboBox
 	{
 		#region DefaultStyleKey
 
-		static RootDropBox()
+		static MementoBox()
 		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(RootDropBox), new FrameworkPropertyMetadata(typeof(RootDropBox)));
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(MementoBox), new FrameworkPropertyMetadata(typeof(MementoBox)));
 		}
 		#endregion
 
 		#region DependencyProperties
 
-		public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(RootDropBox));
+		public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(MementoBox));
 		#endregion
 
 		#region ICommands

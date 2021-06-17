@@ -6,15 +6,14 @@
 	xmlns:convt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
 
 	<Style TargetType="{x:Type Control}" x:Key="ARROW">
-		<Setter Property="IsHitTestVisible" Value="False"/>
+		<Setter Property="Cursor" Value="Hand"/>
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Control}">
 					<Border x:Name="border"
-							IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
 						    Background="{TemplateBinding Background}"
-							Margin="0 0 -22 0">
+							Margin="0 0 -10 0">
 						<Grid>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="Auto"/>
@@ -26,7 +25,7 @@
 								<Polygon x:Name="poly1" Points="0,0 50,50 0,100 50,100 50,0" StrokeThickness="0" Fill="{Binding Color}"/>
 							</Viewbox>
 							<Border x:Name="text" Grid.Column="1"  Background="{Binding Color}">
-								<TextBlock x:Name="txt" Text="{Binding Name}" Margin="10 0 20 0" VerticalAlignment="Center" Foreground="#FFFFFF"/>
+								<TextBlock x:Name="txt" Text="{Binding Name}" Margin="10 0 10 0" VerticalAlignment="Center" Foreground="#000000"/>
 							</Border>
 							<Viewbox Grid.Column="2" Height="22" HorizontalAlignment="Left">
 								<Polygon x:Name="poly2" Points="0,0 50,50 0,100" StrokeThickness="0" Fill="{Binding Color}"/>
@@ -41,6 +40,9 @@
 							<Setter TargetName="txt" Property="Margin" Value="10 0 10 0"/>
 							<Setter TargetName="border" Property="Margin" Value="0 0 0 0"/>
 						</DataTrigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" Value="0.8"/>
+						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
@@ -58,29 +60,11 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-
-	<Style TargetType="{x:Type ListBox}" x:Key="LBX">
-		<Setter Property="Background" Value="Transparent"/>
-		<Setter Property="BorderThickness" Value="0"/>
-		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate>
-					<ItemsPresenter/>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-		<Setter Property="ItemsPanel">
-			<Setter.Value>
-				<ItemsPanelTemplate>
-					<StackPanel Orientation="Horizontal"/>
-				</ItemsPanelTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
 	
 	<Style TargetType="{x:Type views:PolygonSelector}">
 		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="SelectionCommand" Value="{Binding PolygonSelectionCommand}"/>
+		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
 		<Setter Property="Data" Value="{Binding Record}"/>
 		<Setter Property="Grid.Row" Value="0"/>
 		<Setter Property="Grid.Column" Value="1"/>
@@ -89,10 +73,18 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:PolygonSelector}">
-					<Border>
-						<ListBox x:Name="PART_LocationSelector" Style="{StaticResource LBX}" Margin="0 0 0 0"/>
+					<Border BorderBrush="#393939" BorderThickness="0 0 0 1" Background="#242424"
+							Padding="0">
+						<ItemsPresenter/>
 					</Border>
 				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<StackPanel Orientation="Horizontal"/>
+				</ItemsPanelTemplate>
 			</Setter.Value>
 		</Setter>
 	</Style>
