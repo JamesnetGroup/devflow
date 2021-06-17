@@ -397,7 +397,7 @@
 					<Border Style="{StaticResource BDR}">
 						<Grid>
 							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="22"/>
 								<RowDefinition Height="*"/>
 							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>

@@ -16,8 +16,8 @@ namespace DevFlow.Finders.Local.Api
 			try
 			{
 				DirectoryInfo info = Directory.GetParent(path);
-				parentPath = info.FullName;
-				return true;
+				parentPath = info?.FullName;
+				return info != null;
 			}
 			catch
 			{

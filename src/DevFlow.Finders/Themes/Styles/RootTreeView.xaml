@@ -107,8 +107,7 @@
 	</Style>
 
 	<Style TargetType="{x:Type views:RootTreeView}">
-		<Setter Property="Grid.Row" Value="0"/>
-		<Setter Property="Grid.RowSpan" Value="2"/>
+		<Setter Property="Grid.Row" Value="1"/>
 		<Setter Property="Grid.Column" Value="0"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource TRVI}"/>
 		<Setter Property="SelectionCommand" Value="{Binding RootSelectionCommand}"/>

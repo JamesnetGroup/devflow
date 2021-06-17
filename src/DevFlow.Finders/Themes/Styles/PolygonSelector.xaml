@@ -11,9 +11,10 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Control}">
-					<Border IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
+					<Border x:Name="border"
+							IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
 						    Background="{TemplateBinding Background}"
-							Margin="-22 0 0 0">
+							Margin="0 0 -22 0">
 						<Grid>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="Auto"/>
@@ -21,20 +22,24 @@
 								<ColumnDefinition Width="Auto"/>
 							</Grid.ColumnDefinitions>
 							<Border x:Name="left" Background="{TemplateBinding Background}"/>
-							<Viewbox Grid.Column="0" Height="22" HorizontalAlignment="Left">
-								<Polygon Points="0,0 50,50 0,100 50,100 50,0" StrokeThickness="0" Fill="{Binding Color}"/>
+							<Viewbox x:Name="vbleft" Grid.Column="0" Height="22" HorizontalAlignment="Left">
+								<Polygon x:Name="poly1" Points="0,0 50,50 0,100 50,100 50,0" StrokeThickness="0" Fill="{Binding Color}"/>
 							</Viewbox>
-							<Border Grid.Column="1"  Background="{Binding Color}">
-								<TextBlock Text="{Binding Name}" Margin="14 0 16 0" VerticalAlignment="Center"/>
+							<Border x:Name="text" Grid.Column="1"  Background="{Binding Color}">
+								<TextBlock x:Name="txt" Text="{Binding Name}" Margin="10 0 20 0" VerticalAlignment="Center" Foreground="#FFFFFF"/>
 							</Border>
 							<Viewbox Grid.Column="2" Height="22" HorizontalAlignment="Left">
-								<Polygon Points="0,0 50,50 0,100" StrokeThickness="0" Fill="{Binding Color}"/>
+								<Polygon x:Name="poly2" Points="0,0 50,50 0,100" StrokeThickness="0" Fill="{Binding Color}"/>
 							</Viewbox>
 						</Grid>
 					</Border>
 					<ControlTemplate.Triggers>
 						<DataTrigger Binding="{Binding IsRoot}" Value="True">
-							<Setter TargetName="left" Property="Background" Value="{Binding Color}"/>
+							<Setter TargetName="vbleft" Property="Visibility" Value="Collapsed"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding IsLast}" Value="True">
+							<Setter TargetName="txt" Property="Margin" Value="10 0 10 0"/>
+							<Setter TargetName="border" Property="Margin" Value="0 0 0 0"/>
 						</DataTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
@@ -85,7 +90,7 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:PolygonSelector}">
 					<Border>
-						<ListBox x:Name="PART_LocationSelector" Style="{StaticResource LBX}" Margin="22 0 0 0"/>
+						<ListBox x:Name="PART_LocationSelector" Style="{StaticResource LBX}" Margin="0 0 0 0"/>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>

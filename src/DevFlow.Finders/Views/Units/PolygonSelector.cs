@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -41,30 +42,24 @@ namespace DevFlow.Finders.Views
 
 					string[] colors =
 					{
-						"#FF427AB3",
-						"#FFCDAC00",
-						"#FF8B9600",
-						"#FF427AB3",
-						"#FFCDAC00",
-						"#FF8B9600",
-						"#FF427AB3",
-						"#FFCDAC00",
-						"#FF8B9600",
-						"#FF427AB3",
-						"#FFCDAC00",
-						"#FF8B9600",
-						"#FF427AB3",
-						"#FFCDAC00",
-						"#FF8B9600",
-						"#FF427AB3",
-						"#FFCDAC00",
-						"#FF8B9600",
-						"#FF427AB3",
-						"#FFCDAC00",
-						"#FF8B9600",
+						"#FF2763A8",
+						"#FFB15260",
+						"#FF299AA6",
+						"#FFC03851",
+						"#FF2763A8",
+						"#FFB15260",
+						"#FF299AA6",
+						"#FFC03851",
+						"#FF2763A8",
+						"#FFB15260",
+						"#FF299AA6",
+						"#FFC03851",
+						"#FF2763A8",
+						"#FFB15260",
+						"#FF299AA6",
+						"#FFC03851",
 					};
 
-					int cnt = 0;
 
 					while (true)
 					{
@@ -72,7 +67,7 @@ namespace DevFlow.Finders.Views
 
 						if (name == "")
 						{
-							var root = new LocatorModel(fullPath, colors[cnt]);
+							var root = new LocatorModel(fullPath);
 							root.IsRoot = true;
 							dirs.Insert(0, root);
 
@@ -80,11 +75,14 @@ namespace DevFlow.Finders.Views
 						}
 						else
 						{
-							dirs.Insert(0, new LocatorModel(name, colors[cnt]));
+							dirs.Insert(0, new LocatorModel(name));
 							fullPath = Path.GetDirectoryName(fullPath);
 						}
-						cnt++;
 					}
+
+					int cnt = 0;
+					dirs.ForEach(x => x.Color = colors[cnt++]);
+					dirs.Last().IsLast = true;
 
 					poly.LocationSelector.ItemsSource = dirs;
 				}
@@ -101,14 +99,14 @@ namespace DevFlow.Finders.Views
 	}
 	public class LocatorModel
 	{
-		public LocatorModel(string name, string color)
+		public LocatorModel(string name)
 		{
 			Name = name;
-			Color = color;
 		}
 
 		public string Name { get; set; }
 		public string Color { get; set; }
 		public bool IsRoot { get; set; }
+		public bool IsLast { get; set; }
 	}
 }
