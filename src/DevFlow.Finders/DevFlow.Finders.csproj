@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\PolygonSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\RootDropBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,6 +101,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\FinderViewModel.cs" />
+    <Compile Include="Views\Units\PolygonSelector.cs" />
     <Compile Include="Views\Units\RootDropBox.cs" />
     <Compile Include="Views\Units\RootItemView.cs" />
     <Compile Include="Views\Finder.cs" />

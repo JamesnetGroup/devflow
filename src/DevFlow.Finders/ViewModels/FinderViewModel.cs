@@ -2,7 +2,6 @@
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
 using DevFlow.Windowbase.Mvvm;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;

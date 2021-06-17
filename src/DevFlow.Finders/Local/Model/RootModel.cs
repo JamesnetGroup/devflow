@@ -1,5 +1,4 @@
 ﻿using DevFlow.Data;
-using DevFlow.Finders.Local.Api;
 using System.Collections.ObjectModel;
 using System.IO;
 
@@ -18,7 +17,7 @@ namespace DevFlow.Finders.Local.Model
 			Children = new ObservableCollection<FileModel>();
 		}
 
-		public RootModel(string target, GeoIcon icon) : this(0, Path.GetFileName(target), RootIcon.Folder, target, false, false)
+		public RootModel(string target, GeoIcon icon) : this(0, Path.GetFileName(target), icon, target, false, false)
 		{
 
 		}

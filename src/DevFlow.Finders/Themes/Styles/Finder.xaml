@@ -371,6 +371,13 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+
+	<Style TargetType="{x:Type Border}" x:Key="BDR">
+		<Setter Property="BorderThickness" Value="0 1 0 0"/>
+		<Setter Property="BorderBrush" Value="#333333"/>
+		<Setter Property="UseLayoutRounding" Value="True"/>
+		<Setter Property="SnapsToDevicePixels" Value="True"/>
+	</Style>
 	
 	
 	<Style TargetType="{x:Type views:Finder}" BasedOn="{StaticResource {x:Type flows:Explorer}}">
@@ -387,18 +394,20 @@
 		<Setter Property="ContentTemplate">
 			<Setter.Value>
 				<DataTemplate>
-					<Border BorderThickness="0 1 0 0" 
-							BorderBrush="#333333" 
-							UseLayoutRounding="True" 
-							SnapsToDevicePixels="True">
+					<Border Style="{StaticResource BDR}">
 						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="*"/>
+							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="300"/>
-								<ColumnDefinition/>
+								<ColumnDefinition Width="*"/>
 							</Grid.ColumnDefinitions>
 
-							<views:RootTreeView Grid.Column="0" ItemsSource="{Binding Roots}" SelectionCommand="{Binding RootSelectionCommand}"/>
-							<views:RootItemView Grid.Column="1" ItemsSource="{Binding CurrentItems}"/>
+							<views:RootTreeView ItemsSource="{Binding Roots}"/>
+							<views:PolygonSelector/>
+							<views:RootItemView ItemsSource="{Binding CurrentItems}"/>
 						</Grid>
 					</Border>
 				</DataTemplate>
