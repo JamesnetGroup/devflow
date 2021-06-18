@@ -99,6 +99,7 @@ namespace DevFlow.Controls.Primitives
 				case GeoIcon.AlphaG: icon.Data = IconData.ALPHA_G.ToGeometry(); break;
 				case GeoIcon.AlphaB: icon.Data = IconData.ALPHA_B.ToGeometry(); break;
 				case GeoIcon.Check: icon.Data = IconData.CHECK.ToGeometry(); break;
+				case GeoIcon.ArrowULeftTopBold: icon.Data = IconData.ARROW_U_LEFT_TOP_BOLD.ToGeometry();break;
 				case GeoIcon.None:
 					break;
 				default:

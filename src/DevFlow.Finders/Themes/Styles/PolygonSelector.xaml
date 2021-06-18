@@ -5,6 +5,18 @@
 	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport"
 	xmlns:convt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
 
+	<Style TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Border Background="Transparent">
+						<flows:FlowIcon IconType="ArrowULeftTopBold" Fill="#CCCCCC"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
 	<Style TargetType="{x:Type Button}" x:Key="POLYGON">
 		<Setter Property="Command" Value="{Binding PolygonClick}"/>
 		<Setter Property="CommandParameter" Value="{Binding}"/>
@@ -28,7 +40,13 @@
 								<Polygon x:Name="poly1" Points="0,0 50,50 0,100 50,100 50,0" StrokeThickness="0" Fill="{Binding Color}"/>
 							</Viewbox>
 							<Border x:Name="text" Grid.Column="1"  Background="{Binding Color}">
-								<TextBlock x:Name="txt" Text="{Binding Name}" Margin="10 0 10 0" VerticalAlignment="Center" Foreground="#000000"/>
+								<Grid>
+									<TextBlock Text="{Binding Name}" Margin="10 0 10 0" Visibility="Collapsed" VerticalAlignment="Center" Foreground="#000000"
+											   FontWeight="Bold" TextAlignment="Center"/>
+									<TextBlock x:Name="txt" Text="{Binding Name}" Margin="10 0 10 0" VerticalAlignment="Center" Foreground="#000000"
+											   TextAlignment="Center"/>
+									
+								</Grid>
 							</Border>
 							<Viewbox Grid.Column="2" Height="22" HorizontalAlignment="Left">
 								<Polygon x:Name="poly2" Points="0,0 50,50 0,100" StrokeThickness="0" Fill="{Binding Color}"/>

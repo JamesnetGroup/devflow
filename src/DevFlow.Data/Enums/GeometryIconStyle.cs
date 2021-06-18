@@ -51,7 +51,8 @@
 		AlphaG,
 		AlphaB,
 		FolderOpen,
-		Check
+		Check,
+		ArrowULeftTopBold
 	}
 }
 

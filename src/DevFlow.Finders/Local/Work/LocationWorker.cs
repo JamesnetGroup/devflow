@@ -117,7 +117,7 @@ namespace DevFlow.Finders.Local.Work
 
 		internal void FolderSelect(FileModel dir, MoveType type)
 		{
-			if (CheckSame(dir))
+			if (CheckSame(dir) && CheckDenied(dir))
 			{
 				FolderModel record = GotoMove(dir);
 				SwitchRecord(record, type);
