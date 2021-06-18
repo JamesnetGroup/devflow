@@ -9,6 +9,7 @@
 		<Setter Property="Command" Value="{Binding PolygonClick}"/>
 		<Setter Property="CommandParameter" Value="{Binding}"/>
 		<Setter Property="Cursor" Value="Hand"/>
+		<Setter Property="Opacity" Value="0.9"/>
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -44,7 +45,8 @@
 							<Setter TargetName="border" Property="Margin" Value="0 0 0 0"/>
 						</DataTrigger>
 						<Trigger Property="IsMouseOver" Value="True">
-							<Setter Property="Opacity" Value="0.8"/>
+							<Setter Property="Opacity" Value="1"/>
+							<Setter TargetName="txt" Property="FontWeight" Value="Bold"/>
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
