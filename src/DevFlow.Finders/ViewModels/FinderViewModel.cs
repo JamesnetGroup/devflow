@@ -1,7 +1,6 @@
 ﻿using DevFlow.Finders.Local.Enum;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
-using DevFlow.Finders.Views;
 using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -52,7 +51,10 @@ namespace DevFlow.Finders.ViewModels
 		}
 		#endregion
 
+		#region MachineName
+
 		public string MachineName => Environment.MachineName.ToString();
+		#endregion
 
 		#region CurrentItems
 
@@ -84,6 +86,8 @@ namespace DevFlow.Finders.ViewModels
 		}
 		#endregion
 
+		// ICommand Action..♥
+
 		#region RecordSelected
 
 		private void RecordSelected(FileModel root)
@@ -111,10 +115,15 @@ namespace DevFlow.Finders.ViewModels
 		}
 		#endregion
 
-		private void PolygonSelected(LocatorModel loc)
+		#region PolygonSelected
+
+		private void PolygonSelected(FileModel root)
 		{
-			LocWorker.TreeSelect(new RootModel(loc.FullPath, Data.GeoIcon.Folder), MoveType.TreeSelect);
+			LocWorker.TreeSelect(root, MoveType.File);
 		}
+		#endregion
+
+		// Callback..♥
 
 		#region Refresh
 

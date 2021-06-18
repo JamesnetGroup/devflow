@@ -1,5 +1,4 @@
 ﻿using DevFlow.Finders.Local.Model;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,14 +42,18 @@ namespace DevFlow.Finders.Views
 		}
 		#endregion
 
-		protected override void OnSelectionChanged(SelectionChangedEventArgs e)
-		{
-			base.OnSelectionChanged(e);
-			if (SelectedItem != null)
-			{
-				SelectionCommand.Execute(SelectedItem);
-			}
+		#region Constructor
+
+		public PolygonSelector()
+		{ 
+		
 		}
+		#endregion
+
+		// DpendencyProperty Callback..♥
+
+		#region DataChanged
+
 		private static void DataChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			if (d is PolygonSelector poly)
@@ -62,7 +65,7 @@ namespace DevFlow.Finders.Views
 
 					string[] colors =
 					{
-						"#FFCCCCCC",
+						"#00000000",
 						"#FF8B9600",
 						"#FFEDC33F",
 						"#FF427AB3",
@@ -87,7 +90,7 @@ namespace DevFlow.Finders.Views
 
 						if (name == "")
 						{
-							var root = new LocatorModel(fullPath, fullPath);
+							var root = new LocatorModel(fullPath, fullPath, poly.PolygonClick);
 							root.IsRoot = true;
 							dirs.Insert(0, root);
 
@@ -95,7 +98,8 @@ namespace DevFlow.Finders.Views
 						}
 						else
 						{
-							dirs.Insert(0, new LocatorModel(name, fullPath));
+							var root = new LocatorModel(name, fullPath, poly.PolygonClick);
+							dirs.Insert(0, root);
 							fullPath = Path.GetDirectoryName(fullPath);
 						}
 					}
@@ -108,19 +112,16 @@ namespace DevFlow.Finders.Views
 				}
 			}
 		}
-	}
-	public class LocatorModel
-	{
-		public LocatorModel(string name, string fullName)
-		{
-			Name = name;
-			FullPath = fullName;
-		}
+		#endregion
 
-		public string Name { get; set; }
-		public string FullPath { get; set; }
-		public string Color { get; set; }
-		public bool IsRoot { get; set; }
-		public bool IsLast { get; set; }
+		// ICommand Action..♥
+
+		#region PolygonClick
+
+		private void PolygonClick(FileModel item)
+		{
+			SelectionCommand.Execute(item);
+		}
+		#endregion
 	}
 }

@@ -17,7 +17,7 @@ namespace DevFlow.Finders.Local.Model
 		public int Depth { get; set; }
 		public long Length { get; set; }
 		public GeoIcon IconType { get; protected set; }
-		public ObservableCollection<FileModel> Children { get; set; }
+		public ObservableCollection<FileModel> Children { get; set; } = new();
 
 		public bool IsExpanded
 		{

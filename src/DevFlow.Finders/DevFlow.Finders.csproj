@@ -85,6 +85,7 @@
     <Compile Include="Local\Enum\MoveType.cs" />
     <Compile Include="Local\Model\FileModel.cs" />
     <Compile Include="Local\Model\FolderModel.cs" />
+    <Compile Include="Local\Model\PolygonModel.cs" />
     <Compile Include="Local\Model\RootModel.cs" />
     <Compile Include="Local\Work\LocationWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

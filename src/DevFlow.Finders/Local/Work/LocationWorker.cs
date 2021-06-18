@@ -84,7 +84,7 @@ namespace DevFlow.Finders.Local.Work
 
 		internal void SetNodeFocus(MoveType type)
 		{
-			MoveType[] types = { MoveType.Record, MoveType.Undo, MoveType.Redo, MoveType.GoUp };
+			MoveType[] types = { MoveType.Record, MoveType.Undo, MoveType.Redo, MoveType.GoUp, MoveType.File };
 
 			if (types.Contains(type))
 			{
@@ -92,6 +92,7 @@ namespace DevFlow.Finders.Local.Work
 				{
 					IsFreezingRoot = true;
 					item.IsSelected = true;
+					item.AddRange(GetDirectories(item));
 				}
 			}
 		}
@@ -112,6 +113,8 @@ namespace DevFlow.Finders.Local.Work
 		}
 		#endregion
 
+		#region Folder Select
+
 		internal void FolderSelect(FileModel dir, MoveType type)
 		{
 			if (CheckSame(dir))
@@ -121,14 +124,7 @@ namespace DevFlow.Finders.Local.Work
 				Refresh(record, type);
 			}
 		}
-		private bool CheckSame(FileModel dir)
-		{
-			if (Memento.Count > 0 && dir.FullPath == Memento.Peek().FullPath)
-			{
-				return false;
-			}
-			return true;
-		}
+		#endregion
 
 		#region TreeSelect
 
@@ -139,7 +135,6 @@ namespace DevFlow.Finders.Local.Work
 			{
 				FolderModel record = GotoMove(dir);
 				SwitchRecord(record, type);
-				dir.AddRange(GetDirectories(dir));
 				Refresh(record, type);
 			}
 
@@ -345,6 +340,18 @@ namespace DevFlow.Finders.Local.Work
 			root = find;
 
 			return find is RootModel;
+		}
+		#endregion
+
+		#region CheckSame
+
+		private bool CheckSame(FileModel dir)
+		{
+			if (Memento.Count > 0 && dir.FullPath == Memento.Peek().FullPath)
+			{
+				return false;
+			}
+			return true;
 		}
 		#endregion
 	}
