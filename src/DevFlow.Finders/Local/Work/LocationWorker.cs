@@ -84,17 +84,18 @@ namespace DevFlow.Finders.Local.Work
 
 		internal void SetNodeFocus(MoveType type)
 		{
-			MoveType[] types = { MoveType.Record, MoveType.Undo, MoveType.Redo, MoveType.GoUp, MoveType.File };
+			MoveType[] moveTypes = { MoveType.Record, MoveType.Undo, MoveType.Redo, MoveType.GoUp, MoveType.File };
 
-			if (types.Contains(type))
+			if (FindNode(Current, ViewModel.Roots, out RootModel item))
 			{
-				if (FindNode(Current, ViewModel.Roots, out RootModel item))
+				if (moveTypes.Contains(type))
 				{
 					IsFreezingRoot = true;
 					item.IsSelected = true;
-					item.AddRange(GetDirectories(item));
 				}
+				item.AddRange(GetDirectories(item));
 			}
+
 		}
 		#endregion
 
