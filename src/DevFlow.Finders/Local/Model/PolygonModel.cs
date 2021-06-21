@@ -6,6 +6,7 @@ namespace DevFlow.Finders.Local.Model
 {
 	public class LocatorModel : FileModel
 	{
+		public int Zindex { get; set; }
 		public string Color { get; set; }
 		public bool IsRoot { get; set; }
 		public bool IsLast { get; set; }

@@ -105,8 +105,10 @@ namespace DevFlow.Finders.Views
 					}
 
 					int cnt = 0;
+					int zindex = 1000;
 					dirs.ForEach(x => x.Color = colors[cnt++]);
 					dirs.Last().IsLast = true;
+					dirs.ForEach(x => x.Zindex = zindex--);
 
 					poly.ItemsSource = dirs;
 				}
