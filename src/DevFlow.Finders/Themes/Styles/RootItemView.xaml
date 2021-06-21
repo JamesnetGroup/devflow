@@ -385,7 +385,7 @@
 							</ScrollViewer>
 							<Border Style="{StaticResource IN.DOWN}"/>
 						</Grid>
-						<Control Style="{StaticResource IN.BOTTOM}"/>
+						<!--<Control Style="{StaticResource IN.BOTTOM}"/>-->
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
