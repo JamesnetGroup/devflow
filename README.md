@@ -22,7 +22,7 @@ You can always share information with us and we are looking forward to it.
 - [Finder](#Finder)
 - [ColorSpoid](#ColorSpoid)
 - [Reflector](#Reflector)
-- [GitStudio](#GitStudio)
+- [Git](#Git)
 
 
 
