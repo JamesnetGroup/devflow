@@ -5,6 +5,7 @@ using DevFlow.Windowbase.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace DevFlow.Finders.ViewModels
@@ -22,10 +23,10 @@ namespace DevFlow.Finders.ViewModels
 
 		#region ICommands
 
-		public ICommand RecordSelectionCommand { get; }
-		public ICommand RootSelectionCommand { get; }
-		public ICommand PolygonSelectionCommand { get; }
-		public ICommand DoubleClickCommand { get; }
+		public ICommand RecordClickCommand { get; }
+		public ICommand RootClickCommand { get; }
+		public ICommand SortedClickCommand { get; }
+		public ICommand FolderClickCommand { get; }
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
 		public ICommand GoUpCommand { get; }
@@ -43,6 +44,7 @@ namespace DevFlow.Finders.ViewModels
 		#region Records
 
 		public ObservableCollection<FileModel> Records { get; }
+		public RelayCommand<FileModel> TreeClickCommand { get; }
 
 		public FileModel Record
 		{
@@ -75,51 +77,16 @@ namespace DevFlow.Finders.ViewModels
 			CurrentItems = new();
 			Records = new();
 
-			RootSelectionCommand = new RelayCommand<FileModel>(TreeSelected);
-			RecordSelectionCommand = new RelayCommand<FileModel>(RecordSelected);
-			DoubleClickCommand = new RelayCommand<FileModel>(FileClick);
-			PolygonSelectionCommand = new RelayCommand<LocatorModel>(PolygonSelected);
+			TreeClickCommand = new RelayCommand<FileModel>((p) => LocWorker.Select(p, MoveType.TreeSelect));
+			RecordClickCommand = new RelayCommand<FileModel>((p) => LocWorker.Record(p, MoveType.Record));
+			FolderClickCommand = new RelayCommand<FileModel>((p) => LocWorker.Select(p, MoveType.File));
+			SortedClickCommand = new RelayCommand<FileModel>((p) => LocWorker.Select(p, MoveType.File));
 
 			GoUpCommand = new RelayCommand<FileModel>((p) => LocWorker.GoUpSelect(MoveType.GoUp), (p) => LocWorker.IsUsedGoUp);
 			UndoCommand = new RelayCommand<FileModel>((p) => LocWorker.UndoSelect(MoveType.Undo), (p) => LocWorker.IsUsedUndo);
 			RedoCommand = new RelayCommand<FileModel>((p) => LocWorker.RedoSelect(MoveType.Redo), (p) => LocWorker.IsUsedRedo);
-		}
-		#endregion
 
-		// ICommand Action..♥
-
-		#region RecordSelected
-
-		private void RecordSelected(FileModel root)
-		{
-			LocWorker.RecordSelect(root, MoveType.Record);
-		}
-		#endregion
-
-		#region TreeSelected
-
-		private void TreeSelected(FileModel root)
-		{
-			LocWorker.TreeSelect(root, MoveType.TreeSelect);
-		}
-		#endregion
-
-		#region FileClick
-
-		private void FileClick(FileModel file)
-		{
-			if (file.IconType == Data.GeoIcon.Folder)
-			{
-				LocWorker.FolderSelect(file, MoveType.File);
-			}
-		}
-		#endregion
-
-		#region PolygonSelected
-
-		private void PolygonSelected(FileModel root)
-		{
-			LocWorker.TreeSelect(root, MoveType.File);
+			LocWorker.Select(Roots.FirstOrDefault(), MoveType.File);
 		}
 		#endregion
 

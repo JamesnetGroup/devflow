@@ -39,8 +39,10 @@
 				<ControlTemplate TargetType="{x:Type ComboBoxItem}">
 					<Border Background="{TemplateBinding Background}">
 						<StackPanel Orientation="Horizontal">
-							<flows:FlowIcon x:Name="check" Style="{StaticResource ICO.CHECK}"/>
-							<TextBlock Style="{StaticResource TXT.FILENAME}" Foreground="{TemplateBinding Foreground}"/>
+							<flows:FlowIcon x:Name="check" 
+											Style="{StaticResource ICO.CHECK}"/>
+							<TextBlock Style="{StaticResource TXT.FILENAME}" 
+									   Foreground="{TemplateBinding Foreground}"/>
 						</StackPanel>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -72,7 +74,9 @@
 							BorderThickness="{TemplateBinding BorderThickness}"
 							BorderBrush="{TemplateBinding BorderBrush}"
 							Background="{TemplateBinding Background}">
-						<flows:FlowIcon x:Name="icon" IconType="ChevronDown" Fill="#DDDDDD"/>
+						<flows:FlowIcon x:Name="icon"
+										IconType="ChevronDown" 
+										Fill="#DDDDDD"/>
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
@@ -96,16 +100,18 @@
 		<Setter Property="ItemContainerStyle" Value="{StaticResource CBXI.DROPBOX}"/>
 		<Setter Property="ItemsSource" Value="{Binding Records}"/>
 		<Setter Property="SelectedItem" Value="{Binding Record}"/>
-		<Setter Property="SelectionCommand" Value="{Binding RecordSelectionCommand}"/>
+		<Setter Property="SelectionCommand" Value="{Binding RecordClickCommand}"/>
 		<Setter Property="DisplayMemberPath" Value="FileName"/>
 		<Setter Property="Foreground" Value="#FFFFFF"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:MementoBox}">
 					<Grid>
-						<ToggleButton Style="{StaticResource TGB}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+						<ToggleButton Style="{StaticResource TGB}" 
+									  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
 
-						<Popup Style="{StaticResource POP}" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+						<Popup Style="{StaticResource POP}"
+							   IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
 							<Border Style="{StaticResource BDR.POPUP}">
 								<ItemsPresenter/>
 							</Border>

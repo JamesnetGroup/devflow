@@ -15,9 +15,6 @@ namespace DevFlow.Finders.Local.Work
 	{
 		#region Variables
 
-		private bool IsFreezingRecord = true;
-		private bool IsFreezingRoot = false;
-
 		private readonly Stack<FolderModel> Memento;
 		private readonly Stack<FolderModel> ReMemento;
 		private readonly FinderViewModel ViewModel;
@@ -59,7 +56,7 @@ namespace DevFlow.Finders.Local.Work
 
 			depth += 1;
 
-			RootModel down = new(depth, "Downloads", RootIcon.Download, RootSupport.Downloads, false, true);
+			RootModel down = new(depth, "Downloads", RootIcon.Download, RootSupport.Downloads, false, false);
 			RootModel docs = new(depth, "Documents", RootIcon.Document, RootSupport.Documents, false, false);
 			RootModel pics = new(depth, "Pictures", RootIcon.Pictures, RootSupport.Pictures, false, false);
 
@@ -90,7 +87,7 @@ namespace DevFlow.Finders.Local.Work
 			{
 				if (moveTypes.Contains(type))
 				{
-					IsFreezingRoot = true;
+					//IsFreezingRoot = true;
 					item.IsSelected = true;
 				}
 				item.AddRange(GetDirectories(item));
@@ -101,45 +98,24 @@ namespace DevFlow.Finders.Local.Work
 
 		#region RecordSelect
 
-		internal void RecordSelect(FileModel dir, MoveType type)
+		internal void Record(FileModel dir, MoveType type)
 		{
-			// TODO James: IsFreezingRecord 로직 개선이 필요합니다.
-			if (!IsFreezingRecord)
-			{
-				GotoBack(dir);
-				SwitchRecord(Memento.Peek(), type);
-				Refresh(dir, type);
-			}
-			IsFreezingRecord = false;
+			GotoBack(dir);
+			SwitchRecord(Memento.Peek(), type);
+			Refresh(dir, type);
 		}
 		#endregion
 
-		#region Folder Select
+		#region Select
 
-		internal void FolderSelect(FileModel dir, MoveType type)
+		internal void Select(FileModel dir, MoveType type)
 		{
-			if (CheckSame(dir) && CheckDenied(dir))
+			if (CheckDenied(dir) && CheckSame(dir))
 			{
 				FolderModel record = GotoMove(dir);
 				SwitchRecord(record, type);
 				Refresh(record, type);
 			}
-		}
-		#endregion
-
-		#region TreeSelect
-
-		internal void TreeSelect(FileModel dir, MoveType type)
-		{
-			// TODO James: IsFreezingRoot 로직 개선이 필요합니다.
-			if (!IsFreezingRoot && CheckDenied(dir) && CheckSame(dir))
-			{
-				FolderModel record = GotoMove(dir);
-				SwitchRecord(record, type);
-				Refresh(record, type);
-			}
-
-			IsFreezingRoot = false;
 		}
 		#endregion
 
@@ -259,7 +235,6 @@ namespace DevFlow.Finders.Local.Work
 
 		private void SwitchRecord(FileModel root, MoveType _)
 		{
-			IsFreezingRecord = true;
 			ViewModel.Record = root;
 		}
 		#endregion
@@ -285,7 +260,6 @@ namespace DevFlow.Finders.Local.Work
 			FolderModel pop = Memento.Pop();
 			ReMemento.Push(pop);
 
-			IsFreezingRecord = true;
 			_ = ViewModel.Records.Remove(pop);
 		}
 
@@ -309,7 +283,7 @@ namespace DevFlow.Finders.Local.Work
 		{
 			bool isAccess = true;
 
-			if (!RootSupport.CheckAccess(root.FullPath))
+			if (!RootSupport.CheckAccess(root.FullPath) || !Directory.Exists(root.FullPath))
 			{
 				isAccess = false;
 				root.IsDenied = true;

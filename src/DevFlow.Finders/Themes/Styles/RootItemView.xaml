@@ -355,7 +355,7 @@
 		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.EXP}"/>
 		<Setter Property="ItemsSource" Value="{Binding FileDatas}"/>
 		<Setter Property="SelectedItem" Value="{Binding FileData}"/>
-		<Setter Property="DoubleClickCommand" Value="{Binding DoubleClickCommand}"/>
+		<Setter Property="DoubleClickCommand" Value="{Binding FolderClickCommand}"/>
 		<Setter Property="SelectionMode" Value="Extended"/>
 		<Setter Property="Background" Value="#2B2B2B"/>
 		<Setter Property="BorderThickness" Value="0"/>

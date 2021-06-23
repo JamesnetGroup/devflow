@@ -21,7 +21,6 @@
 		<Setter Property="Command" Value="{Binding PolygonClick}"/>
 		<Setter Property="CommandParameter" Value="{Binding}"/>
 		<Setter Property="Cursor" Value="Hand"/>
-		<Setter Property="Opacity" Value="0.4"/>
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -35,18 +34,35 @@
 								<ColumnDefinition Width="Auto"/>
 							</Grid.ColumnDefinitions>
 							<Border x:Name="left" Background="{TemplateBinding Background}"/>
-							<Viewbox x:Name="vbleft" Grid.Column="0" Height="22" HorizontalAlignment="Left">
-								<Polygon x:Name="poly1" Points="0,0 50,50 0,100 50,100 50,0" StrokeThickness="0" Fill="{Binding Color}"/>
+							<Viewbox x:Name="vbleft" 
+									 Grid.Column="0" 
+									 Height="22" 
+									 HorizontalAlignment="Left">
+								<Polygon x:Name="poly1" 
+										 Fill="{Binding Color}"
+										 Points="0,0 50,50 0,100 50,100 50,0" 
+										 StrokeThickness="0" />
 							</Viewbox>
-							<Border x:Name="text" Grid.Column="1"  Background="{Binding Color}">
+							<Border x:Name="text"
+									Grid.Column="1"  
+									Background="{Binding Color}">
 								<Grid>
-									<TextBlock x:Name="txt" Text="{Binding Name}" Margin="10 0 10 0" VerticalAlignment="Center" Foreground="#000000"
+									<TextBlock x:Name="txt" 
+											   Text="{Binding Name}"
+											   Margin="10 0 10 0" 
+											   VerticalAlignment="Center" 
+											   Foreground="#000000"
 											   TextAlignment="Center"/>
 									
 								</Grid>
 							</Border>
-							<Viewbox Grid.Column="2" Height="22" HorizontalAlignment="Left">
-								<Polygon x:Name="poly2" Points="0,0 50,50 0,100" StrokeThickness="0" Fill="{Binding Color}"/>
+							<Viewbox Grid.Column="2" 
+									 Height="22" 
+									 HorizontalAlignment="Left">
+								<Polygon x:Name="poly2" 
+										 Fill="{Binding Color}"
+										 Points="0,0 50,50 0,100" 
+										 StrokeThickness="0"/>
 							</Viewbox>
 						</Grid>
 					</Border>
@@ -60,7 +76,7 @@
 							<Setter TargetName="border" Property="Margin" Value="0 0 0 0"/>
 						</DataTrigger>
 						<Trigger Property="IsMouseOver" Value="True">
-							<Setter Property="Opacity" Value="1"/>
+							<Setter TargetName="txt" Property="TextDecorations" Value="Underline"/>
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
@@ -72,8 +88,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
-					<Border Panel.ZIndex="{Binding Zindex}" ToolTip="{Binding Zindex}"
-							Background="Transparent"
+					<Border Background="Transparent"
 							Margin="0 0 -10 0">
 						<Button Style="{StaticResource POLYGON}"/>
 					</Border>
@@ -84,7 +99,7 @@
 	
 	<Style TargetType="{x:Type views:PolygonSelector}">
 		<Setter Property="Background" Value="Transparent"/>
-		<Setter Property="SelectionCommand" Value="{Binding PolygonSelectionCommand}"/>
+		<Setter Property="SelectionCommand" Value="{Binding SortedClickCommand}"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource LBXI}"/>
 		<Setter Property="Data" Value="{Binding Record}"/>
 		<Setter Property="Grid.Row" Value="0"/>
@@ -94,7 +109,9 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type views:PolygonSelector}">
-					<Border BorderBrush="#393939" BorderThickness="0 0 0 1" Background="#242424"
+					<Border BorderBrush="#393939" 
+							BorderThickness="0 0 0 1" 
+							Background="#242424"
 							Padding="0">
 						<ItemsPresenter/>
 					</Border>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using DevFlow.Finders.Local.Model;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -28,18 +29,15 @@ namespace DevFlow.Finders.Views
 		}
 		#endregion
 
-		#region OnSelectedItemChanged
-		protected override void OnSelectionChanged(SelectionChangedEventArgs e)
-		{
-			base.OnSelectionChanged(e);
+		#region OnPreviewMouseLeftButtonDown
 
-			if (SelectedItem == null)
+		protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
+		{
+			base.OnPreviewMouseLeftButtonDown(e);
+
+			if (IsDropDownOpen && e.OriginalSource is FrameworkElement fe && fe.DataContext is FileModel root)
 			{
-				SelectionCommand.Execute(null);
-			}
-			else
-			{
-				SelectionCommand.Execute(SelectedItem);
+				SelectionCommand.Execute(root);
 			}
 		}
 		#endregion

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using DevFlow.Finders.Local.Model;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -32,26 +33,21 @@ namespace DevFlow.Finders.Views
 
 		public RootTreeView()
 		{
+			// TODO James: 포커스 스크롤에 대한 연구(정확한 위치)가 필요하며 해결 후에는 옵션으로 기능을 제공합니다.
+			//TreeViewItem tvitem = this.ItemContainerGenerator.ContainerFromItem(SelectedItem) as TreeViewItem;
+			//tvitem?.BringIntoView();
 		}
 		#endregion
 
-		#region OnSelectedItemChanged
+		#region OnPreviewMouseLeftButtonDown
 
-		protected override void OnSelectedItemChanged(RoutedPropertyChangedEventArgs<object> e)
+		protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
 		{
-			base.OnSelectedItemChanged(e);
+			base.OnPreviewMouseLeftButtonDown(e);
 
-			if (SelectedItem == null)
+			if (e.OriginalSource is FrameworkElement fe && fe.DataContext is RootModel root)
 			{
-				SelectionCommand.Execute(null);
-			}
-			else if (e.NewValue.Equals(SelectedItem))
-			{
-				SelectionCommand.Execute(SelectedItem);
-
-				// TODO James: 포커스 스크롤에 대한 연구(정확한 위치)가 필요하며 해결 후에는 옵션으로 기능을 제공합니다.
-				//TreeViewItem tvitem = this.ItemContainerGenerator.ContainerFromItem(SelectedItem) as TreeViewItem;
-				//tvitem?.BringIntoView();
+				SelectionCommand.Execute(root);
 			}
 		}
 		#endregion

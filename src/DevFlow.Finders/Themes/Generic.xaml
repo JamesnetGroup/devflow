@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="/DevFlow.Finders;component/Themes/Styles/PolygonSelector.xaml"/>
-		<ResourceDictionary Source="/DevFlow.Finders;component/Themes/Styles/RootDropBox.xaml"/>
+		<ResourceDictionary Source="/DevFlow.Finders;component/Themes/Styles/MementoBox.xaml"/>
 		<ResourceDictionary Source="/DevFlow.Finders;component/Themes/Styles/RootItemView.xaml"/>
 		<ResourceDictionary Source="/DevFlow.Finders;component/Themes/Styles/RootTreeView.xaml"/>
 		<ResourceDictionary Source="/DevFlow.Finders;component/Themes/Styles/Finder.xaml"/>
