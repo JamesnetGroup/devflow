@@ -17,6 +17,8 @@ You can always share information with us and we are looking forward to it.
 ## DevFlow
 DevFlow는 개발자를 위한 유용한 기능을 제공하는 프로그램입니다. 이 앱은 WPF와 C#을 기반으로 개발되었습니다.
 
+이 오픈소스가 특별한 이유는 거의 모든 소스코드를 별도의 외부 라이브러리 없이 .NET Framework 사용만으로 개발되어있습니다.
+
 ## Table of Contents
 - [Finder](#Finder)
 - [ColorSpoid](#ColorSpoid)
