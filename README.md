@@ -15,8 +15,7 @@ You can always share information with us and we are looking forward to it.
 
 ***
 ## DevFlow
-- TBD...
-
+DevFlow는 개발자를 위한 유용한 기능을 제공하는 프로그램입니다. 이 앱은 WPF와 C#을 기반으로 개발되었습니다.
 
 ## Table of Contents
 - [Finder](#Finder)
