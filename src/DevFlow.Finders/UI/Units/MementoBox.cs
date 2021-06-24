@@ -30,10 +30,9 @@ namespace DevFlow.Finders.UI.Units
 		#endregion
 
 		#region OnPreviewMouseLeftButtonDown
-
-		protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
+		protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e)
 		{
-			base.OnPreviewMouseLeftButtonDown(e);
+			base.OnPreviewMouseLeftButtonUp(e);
 
 			if (IsDropDownOpen && e.OriginalSource is FrameworkElement fe && fe.DataContext is FileModel root)
 			{
