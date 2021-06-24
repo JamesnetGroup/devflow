@@ -2,7 +2,7 @@
 using System.Windows;
 using DevFlow.Data;
 
-namespace DevFlow.Windowbase.Flowbase
+namespace DevFlow.Foundation.Flowbase
 {
 	public class FlowApp : Application
 	{

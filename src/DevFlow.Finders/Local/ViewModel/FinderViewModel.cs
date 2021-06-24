@@ -1,7 +1,7 @@
 ﻿using DevFlow.Finders.Local.Enum;
 using DevFlow.Finders.Local.Model;
 using DevFlow.Finders.Local.Work;
-using DevFlow.Windowbase.Mvvm;
+using DevFlow.Foundation.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

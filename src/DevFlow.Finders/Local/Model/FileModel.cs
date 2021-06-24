@@ -1,6 +1,6 @@
 ﻿using DevFlow.Data;
 using DevFlow.Extensions;
-using DevFlow.Windowbase.Mvvm;
+using DevFlow.Foundation.Mvvm;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 

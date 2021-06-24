@@ -1,7 +1,7 @@
 ﻿using DevFlow.Data.Menu;
-using DevFlow.Windowbase.Mvvm;
+using DevFlow.Foundation.Mvvm;
 
-namespace DevFlow.Windowbase.Flowcore
+namespace DevFlow.Foundation.Flowcore
 {
 	public interface IFlowElement
 	{

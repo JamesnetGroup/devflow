@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DevFlow.Windowbase.Mvvm
+namespace DevFlow.Foundation.Mvvm
 {
 	public class ObservableData : INotifyPropertyChanged
 	{

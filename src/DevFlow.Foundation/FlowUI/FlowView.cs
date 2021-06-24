@@ -1,9 +1,9 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Foundation.Mvvm;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevFlow.Windowbase.Flowbase
+namespace DevFlow.Foundation.Flowbase
 {
 	public class FlowView : ContentControl
 	{

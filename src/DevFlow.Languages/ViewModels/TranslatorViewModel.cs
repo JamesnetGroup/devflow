@@ -1,6 +1,6 @@
 ﻿using DevFlow.Data;
 using DevFlow.Data.Language;
-using DevFlow.Windowbase.Mvvm;
+using DevFlow.Foundation.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;

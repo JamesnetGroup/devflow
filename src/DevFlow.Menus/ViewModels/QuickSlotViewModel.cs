@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using DevFlow.Data;
 using DevFlow.Data.Menu;
-using DevFlow.Windowbase.Mvvm;
+using DevFlow.Foundation.Mvvm;
 
 namespace DevFlow.Menus.ViewModels
 {

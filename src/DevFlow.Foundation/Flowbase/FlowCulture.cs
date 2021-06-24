@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DevFlow.Data;
 
-namespace DevFlow.Windowbase.Flowbase
+namespace DevFlow.Foundation.Flowbase
 {
 	public class FlowCulture
 	{

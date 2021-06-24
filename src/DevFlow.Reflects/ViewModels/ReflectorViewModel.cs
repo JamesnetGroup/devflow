@@ -1,4 +1,4 @@
-﻿using DevFlow.Windowbase.Mvvm;
+﻿using DevFlow.Foundation.Mvvm;
 
 namespace DevFlow.Reflects.ViewModels
 {

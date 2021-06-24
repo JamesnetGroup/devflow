@@ -3,7 +3,7 @@ using System.Windows;
 using DevFlow.Data;
 using DevFlow.Data.Settings;
 using DevFlow.Main.ViewModels;
-using DevFlow.Windowbase.Flowbase;
+using DevFlow.Foundation.Flowbase;
 
 namespace DevFlow
 {

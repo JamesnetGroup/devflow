@@ -1,10 +1,10 @@
 ﻿using DevFlow.Data.Menu;
-using DevFlow.Windowbase.Flowcore;
-using DevFlow.Windowbase.Mvvm;
+using DevFlow.Foundation.Flowcore;
+using DevFlow.Foundation.Mvvm;
 using System.ComponentModel;
 using System.Windows;
 
-namespace DevFlow.Windowbase.Flowbase
+namespace DevFlow.Foundation.Flowbase
 {
 	public abstract class FlowWindow : Window, IFlowElement
 	{

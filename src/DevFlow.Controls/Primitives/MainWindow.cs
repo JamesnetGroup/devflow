@@ -1,5 +1,5 @@
 ﻿using DevFlow.Data.Menu;
-using DevFlow.Windowbase.Flowbase;
+using DevFlow.Foundation.Flowbase;
 using System.Windows;
 
 namespace DevFlow.Controls.Primitives

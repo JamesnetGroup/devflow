@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 
-namespace DevFlow.Windowbase.Mvvm
+namespace DevFlow.Foundation.Mvvm
 {
 	public class ObservableObject : INotifyPropertyChanged
 	{

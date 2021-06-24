@@ -141,9 +141,9 @@
       <Project>{049fb84c-5047-416b-b1a2-ebf2a02f0cdb}</Project>
       <Name>DevFlow.Resources</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DevFlow.Windowbase\DevFlow.Windowbase.csproj">
+    <ProjectReference Include="..\DevFlow.Foundation\DevFlow.Foundation.csproj">
       <Project>{3D2AAB15-663D-4EF4-B80E-0AFECA05C910}</Project>
-      <Name>DevFlow.Windowbase</Name>
+      <Name>DevFlow.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

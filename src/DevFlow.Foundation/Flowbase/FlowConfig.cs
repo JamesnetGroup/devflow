@@ -7,7 +7,7 @@ using System.Linq;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace DevFlow.Windowbase.Flowbase
+namespace DevFlow.Foundation.Flowbase
 {
 	public class FlowConfig
 	{

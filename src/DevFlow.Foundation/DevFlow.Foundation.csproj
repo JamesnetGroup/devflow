@@ -7,8 +7,8 @@
     <ProjectGuid>{3D2AAB15-663D-4EF4-B80E-0AFECA05C910}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DevFlow.Windowbase</RootNamespace>
-    <AssemblyName>DevFlow.Windowbase</AssemblyName>
+    <RootNamespace>DevFlow.Foundation</RootNamespace>
+    <AssemblyName>DevFlow.Foundation</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

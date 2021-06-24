@@ -1,7 +1,7 @@
 ﻿using DevFlow.Data.Colors;
 using DevFlow.Serialization.Color;
 using DevFlow.Serialization.Data;
-using DevFlow.Windowbase.Mvvm;
+using DevFlow.Foundation.Mvvm;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
