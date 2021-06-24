@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace DevFlow.Finders.Views
+namespace DevFlow.Finders.UI.Units
 {
 	public class RootItemView : ListBox
 	{

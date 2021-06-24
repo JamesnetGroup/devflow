@@ -2,7 +2,7 @@
 using DevFlow.Finders.Local.Api;
 using DevFlow.Finders.Local.Enum;
 using DevFlow.Finders.Local.Model;
-using DevFlow.Finders.ViewModels;
+using DevFlow.Finders.Local.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace DevFlow.Finders.Local.Work
 {
-	internal class LocationWorker
+	internal class LocationWork
 	{
 		#region Variables
 
@@ -29,7 +29,7 @@ namespace DevFlow.Finders.Local.Work
 
 		#region Constructor
 
-		internal LocationWorker(FinderViewModel vm)
+		internal LocationWork(FinderViewModel vm)
 		{
 			Memento = new();
 			ReMemento = new();

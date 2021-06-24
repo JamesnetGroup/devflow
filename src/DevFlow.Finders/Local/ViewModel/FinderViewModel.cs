@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 
-namespace DevFlow.Finders.ViewModels
+namespace DevFlow.Finders.Local.ViewModel
 {
 	public class FinderViewModel : ObservableObject
 	{
@@ -18,7 +18,7 @@ namespace DevFlow.Finders.ViewModels
 		private List<RootModel> _currentItems;
 		private FileModel _currentDir;
 
-		private readonly LocationWorker LocWorker;
+		private readonly LocationWork LocWorker;
 		#endregion
 
 		#region ICommands

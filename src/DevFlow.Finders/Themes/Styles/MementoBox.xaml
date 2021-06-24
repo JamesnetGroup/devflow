@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary 
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:views="clr-namespace:DevFlow.Finders.Views"
+    xmlns:units="clr-namespace:DevFlow.Finders.UI.Units"
 	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport">
 
 	<Style TargetType="{x:Type Popup}" x:Key="POP">
@@ -96,7 +96,7 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type views:MementoBox}">
+	<Style TargetType="{x:Type units:MementoBox}">
 		<Setter Property="ItemContainerStyle" Value="{StaticResource CBXI.DROPBOX}"/>
 		<Setter Property="ItemsSource" Value="{Binding Records}"/>
 		<Setter Property="SelectedItem" Value="{Binding Record}"/>
@@ -105,7 +105,7 @@
 		<Setter Property="Foreground" Value="#FFFFFF"/>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type views:MementoBox}">
+				<ControlTemplate TargetType="{x:Type units:MementoBox}">
 					<Grid>
 						<ToggleButton Style="{StaticResource TGB}" 
 									  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>

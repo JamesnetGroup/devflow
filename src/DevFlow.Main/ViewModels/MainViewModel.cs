@@ -16,9 +16,9 @@ using DevFlow.Windowbase.Mvvm;
 using DevFlow.Data.Language;
 using DevFlow.Colors.Views;
 using DevFlow.Colors.ViewModels;
-using DevFlow.Finders.Views;
-using DevFlow.Finders.ViewModels;
 using System;
+using DevFlow.Finders.Local.ViewModel;
+using DevFlow.Finders.UI.Views;
 
 namespace DevFlow.Main.ViewModels
 {

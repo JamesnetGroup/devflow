@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary 
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:views="clr-namespace:DevFlow.Finders.Views"
+    xmlns:units="clr-namespace:DevFlow.Finders.UI.Units"
 	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport"
 	xmlns:convt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
 
@@ -105,14 +105,14 @@
 		</Setter>
 	</Style>
 
-	<Style TargetType="{x:Type views:RootTreeView}">
+	<Style TargetType="{x:Type units:RootTreeView}">
 		<Setter Property="Grid.Row" Value="1"/>
 		<Setter Property="Grid.Column" Value="0"/>
 		<Setter Property="ItemContainerStyle" Value="{StaticResource TRVI}"/>
 		<Setter Property="SelectionCommand" Value="{Binding TreeClickCommand}"/>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type views:RootTreeView}">
+				<ControlTemplate TargetType="{x:Type units:RootTreeView}">
 					<Border BorderThickness="0 0 1 0"
 							BorderBrush="#393939">
 						<flows:BasicScroll>

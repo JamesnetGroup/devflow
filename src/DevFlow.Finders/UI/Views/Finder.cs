@@ -1,7 +1,7 @@
 ﻿using DevFlow.LayoutSupport.Controls;
 using System.Windows;
 
-namespace DevFlow.Finders.Views
+namespace DevFlow.Finders.UI.Views
 {
 	public class Finder : Explorer
 	{

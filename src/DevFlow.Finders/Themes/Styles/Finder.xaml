@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary 
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:views="clr-namespace:DevFlow.Finders.Views"
-	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport"
-	xmlns:convt="clr-namespace:DevFlow.Converter;assembly=DevFlow.Converter">
+    xmlns:views="clr-namespace:DevFlow.Finders.UI.Views"
+	xmlns:units="clr-namespace:DevFlow.Finders.UI.Units"
+	xmlns:flows="clr-namespace:DevFlow.LayoutSupport.Controls;assembly=DevFlow.LayoutSupport">
 
 	<LinearGradientBrush x:Key="LGB.TEXTBOX" StartPoint="0.5, 0" EndPoint="0.5, 1">
 		<GradientStop Color="#444444" Offset="0.0" />
@@ -361,7 +361,7 @@
                                 <Button Grid.Column="0" Style="{StaticResource BTN.UP}"/>
 								<Button Grid.Column="1" Style="{StaticResource BTN.UNDO}"/>
 								<Button Grid.Column="2" Style="{StaticResource BTN.REDO}"/>
-								<views:MementoBox/>
+								<units:MementoBox/>
 							</StackPanel>
 
 						</Border>
@@ -406,9 +406,9 @@
 							</Grid.ColumnDefinitions>
 
 							<TextBlock Text="{Binding MachineName}" Visibility="Collapsed"/>
-							<views:RootTreeView Grid.RowSpan="1" Grid.Row="1" ItemsSource="{Binding Roots}"/>
-							<views:PolygonSelector Grid.ColumnSpan="2" Grid.Column="0" Margin="0"/>
-							<views:RootItemView ItemsSource="{Binding CurrentItems}"/>
+							<units:RootTreeView Grid.RowSpan="1" Grid.Row="1" ItemsSource="{Binding Roots}"/>
+							<units:PolygonSelector Grid.ColumnSpan="2" Grid.Column="0" Margin="0"/>
+							<units:RootItemView ItemsSource="{Binding CurrentItems}"/>
 						</Grid>
 					</Border>
 				</DataTemplate>

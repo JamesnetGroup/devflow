@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace DevFlow.Finders.Views
+namespace DevFlow.Finders.UI.Units
 {
 	public class PolygonSelector : ListBox
 	{
@@ -60,7 +60,7 @@ namespace DevFlow.Finders.Views
 			{
 				if (poly.Data != null)
 				{
-					List<LocatorModel> dirs = new List<LocatorModel>();
+					List<LocatorModel> dirs = new();
 					string fullPath = poly.Data.FullPath;
 
 					string[] colors =
@@ -90,8 +90,10 @@ namespace DevFlow.Finders.Views
 
 						if (name == "")
 						{
-							var root = new LocatorModel(fullPath, fullPath, poly.PolygonClick);
-							root.IsRoot = true;
+							var root = new LocatorModel(fullPath, fullPath, poly.PolygonClick)
+							{
+								IsRoot = true
+							};
 							dirs.Insert(0, root);
 
 							break;
