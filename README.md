@@ -12,7 +12,6 @@ You can always share information with us and we are looking forward to it.
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
-
 ***
 ## DevFlow
 DevFlow는 개발자를 위한 유용한 기능을 제공하는 프로그램입니다. 이 앱은 WPF와 C#을 기반으로 개발되었습니다. 그리고 이 오픈소스가 특별한 이유는 거의 모든 소스코드를 별도의 외부 라이브러리 없이 오직 `.NET Framework`을 통해서만 개발이 이루어져 있기 때문에 이 앱의 모든 기능을 쉽게 이해하고 여러분의 것으로 만들 수 있을 것입니다.
