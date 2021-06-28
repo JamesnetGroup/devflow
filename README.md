@@ -81,6 +81,8 @@ namespace DevFlow
 
 ## _Finder_
 
+
+
 #### Finder : Explorer
 
 - TitleTemplate
@@ -108,6 +110,7 @@ public class Explorer : FlowWindow
             new FrameworkPropertyMetadata(typeof(Explorer)));
     }
 }
+
 
 public class FlowWindow : Window
 {
