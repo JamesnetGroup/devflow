@@ -24,18 +24,22 @@
 		<Setter Property="UseLayoutRounding" Value="True"/>
 		<Setter Property="SnapsToDevicePixels" Value="True"/>
 		<Setter Property="Background" Value="{DynamicResource BRUSH.SLOT.BACK}"/>
-		<Setter Property="Height" Value="36"/>
 		<Setter Property="Opacity" Value="1"/>
 		<Setter Property="Padding" Value="0 0 0 0"/>
+		<Setter Property="CornerRadius" Value="6"/>
 	</Style>
 
     <Style TargetType="{x:Type Button}" x:Key="BUTTON">
-        <Setter Property="Command" Value="{Binding MenuClickCommand}"/>
+		<Setter Property="Margin" Value="6"/>
+		<Setter Property="Command" Value="{Binding MenuClickCommand}"/>
         <Setter Property="CommandParameter" Value="{Binding}"/>
         <Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<Border x:Name="border" Background="Transparent">
+					<Border x:Name="border" 
+							Background="Transparent" 
+							CornerRadius="6"
+							Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}">
 						<Viewbox Style="{StaticResource VIEWBOX}">
 							<flows:FlowIcon x:Name="path" Fill="{DynamicResource BRUSH.SLOT.FILL}" IconType="{Binding IconType}" Width="24" Height="24"/>
 						</Viewbox>
@@ -45,7 +49,7 @@
 							<Setter Property="IsHitTestVisible" Value="False"/>
 						</DataTrigger>
 						<Trigger Property="IsMouseOver" Value="True">
-							<Setter TargetName="border" Property="Background" Value="#FFFFFF"/>
+							<Setter TargetName="border" Property="Background" Value="{DynamicResource BRUSH.BG.QUICK.OVER}"/>
 							<Setter TargetName="path" Property="Fill" Value="#000000"/>
 							<Setter Property="Cursor" Value="Hand"/>
 						</Trigger>
@@ -65,8 +69,6 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ListBoxItem}">
 					<Button x:Name="button" Style="{StaticResource BUTTON}"/>
-					<ControlTemplate.Triggers>
-					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
