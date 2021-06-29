@@ -38,6 +38,7 @@
 					<Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="14"
 							Padding="0">
 						<Grid>
 							<Grid.RowDefinitions>

@@ -14,7 +14,7 @@
 	<Style TargetType="{x:Type Viewbox}" x:Key="VIEWBOX">
 		<Setter Property="Width" Value="20"/>
 		<Setter Property="Height" Value="20"/>
-		<Setter Property="Margin" Value="8 0 8 0"/>
+		<Setter Property="Margin" Value="4 0 4 0"/>
 	</Style>
 
 	<Style TargetType="{x:Type Border}" x:Key="BORDER">
@@ -26,11 +26,11 @@
 		<Setter Property="Background" Value="{DynamicResource BRUSH.SLOT.BACK}"/>
 		<Setter Property="Opacity" Value="1"/>
 		<Setter Property="Padding" Value="0 0 0 0"/>
-		<Setter Property="CornerRadius" Value="6"/>
+		<Setter Property="CornerRadius" Value="10"/>
 	</Style>
 
     <Style TargetType="{x:Type Button}" x:Key="BUTTON">
-		<Setter Property="Margin" Value="6"/>
+		<Setter Property="Margin" Value="4"/>
 		<Setter Property="Command" Value="{Binding MenuClickCommand}"/>
         <Setter Property="CommandParameter" Value="{Binding}"/>
         <Setter Property="Template">
@@ -41,7 +41,8 @@
 							CornerRadius="6"
 							Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}">
 						<Viewbox Style="{StaticResource VIEWBOX}">
-							<flows:FlowIcon x:Name="path" Fill="{DynamicResource BRUSH.SLOT.FILL}" IconType="{Binding IconType}" Width="24" Height="24"/>
+							<flows:FlowIcon x:Name="path" Fill="{DynamicResource BRUSH.SLOT.FILL}" 
+											IconType="{Binding IconType}" Width="24" Height="24"/>
 						</Viewbox>
 					</Border>
 					<ControlTemplate.Triggers>
