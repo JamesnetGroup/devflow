@@ -16,14 +16,15 @@ You can always share information with us and we are looking forward to it.
 ## DevFlow
 DevFlow는 개발자를 위한 유용한 기능을 제공하는 프로그램입니다. 이 앱은 WPF와 C#을 기반으로 개발되었습니다. 그리고 이 오픈소스가 특별한 이유는 거의 모든 소스코드를 별도의 외부 라이브러리 없이 오직 `.NET Framework`을 통해서만 개발이 이루어져 있기 때문에 이 앱의 모든 기능을 쉽게 이해하고 여러분의 것으로 만들 수 있을 것입니다.
 
-## Table of Contents
-- [Finder](#Finder)
-- [ColorSpoid](#ColorSpoid)
-- [Reflector](#Reflector)
-- [Git](#Git)
-- [Theme](#Theme)
-- [Language](#Language)
+<br>
 
+## Table of Contents
+- [Application](#application)
+- [QuickSlot](#quickslot)
+- [ColorSpoid](#colorspoid)
+- [Finder](#finder)
+
+<br>
 
 ## Application
 
@@ -63,34 +64,35 @@ namespace DevFlow
 }
 ```
 
+<br>
+
 ## _QuickSlot_
 
-#### QuickSlot : Widget
+> **QuickSlot : Widget**
+> - ContentTemplate
+<img src="https://user-images.githubusercontent.com/52397976/121200753-f11ce700-c8ae-11eb-95f0-1932818f87de.png" width="300">
 
-- ContentTemplate
-
-![image](https://user-images.githubusercontent.com/52397976/121200753-f11ce700-c8ae-11eb-95f0-1932818f87de.png)
+<br>
 
 ## _ColorSpoid_
 
-#### ColorSpoid : Preview
+> **ColorSpoid : Preview**
+> - ContentTemplate
 
-- ContentTemplate
+<img src="https://user-images.githubusercontent.com/52397976/121201771-bd8e8c80-c8af-11eb-85a2-730d7c4ec7b5.png" width="400"/>
 
-![image](https://user-images.githubusercontent.com/52397976/121201771-bd8e8c80-c8af-11eb-85a2-730d7c4ec7b5.png)
+<br>
 
 ## _Finder_
 
+> Finder : Explorer
+> - TitleTemplate
+> - ContentTemplate
 
+<img src="https://user-images.githubusercontent.com/52397976/121201052-2f1a0b00-c8af-11eb-82b2-5b6e1e2b2456.png" width="750"/>
 
-#### Finder : Explorer
+<img src="https://user-images.githubusercontent.com/52397976/121374770-255dd980-c97b-11eb-8417-408499728691.png" width="750"/>
 
-- TitleTemplate
-- ContentTemplate
-
-![image](https://user-images.githubusercontent.com/52397976/121201052-2f1a0b00-c8af-11eb-82b2-5b6e1e2b2456.png)
-
-![image](https://user-images.githubusercontent.com/52397976/121374770-255dd980-c97b-11eb-8417-408499728691.png)
 
 ```csharp
 public class Finder : Explorer
