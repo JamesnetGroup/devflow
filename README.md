@@ -14,7 +14,7 @@ DevFlow는 개발자를 위한 유용한 기능을 제공하는 프로그램입�
 - [ColorSpoid](#colorspoid)
 - [Finder](#finder)
 
-<br>
+<br />
 
 ## Application
 
@@ -54,7 +54,7 @@ namespace DevFlow
 }
 ```
 
-<br>
+<br />
 
 ## _QuickSlot_
 
@@ -71,7 +71,7 @@ namespace DevFlow
 
 <img src="https://user-images.githubusercontent.com/52397976/121201771-bd8e8c80-c8af-11eb-85a2-730d7c4ec7b5.png" width="400"/>
 
-<br>
+<br />
 
 ## _Finder_
 
