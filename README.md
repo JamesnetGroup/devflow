@@ -1,8 +1,32 @@
-## DevFlow
-DevFlow는 개발자를 위한 유용한 기능을 제공하는 프로그램입니다. 이 앱은 `WPF`와 `C#`을 기반으로 개발되었습니다. 이 오픈소스가 특별한 이유는 거의 모든 소스코드를 별도의 외부 라이브러리 없이 오직 `.NET Framework`을 통해서만 개발되었기 때문입니다. 따라서 이 앱의 모든 기능을 쉽게 이해하고 여러분의 것으로 만들 수 있을 것입니다.
+<div align=center>
+  <h2>DevFlow</h2>
+  <sub>DevFlow는 개발자를 위한 유용한 기능들을 제공하는 프로그램입니다.</sub> 
+  <br/>
+  <br/>
+  <sub>이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며,</sub> 
+  <br/>
+  <sub>거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다.</sub> 
+    
+  <br/>
+  <br/>
+ 
+  <sub align="center">
+    이 레포지토리는 DevNcore팀이 관리하고 있습니다.
+  <br />
+  <a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
+  </sub>
+ 
+  <br />
+  <br />
+ 
+  <p align="center">
+   <a href="https://github.com/devncore/devflow/stargazers"><img src="https://img.shields.io/github/stars/devncore/devflow" alt="Github Stars"></a>
+   <img src="https://img.shields.io/github/license/devncore/devflow" alt="License">
+   <a href="https://github.com/devncore/devflow/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/devflow" alt="Commits-per-month"></a>
+ </p>
+</div>
 
-## 만든이 소개
-[DevNcore 오픈소스 팀](https://github.com/devncore/devncore)이 리드하고 있습니다.
+<br>
 
 ## Table of Contents
 - [Application](#application)
