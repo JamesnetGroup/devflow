@@ -1,20 +1,18 @@
 <div align=center>
   <h2>DevFlow</h2>
-  <sub>DevFlow는 개발자를 위한 유용한 기능들을 제공하는 프로그램입니다.</sub> 
+  DevFlow는 개발자를 위한 유용한 기능들을 제공하는 프로그램입니다.
   <br/>
   <br/>
-  <sub>이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며,</sub> 
+  이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며,
   <br/>
-  <sub>거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다.</sub> 
+  거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다. 
     
   <br/>
   <br/>
  
-  <sub align="center">
-    이 레포지토리는 DevNcore팀이 관리하고 있습니다.
+  이 레포지토리는 DevNcore팀이 관리하고 있습니다.
   <br />
   <a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
-  </sub>
  
   <br />
   <br />
