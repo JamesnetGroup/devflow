@@ -24,7 +24,7 @@
  </p>
 </div>
 
-<br>
+<br />
 
 ## Table of Contents
 - [Application](#application)
