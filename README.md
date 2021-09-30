@@ -7,8 +7,8 @@
   <br/>
   거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다. 
     
-  <br/>
-  <br/>
+  <br />
+  <br />
  
   이 레포지토리는 DevNcore팀이 관리하고 있습니다.
     
