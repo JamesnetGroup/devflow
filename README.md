@@ -80,7 +80,7 @@ namespace DevFlow
 > - ContentTemplate
 <img src="https://user-images.githubusercontent.com/52397976/121200753-f11ce700-c8ae-11eb-95f0-1932818f87de.png" width="300">
 
-<br>
+<br />
 
 ## _ColorSpoid_
 
