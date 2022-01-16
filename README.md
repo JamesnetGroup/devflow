@@ -1,10 +1,6 @@
 ## DevFlow
 
 이 리포지토리는 DevFlow는 개발자를 위한 유용한 기능들을 제공하는 프로그램 리포지토리입니다. <br />
-이 리포지토리는 DevNcore팀이 관리하고 있습니다.  
-이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며,
-  <br/>
-  거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다. 
 
 <a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
  
@@ -13,6 +9,8 @@
 | <a href="https://github.com/devncore/devflow/stargazers"><img src="https://img.shields.io/github/stars/devncore/devflow" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/devflow" alt="License"> | <a href="https://github.com/devncore/devflow/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/devflow" alt="Commits-per-month"></a> |
 
 <br />
+
+이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며, 거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다. 
 
 ## Table of Contents
 - [Application](#application)
