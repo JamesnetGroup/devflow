@@ -1,5 +1,8 @@
 ## DevFlow
 
+> 템플릿 작업을 위해 수정중입니다. 
+> TBD...
+
 DevFlow는 개발자를 위한 유용한 기능들을 제공하는 프로그램입니다. <br />
 
 이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며, 거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다. 
