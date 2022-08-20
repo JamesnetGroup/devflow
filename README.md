@@ -116,6 +116,3 @@ public class FlowWindow : Window
 
 }
 ```
-
-## DevNcore.WPF
-
