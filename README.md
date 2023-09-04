@@ -7,7 +7,6 @@ DevFlow는 개발자를 위한 유용한 기능들을 제공하는 프로그램�
 
 이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며, 거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다. 
 
-<a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
  
 | Star | License | Activity |
 |:----:|:-------:|:--------:|
@@ -71,48 +70,6 @@ namespace DevFlow
 
 <br />
 
-## _ColorSpoid_
+## _Gith Graph_
 
-> **ColorSpoid : Preview**
-> - ContentTemplate
-
-<img src="https://user-images.githubusercontent.com/52397976/121201771-bd8e8c80-c8af-11eb-85a2-730d7c4ec7b5.png" width="400"/>
-
-<br />
-
-## _Finder_
-
-> Finder : Explorer
-> - TitleTemplate
-> - ContentTemplate
-
-<img src="https://user-images.githubusercontent.com/52397976/121201052-2f1a0b00-c8af-11eb-82b2-5b6e1e2b2456.png" width="750"/>
-
-<img src="https://user-images.githubusercontent.com/52397976/121374770-255dd980-c97b-11eb-8417-408499728691.png" width="750"/>
-
-
-```csharp
-public class Finder : Explorer
-{
-    static Finder()
-    {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(Finder), 
-            new FrameworkPropertyMetadata(typeof(Finder)));
-    }
-}
-
-public class Explorer : FlowWindow
-{
-    static Explorer()
-    {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(Explorer), 
-            new FrameworkPropertyMetadata(typeof(Explorer)));
-    }
-}
-
-
-public class FlowWindow : Window
-{
-
-}
-```
+![image](https://github.com/jamesnet214/devflow/assets/52397976/72f87532-a37f-4544-ac33-5dfb69bc9a02)
