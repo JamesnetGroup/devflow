@@ -1,75 +1,106 @@
-## DevFlow
+# DevFlow [![English](https://img.shields.io/badge/Language-English-blue.svg)](README.md) [![한국어](https://img.shields.io/badge/Language-한국어-red.svg)](README.ko.md)
 
-> 템플릿 작업을 위해 수정중입니다. 
-> TBD...
+A modular, widget-style WPF application for advanced learning and experimentation
 
-DevFlow는 개발자를 위한 유용한 기능들을 제공하는 프로그램입니다. <br />
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![.NET](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download)
+[![Stars](https://img.shields.io/github/stars/jamesnet214/devflow.svg)](https://github.com/jamesnet214/devflow/stargazers)
+[![Issues](https://img.shields.io/github/issues/jamesnet214/devflow.svg)](https://github.com/jamesnet214/devflow/issues)
 
-이 앱은 <code>WPF</code>와 <code>C#</code>을 기반으로 하고 있으며, 거의 모든 코드가 외부 라이브러리 없이 <code>.NET Framework</code>로만 개발되었습니다. 
+## Project Overvie
 
- 
-| Star | License | Activity |
-|:----:|:-------:|:--------:|
-| <a href="https://github.com/devncore/devflow/stargazers"><img src="https://img.shields.io/github/stars/devncore/devflow" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/devflow" alt="License"> | <a href="https://github.com/devncore/devflow/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/devflow" alt="Commits-per-month"></a> |
+DevFlow is an innovative WPF application designed to showcase advanced techniques and architectural patterns in WPF development. Inspired by macOS's menu bar, it features a movable QuickSlot interface that launches widget-like windows for various development tools.
 
-<br />
+<img src="https://github.com/user-attachments/assets/2fdfc823-e196-4422-b70c-343ea32b770d" width="49%"/>
+<img src="https://github.com/user-attachments/assets/695147a5-0cb4-44d9-bf93-9a69d7c6c60b" width="49%"/>
+<img src="https://github.com/user-attachments/assets/f00376d7-b332-45e9-b576-e5e06c5935d3" width="49%"/>
+<img src="https://github.com/user-attachments/assets/e02dc0aa-529b-4001-9b4d-bdd001bd5e9e" width="49%"/>
 
-## Table of Contents
-- [Application](#application)
-- [QuickSlot](#quickslot)
-- [ColorSpoid](#colorspoid)
-- [Finder](#finder)
+## Key Technologies and Implementations
+#### 1. Modular Architecture
+- [x] Prism library integration for loose coupling and modularity
+- [x] Dependency injection for flexible and maintainable code structure
+- [x] Project distribution with no direct references between modules
 
-<br />
+#### 2. Advanced UI Design
+- [x] Custom QuickSlot menu inspired by macOS menu bar
+- [x] Widget-style windows for individual tools (Explorer, Color Picker, Theme Selector, Localization)
+- [x] Fully customized controls for a unique user experience
 
-## Application
+#### 3. WPF Mastery Showcase
+- [x] Extensive use of MVVM pattern across all modules
+- [x] Custom control development for specialized functionality
+- [x] Advanced styling and theming capabilities
 
-```csharp
-using System;
-using System.Windows;
-using DevFlow.Data.Theme;
-using DevFlow.Main.Views;
-using DevFlow.Windowbase.Flowbase;
+#### 4. Multi-language Support
+- [x] Integrated localization system for multiple language support
+- [x] Dynamic language switching without application restart
 
-namespace DevFlow
-{
-    public class App : FlowApp
-    {
-        protected override ThemeType OnSetDefaultTheme(ThemeType type) => ThemeType.Dark;
+#### 5. Developer Tools Integration
+- [x] Built-in file explorer for quick access to project files
+- [x] Color picker tool with advanced color manipulation features
+- [x] Theme selector for real-time application styling changes
 
-        protected override void OnApplyThemeManager()
-        {
-            AddTheme(ThemeType.Dark, "Generic.Dark.xaml");
-            AddTheme(ThemeType.White, "Generic.White.xaml");
-        }
+## Technology Stack
+- .NET 8.0
+- WPF (Windows Presentation Foundation)
+- Prism Library for MVVM and Modularity
+- C# 10.0
 
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            bool dialogResult = true;
+## Project Structure
+The solution is organized into three main categories:
+- **01. BASE**: Core functionalities and data handling
+- **02. UI**: User interface components and styling
+- **03. APP**: Main application and entry point
 
-            while (dialogResult)
-            {
-                ShutdownMode = ShutdownMode.OnExplicitShutdown;
-                main = new MainView();
-                main.ShowDialog();
-                dialogResult = (bool)main.DialogResult;
-            }
-            Environment.Exit(0);
-        }
-    }
-}
+Key projects include:
+- **DevFlow.Menus**: Implementation of the QuickSlot interface
+- **DevFlow.Main**: Core application window and navigation
+- **DevFlow.Colors, DevFlow.Finders, etc.**: Individual tool modules
+
+## Getting Started
+### Prerequisites
+- Visual Studio 2022 or later
+- .NET 8.0 SDK
+
+### Installation and Execution
+#### 1. Clone the repository:
+
+```
+git clone https://github.com/jamesnet214/devflow.git
 ```
 
-<br />
+#### 2. Open the solution
+- [x] Visual Studio
+- [x] Visual Studio Code
+- [x] JetBrains Rider
 
-## _QuickSlot_
+<img src="https://github.com/user-attachments/assets/af70f422-7057-4e77-a54d-042ee8358d2a" width="32%"/>
+<img src="https://github.com/user-attachments/assets/e4feaa10-a107-4b58-8d13-1d8be620ec62" width="32%"/>
+<img src="https://github.com/user-attachments/assets/5ff487f6-55e4-43e1-9abf-f8d419ee6943" width="32%"/>
 
-> **QuickSlot : Widget**
-> - ContentTemplate
-<img src="https://user-images.githubusercontent.com/52397976/121200753-f11ce700-c8ae-11eb-95f0-1932818f87de.png" width="300">
+#### 3. Build and Run
+- [x] Set DevFlow as the startup project
+- [x] Press F5 or click the Run button
+- [x] Windows 11 recommended
 
-<br />
+## Learning Opportunities
 
-## _Gith Graph_
+DevFlow offers a rich learning experience for WPF developers:
+1. **Modular Architecture**: Understand how to build loosely coupled, maintainable WPF applications
+2. **Custom Controls**: Learn to create and style custom WPF controls
+3. **MVVM in Practice**: See real-world implementation of MVVM pattern in a complex application
+4. **Prism and DI**: Explore the use of Prism library and dependency injection in WPF
+5. **Multi-window Management**: Learn techniques for managing multiple windows in a cohesive application
 
-![image](https://github.com/jamesnet214/devflow/assets/52397976/72f87532-a37f-4544-ac33-5dfb69bc9a02)
+## Contributing
+Contributions to DevFlow are welcome! Please feel free to submit pull requests, create issues or spread the word.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+- Website: https://jamesnet.dev
+- Email: james@jamesnet.dev, vickyqu115@hotmail.com
+
+Dive into advanced WPF development with DevFlow and elevate your skills to the next level!
