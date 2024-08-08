@@ -1,5 +1,3 @@
-以下是该文档的中文翻译：
-
 # DevFlow  [![英文](https://img.shields.io/badge/Language-English-blue.svg)](README.md) [![中文](https://img.shields.io/badge/Language-中文-red.svg)](README.zh-CN.md) [![韩文](https://img.shields.io/badge/Language-한국어-green.svg)](README.ko.md)
 
 用于高级学习和实验的模块化、小部件风格的 WPF 应用程序
